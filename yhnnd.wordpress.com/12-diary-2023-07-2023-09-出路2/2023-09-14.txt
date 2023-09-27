@@ -1,0 +1,137 @@
+2023年9月14日 星期四
+
+今天是星期四。
+我起床的时候天已经大亮了。
+中午十一点，我参加爱奇艺的前端面试。
+面试官是房晓松。我看到他，想起了樊岩峰。
+他问了我一堆问题。
+
+html标签中的 data- 属性作用
+Vue
+css scoped
+data-v-hash
+Reflect
+reduce
+find findIndex
+weakmap
+TS泛型
+Vue3
+如何理解composition api，解决什么问题
+v-model 可以绑定 computed 属性吗
+setter
+用过Vue的指令(directive) 吗
+作用域插槽 Scoped Slots 的作用
+useEffect触发两次如何解决
+什么是 immutable
+memo() 包裹组件什么作用
+CommonJS\UMD\ESM区别
+
+const config = {
+  style: {
+    width: 100,
+    height: 90,
+  },
+  extends: [
+    {
+      src: "views",
+      count: 10,
+    },
+    {
+      src: "touch",
+      count: 20,
+    },
+  ],
+};
+
+const result = resolve("style.width", config);
+
+// support array retrieve
+const result = resolve("extends[1].count", config);
+
+
+https://element-plus.run/#eyJzcmMvQXBwLnZ1ZSI6Ijx0ZW1wbGF0ZT5cbiAgPGVsLWZvcm0gcmVmPVwicnVsZUZvcm1SZWZcIiA6bW9kZWw9XCJydWxlRm9ybVwiIDpydWxlcz1cInJ1bGVzXCIgbGFiZWwtd2lkdGg9XCIxMjBweFwiPlxuICAgIDxlbC1mb3JtLWl0ZW0gbGFiZWw9XCLmlbDlrZdcIiBwcm9wPVwidmFsdWVcIj5cbiAgICAgIDxlbC1pbnB1dCB2LW1vZGVsPVwicnVsZUZvcm0udmFsdWVcIiAvPlxuICAgIDwvZWwtZm9ybS1pdGVtPlxuICAgIDxlbC1mb3JtLWl0ZW0+XG4gICAgICA8ZWwtYnV0dG9uIHR5cGU9XCJwcmltYXJ5XCIgQGNsaWNrPVwic3VibWl0Rm9ybShydWxlRm9ybVJlZilcIj5cbiAgICAgICAgQ3JlYXRlXG4gICAgICA8L2VsLWJ1dHRvbj5cbiAgICAgIDxlbC1idXR0b24gQGNsaWNrPVwicmVzZXRGb3JtKHJ1bGVGb3JtUmVmKVwiPlJlc2V0PC9lbC1idXR0b24+XG4gICAgPC9lbC1mb3JtLWl0ZW0+XG4gIDwvZWwtZm9ybT5cbiAgPHByZT5cbiAg6aqM6K+B5pWw5a2X77yM5Y+q6IO95piv5rKh5pyJ5bCP5pWw5L2N5oiW6ICFMuS4quWwj+aVsOS9jVxuICBvazpcbiAgICA5XG4gICAgMTBcbiAgICAxMC4wMFxuICAgIDEwLjk5XG5cbiAgZXJyb3I6XG4gICAgOS4wMTVcbiAgICAxMC4wXG4gIDwvcHJlPlxuPC90ZW1wbGF0ZT5cblxuPHNjcmlwdCBsYW5nPVwidHNcIiBzZXR1cD5cbi8vIEVsRm9ybTogaHR0cHM6Ly9lbGVtZW50LXBsdXMub3JnL3poLUNOL2NvbXBvbmVudC9mb3JtLmh0bWxcblxuaW1wb3J0IHsgcmVhY3RpdmUsIHJlZiB9IGZyb20gJ3Z1ZSdcbmltcG9ydCB7IEVsTWVzc2FnZSwgdHlwZSBGb3JtSW5zdGFuY2UsIHR5cGUgRm9ybVJ1bGVzIH0gZnJvbSAnZWxlbWVudC1wbHVzJ1xuXG5jb25zdCBydWxlRm9ybVJlZiA9IHJlZjxGb3JtSW5zdGFuY2U+KClcbmNvbnN0IHJ1bGVGb3JtID0gcmVhY3RpdmUoe1xuICB2YWx1ZTogJ0hlbGxvJyxcbn0pXG5cbmNvbnN0IHJ1bGVzID0gcmVhY3RpdmU8Rm9ybVJ1bGVzPih7XG4gIHZhbHVlOiBbXG4gICAgeyByZXF1aXJlZDogdHJ1ZSwgbWVzc2FnZTogJ1BsZWFzZSBpbnB1dCcsIHRyaWdnZXI6ICdibHVyJyB9LFxuICBdLFxufSlcblxuLy8g5LiN5YWB6K645L+u5pS55q2k5Ye95pWwXG5jb25zdCBzdWJtaXRGb3JtID0gYXN5bmMgKGZvcm1FbDogRm9ybUluc3RhbmNlIHwgdW5kZWZpbmVkKSA9PiB7XG4gIGlmICghZm9ybUVsKSByZXR1cm5cbiAgYXdhaXQgZm9ybUVsLnZhbGlkYXRlKCh2YWxpZCwgZmllbGRzKSA9PiB7XG4gICAgaWYgKHZhbGlkKSB7XG4gICAgICBFbE1lc3NhZ2Uuc3VjY2VzcyhcIuaPkOS6pOaIkOWKn1wiKTtcbiAgICB9IGVsc2Uge1xuICAgICAgRWxNZXNzYWdlLmVycm9yKFwi5o+Q5Lqk5aSx6LSlXCIpO1xuICAgIH1cbiAgfSlcbn1cblxuY29uc3QgcmVzZXRGb3JtID0gKGZvcm1FbDogRm9ybUluc3RhbmNlIHwgdW5kZWZpbmVkKSA9PiB7XG4gIGlmICghZm9ybUVsKSByZXR1cm5cbiAgZm9ybUVsLnJlc2V0RmllbGRzKClcbn1cbjwvc2NyaXB0PlxuIiwiaW1wb3J0LW1hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge31cbn0iLCJ0c2NvbmZpZy5qc29uIjoie1xuICBcImNvbXBpbGVyT3B0aW9uc1wiOiB7XG4gICAgXCJhbGxvd0pzXCI6IHRydWUsXG4gICAgXCJjaGVja0pzXCI6IHRydWUsXG4gICAgXCJqc3hcIjogXCJwcmVzZXJ2ZVwiLFxuICAgIFwidGFyZ2V0XCI6IFwiRVNOZXh0XCIsXG4gICAgXCJtb2R1bGVcIjogXCJFU05leHRcIixcbiAgICBcIm1vZHVsZVJlc29sdXRpb25cIjogXCJCdW5kbGVyXCIsXG4gICAgXCJhbGxvd0ltcG9ydGluZ1RzRXh0ZW5zaW9uc1wiOiB0cnVlLFxuICAgIFwidHlwZXNcIjogW1wiZWxlbWVudC1wbHVzL2dsb2JhbC5kLnRzXCJdXG4gIH0sXG4gIFwidnVlQ29tcGlsZXJPcHRpb25zXCI6IHtcbiAgICBcInRhcmdldFwiOiAzLjNcbiAgfVxufVxuIiwiX28iOnt9fQ==
+
+
+
+
+我去楼下的大排档吃了午饭，豆角和西兰花。
+我回去之后睡了一觉。
+
+下午四点，我又参加了滴滴的前端岗的面试。
+这次面试也有现场手敲代码的环节。
+
+他让我手写一个函数实现深拷贝。
+
+他又让我写一个防抖的函数，其实我一直不知道防抖是什么意思。
+
+
+const obj = {
+    "key1": {
+        "key2": "value"
+    }
+};
+
+const obj2 = JSON.parse(JSON.stringify(obj));
+
+function deepCopy(obj) {
+    let temp = {};
+    for (let [key, value] of Object.entries(obj)) {
+        if (value instanceof Object) {
+            temp[key] = deepCopy(value);
+        } else {
+            temp[key] = value;
+        }
+    }
+    return temp;
+}
+
+const obj3 = deepCopy(obj);
+
+
+
+
+
+function func() {
+    if (locked == undefined) {
+        locked = false;
+    }
+
+    if (locked == true) {
+        return;
+    } else {
+        locked = true;
+        // content
+        timer = setTimeout(() => {
+            locked = false;
+        }, 1000);
+    }
+}
+
+
+
+
+面试结束之后，我开始整理我的日记，它们都存在 GitHub 上。
+晚上我去超市买羊肉片和黄瓜的时候，手机上收到了法院发来的短信。
+终于他妈的要开庭了，时间是在2023年9月25日星期一下午两点。
+我问李俊我能不能在9月24日星期天去他那儿住一宿，他说可以。
+
+晚上七点半，刘现省弟兄从西二旗地铁站上车了。
+晚上八点半，刘现省弟兄到了1802门口，我给他开门。
+那时候，刘弟兄已经在他公司吃过晚饭了，我那时还没有吃晚饭。
+我匆匆忙忙涮了羊肉片，就着刘弟兄带过来的馅饼，把晚饭吃了。
+
+晚上九点，我和弟兄们开始分享圣经，一直到了晚上十点。
+
+之后，我就给刘现省弟兄讲 C++，一直到半夜十二点。
+我把那本盗版的 C++ Primer 送给了刘现省弟兄。
+刘现省弟兄拆开了李俊从网上买的床垫，铺在我买的那张折叠床上。
+我把我的日记的文件夹名都修改了一遍，加上了中文名称。
+我访问 GitHub 一直断断续续，commits 也 push 不上去。
+我买的 Express VPN 现在也变得非常垃圾，根本没法用。
+我一直弄这个，一直弄到凌晨五点多。
+
+我想起了李俊，我问李俊有没有能用的 VPN。
+李俊给我发来一个链接，叫一元机场。
+我用了这个，终于他妈翻墙成功了。
+我把本地的 commits 都 push 上去了。
+这时候已经是9月15日早上七点多了。

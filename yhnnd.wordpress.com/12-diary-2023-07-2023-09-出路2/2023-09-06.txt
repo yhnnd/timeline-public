@@ -1,0 +1,117 @@
+2023年09月06日 星期三
+
+昨晚（2023年09月05日）和郭濤弟兄、劉現省弟兄在微信上視頻聊天，
+我們一起回顧了之前分享的聖經中的（關於該隱和亞伯獻祭的）內容。
+之後我用 MacBook 看了之前上傳到 GitHub 上的我的日記的照片。
+照片中，我母親的手還把頁面下方的字蓋住了，
+我看到那些字被手指擋住，氣得直捶自己大腿。
+眞是笨死了。
+一個扔我的日記，另一個用手指遮擋我的日記。
+
+今天光顧著面試公司了，沒時間做別的事情。
+除了吃飯的時候下樓了，其它時間全在屋裡。
+
+下樓吃飯，順便買了插線板(插排)，
+我在微信上問房東郭希林給我房間配一個插排，他不肯。
+房東太摳門，我祇能自己去樓下的超市買插排。
+開始買錯了，空調的插頭是大插頭，開始買了小的插排，
+又下樓去退貨，換了另一個可以插空調插頭的插線板。
+
+一整天和很多的HR通電話，
+今天一共面試了三家公司，
+
+第二個在下午1點20分，艾融軟件的劉先生，
+是電話interview，純中文的，沒有談技術問題。
+
+第一個在下午3點47分，微創軟件的英文面試官，
+是電話interview，純英文的，沒有談技術問題。
+
+第三個在晚上7點39分，共濟科技的劉彥龍，
+是電話視頻面試，純中文的，談了很多前端的技術問題。
+
+和李俊在微信上聊天, 交流找工作的經驗。
+
+許會計讓我幫她把她的藍牙耳機和筆記本電腦配對，我試了，沒成功。
+我說:妳不必用藍牙耳機,直接用筆記本電腦(的內置音響)外放就行。
+
+在脖子後面，後背腰部，右腿外側的被蚊子叮咬的包上塗抹風油精。
+在窗檯上，用打火機點了兩片蚊香。
+
+
+
+
+
+
+附記: 找工作面試
+
+請您介紹一下您自己
+
+My name is yu haining.
+I’m 27 years old now.
+I graduated from Tianjin Polytechnic University.
+My major is software Engineering.
+I am good at front-end web developing.
+I have experience in Vue and AngularJS and I recently worked on a web3 project using React.
+I’ve working for Standard Chartered since i graduated from college.
+I’ve been doing research and developing these years.
+but I have a feeling that I could do more consulting and supporting tasks.
+I hope I could really join your company and achieve something.
+
+What’s your previous projects, could you describe them?
+the first project is a government project about Law and censorship on companies.
+the second project is about retail banking in Standard Chartered, we do personal apps for android and iOS.
+the third major project that i’ve joined is a web3 project.
+I worked for Desmo Labs in developing a DAPP.
+It’s called Debond.
+we invented a solution called Source ID.
+You can use Source ID to sign contracts and purchase bonds and other products on web3.
+
+Do you have any experience on cloud computing and Linux?
+I’ve been developing web project for years and I am familiar in using Linux
+because I use cloud server to deploy projects and those server are all running on Linux.
+
+What do you expect if you could be offered this job?
+I think there will be challenging tasks.
+and i could do more works of consulting and communicating and supporting tasks than ever.
+I used to be a pure developer but
+I think my ability of Oral and Written English will be used in real life and in daily working
+and NOW i think this job that you could offer me is great.
+and I hope I will be given this opportunity and i will have a chance to prove my value.
+
+Can you accept …?
+Yes. I am open to all possibilities.
+
+Are you currently living in Beijing?
+Yes. I’m living in Peking and I’m looking for a job in Peking.
+
+
+
+router
+hooks
+state
+
+
+
+华为
+C++
+前端 JavaScript
+
+项目讲解
+有几个前端开发、几个后端开发
+自己负责哪个模块
+用的什么技术
+
+手撕代码
+必须用C++
+
+Web3 海外的项目进展比较缓慢，没有国内项目节奏这么快
+
+没有太关注这个，没有具体算过，年薪20多万，月薪1.7万
+
+银行转账，我也没太注意过。
+
+银行流水是以公司户头进行转账
+
+国内期望同等薪资，有一个合理涨幅。
+
+我想找一个国内的工作，我想找一个大一点的平台发展。

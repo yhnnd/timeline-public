@@ -1,0 +1,85 @@
+找工作面試
+
+参见2023年9月6日日记。
+参见2023年9月12日日记。
+
+請您介紹一下您自己
+
+My name is yu haining.
+I’m 27 years old now.
+I graduated from Tianjin Polytechnic University.
+My major is software Engineering.
+I am good at front-end web developing.
+I have experience in Vue and AngularJS and I recently worked on a web3 project using React.
+I’ve working for Standard Chartered since i graduated from college.
+I’ve been doing research and developing these years.
+but I have a feeling that I could do more consulting and supporting tasks.
+I hope I could really join your company and achieve something.
+
+What’s your previous projects, could you describe them?
+the first project is a government project about Law and censorship on companies.
+the second project is about retail banking in Standard Chartered, we do personal apps for android and iOS.
+the third major project that i’ve joined is a web3 project.
+I worked for Desmo Labs in developing a DAPP.
+It’s called Debond.
+we invented a solution called Source ID.
+You can use Source ID to sign contracts and purchase bonds and other products on web3.
+
+Do you have any experience on cloud computing and Linux?
+I’ve been developing web project for years and I am familiar in using Linux
+because I use cloud server to deploy projects and those server are all running on Linux.
+
+What do you expect if you could be offered this job?
+I think there will be challenging tasks.
+and i could do more works of consulting and communicating and supporting tasks than ever.
+I used to be a pure developer but
+I think my ability of Oral and Written English will be used in real life and in daily working
+and NOW i think this job that you could offer me is great.
+and I hope I will be given this opportunity and i will have a chance to prove my value.
+
+Can you accept …?
+Yes. I am open to all possibilities.
+
+Are you currently living in Beijing?
+Yes. I’m living in Peking and I’m looking for a job in Peking.
+
+
+
+router
+hooks
+state
+
+
+
+华为
+C++
+前端 JavaScript
+
+项目讲解
+有几个前端开发、几个后端开发
+自己负责哪个模块
+用的什么技术
+
+
+
+
+项目节奏如何？
+Web3 海外的项目进展比较缓慢，没有国内项目节奏这么快。
+
+当前的薪资水平？
+没有太关注这个，没有具体算过。
+我的薪资是年包20多万吧。
+年薪20多万，月薪1.7-1.8万。
+
+薪资的发放方式？
+我的薪资是按人民币发放。
+银行转账，我也没太注意过。
+银行流水是以公司户头进行转账。
+我的薪资是按月发放的。
+每月我收到的薪资大概是18k。
+
+期望薪资是多少？
+国内期望同等薪资，有一个合理涨幅。
+
+为什么离职？
+我想找一个国内的工作，我想找一个大一点的平台发展。
