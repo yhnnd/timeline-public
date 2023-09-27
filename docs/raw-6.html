@@ -52,6 +52,10 @@
                     img.src = pics[i];
                 };
                 button.innerText = parseInt(i) + 1;
+                if ([98, 102, 106, 107, 108, 110, 114].includes(parseInt(i) + 1)) {
+                    /* 圖片中文字殘缺，其中有字被手指蓋上了 */
+                    button.style.backgroundColor = "red";
+                }
                 container.appendChild(button);
             }
         })();
