@@ -115,6 +115,35 @@ window.books[8].indexList = [
     "yhnnd.wordpress.com/8-diary-2019-03-2019-06-棕書3/2019.06.17.txt"
 ];
 
+window.books[11] = {};
+window.books[11].indexList = [
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2022.12.tjpu-name-list.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.02.27.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.03.07.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.03.08.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.03.name-list-2021-2022.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.04-13.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.04-17.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.04-19.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.04-22.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.05.06.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.05.07.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.05.08.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.05.11.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.05.12.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.05.24.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.06.23.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.06.25.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.06.26.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.06.30.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.07.07.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.07.08.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.07.09.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.07.10.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.07.13.txt",
+    "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.07.19.txt"
+];
+
 window.books[12] = {};
 window.books[12].indexList = [
     "yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/2023-04-15-儿时事.txt",
