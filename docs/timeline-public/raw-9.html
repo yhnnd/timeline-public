@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>raw 9 黑书 4</title>
+</head>
+
+<body>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            display: flex;
+            /* flex-direction: column; */
+        }
+        .col {
+            width: 512px;
+        }
+        .dial {
+            padding-top: 40px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+        }
+        .dial > * {
+            display: inline-block;
+            width: 48px;
+            margin: 8px 4px;
+            text-align: right;
+        }
+    </style>
+    <div class="container">
+        <div class="col dial"></div>
+        <div class="col">
+            <div class="number">1</div>
+            <img src="yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_092646.jpg" alt="" style="width: 100%;">
+        </div>
+    </div>
+    <script>
+        (function () {
+            const pics = ["yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_092646.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_092701.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_092718.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_092735.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_092751.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_092805.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_092823.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_092842.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_092855.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_092909.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_092939.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_092958.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093013.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093029.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093047.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093104.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093119.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093132.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093146.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093202.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093232.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093253.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093339.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093438.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093457.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093519.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093535.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093550.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093630.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093646.jpg","yhnnd.wordpress.com/raw-9-diary-2019-01-2019-06-黑書4-raw/IMG_20230719_093704.jpg"];
+            const container = document.getElementsByClassName("dial")[0];
+            const number = document.getElementsByClassName("number")[0];
+            const img = document.getElementsByTagName("img")[0];
+            for (const i in pics) {
+                const button = document.createElement("button");
+                button.onclick = function () {
+                    number.innerText = parseInt(i) + 1;
+                    img.src = pics[i];
+                };
+                button.innerText = parseInt(i) + 1;
+                container.appendChild(button);
+            }
+        })();
+    </script>
+</body>
+
+</html>
