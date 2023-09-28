@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book</title>
+</head>
+<body>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 512px;
+        }
+        .top-bar {
+            text-align: center;
+        }
+        @media screen and (min-width:1200px) {
+            .container {
+                width: 1200px;
+            }
+            .top-bar {
+                padding-right: calc(1200px / 2 - 512px);
+            }
+            .index-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                gap: calc(1200px / 2 - 512px);
+            }
+        }
+        .index-wrapper > a {
+            display: block;
+        }
+        .index-wrapper > .item {
+            display: flex;
+            margin-top: 64px;
+            margin-bottom: 96px;
+            position: relative;
+        }
+        .index-wrapper > .item > .cover {
+            position: absolute;
+            background-color: rgba(12,12,12,.1);
+            width: 512px;
+            height: 256px;
+        }
+        .index-wrapper > .item > .cover::before {
+            display: block;
+            min-height: 18px;
+            padding: 4px;
+            content: attr(data-link);
+            position: relative;
+            top: -24px;
+            background-color: rgba(12,12,12,.75);
+            color: white;
+        }
+        .index-wrapper > .item > iframe {
+            display: block;
+            width: 512px;
+            height: 256px;
+            border: none;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+    <div class="container">
+        <div style="position: relative;">
+            <a href="index.html" style="position: absolute;">return</a>
+            <div class="top-bar">
+                <a id="raw-link"></a>
+            </div>
+        </div>
+        <div class="index-wrapper" id="index-list"></div>
+    </div>
+
+    <script src="../js/vendor/param.js"></script>
+    <script src="books-index.js"></script>
+    <script>
+        var bookNumber = getParameter("book");
+        var rawLink = document.getElementById("raw-link");
+        if (rawLink != undefined) {
+            rawLink.href = "raw-" + bookNumber + ".html";
+            rawLink.innerText = "pics of book " + bookNumber;
+        }
+        var indexWrapper = document.getElementById("index-list");
+        if (indexWrapper != undefined) {
+            let list = books[bookNumber]["indexList"];
+            let html = "";
+            let counter = 1;
+            for (let link of list) {
+                html += "<a class=\"item\" id=\"item-" + counter++ + "\" href=\"" + link + "\">";
+                html += "<div class=\"cover\" data-link=\"" + link.split("/").pop() + "\"></div>";
+                html += "<iframe src=\"" + link + "\" scrolling=\"no\"></iframe>";
+                html += "</a>";
+            }
+            indexWrapper.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
