@@ -49,13 +49,32 @@
         }
         .index-wrapper > .item > .cover::before {
             display: block;
+            width: calc(50% - 8px);
             min-height: 18px;
+            height: 18px;
+            max-height: 18px;
             padding: 4px;
-            content: attr(data-link);
             position: relative;
             top: -24px;
+            background-color: rgba(6,84,3,.75);
+            color: white;
+            text-align: left;
+            content: attr(data-folder);
+        }
+        .index-wrapper > .item > .cover::after {
+            display: block;
+            width: calc(50% - 8px);
+            min-height: 18px;
+            height: 18px;
+            max-height: 18px;
+            padding: 4px;
+            position: relative;
+            top: calc(-24px - 24px - 2px);
+            left: 50%;
             background-color: rgba(12,12,12,.75);
             color: white;
+            text-align: right;
+            content: attr(data-filename);
         }
         .index-wrapper > .item > iframe {
             display: block;
@@ -93,8 +112,11 @@
             let html = "";
             let counter = 1;
             for (let link of list) {
+                let nameSplit = link.split("/");
+                const filename = nameSplit.pop();
+                const folder = nameSplit.pop();
                 html += "<a class=\"item\" id=\"item-" + counter++ + "\" href=\"" + link + "\">";
-                html += "<div class=\"cover\" data-link=\"" + link.split("/").pop() + "\"></div>";
+                html += "<div class=\"cover\" data-folder=\"" + folder + "\" data-filename=\"" + filename + "\"></div>";
                 html += "<iframe src=\"" + link + "\" scrolling=\"no\"></iframe>";
                 html += "</a>";
             }
