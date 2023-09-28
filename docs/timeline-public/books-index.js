@@ -1,7 +1,8 @@
 window.books = [];
 
 window.books[1] = {
-    "indexList": ["yhnnd.wordpress.com/1-diary-2014-12-2014-12-黑書1/2014.12.01.txt",
+    "indexList": [
+        "yhnnd.wordpress.com/1-diary-2014-12-2014-12-黑書1/2014.12.01.txt",
         "yhnnd.wordpress.com/1-diary-2014-12-2014-12-黑書1/2014.12.02.txt",
         "yhnnd.wordpress.com/1-diary-2014-12-2014-12-黑書1/2014.12.03.txt",
         "yhnnd.wordpress.com/1-diary-2014-12-2014-12-黑書1/2014.12.04.txt",
@@ -19,12 +20,13 @@ window.books[1] = {
 };
 
 window.books[2] = {
-    "indexList": ["yhnnd.wordpress.com/2-diary-2014-12-2015-05-黑書2/2015.01.10.txt",
+    "indexList": [
         "yhnnd.wordpress.com/2-diary-2014-12-2015-05-黑書2/2014.12.31.txt",
         "yhnnd.wordpress.com/2-diary-2014-12-2015-05-黑書2/2015.01.04.txt",
         "yhnnd.wordpress.com/2-diary-2014-12-2015-05-黑書2/2015.01.04.weekly.txt",
         "yhnnd.wordpress.com/2-diary-2014-12-2015-05-黑書2/2015.01.06.txt",
         "yhnnd.wordpress.com/2-diary-2014-12-2015-05-黑書2/2015.01.09.txt",
+        "yhnnd.wordpress.com/2-diary-2014-12-2015-05-黑書2/2015.01.10.txt",
         "yhnnd.wordpress.com/2-diary-2014-12-2015-05-黑書2/2015.01.20.txt",
         "yhnnd.wordpress.com/2-diary-2014-12-2015-05-黑書2/2015.01.23.txt",
         "yhnnd.wordpress.com/2-diary-2014-12-2015-05-黑書2/2015.01.24.txt",
@@ -64,11 +66,12 @@ window.books[2] = {
 };
 
 window.books[4] = {
-    "indexList": ["yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.05.11.txt",
+    "indexList": [
         "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.05.04.txt",
         "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.05.06.txt",
         "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.05.09.txt",
         "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.05.10.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.05.11.txt",
         "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.05.12.txt",
         "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.05.13.txt",
         "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.05.16.txt",
@@ -102,3 +105,12 @@ window.books[4] = {
         "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.09.11.txt",
         "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.09.19.txt"]
 };
+
+window.books[8] = {};
+window.books[8].indexList = [
+    "yhnnd.wordpress.com/8-diary-2019-03-2019-06-棕書3/2019.03.03.txt",
+    "yhnnd.wordpress.com/8-diary-2019-03-2019-06-棕書3/2019.03.04.txt",
+    "yhnnd.wordpress.com/8-diary-2019-03-2019-06-棕書3/2019.03.11.txt",
+    "yhnnd.wordpress.com/8-diary-2019-03-2019-06-棕書3/2019.03.12.txt",
+    "yhnnd.wordpress.com/8-diary-2019-03-2019-06-棕書3/2019.06.17.txt"
+];
