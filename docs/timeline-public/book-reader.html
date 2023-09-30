@@ -151,9 +151,14 @@
                         const name = line.split(";")[0];
                         let info = line.split(";")[1];
                         if (info == undefined) {
-                            info = "点击搜索 " + name;
+                            info = "点击搜索";
                         }
-                        responseText = responseText.replaceAll(name, "<span class='name-link' data-info='" + info + "' onclick='search(this)'><span>" + name.split("").join("</span><span>") + "</span></span>");
+                        let nameLink = document.createElement("div");
+                        nameLink.classList.add("name-link");
+                        nameLink.setAttribute("data-info", info);
+                        nameLink.setAttribute("onclick", "search(this)");
+                        nameLink.innerHTML = "<span>" + name.split("").join("</span><span>") + "</span>";
+                        responseText = responseText.replaceAll(name, nameLink.outerHTML);
                     }
                 }
 
