@@ -188,6 +188,7 @@
                 ajax (url, function (responseText) {
                     items[i].text = responseText;
                     if (++counter == items.length) {
+                        resultWrapper.innerHTML = "";
                         for (const item of items) {
                             if (item.text.includes(keyword)) {
                                 let link = document.createElement("div");
