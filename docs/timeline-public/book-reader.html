@@ -55,6 +55,7 @@
         .search-backdrop.on {
             display: flex;
             justify-content: center;
+            overflow: scroll;
         }
 
         .search {
@@ -167,7 +168,7 @@
                         for (const item of items) {
                             if (item.text.includes(keyword)) {
                                 let link = document.createElement("div");
-                                link.innerHTML = item.url;
+                                link.innerHTML = "<a target='_blank' href='" + item.url + "'>" + item.url + "</a>";
                                 resultWrapper.appendChild(link);
                             }
                         }
