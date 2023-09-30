@@ -27,6 +27,7 @@
         pre > .name-link::before {
             display: none;
             position: absolute;
+            left: 0;
             content: attr(data-info);
             color: white;
             background-color: rgba(0, 0, 0, .75);
@@ -102,7 +103,10 @@
                     });
                     for (const line of window.names) {
                         const name = line.split(";")[0];
-                        const info = line.split(";")[1];
+                        let info = line.split(";")[1];
+                        if (info == undefined) {
+                            info = "点击搜索 " + name;
+                        }
                         responseText = responseText.replaceAll(name, "<span class='name-link' data-info='" + info + "' onclick='search(this)'>" + name + "</span>");
                     }
                 }
