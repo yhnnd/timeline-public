@@ -47,7 +47,8 @@
                 console.log("responseText: ", responseText);
 
                 if (window.names != undefined) {
-                    for (const name of window.names) {
+                    for (let name of window.names) {
+                        name = name.split(";")[0];
                         responseText = responseText.replaceAll(name, "<span class='name-link'>" + name + "</span>");
                     }
                 }
