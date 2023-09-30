@@ -67,7 +67,6 @@
             padding: 4px;
             position: relative;
             top: -24px;
-            background-color: rgba(6, 84, 3, .75);
             color: white;
             text-align: left;
             content: attr(data-folder);
@@ -99,6 +98,11 @@
         pre {
             white-space: pre-wrap;
             word-wrap: break-word;
+        }
+    </style>
+    <style id="online">
+        .index-wrapper>.item>.cover::before {
+            background-color: rgba(6, 84, 3, .75);
         }
     </style>
     <div class="container">
@@ -152,6 +156,17 @@
                 html += "</a>";
             }
             indexWrapper.innerHTML = html;
+
+            if (window.location.href.startsWith("file://")) {
+                let element = document.getElementById("online");
+                element.parentElement.removeChild(element);
+                let style = document.createElement("style");
+                style.innerText = `
+    .index-wrapper>.item>.cover::before {
+        background-color: rgba(84, 6, 3, .75);
+    }`;
+                document.body.appendChild(style);
+            }
         }
     </script>
 </body>
