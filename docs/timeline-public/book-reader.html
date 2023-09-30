@@ -135,18 +135,34 @@
             keywordWrapper.innerText = keyword;
 
             const resultWrapper = searchWrapper.getElementsByClassName("search-result")[0];
+            let items = [];
             for (const book of window.books) {
                 if (book != undefined && book["indexList"] != undefined) {
                     for (const url of book["indexList"]) {
-                        ajax (url, function (responseText) {
-                            if (responseText.includes(keyword)) {
-                                let link = document.createElement("div");
-                                link.innerHTML = url;
-                                resultWrapper.appendChild(link);
-                            }
+                        items.push({
+                            "url": url,
+                            "text": undefined
                         });
                     }
                 }
+            }
+            let counter = 0;
+            for (const i in items) {
+                const url = items[i].url;
+                ajax (url, function (responseText) {
+                    items[i].text = responseText;
+                    if (++counter == items.length) {
+                        for (const item of items) {
+                            if (item.text.includes(keyword)) {
+                                let link = document.createElement("div");
+                                link.innerHTML = item.url;
+                                resultWrapper.appendChild(link);
+                            }
+                        }
+                    } else {
+                        resultWrapper.innerText = "searching " + counter + "/" + items.length;
+                    }
+                });
             }
         }
 
