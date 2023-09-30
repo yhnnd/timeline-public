@@ -46,6 +46,8 @@
             })(src, function(responseText) {
                 console.log("responseText: ", responseText);
 
+                responseText = responseText.replaceAll("<", "&lt;");
+
                 if (window.names != undefined) {
                     for (let name of window.names) {
                         name = name.split(";")[0];
@@ -54,7 +56,7 @@
                 }
 
                 const pre = document.getElementsByClassName("container")[0].getElementsByTagName("pre")[0];
-                pre.innerText = responseText;
+                pre.innerHTML = responseText;
             });
         }
     </script>
