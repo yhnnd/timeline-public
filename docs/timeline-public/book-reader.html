@@ -78,6 +78,10 @@
             right: 0;
             top: 0;
         }
+
+        .modal-open {
+            overflow: hidden;
+        }
     </style>
     <div class="search-backdrop">
         <div class="search">
@@ -135,6 +139,7 @@
         }
 
         function search(element) {
+            document.body.classList.add("modal-open");
             const keyword = element.innerText;
             const searchWrapper = document.getElementsByClassName("search")[0];
             searchWrapper.parentElement.classList.add("on");
@@ -176,6 +181,7 @@
         function closeSearch() {
             const target = document.getElementsByClassName("search-backdrop")[0];
             target.classList.remove("on");
+            document.body.classList.remove("modal-open");
         }
     </script>
 </body>
