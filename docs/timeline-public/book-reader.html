@@ -22,6 +22,17 @@
         pre > .name-link {
             color: var(--studio-blue);
             cursor: pointer;
+            position: relative;
+        }
+        pre > .name-link::before {
+            display: none;
+            position: absolute;
+            content: attr(data-info);
+            color: white;
+            background-color: rgba(0, 0, 0, .75);
+        }
+        pre > .name-link:hover::before {
+            display: block;
         }
     </style>
     <div class="container">
@@ -50,11 +61,12 @@
 
                 if (window.names != undefined) {
                     window.names = window.names.sort((a, b) => {
-                        return b.length - a.length;
+                        return b.split(";")[0].length - a.split(";")[0].length;
                     });
-                    for (let name of window.names) {
-                        name = name.split(";")[0];
-                        responseText = responseText.replaceAll(name, "<span class='name-link'>" + name + "</span>");
+                    for (const line of window.names) {
+                        const name = line.split(";")[0];
+                        const info = line.split(";")[1];
+                        responseText = responseText.replaceAll(name, "<span class='name-link' data-info='" + info + "'>" + name + "</span>");
                     }
                 }
 
