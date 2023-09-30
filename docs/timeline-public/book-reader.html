@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reader</title>
+</head>
+<body>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+        pre {
+            width: 512px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+    <div class="container">
+        <pre></pre>
+    </div>
+    <script src="../js/vendor/param.js"></script>
+    <script>
+        var src = getParameter("src");
+        if (src != undefined) {
+            (function (url, callback) {
+                const req = new XMLHttpRequest();
+                req.addEventListener("load", () => {
+                    if (callback && typeof callback === "function") {
+                        callback(req.responseText);
+                    } else {
+                        console.log("loadData: no callback");
+                    }
+                });
+                req.open("GET", url);
+                req.send();
+            })(src, function(responseText) {
+                console.log("responseText: ", responseText);
+                const pre = document.getElementsByClassName("container")[0].getElementsByTagName("pre")[0];
+                pre.innerHTML = responseText;
+            });
+        }
+    </script>
+</body>
+</html>

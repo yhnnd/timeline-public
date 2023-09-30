@@ -142,6 +142,10 @@
                 let nameSplit = link.split("/");
                 const filename = nameSplit.pop();
                 const folder = nameSplit.pop();
+                if (window.location.href.startsWith("file://")) {
+                } else {
+                    link = "book-reader.html?src=" + link;
+                }
                 html += "<a class=\"item\" id=\"item-" + counter++ + "\" href=\"" + link + "\">";
                 html += "<div class=\"cover\" data-folder=\"" + folder + "\" data-filename=\"" + filename + "\"></div>";
                 html += "<iframe src=\"" + link + "\" scrolling=\"no\"></iframe>";
