@@ -34,7 +34,44 @@
         pre > .name-link:hover::before {
             display: block;
         }
+
+        .search {
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(244, 244, 244, .8);
+            color: black;
+            backdrop-filter: blur(2.5px);
+            display: none;
+        }
+
+        .search.on {
+            display: flex;
+            justify-content: center;
+        }
+
+        .search > .search-bar {
+            padding-top: 40px;
+            width: 512px;
+            position: relative;
+        }
+
+        .search > .search-bar > .close-button {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
     </style>
+    <div class="search">
+        <div class="search-bar">
+            <div class="search-keyword"></div>
+            <button class="close-button" onclick="closeSearch(this)">close</button>
+        </div>
+        <div class="search-result"></div>
+    </div>
     <div class="container">
         <pre></pre>
     </div>
@@ -66,13 +103,26 @@
                     for (const line of window.names) {
                         const name = line.split(";")[0];
                         const info = line.split(";")[1];
-                        responseText = responseText.replaceAll(name, "<span class='name-link' data-info='" + info + "'>" + name + "</span>");
+                        responseText = responseText.replaceAll(name, "<span class='name-link' data-info='" + info + "' onclick='search(this)'>" + name + "</span>");
                     }
                 }
 
                 const pre = document.getElementsByClassName("container")[0].getElementsByTagName("pre")[0];
                 pre.innerHTML = responseText;
             });
+        }
+
+        function search(element) {
+            const keyword = element.target.innerText;
+            const searchWrapper = document.getElementsByClassName("search")[0];
+            searchWrapper.classList.add("on");
+            const keywordWrapper = searchWrapper.getElementsByClassName("search-keyword")[0];
+            keywordWrapper.innerText = keyword;
+        }
+
+        function closeSearch(element) {
+            const searchWrapper = document.getElementsByClassName("search")[0];
+            searchWrapper.classList.remove("on");
         }
     </script>
 </body>
