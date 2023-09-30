@@ -58,9 +58,14 @@
         }
 
         .search > .search-bar {
-            padding-top: 40px;
+            margin-top: 40px;
             width: 512px;
             position: relative;
+        }
+
+        .search > .search-result {
+            margin-top: 40px;
+            width: 512px;
         }
 
         .search > .search-bar > .close-button {
@@ -81,21 +86,24 @@
     </div>
     <script src="../js/vendor/param.js"></script>
     <script src="../js/vendor/names.js"></script>
+    <script src="books-index.js"></script>
     <script>
+        function ajax (url, callback) {
+            const req = new XMLHttpRequest();
+            req.addEventListener("load", () => {
+                if (callback && typeof callback === "function") {
+                    callback(req.responseText);
+                } else {
+                    console.log("loadData: no callback");
+                }
+            });
+            req.open("GET", url);
+            req.send();
+        }
+
         var src = getParameter("src");
         if (src != undefined) {
-            (function (url, callback) {
-                const req = new XMLHttpRequest();
-                req.addEventListener("load", () => {
-                    if (callback && typeof callback === "function") {
-                        callback(req.responseText);
-                    } else {
-                        console.log("loadData: no callback");
-                    }
-                });
-                req.open("GET", url);
-                req.send();
-            })(src, function(responseText) {
+            ajax (src, function(responseText) {
                 console.log("responseText: ", responseText);
 
                 responseText = responseText.replaceAll("<", "&lt;");
@@ -125,6 +133,21 @@
             searchWrapper.classList.add("on");
             const keywordWrapper = searchWrapper.getElementsByClassName("search-keyword")[0];
             keywordWrapper.innerText = keyword;
+
+            const resultWrapper = searchWrapper.getElementsByClassName("search-result")[0];
+            for (const book of window.books) {
+                if (book != undefined && book["indexList"] != undefined) {
+                    for (const url of book["indexList"]) {
+                        ajax (url, function (responseText) {
+                            if (responseText.includes(keyword)) {
+                                let link = document.createElement("div");
+                                link.innerHTML = url;
+                                resultWrapper.appendChild(link);
+                            }
+                        });
+                    }
+                }
+            }
         }
 
         function closeSearch(element) {
