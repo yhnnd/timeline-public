@@ -23,17 +23,20 @@
             color: var(--studio-blue);
             cursor: pointer;
             position: relative;
+            display: inline-block;
         }
         pre > .name-link::before {
             display: none;
-            position: absolute;
-            left: 0;
             content: attr(data-info);
             color: white;
             background-color: rgba(0, 0, 0, .75);
         }
         pre > .name-link:hover::before {
             display: block;
+            position: absolute;
+            left: 0;
+            top: -18px;
+            width: 160px;
         }
 
         .search {
