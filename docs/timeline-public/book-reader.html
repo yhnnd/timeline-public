@@ -7,6 +7,9 @@
 </head>
 <body>
     <style>
+        :root {
+            --studio-blue: #0675c4;
+        }
         .container {
             display: flex;
             justify-content: center;
@@ -16,11 +19,16 @@
             white-space: pre-wrap;
             word-wrap: break-word;
         }
+        pre > .name-link {
+            color: var(--studio-blue);
+            cursor: pointer;
+        }
     </style>
     <div class="container">
         <pre></pre>
     </div>
     <script src="../js/vendor/param.js"></script>
+    <script src="../js/vendor/names.js"></script>
     <script>
         var src = getParameter("src");
         if (src != undefined) {
@@ -37,6 +45,13 @@
                 req.send();
             })(src, function(responseText) {
                 console.log("responseText: ", responseText);
+
+                if (window.names != undefined) {
+                    for (const name of window.names) {
+                        responseText = responseText.replaceAll(name, "<span class='name-link'>" + name + "</span>");
+                    }
+                }
+
                 const pre = document.getElementsByClassName("container")[0].getElementsByTagName("pre")[0];
                 pre.innerHTML = responseText;
             });
