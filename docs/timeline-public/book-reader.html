@@ -39,7 +39,7 @@
             width: 160px;
         }
 
-        .search {
+        .search-backdrop {
             position: fixed;
             z-index: 1000;
             top: 0;
@@ -52,9 +52,14 @@
             display: none;
         }
 
-        .search.on {
+        .search-backdrop.on {
             display: flex;
             justify-content: center;
+        }
+
+        .search {
+            display: flex;
+            flex-direction: column;
         }
 
         .search > .search-bar {
@@ -74,12 +79,14 @@
             top: 0;
         }
     </style>
-    <div class="search">
-        <div class="search-bar">
-            <div class="search-keyword"></div>
-            <button class="close-button" onclick="closeSearch(this)">close</button>
+    <div class="search-backdrop">
+        <div class="search">
+            <div class="search-bar">
+                <div class="search-keyword"></div>
+                <button class="close-button" onclick="closeSearch(this)">close</button>
+            </div>
+            <div class="search-result"></div>
         </div>
-        <div class="search-result"></div>
     </div>
     <div class="container">
         <pre></pre>
@@ -130,7 +137,7 @@
         function search(element) {
             const keyword = element.innerText;
             const searchWrapper = document.getElementsByClassName("search")[0];
-            searchWrapper.classList.add("on");
+            searchWrapper.parentElement.classList.add("on");
             const keywordWrapper = searchWrapper.getElementsByClassName("search-keyword")[0];
             keywordWrapper.innerText = keyword;
 
@@ -166,9 +173,9 @@
             }
         }
 
-        function closeSearch(element) {
-            const searchWrapper = document.getElementsByClassName("search")[0];
-            searchWrapper.classList.remove("on");
+        function closeSearch() {
+            const target = document.getElementsByClassName("search-backdrop")[0];
+            target.classList.remove("on");
         }
     </script>
 </body>
