@@ -153,7 +153,7 @@
                         if (info == undefined) {
                             info = "点击搜索 " + name;
                         }
-                        responseText = responseText.replaceAll(name, "<span class='name-link' data-info='" + info + "' onclick='search(this)'>" + name + "</span>");
+                        responseText = responseText.replaceAll(name, "<span class='name-link' data-info='" + info + "' onclick='search(this)'><span>" + name.split("").join("</span><span>") + "</span></span>");
                     }
                 }
 
