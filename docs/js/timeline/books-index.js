@@ -117,8 +117,8 @@ window.books[8].indexList = [
 
 window.books[9] = {};
 window.books[9].indexList = [
-    "yhnnd.wordpress.com/9-diary-2019-06-2020-04-黑書4&5/2019.01.07.txt",
-    "yhnnd.wordpress.com/9-diary-2019-06-2020-04-黑書4&5/2019.01.12.txt"
+    "yhnnd.wordpress.com/9-diary-2019-06-2020-04-黑書4/2019.01.07.txt",
+    "yhnnd.wordpress.com/9-diary-2019-06-2020-04-黑書4/2019.01.12.txt"
 ];
 
 window.books[11] = {};
