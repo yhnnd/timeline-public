@@ -115,6 +115,12 @@ window.books[8].indexList = [
     "yhnnd.wordpress.com/8-diary-2019-03-2019-06-棕書3/2019.06.17.txt"
 ];
 
+window.books[9] = {};
+window.books[9].indexList = [
+    "yhnnd.wordpress.com/9-diary-2019-06-2020-04-黑書4&5/2019.01.07.txt",
+    "yhnnd.wordpress.com/9-diary-2019-06-2020-04-黑書4&5/2019.01.12.txt"
+];
+
 window.books[11] = {};
 window.books[11].indexList = [
     "yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2022.12.tjpu-name-list.txt",
