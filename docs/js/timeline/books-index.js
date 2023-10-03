@@ -117,8 +117,17 @@ window.books[8].indexList = [
 
 window.books[9] = {};
 window.books[9].indexList = [
-    "yhnnd.wordpress.com/9-diary-2019-06-2020-04-黑書4/2019.01.07.txt",
-    "yhnnd.wordpress.com/9-diary-2019-06-2020-04-黑書4/2019.01.12.txt"
+    "yhnnd.wordpress.com/9-diary-2019-01-2019-06-黑書4/2019.01.07.txt",
+    "yhnnd.wordpress.com/9-diary-2019-01-2019-06-黑書4/2019.01.12.txt",
+    "yhnnd.wordpress.com/9-diary-2019-01-2019-06-黑書4/2019.01.20.txt",
+    "yhnnd.wordpress.com/9-diary-2019-01-2019-06-黑書4/2019.02.18.txt",
+    "yhnnd.wordpress.com/9-diary-2019-01-2019-06-黑書4/2019.02.24.txt",
+    "yhnnd.wordpress.com/9-diary-2019-01-2019-06-黑書4/2019.03.01.txt",
+    "yhnnd.wordpress.com/9-diary-2019-01-2019-06-黑書4/2019.06.21.txt"
+];
+
+window.books[10] = {};
+window.books[10].indexList = [
 ];
 
 window.books[11] = {};
@@ -189,5 +198,10 @@ window.books[12].indexList = [
     "yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/2023-09-25.txt",
     "yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/2023-09-26.txt",
     "yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/2023-09-27.txt",
-    "yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/2023-09-28.txt"
+    "yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/2023-09-28.txt",
+    "yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/2023-09-29.txt",
+    "yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/2023-09-30.txt",
+    "yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/2023-10-01.txt",
+    "yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/2023.10.02.txt",
+    "yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/2023.10.03.txt"
 ];
