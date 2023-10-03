@@ -128,6 +128,7 @@ window.books[9].indexList = [
 
 window.books[10] = {};
 window.books[10].indexList = [
+    "yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/2019.06.29.txt"
 ];
 
 window.books[11] = {};
