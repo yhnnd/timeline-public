@@ -103,8 +103,67 @@ window.books[4] = {
         "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.06.25.txt",
         "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.07.13.txt",
         "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.09.11.txt",
-        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.09.19.txt"]
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.09.19.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2016.05.21.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2017.05.17.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2017.11.24.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2017.11.25.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.01.14.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.02.03.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.02.06.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.02.23.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.03.07.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.04.09.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.04.10.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.05.11.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.05.12.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.05.30.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.06.01.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.06.03.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.06.06.txt",
+        "yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.06.07.txt"
+    ]
 };
+
+window.books[5] = {};
+window.books[5].indexList = [
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.06.19.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.06.20.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.06.21.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.06.24.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.06.25.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.07.10.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.07.14.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.08.07.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.08.27.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.09.01.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.09.07.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.09.12.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.09.16.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.10.03.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.10.10.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.10.11.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.10.13.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.10.19.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.10.21.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.10.24.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.10.29.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.10.31.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.11.04.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.11.06.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.11.08.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.11.09.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.12.08.txt",
+    "yhnnd.wordpress.com/5-diary-2018-06-2018-12-棕書1/2018.12.09.txt"
+];
+
+window.books[6] = {};
+window.books[6].indexList = [
+];
+
+window.books[7] = {};
+window.books[7].indexList = [
+];
 
 window.books[8] = {};
 window.books[8].indexList = [
