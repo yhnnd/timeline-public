@@ -122,7 +122,8 @@
         var rawLink = document.getElementById("raw-link");
         if (rawLink != undefined) {
             rawLink.href = "raw-" + bookNumber + ".html";
-            const bookNames = ["",
+            const bookNames = [
+                "",
                 "黑書 1",
                 "黑書 2",
                 "散逸 1",
@@ -134,7 +135,9 @@
                 "黑書 4",
                 "黑書 5",
                 "出路 1",
-                "出路 2"];
+                "出路 2",
+                "出路 3"
+            ];
             rawLink.innerText = "pics of book " + bookNumber + "《" + bookNames[bookNumber] + "》";
         }
         var indexWrapper = document.getElementById("index-list");
