@@ -120,7 +120,7 @@ function search(element) {
                         let link = document.createElement("div");
                         link.classList.add("link");
                         link.setAttribute("data-times", times);
-                        link.innerHTML = "<div class='text'>" + item.text + "</div>" +
+                        link.innerHTML = "<div class='text'><pre>" + item.text + "</pre></div>" +
                             "<a target='_blank' href='book-reader.html?src=" + item.url + "'>" + item.url + "</a>";
                         resultWrapper.appendChild(link);
                     }
