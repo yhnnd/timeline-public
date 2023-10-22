@@ -308,7 +308,12 @@
 
         const censored = ["中國","中共國","共匪國","大陸","大陆","美國","淪陷區","匪佔區","共產主義","共产主义","共產黨","共产党","中共","共匪","共黨","赤黨","赤匪","匪黨","匪諜","毛賊","毛贼","黨中央","党中央","紅色政權","CCP","天安門","天安门","中華民國","中华民国","國民黨","国民党"];
 
-        function ajax (url, callback) {
+        function ajax (url, responseText, callback) {
+            if (responseText != undefined && callback && typeof callback === "function") {
+                // short circuit.
+                callback(responseText);
+                return;
+            }
             const req = new XMLHttpRequest();
             req.addEventListener("load", () => {
                 if (callback && typeof callback === "function") {
@@ -323,7 +328,7 @@
 
         var src = getParameter("src");
         if (src != undefined) {
-            ajax (src, function(responseText) {
+            ajax (src, undefined, function(responseText) {
                 console.log("responseText: ", responseText);
 
                 responseText = responseText.replaceAll("<", "&lt;");
@@ -368,6 +373,8 @@
             });
         }
 
+        const articles = [];
+
         function search(element) {
             const nameIndex = element.getAttribute("data-name-index");
             if (nameIndex == undefined) {
@@ -383,11 +390,11 @@
             keywordWrapper.innerText = keywords.join(",");
 
             const resultWrapper = searchWrapper.getElementsByClassName("search-result")[0];
-            let items = [];
+
             for (const book of window.books) {
                 if (book != undefined && book["indexList"] != undefined) {
                     for (const url of book["indexList"]) {
-                        items.push({
+                        articles.push({
                             "url": url,
                             "text": undefined
                         });
@@ -395,13 +402,13 @@
                 }
             }
             let counter = 0;
-            for (const i in items) {
-                const url = items[i].url;
-                ajax (url, function (responseText) {
-                    items[i].text = responseText;
-                    if (++counter == items.length) {
+            for (const i in articles) {
+                const url = articles[i].url;
+                ajax (url, articles[i]["text"], function (responseText) {
+                    articles[i].text = responseText;
+                    if (++counter == articles.length) {
                         resultWrapper.innerHTML = "";
-                        for (const item of items) {
+                        for (const item of articles) {
                             let times = 0;
                             let isMatched = false;
                             for (const keyword of keywords) {
@@ -420,7 +427,7 @@
                             }
                         }
                     } else {
-                        resultWrapper.innerText = "searching " + counter + "/" + items.length;
+                        resultWrapper.innerText = "searching " + counter + "/" + articles.length;
                     }
                 });
             }
