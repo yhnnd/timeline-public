@@ -1,10 +1,10 @@
 // Mon Oct 23 2023
 
-const symbols = ['⓪','①','②','③','④','⑤','⑥','⑦','⑧','⑨','⑩','⑪','⑫','⑬','⑭','⑮','⑯','⑰','⑱','⑲','⑳','㉑','㉒','㉓','㉔','㉕','㉖','㉗','㉘','㉙','㉚','㉛','㉜','㉝','㉞','㉟','㊱','㊲','㊳','㊴','㊵','㊶','㊷','㊸','㊹','㊺','㊻','㊼','㊽','㊾','㊿'];
+const symbols = ['⓪', '①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧', '⑨', '⑩', '⑪', '⑫', '⑬', '⑭', '⑮', '⑯', '⑰', '⑱', '⑲', '⑳', '㉑', '㉒', '㉓', '㉔', '㉕', '㉖', '㉗', '㉘', '㉙', '㉚', '㉛', '㉜', '㉝', '㉞', '㉟', '㊱', '㊲', '㊳', '㊴', '㊵', '㊶', '㊷', '㊸', '㊹', '㊺', '㊻', '㊼', '㊽', '㊾', '㊿'];
 
-const censored = ["中國","中共國","共匪國","大陸","大陆","美國","淪陷區","匪佔區","共產主義","共产主义","共產黨","共产党","中共","共匪","共黨","赤黨","赤匪","匪黨","匪諜","毛賊","毛贼","黨中央","党中央","紅色政權","CCP","天安門","天安门","中華民國","中华民国","國民黨","国民党"];
+const censored = ["中國", "中共國", "共匪國", "大陸", "大陆", "美國", "淪陷區", "匪佔區", "共產主義", "共产主义", "共產黨", "共产党", "中共", "共匪", "共黨", "赤黨", "赤匪", "匪黨", "匪諜", "毛賊", "毛贼", "黨中央", "党中央", "紅色政權", "CCP", "天安門", "天安门", "中華民國", "中华民国", "國民黨", "国民党"];
 
-function ajax (url, responseText, callback) {
+function ajax(url, responseText, callback) {
     if (responseText != undefined && callback && typeof callback === "function") {
         // short circuit.
         callback(responseText);
@@ -24,7 +24,7 @@ function ajax (url, responseText, callback) {
 
 var src = getParameter("src");
 if (src != undefined) {
-    ajax (src, undefined, function(responseText) {
+    ajax(src, undefined, function (responseText) {
         console.log("responseText: ", responseText);
 
         responseText = responseText.replaceAll("<", "&lt;");
@@ -103,7 +103,7 @@ function search(element) {
     let counter = 0;
     for (const i in articles) {
         const url = articles[i].url;
-        ajax (url, articles[i]["text"], function (responseText) {
+        ajax(url, articles[i]["text"], function (responseText) {
             articles[i].text = responseText;
             if (++counter == articles.length) {
                 resultWrapper.innerHTML = "";
@@ -119,9 +119,9 @@ function search(element) {
                     if (isMatched == true) {
                         let link = document.createElement("div");
                         link.classList.add("link");
-                        link.setAttribute("data-text", item.text);
                         link.setAttribute("data-times", times);
-                        link.innerHTML = "<a target='_blank' href='book-reader.html?src=" + item.url + "'>" + item.url + "</a>";
+                        link.innerHTML = "<div class='text'>" + item.text + "</div>" +
+                            "<a target='_blank' href='book-reader.html?src=" + item.url + "'>" + item.url + "</a>";
                         resultWrapper.appendChild(link);
                     }
                 }

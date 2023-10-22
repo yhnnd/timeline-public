@@ -266,14 +266,13 @@
             display: block;
         }
 
-        .search > .search-result > .link::before {
-            content: attr(data-text);
+        .search > .search-result > .link > .text {
             overflow: hidden;
             text-overflow: ellipsis;
             display: none;
         }
 
-        .search > .search-result > .link:hover::before {
+        .search > .search-result > .link:hover > .text {
             display: block;
             width: 200px;
             height: 200px;
