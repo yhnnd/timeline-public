@@ -196,7 +196,6 @@
         }
         pre > .censored {
             color: var(--studio-black);
-            background-color: var(--studio-black);
             cursor: pointer;
             display: inline-block;
         }
@@ -336,7 +335,7 @@
 
                 // censor all the censored words
                 for (const item of censored) {
-                    const replacement = "<span class='censored'>" + item + "</span>";
+                    const replacement = "<span class='censored'>" + "█".repeat(item.length) + "</span>";
                     responseText = responseText.replaceAll(item, replacement);
                 }
 
