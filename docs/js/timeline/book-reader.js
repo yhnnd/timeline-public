@@ -87,16 +87,19 @@ function search(element) {
 
     const resultWrapper = searchWrapper.getElementsByClassName("search-result")[0];
 
-    for (const book of window.books) {
-        if (book != undefined && book["indexList"] != undefined) {
-            for (const url of book["indexList"]) {
-                articles.push({
-                    "url": url,
-                    "text": undefined
-                });
+    if (articles.length == 0) {
+        for (const book of window.books) {
+            if (book != undefined && book["indexList"] != undefined) {
+                for (const url of book["indexList"]) {
+                    articles.push({
+                        "url": url,
+                        "text": undefined
+                    });
+                }
             }
         }
     }
+
     let counter = 0;
     for (const i in articles) {
         const url = articles[i].url;
