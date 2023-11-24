@@ -186,6 +186,12 @@ window.books[5].indexList = [
 window.books[6] = {};
 window.books[6].indexList = [
     "../yhnnd.wordpress.com/6-diary-2018-12-2019-05-大棕書/2018.12.18.txt",
+    "../yhnnd.wordpress.com/6-diary-2018-12-2019-05-大棕書/2018.12.19.txt",
+    "../yhnnd.wordpress.com/6-diary-2018-12-2019-05-大棕書/2018.12.20.txt",
+    "../yhnnd.wordpress.com/6-diary-2018-12-2019-05-大棕書/2018.12.21.txt",
+    "../yhnnd.wordpress.com/6-diary-2018-12-2019-05-大棕書/2018.12.23.txt",
+    "../yhnnd.wordpress.com/6-diary-2018-12-2019-05-大棕書/2018.12.24.txt",
+    "../yhnnd.wordpress.com/6-diary-2018-12-2019-05-大棕書/2018.12.25.txt",
     "../yhnnd.wordpress.com/6-diary-2018-12-2019-05-大棕書/2019.04.01.txt"
 ];
 
@@ -337,5 +343,6 @@ window.books[13].indexList = [
     "../yhnnd.wordpress.com/13-diary-2023-10-2023-12-出路3/2023.11.13.txt",
     "../yhnnd.wordpress.com/13-diary-2023-10-2023-12-出路3/2023.11.16.txt",
     "../yhnnd.wordpress.com/13-diary-2023-10-2023-12-出路3/2023.11.19.txt",
-    "../yhnnd.wordpress.com/13-diary-2023-10-2023-12-出路3/2023.11.20.txt"
+    "../yhnnd.wordpress.com/13-diary-2023-10-2023-12-出路3/2023.11.20.txt",
+    "../yhnnd.wordpress.com/13-diary-2023-10-2023-12-出路3/2023.11.24.txt",
 ];
