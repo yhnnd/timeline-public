@@ -198,6 +198,12 @@ window.books[6].indexList = [
     "../yhnnd.wordpress.com/6-diary-2018-12-2019-05-大棕書/2018.12.29.txt",
     "../yhnnd.wordpress.com/6-diary-2018-12-2019-05-大棕書/2018.12.30.txt",
     "../yhnnd.wordpress.com/6-diary-2018-12-2019-05-大棕書/2018.12.31.txt",
+    "../yhnnd.wordpress.com/6-diary-2018-12-2019-05-大棕書/2019.01.01.txt",
+    "../yhnnd.wordpress.com/6-diary-2018-12-2019-05-大棕書/2019.01.02.txt",
+    "../yhnnd.wordpress.com/6-diary-2018-12-2019-05-大棕書/2019.01.03.txt",
+    "../yhnnd.wordpress.com/6-diary-2018-12-2019-05-大棕書/2019.01.04.txt",
+    "../yhnnd.wordpress.com/6-diary-2018-12-2019-05-大棕書/2019.01.05.txt",
+    "../yhnnd.wordpress.com/6-diary-2018-12-2019-05-大棕書/2019.01.06.txt",
     "../yhnnd.wordpress.com/6-diary-2018-12-2019-05-大棕書/2019.04.01.txt"
 ];
 
