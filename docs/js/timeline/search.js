@@ -20,6 +20,10 @@ function ajax(url, responseText, callback) {
 const articles = [];
 
 function search(input) {
+    if (input == undefined || input.value == undefined || input.value == "") {
+        return false;
+    }
+    
     const keywords = input.value.split(",");
 
     document.body.classList.add("modal-open");

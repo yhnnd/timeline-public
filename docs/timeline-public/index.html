@@ -109,9 +109,18 @@
     <div style="display: flex; justify-content: center; align-items: center;">
         <div>
             <input id="search" type="text">
-            <button onclick="search(document.getElementById('search'))">Search</button>
+            <button id="searchbutton" onclick="search(document.getElementById('search'))">
+                Search
+            </button>
         </div>
     </div>
+
+    <script>
+        if (window.location.href.startsWith("file://")) {
+            document.getElementById("search").setAttribute("disabled", true);
+            document.getElementById("searchbutton").setAttribute("disabled", true);
+        }
+    </script>
 
     <div class="row">
         <div class="col">
