@@ -89,6 +89,20 @@
             transform: scale(.95);
         }
 
+        .search > .search-result > .link::after {
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin-left: 2rem;
+            color: white;
+            background: green;
+            font-size: .8rem;
+            padding: .1rem .5rem;
+            border-radius: .5rem;
+            content: attr(data-times);
+        }
+
         .modal-open {
             overflow: hidden;
         }
