@@ -120,8 +120,12 @@ function search(element) {
                         let link = document.createElement("div");
                         link.classList.add("link");
                         link.setAttribute("data-times", times);
+                        const nameSplit = item.url.split("/");
+                        item.filename = nameSplit.pop();
+                        item.folder = nameSplit.pop();
                         link.innerHTML = "<div class='text'><pre>" + item.text + "</pre></div>" +
-                            "<a target='_blank' href='book-reader.html?src=" + item.url + "'>" + item.url + "</a>";
+                            "<a target='_blank' href='book-reader.html?src=" + item.url + "'>" +
+                            "<span class='folder'>" + item.folder + "</span> / <span>" + item.filename + "</span></a>";
                         resultWrapper.appendChild(link);
                     }
                 }
