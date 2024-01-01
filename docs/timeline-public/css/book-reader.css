@@ -241,11 +241,13 @@ pre>.name-link:hover::before {
 .search {
     display: flex;
     flex-direction: column;
+    max-width: 100%;
 }
 
 .search>.search-bar {
     margin-top: 40px;
     width: 512px;
+    max-width: 100%;
     position: relative;
 }
 
@@ -258,6 +260,7 @@ pre>.name-link:hover::before {
 .search>.search-result {
     margin-top: 40px;
     width: 512px;
+    max-width: 100%;
     padding-bottom: 320px;
 }
 
