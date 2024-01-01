@@ -22,7 +22,7 @@ function ajax(url, responseText, callback) {
     req.send();
 }
 
-var src = getParameter("src");
+const src = getParameter("src");
 if (src != undefined) {
     ajax(src, undefined, function (responseText) {
         console.log("responseText: ", responseText);
@@ -67,6 +67,12 @@ if (src != undefined) {
         const pre = document.getElementsByClassName("container")[0].getElementsByTagName("pre")[0];
         pre.innerHTML = responseText;
     });
+}
+
+const isIframe = getParameter("is-iframe");
+if (isIframe == "true") {
+    document.querySelector(".fake-navbar").remove();
+    document.querySelector(".navbar").remove();
 }
 
 const articles = [];

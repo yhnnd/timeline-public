@@ -64,7 +64,7 @@
                 const folder = nameSplit.pop();
                 if (window.location.href.startsWith("file://")) {
                 } else {
-                    link = "book-reader.html?src=" + link;
+                    link = "book-reader.html?src=" + link + "&is-iframe=true";
                 }
                 html += "<a class=\"item\" id=\"item-" + counter++ + "\" href=\"" + link + "\">";
                 html += "<div class=\"cover\" data-folder=\"" + folder + "\" data-filename=\"" + filename + "\"></div>";
