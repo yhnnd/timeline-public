@@ -5,48 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>raw 10 黑书 5</title>
+    <link rel="stylesheet" href="css/raw.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <script src="../js/timeline/navbar.js"></script>
 </head>
 
 <body>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-        }
-        .col {
-            width: 512px;
-        }
-        .dial {
-            padding-top: 40px;
-            padding-right: 10px;
-            padding-bottom: 10px;
-        }
-        .dial > * {
-            display: inline-block;
-            width: 48px;
-            margin: 8px 4px;
-            text-align: right;
-        }
-        .number {
-            margin-left: 1rem;
-            margin-right: 1rem;
-        }
-    </style>
-    <div class="container">
-        <div class="col dial"></div>
-        <div class="col">
-            <div>
-                <button onclick="prev()"> previous </button>
-                <span class="number">1</span>
-                <button onclick="next()"> next </button>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="col dial"></div>
+            <div class="col">
+                <div>
+                    <button onclick="prev()"> previous </button>
+                    <span class="number">1</span>
+                    <button onclick="next()"> next </button>
+                </div>
+                <img src="../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_093739.jpg" alt="" style="width: 100%;">
             </div>
-            <img src="../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_093739.jpg" alt="" style="width: 100%;">
         </div>
     </div>
+
     <script>
         (function () {
             const pics = ["../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_093739.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_093755.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_093810.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_093839.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_093918.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_093940.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_093957.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_094058.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_094133.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_094155.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_094218.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_094232.jpg"];

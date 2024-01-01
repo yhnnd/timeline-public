@@ -1,0 +1,86 @@
+.search-backdrop {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(244, 244, 244, .8);
+    color: black;
+    backdrop-filter: blur(2.5px);
+    display: none;
+}
+
+.search-backdrop.on {
+    display: flex;
+    justify-content: center;
+    overflow: scroll;
+}
+
+.search {
+    display: flex;
+    flex-direction: column;
+}
+
+.search > .search-bar {
+    margin-top: 40px;
+    width: 512px;
+    position: relative;
+}
+
+.search > .search-bar > .close-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.search > .search-result {
+    margin-top: 40px;
+    width: 512px;
+    padding-bottom: 320px;
+}
+
+.search > .search-result > .link {
+    position: relative;
+    display: block;
+}
+
+.search > .search-result > .link > .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: none;
+}
+
+.search > .search-result > .link:hover > .text {
+    display: block;
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    left: -300px;
+    top: -100px;
+    background: rgba(116, 255, 167, 0.3);
+    color: black;
+    transform: scale(.95);
+}
+
+.search > .search-result > .link::after {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-left: 2rem;
+    color: white;
+    background: green;
+    font-size: .8rem;
+    padding: .1rem .5rem;
+    border-radius: .5rem;
+    content: attr(data-times);
+}
+
+.search > .search-result > .link .folder {
+    color: var(--studio-red-60);
+}
+
+.modal-open {
+    overflow: hidden;
+}
