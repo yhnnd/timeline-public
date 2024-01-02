@@ -1,21 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>letters in prison 5</title>
-    <link rel="stylesheet" href="css/navbar.css">
-    <script src="../js/timeline/navbar.js"></script>
-</head>
-<body>
-    <style>
-        .container {
-            display: flex;
-            justify-content: center;
-        }
-    </style>
-    <div class="container">
-        <pre>
 2022年12月狱中书信
 
 母亲：我还有一个多月就要去出监隔离队了，
@@ -324,7 +306,6 @@
        └── 浸信會大學
               └── 18級：謝欣譯（吉原九）。
 
-        </pre>
-    </div>
-</body>
-</html>
+
+
+

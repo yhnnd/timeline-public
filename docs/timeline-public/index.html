@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="css/colors.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/ios-button.css">
     <link rel="stylesheet" href="css/navbar.css">
     <script src="../js/timeline/navbar.js"></script>
+    <script src="../js/timeline/ios-button-2024.js"></script>
 </head>
 <body>
     <div class="search-backdrop">
@@ -176,6 +178,13 @@
                         <li>沈阳 2018</li>
                     </ul>
                 </li>
+                <li>
+                    西安
+                    <ul>
+                        <li>西安 2023</li>
+                        <li>西安 2024</li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <div class="col">
@@ -196,6 +205,10 @@
                         <li><a href="book.html?book=11">11 出路 1</a></li>
                         <li><a href="book.html?book=12">12 出路 2</a></li>
                         <li><a href="book.html?book=13">13 出路 3</a></li>
+                        <li><a href="book.html?book=14">14 獄中信</a></li>
+                        <li><a href="book.html?book=15">15 致王震書</a></li>
+                        <li><a href="book.html?book=16">16 王震來信</a></li>
+                        <li><a href="book.html?book=17">17 出路 4</a></li>
                     </ul>
                 </li>
                 <li>
@@ -272,6 +285,22 @@
                     </ul>
                 </li>
                 <li>诗</li>
+                <li class="settings">
+                    設置
+                    <ul>
+                        <li>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div>显示顶部导航栏</div>
+                                <div class="ios-button" data-key="enable-navbar">
+                                    <div class="ios-button-circle"></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <script>
+                    ios_button_init(".settings");
+                </script>
             </ul>
         </div>
     </div>

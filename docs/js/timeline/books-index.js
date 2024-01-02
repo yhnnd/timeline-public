@@ -369,3 +369,20 @@ window.books[13].indexList = [
     "../yhnnd.wordpress.com/13-diary-2023-10-2023-12-出路3/2023.12.21.txt",
     "../yhnnd.wordpress.com/13-diary-2023-10-2023-12-出路3/2023.12.31.txt",
 ];
+
+window.books[14] = {};
+window.books[14].indexList = [
+];
+
+window.books[15] = {};
+window.books[15].indexList = [
+];
+
+window.books[16] = {};
+window.books[16].indexList = [
+];
+
+window.books[17] = {};
+window.books[17].indexList = [
+    "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.01.02.txt",
+];

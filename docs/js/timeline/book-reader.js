@@ -72,11 +72,6 @@ if (src != undefined) {
 const isIframe = getParameter("is-iframe");
 if (isIframe == "true") {
     document.body.setAttribute("is-iframe", "true");
-    try {
-        document.querySelector(".fake-navbar").remove();
-        document.querySelector(".navbar").remove();
-    } catch (e) {
-    }
 }
 
 const articles = [];
