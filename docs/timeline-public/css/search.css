@@ -58,7 +58,7 @@
     padding-right: .5rem;
 }
 
-.search>.search-result>.link::after {
+.search>.search-result>.link::before {
     display: block;
     float: right;
     margin-left: 2rem;
@@ -76,4 +76,10 @@
 
 .modal-open {
     overflow: hidden;
+}
+
+pre {
+    max-width: 100%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }

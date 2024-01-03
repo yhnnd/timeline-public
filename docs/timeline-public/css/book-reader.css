@@ -280,7 +280,7 @@ pre>.name-link:hover::before {
     padding-right: .5rem;
 }
 
-.search>.search-result>.link::after {
+.search>.search-result>.link::before {
     display: block;
     float: right;
     margin-left: 2rem;
