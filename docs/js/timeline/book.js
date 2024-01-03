@@ -39,7 +39,7 @@ if (indexWrapper != undefined) {
             link = "book-reader.html?src=" + link;
             iframeSrc = link + "&is-iframe=true";
         }
-        html += "<div class=\"item\" id=\"item-" + counter++ + "\" onmouseover=\"previewFile('" + link + "')\" onclick=\"openFile('" + link + "')\">";
+        html += "<div class=\"item\" id=\"item-" + counter++ + "\" onmouseover=\"previewFile('" + iframeSrc + "')\" onclick=\"openFile('" + link + "')\">";
         html += "<div class=\"cover\" data-folder=\"" + folder + "\" data-filename=\"" + filename + "\"></div>";
         html += "<iframe src=\"" + iframeSrc + "\" scrolling=\"no\"></iframe>";
         html += "</div>";
