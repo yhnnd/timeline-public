@@ -128,9 +128,9 @@ function search(element) {
                         const nameSplit = item.url.split("/");
                         item.filename = nameSplit.pop();
                         item.folder = nameSplit.pop();
-                        link.innerHTML = "<div class='text'><pre>" + item.text + "</pre></div>" +
-                            "<a target='_blank' href='book-reader.html?src=" + item.url + "'>" +
-                            "<span class='folder'>" + item.folder + "</span> / <span>" + item.filename + "</span></a>";
+                        link.innerHTML = "<a target='_blank' href='book-reader.html?src=" + item.url + "'>"
+                            + "<span class='folder'>" + item.folder + "</span> / <span>" + item.filename + "</span></a>"
+                            + "<div class='text'><pre>" + item.text + "</pre></div>";
                         resultWrapper.appendChild(link);
                     }
                 }

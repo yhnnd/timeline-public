@@ -23,54 +23,44 @@
     max-width: 100%;
 }
 
-.search > .search-bar {
+.search>.search-bar {
     margin-top: 40px;
     width: 512px;
     max-width: 100%;
     position: relative;
 }
 
-.search > .search-bar > .close-button {
+.search>.search-bar>.close-button {
     position: absolute;
     right: 0;
     top: 0;
 }
 
-.search > .search-result {
+.search>.search-result {
     margin-top: 40px;
     width: 512px;
     max-width: 100%;
     padding-bottom: 320px;
 }
 
-.search > .search-result > .link {
-    position: relative;
+.search>.search-result>.link {
     display: block;
 }
 
-.search > .search-result > .link > .text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: none;
-}
-
-.search > .search-result > .link:hover > .text {
+.search>.search-result>.link>.text {
     display: block;
-    width: 300px;
-    height: 400px;
-    position: absolute;
-    left: -300px;
-    top: -100px;
+    width: 100%;
+    height: 200px;
+    overflow: scroll;
     background: rgba(116, 255, 167, 0.3);
     color: black;
-    transform: scale(.95);
+    padding-left: .5rem;
+    padding-right: .5rem;
 }
 
-.search > .search-result > .link::after {
-    display: inline-block;
-    position: absolute;
-    right: 0;
-    top: 0;
+.search>.search-result>.link::after {
+    display: block;
+    float: right;
     margin-left: 2rem;
     color: white;
     background: green;
@@ -80,7 +70,7 @@
     content: attr(data-times);
 }
 
-.search > .search-result > .link .folder {
+.search>.search-result>.link .folder {
     color: var(--studio-red-60);
 }
 

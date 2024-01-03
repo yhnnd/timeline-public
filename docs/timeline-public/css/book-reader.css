@@ -179,6 +179,7 @@
 
 pre {
     width: 512px;
+    max-width: 100%;
     white-space: pre-wrap;
     word-wrap: break-word;
 }
@@ -265,33 +266,23 @@ pre>.name-link:hover::before {
 }
 
 .search>.search-result>.link {
-    position: relative;
     display: block;
 }
 
 .search>.search-result>.link>.text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: none;
-}
-
-.search>.search-result>.link:hover>.text {
     display: block;
-    width: 300px;
-    height: 400px;
-    position: absolute;
-    left: -300px;
-    top: -100px;
+    width: 100%;
+    height: 200px;
+    overflow: scroll;
     background: rgba(116, 255, 167, 0.3);
     color: black;
-    transform: scale(.95);
+    padding-left: .5rem;
+    padding-right: .5rem;
 }
 
 .search>.search-result>.link::after {
-    display: inline-block;
-    position: absolute;
-    right: 0;
-    top: 0;
+    display: block;
+    float: right;
     margin-left: 2rem;
     color: white;
     background: green;
