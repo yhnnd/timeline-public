@@ -5,7 +5,19 @@
 
 .container {
     display: flex;
-    flex-direction: column;
+    width: 1200px;
+    max-width: 100%;
+    gap: 1rem;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-bar-wrapper {
+    position: relative;
     width: 512px;
     max-width: 100%;
 }
@@ -14,31 +26,34 @@
     text-align: center;
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (max-width:1200px) {
     .container {
-        width: 1200px;
+        flex-direction: column;
+        width: 512px;
     }
 
-    .top-bar {
-        padding-right: calc(1200px / 2 - 512px);
-    }
-
-    .index-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        gap: calc(1200px / 2 - 512px);
+    .reader-wrapper {
+        display: none;
     }
 }
 
-.index-wrapper>a {
-    display: block;
+.index-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 96px;
+    margin-top: 64px;
+    margin-bottom: 96px;
 }
 
 .index-wrapper>.item {
+    cursor: pointer;
     display: flex;
-    margin-top: 64px;
-    margin-bottom: 96px;
     position: relative;
+}
+
+.index-wrapper>.item:hover {
+    box-shadow: 0 0 4px var(--studio-blue-50);
 }
 
 .index-wrapper>.item>.cover {
@@ -90,4 +105,51 @@
 pre {
     white-space: pre-wrap;
     word-wrap: break-word;
+}
+
+.reader-wrapper {
+    width: calc(1200px - 512px - 1rem);
+    height: calc(100vh - 6rem);
+    margin-top: 2rem;
+}
+
+.reader {
+    position: fixed;
+    width: calc(1200px - 512px - 1rem);
+    height: calc(100vh - 6rem);
+}
+
+body[data-value-of-enable-navbar="true"] .reader-wrapper {
+    height: calc(100vh - 10rem);
+}
+
+body[data-value-of-enable-navbar="true"] .reader {
+    height: calc(100vh - 10rem);
+}
+
+.reader iframe {
+    width: 100%;
+    height: 100%;
+    border: 1px dashed var(--studio-gray-50);
+}
+
+.reader .cover {
+    position: absolute;
+    background-color: rgba(12, 12, 12, .05);
+    width: calc(100% - 96px);
+    height: 100%;
+    cursor: pointer;
+}
+
+.reader .cover:hover {
+    box-shadow: 0 0 4px var(--studio-blue-50);
+}
+
+.reader .cover:hover+iframe {
+    background-color: var(--studio-gray-5);
+}
+
+.reader:not(:has(.cover:hover)):hover iframe {
+    background-color: transparent;
+    box-shadow: 0 0 4px var(--studio-green-50);
 }
