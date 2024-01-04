@@ -69,7 +69,7 @@ function searchKeywords(keywords) {
                         link.innerHTML = "<a target='_blank' href='book-reader.html?src=" + item.url + "'>"
                             + "<span class='folder'>" + item.folder + "</span> / <span>" + item.filename + "</span></a>"
                             + "<div class='cover-wrapper'><div class='cover' onclick=\"window.open('book-reader.html?src=" + item.url + "','_self');\"></div></div>"
-                            + "<div class='text'><pre>" + item.text + "</pre></div>";
+                            + "<div class='text'><pre>" + highlight(item.text, keywords) + "</pre></div>";
                         resultWrapper.appendChild(link);
                     }
                 }
@@ -78,6 +78,14 @@ function searchKeywords(keywords) {
             }
         });
     }
+}
+
+function highlight(text, keywords) {
+    for (const keyword of keywords) {
+        const marker = "<span class='marker-wrapper'><span class='marker'><span>" + keyword.split("").join("</span><span>") + "</span></span></span>";
+        text = text.replaceAll(keyword, marker);
+    }
+    return text;
 }
 
 function closeSearch() {

@@ -103,3 +103,14 @@ pre {
     white-space: pre-wrap;
     word-wrap: break-word;
 }
+
+.marker {
+    background-color: var(--studio-yellow-10);
+    outline: 2px solid var(--studio-red);
+    outline-offset: 2px;
+    outline-style: dashed;
+}
+
+.marker-wrapper {
+    outline: 2px solid var(--studio-yellow-10);
+}
