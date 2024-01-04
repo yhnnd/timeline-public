@@ -62,6 +62,21 @@
     box-shadow: 0 0 4px var(--studio-blue);
 }
 
+.search>.search-result>.link>.text>.cover-wrapper {
+    position: relative;
+}
+
+.search>.search-result>.link>.text>.cover-wrapper>.cover {
+    position: absolute;
+    width: calc(100% - 100px);
+    background: rgba(0, 0, 0, 0.05);
+    height: 500px;
+}
+
+.search>.search-result>.link>.text>.cover-wrapper>.cover:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
 .search>.search-result>.link::before {
     display: block;
     float: right;

@@ -1,31 +1,26 @@
 // Thu Dec 07 2023
-function ajax(url, responseText, callback) {
-    if (responseText != undefined && callback && typeof callback === "function") {
-        // short circuit.
-        callback(responseText);
-        return;
-    }
-    const req = new XMLHttpRequest();
-    req.addEventListener("load", () => {
-        if (callback && typeof callback === "function") {
-            callback(req.responseText);
-        } else {
-            console.log("loadData: no callback");
-        }
-    });
-    req.open("GET", url);
-    req.send();
-}
+// require function ajax
 
 const articles = [];
 
-function search(input) {
+function searchInput(input) {
     if (input == undefined || input.value == undefined || input.value == "") {
         return false;
     }
-
     const keywords = input.value.split(",");
+    searchKeywords(keywords);
+}
 
+function searchElement(element) {
+    const nameIndex = element.getAttribute("data-name-index");
+    if (nameIndex == undefined) {
+        return false;
+    }
+    const keywords = window.peoplesNames[nameIndex];
+    searchKeywords(keywords);
+}
+
+function searchKeywords(keywords) {
     document.body.classList.add("modal-open");
     // const keyword = element.innerText;
     const searchWrapper = document.getElementsByClassName("search")[0];
@@ -73,6 +68,7 @@ function search(input) {
                         item.folder = nameSplit.pop();
                         link.innerHTML = "<a target='_blank' href='book-reader.html?src=" + item.url + "'>"
                             + "<span class='folder'>" + item.folder + "</span> / <span>" + item.filename + "</span></a>"
+                            + "<div class='cover-wrapper'><div class='cover'></div></div>"
                             + "<div class='text'><pre>" + item.text + "</pre></div>";
                         resultWrapper.appendChild(link);
                     }
