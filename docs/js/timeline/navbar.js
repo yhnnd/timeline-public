@@ -4,7 +4,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const button = document.createElement("button");
     button.innerText = "Go Back";
     button.addEventListener("click", function () {
-        history.back();
+        if (window.location.pathname.endsWith("/book.html")) {
+            window.open("index.html", "_self");
+        } else {
+            history.back();
+        }
     });
     navbar.append(button);
     document.body.prepend(navbar);
