@@ -68,7 +68,7 @@ function searchKeywords(keywords) {
                         item.folder = nameSplit.pop();
                         link.innerHTML = "<a target='_blank' href='book-reader.html?src=" + item.url + "'>"
                             + "<span class='folder'>" + item.folder + "</span> / <span>" + item.filename + "</span></a>"
-                            + "<div class='cover-wrapper'><div class='cover'></div></div>"
+                            + "<div class='cover-wrapper'><div class='cover' onclick=\"window.open('book-reader.html?src=" + item.url + "','_self');\"></div></div>"
                             + "<div class='text'><pre>" + item.text + "</pre></div>";
                         resultWrapper.appendChild(link);
                     }
