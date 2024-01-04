@@ -39,7 +39,7 @@ if (indexWrapper != undefined) {
             link = "book-reader.html?src=" + link;
             iframeSrc = link + "&is-iframe=true";
         }
-        html += "<div class=\"item\" id=\"item-" + counter++ + "\" onmouseover=\"previewFile('" + iframeSrc + "')\" onclick=\"openFile('" + link + "')\">";
+        html += "<div class=\"item\" id=\"item-" + counter++ + "\" onmouseover=\"previewFile('" + link + "','" + iframeSrc + "')\" onclick=\"openFile('" + link + "')\">";
         html += "<div class=\"cover\" data-folder=\"" + folder + "\" data-filename=\"" + filename + "\"></div>";
         html += "<iframe src=\"" + iframeSrc + "\" scrolling=\"no\"></iframe>";
         html += "</div>";
@@ -58,15 +58,18 @@ background-color: rgba(84, 6, 3, .75);
     }
 }
 
-function previewFile(link) {
-    document.querySelector(".reader>iframe").src = link;
+function previewFile(link, iframeSrc) {
+    /** link has navbar, iframeSrc has no navbar */
+    const iframe = document.querySelector(".reader>iframe");
+    iframe.setAttribute("data-link", link);
+    iframe.src = iframeSrc;
 }
 
 function openFile(link) {
     if (link == undefined) {
-        link = document.querySelector(".reader>iframe").src;
+        link = document.querySelector(".reader>iframe").getAttribute("data-link");
     }
     if (link) {
-        window.open(link, "_blank");
+        window.open(link, "_self");
     }
 }
