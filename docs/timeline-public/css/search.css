@@ -109,6 +109,7 @@ pre {
     outline: 2px solid var(--studio-red);
     outline-offset: 2px;
     outline-style: dashed;
+    font-style: normal;
 }
 
 .marker-wrapper {
