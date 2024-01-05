@@ -11,7 +11,7 @@ const searchInfo = {
     keywords: []
 };
 
-function initSearch() {
+function initSearch(resultWrapper) {
     if (articles.length == 0) {
         for (const book of window.books) {
             if (book != undefined && book["indexList"] != undefined) {
@@ -71,11 +71,11 @@ function searchElement(element) {
 function searchKeywords(keywords) {
     const searchWrapper = document.getElementsByClassName("search")[0];
     const keywordWrapper = searchWrapper.getElementsByClassName("search-keyword")[0];
+    const resultWrapper = searchWrapper.getElementsByClassName("search-result")[0];
     document.body.classList.add("modal-open");
     searchWrapper.parentElement.classList.add("on");
     keywordWrapper.innerText = keywords.join(",");
     if (searchInfo.isReady) {
-        const resultWrapper = searchWrapper.getElementsByClassName("search-result")[0];
         resultWrapper.innerHTML = "";
         for (const item of articles) {
             let times = 0;
@@ -104,7 +104,7 @@ function searchKeywords(keywords) {
         searchInfo.hasUnfinishedTask = true;
         searchInfo.keywords = keywords;
         if (searchInfo.isLoading == false) {
-            initSearch();
+            initSearch(resultWrapper);
         }
     }
 }
