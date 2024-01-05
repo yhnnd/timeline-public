@@ -81,6 +81,7 @@ function searchKeywords(keywords) {
 }
 
 function highlight(text, keywords) {
+    text = text.replaceAll("<", "&lt;");
     for (const keyword of keywords) {
         const marker = "<span class='marker-wrapper'><span class='marker'><span>" + keyword.split("").join("</span><span>") + "</span></span></span>";
         text = text.replaceAll(keyword, marker);
