@@ -12,10 +12,10 @@
     align-items: center;
     justify-content: start;
     gap: 2rem;
-    padding-left: 0.5rem!important;
-    padding-right: 0.5rem!important;
-    padding-top: 0.5rem!important;
-    padding-bottom: 0.5rem!important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
 }
 
 .navbar button {
@@ -26,7 +26,7 @@
     user-select: none;
     border: 1px solid transparent;
     border-radius: 0.2rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     padding: 0.25rem 0.5rem;
     font-size: .875rem;
     line-height: 1.5;
