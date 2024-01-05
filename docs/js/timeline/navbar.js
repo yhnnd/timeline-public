@@ -11,6 +11,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
     navbar.append(button);
+
+    const info = document.createElement("div");
+    info.classList.add("info");
+    navbar.append(info);
+
     document.body.prepend(navbar);
 
     const fakeNavbar = document.createElement("div");

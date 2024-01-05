@@ -10,7 +10,8 @@
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: start;
+    gap: 2rem;
     padding-left: 0.5rem!important;
     padding-right: 0.5rem!important;
     padding-top: 0.5rem!important;
@@ -39,6 +40,10 @@
     background-color: #0069d9;
     border-color: #0062cc;
     text-decoration: none;
+}
+
+.navbar .info {
+    color: #fff;
 }
 
 .fake-navbar {
