@@ -62,3 +62,7 @@ pre .name-link:hover::before {
     background-color: var(--studio-blue-0);
     cursor: pointer;
 }
+
+pre del * {
+    text-decoration: line-through;
+}
