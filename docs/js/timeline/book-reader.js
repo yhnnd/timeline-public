@@ -68,14 +68,16 @@ if (src != undefined) {
         const pre = document.getElementsByClassName("container")[0].getElementsByTagName("pre")[0];
         pre.innerHTML = responseText;
 
-        pre.prepend(document.createElement("br"));
-
-        pre.prepend(function () {
-            const title = document.createElement("div");
-            title.style.color = "var(--studio-purple-50)";
-            title.innerHTML = "<span class='badge'>" + getParameter("src").split("/").slice(1).join("</span>&nbsp;/&nbsp;<span class='badge'>") + "</span>";
-            return title;
-        }());
+        if (getParameter("is-iframe") !== "true") {
+            pre.prepend(document.createElement("br"));
+            pre.prepend(function () {
+                const title = document.createElement("div");
+                title.style.color = "var(--studio-purple-50)";
+                title.style.width = "100vw";
+                title.innerHTML = "<span class='badge'>" + getParameter("src").split("/").slice(1).join("</span>&nbsp;/&nbsp;<span class='badge'>") + "</span>";
+                return title;
+            }());
+        }
     });
 }
 
