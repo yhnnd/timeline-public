@@ -10,13 +10,13 @@ pre {
     word-wrap: break-word;
 }
 
-pre>.highlight-red {
+pre .highlight-red {
     color: var(--studio-red);
     cursor: pointer;
     display: inline-block;
 }
 
-pre>.censored {
+pre .censored {
     color: var(--studio-black);
     cursor: pointer;
     display: inline-block;
@@ -24,21 +24,21 @@ pre>.censored {
     line-height: 0;
 }
 
-pre>.name-link {
+pre .name-link {
     color: var(--studio-blue);
     cursor: pointer;
     position: relative;
     display: inline-block;
 }
 
-pre>.name-link::before {
+pre .name-link::before {
     display: none;
     content: attr(data-info);
     color: white;
     background-color: rgba(0, 0, 0, .75);
 }
 
-pre>.name-link:hover::before {
+pre .name-link:hover::before {
     display: block;
     position: absolute;
     left: 0;
