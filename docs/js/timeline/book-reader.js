@@ -28,7 +28,7 @@ if (src != undefined) {
         responseText = responseText.replaceAll('@command("delete-start")', "<del>");
         responseText = responseText.replaceAll('@command("delete-end")', "</del>");
         responseText = responseText.replaceAll('@command("border-start")', "<div class='has-border'>");
-        responseText = responseText.replaceAll('@command("border-end")', "</div>");
+        responseText = responseText.replaceAll('@command("border-end")', "<br></div>");
 
         // highlight all the symbols like ①, ②, ③.
         for (const symbol of symbols) {

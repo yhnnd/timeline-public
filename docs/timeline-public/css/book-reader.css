@@ -45,3 +45,11 @@ pre>.name-link:hover::before {
     top: -18px;
     width: 160px;
 }
+
+.has-border {
+    border: 1px solid black;
+    width: 100%;
+    position: relative;
+    left: -2%;
+    padding: 0 2%;
+}
