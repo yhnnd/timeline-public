@@ -10,7 +10,25 @@ if (src != undefined) {
     ajax(src, undefined, function (responseText) {
         console.log("responseText: ", responseText);
 
+        responseText = function (responseText){
+            return responseText.split("\n").map((line) => {
+                if (line.trim().startsWith("{{") && line.trim().endsWith("}}")) {
+                    return line.replace("{{", '@command("delete-start")').replace("}}", '@command("delete-end")');
+                } else if (line === "<border>") {
+                    return '@command("border-start")';
+                } else if (line === "</border>") {
+                    return '@command("border-end")';
+                }
+                return line;
+            }).join("\n");
+        }(responseText);
+
         responseText = responseText.replaceAll("<", "&lt;");
+
+        responseText = responseText.replaceAll('@command("delete-start")', "<del>");
+        responseText = responseText.replaceAll('@command("delete-end")', "</del>");
+        responseText = responseText.replaceAll('@command("border-start")', "<div class='has-border'>");
+        responseText = responseText.replaceAll('@command("border-end")', "</div>");
 
         // highlight all the symbols like ①, ②, ③.
         for (const symbol of symbols) {
