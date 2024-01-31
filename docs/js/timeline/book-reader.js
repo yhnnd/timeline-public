@@ -12,11 +12,11 @@ if (src != undefined) {
 
         responseText = function (responseText) {
             return responseText.split("\n").map((line) => {
-                if (line.trim().startsWith("{{") && line.trim().endsWith("}}")) {
+                if (line.trim().startsWith("{{") && line.trim().endsWith("}}") && localStorage.getItem("enable-delete-line") === "true") {
                     return line.replace("{{", '@command("delete-start")').replace("}}", '@command("delete-end")');
-                } else if (line === "<border>") {
+                } else if (line === "<border>" && localStorage.getItem("enable-border") === "true") {
                     return '@command("border-start")';
-                } else if (line === "</border>") {
+                } else if (line === "</border>" && localStorage.getItem("enable-border") === "true") {
                     return '@command("border-end")';
                 }
                 return line;
@@ -30,37 +30,43 @@ if (src != undefined) {
         responseText = responseText.replaceAll('@command("border-start")', "<div class='has-border'>");
         responseText = responseText.replaceAll('@command("border-end")', "<br></div>");
 
-        // highlight all the symbols like ①, ②, ③.
-        for (const symbol of symbols) {
-            const replacement = "<span class='highlight-red'>" + symbol + "</span>";
-            responseText = responseText.replaceAll(symbol, replacement);
+        if (localStorage.getItem("enable-highlight-red") === "true") {
+            // highlight all the symbols like ①, ②, ③.
+            for (const symbol of symbols) {
+                const replacement = "<span class='highlight-red'>" + symbol + "</span>";
+                responseText = responseText.replaceAll(symbol, replacement);
+            }
         }
 
-        // censor all the censored words
-        for (const item of censored) {
-            const replacement = "<span class='censored'>" + "█".repeat(item.length) + "</span>";
-            responseText = responseText.replaceAll(item, replacement);
+        if (localStorage.getItem("enable-censorship") !== "false") {
+            // censor all the censored words
+            for (const item of censored) {
+                const replacement = "<span class='censored'>" + "█".repeat(item.length) + "</span>";
+                responseText = responseText.replaceAll(item, replacement);
+            }
         }
 
-        if (window.peoplesNames != undefined) {
-            window.peoplesNames = window.peoplesNames.sort((a, b) => {
-                return b[0].split(";")[0].length - a[0].split(";")[0].length;
-            });
-            for (const i in window.peoplesNames) {
-                const items = window.peoplesNames[i];
-                for (const item of items) {
-                    const name = item.split(";")[0];
-                    let info = item.split(";")[1];
-                    if (info == undefined) {
-                        info = "点击搜索";
+        if (localStorage.getItem("enable-name-index") === "true") {
+            if (window.peoplesNames?.length) {
+                window.peoplesNames = window.peoplesNames.sort((a, b) => {
+                    return b[0].split(";")[0].length - a[0].split(";")[0].length;
+                });
+                for (const i in window.peoplesNames) {
+                    const items = window.peoplesNames[i];
+                    for (const item of items) {
+                        const name = item.split(";")[0];
+                        let info = item.split(";")[1];
+                        if (info == undefined) {
+                            info = "点击搜索";
+                        }
+                        let nameLink = document.createElement("div");
+                        nameLink.classList.add("name-link");
+                        nameLink.setAttribute("data-info", info);
+                        nameLink.setAttribute("data-name-index", i);
+                        nameLink.setAttribute("onclick", "searchElement(this)");
+                        nameLink.innerHTML = "<span>" + name.split("").join("</span><span>") + "</span>";
+                        responseText = responseText.replaceAll(name, nameLink.outerHTML);
                     }
-                    let nameLink = document.createElement("div");
-                    nameLink.classList.add("name-link");
-                    nameLink.setAttribute("data-info", info);
-                    nameLink.setAttribute("data-name-index", i);
-                    nameLink.setAttribute("onclick", "searchElement(this)");
-                    nameLink.innerHTML = "<span>" + name.split("").join("</span><span>") + "</span>";
-                    responseText = responseText.replaceAll(name, nameLink.outerHTML);
                 }
             }
         }
@@ -68,7 +74,7 @@ if (src != undefined) {
         const pre = document.getElementsByClassName("container")[0].getElementsByTagName("pre")[0];
         pre.innerHTML = responseText;
 
-        if (getParameter("is-iframe") !== "true") {
+        if (getParameter("is-iframe") !== "true" && localStorage.getItem("enable-badge") === "true") {
             pre.prepend(document.createElement("br"));
             pre.prepend(function () {
                 const title = document.createElement("div");
@@ -79,9 +85,4 @@ if (src != undefined) {
             }());
         }
     });
-}
-
-const isIframe = getParameter("is-iframe");
-if (isIframe == "true") {
-    document.body.setAttribute("is-iframe", "true");
 }

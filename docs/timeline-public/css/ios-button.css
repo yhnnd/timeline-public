@@ -27,3 +27,8 @@
 .ios-button[data-value="true"]>.ios-button-circle {
     margin-left: 28px;
 }
+
+.settings .ios-button {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}

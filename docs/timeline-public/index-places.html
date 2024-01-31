@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Places</title>
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/ios-button.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <script src="../js/timeline/navbar.js"></script>
+    <script src="../js/timeline/ios-button-2024.js"></script>
+</head>
+<body>
+    <div class="search-backdrop">
+        <div class="search">
+            <div class="search-bar">
+                <div class="search-keyword"></div>
+                <button class="close-button" onclick="closeSearch(this)">close</button>
+            </div>
+            <div class="search-result"></div>
+        </div>
+    </div>
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <div>
+            <input id="search" type="text">
+            <button id="searchbutton" onclick="searchInput(document.getElementById('search'))">
+                Search
+            </button>
+        </div>
+    </div>
+
+    <script>
+        if (window.location.href.startsWith("file://")) {
+            document.getElementById("search").setAttribute("disabled", true);
+            document.getElementById("searchbutton").setAttribute("disabled", true);
+        }
+    </script>
+
+    <div class="row single-col" style="margin-top: 10px;margin-bottom: 219px;">
+        <div class="col">
+            <ul>
+                <li>
+                    莫尔道嘎
+                    <ul>
+                        <li>青年村</li>
+                        <li>林业局</li>
+                        <li>电视台</li>
+                        <li>森调大队</li>
+                        <li>地震台</li>
+                        <li>苗圃</li>
+                        <li>大家乐</li>
+                        <li>沿河小区</li>
+                        <li>西八彩</li>
+                        <li>东八彩</li>
+                        <li>集萃市场</li>
+                        <li>二小</li>
+                        <li>胜利</li>
+                        <li>军队</li>
+                        <li>二中</li>
+                        <li>森林公园</li>
+                        <li>室韦</li>
+                    </ul>
+                </li>
+                <li>
+                    大雁
+                    <ul>
+                        <li>一小 2005</li>
+                        <li>北河、五小 2006</li>
+                        <li>一小 2007</li>
+                        <li>四中 2007 - 2010</li>
+                        <li>北河、一中 2010 - 2013</li>
+                    </ul>
+                </li>
+                <li>
+                    天津
+                    <ul>
+                        <li>天职师大 2013</li>
+                        <li>天职师大 2014</li>
+                        <li>天职师大 2023</li>
+                        <li>何庄子</li>
+                        <li>大润发</li>
+                        <li>天工大 2015</li>
+                        <li>天工大 2016</li>
+                        <li>天工大 2017</li>
+                        <li>天工大 2018</li>
+                        <li>天工大 2019</li>
+                        <li>滨海新区、渣打 2019</li>
+                        <li>滨海新区、渣打 2020</li>
+                        <li>滨海一看 2020-2021</li>
+                        <li>津西监狱 2021</li>
+                        <li>梨园监狱 2021-2023</li>
+                        <li>福松源庄</li>
+                        <li>天津师范大学 2015</li>
+                        <li>天津师范大学 2018</li>
+                        <li>天津师范大学 2019</li>
+                        <li>天津理工大学 2015</li>
+                        <li>天津理工大学 2019</li>
+                        <li>天津财经大学 2017</li>
+                        <li>天津财经大学 2019</li>
+                        <li>天津外国语大学 2018</li>
+                        <li>天津外国语大学 2023</li>
+                        <li>民航大学 2018</li>
+                        <li>民航大学 2019</li>
+                        <li>民航大学 2023</li>
+                        <li>海光寺</li>
+                        <li>鞍山西道</li>
+                        <li>百脑汇、时代数码广场</li>
+                        <li>泰达、晓园新村</li>
+                        <li>市民广场、泰达MSD</li>
+                        <li>海门大桥🌉</li>
+                        <li>海昌极地海洋世界🐠</li>
+                        <li>泰丰公园⛲️</li>
+                        <li>第五中心医院🏥</li>
+                        <li>姚村</li>
+                        <li>付村</li>
+                        <li>华苑</li>
+                        <li>高新区、海泰产业园区</li>
+                        <li>王顶堤</li>
+                        <li>时代奥城</li>
+                        <li>水上公园</li>
+                        <li>南翠屏公园</li>
+                        <li>天塔</li>
+                        <li>鲁能城</li>
+                        <li>营口道、伊势丹</li>
+                        <li>西开天主教堂⛪️</li>
+                        <li>山西路基督教堂⛪️</li>
+                        <li>和平路、天河城</li>
+                        <li>和平路、恒隆广场</li>
+                        <li>津湾广场</li>
+                        <li>天津站(东站)</li>
+                        <li>小白楼</li>
+                        <li>图书大厦</li>
+                        <li>一中心医院、金云里</li>
+                        <li>(北辰)荣畅园</li>
+                        <li>乐园道、万象城</li>
+                        <li>肿瘤医院🏥</li>
+                        <li>华夏未来</li>
+                        <li>意大利风情区</li>
+                        <li>空港经济区</li>
+                        <li>直沽</li>
+                        <li>中山门</li>
+                    </ul>
+                </li>
+                <li>
+                    海拉尔
+                    <ul>
+                        <li>海三中</li>
+                        <li>三角地、温州城</li>
+                        <li>高地、教堂⛪️</li>
+                        <li>南屯(朱维)</li>
+                        <li>古城(白田萌)</li>
+                        <li>河东(于莉嫱)</li>
+                        <li>铁路(葛全富)</li>
+                    </ul>
+                </li>
+                <li>
+                    北平
+                    <ul>
+                        <li>北平 2002</li>
+                        <li>北平 2013 高考后的暑假</li>
+                        <li>北平 2014 去买电脑</li>
+                        <li>北平 2018 天通苑、丽水园(去实习)</li>
+                        <li>北平 2019 去教会、去古北口</li>
+                        <li>北平 2020 顺义(去台北)</li>
+                        <li>北平 2023 成寿寺(去塞班)</li>
+                        <li>北平 2023 天通苑(去找工作)</li>
+                    </ul>
+                </li>
+                <li>
+                    沈阳
+                    <ul>
+                        <li>沈阳 2018</li>
+                    </ul>
+                </li>
+                <li>
+                    西安
+                    <ul>
+                        <li>西安 2023 万家灯火</li>
+                        <li>西安 2023 环普</li>
+                        <li>西安 2023 帝宫(旭颜)</li>
+                        <li>西安 2024 万家灯火</li>
+                        <li>西安 2024 环普</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="../js/timeline/books-index.js"></script>
+    <script src="../js/timeline/names.js"></script>
+    <script src="../js/timeline/ajax.js"></script>
+    <script src="../js/timeline/search.js"></script>
+</body>
+</html>

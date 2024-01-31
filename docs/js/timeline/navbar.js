@@ -22,5 +22,19 @@ document.addEventListener("DOMContentLoaded", function() {
     fakeNavbar.classList.add("fake-navbar");
     document.body.prepend(fakeNavbar);
 
-    document.body.setAttribute("data-value-of-enable-navbar", localStorage.getItem("enable-navbar"));
+    for (const [key, value] of Object.entries(localStorage)) {
+        document.body.setAttribute("data-value-of-" + key, value);
+    }
+
+    function getParameter(name) {
+        let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        let r = window.location.search.substr(1).match(reg);
+        if (r) return decodeURIComponent(r[2]);
+        return null;
+    }
+
+    const isIframe = getParameter("is-iframe");
+    if (isIframe == "true") {
+        document.body.setAttribute("is-iframe", "true");
+    }
 });
