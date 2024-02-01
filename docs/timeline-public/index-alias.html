@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Names</title>
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/ios-button.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <script src="../js/timeline/navbar.js"></script>
+    <script src="../js/timeline/ios-button-2024.js"></script>
+</head>
+
+<body>
+    <div class="search-backdrop">
+        <div class="search">
+            <div class="search-bar">
+                <div class="search-keyword"></div>
+                <button class="close-button" onclick="closeSearch(this)">close</button>
+            </div>
+            <div class="search-result"></div>
+        </div>
+    </div>
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <div>
+            <input id="search" type="text">
+            <button id="searchbutton" onclick="searchInput(document.getElementById('search'))">
+                Search
+            </button>
+        </div>
+    </div>
+
+    <script>
+        if (window.location.href.startsWith("file://")) {
+            document.getElementById("search").setAttribute("disabled", true);
+            document.getElementById("searchbutton").setAttribute("disabled", true);
+        }
+    </script>
+
+    <div class="row double-col" style="margin-top: 10px;margin-bottom: 219px;">
+        <div class="col">
+            <ul>
+                <li>
+                    男
+                    <ul id="male-list">
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col">
+            <ul>
+                <li>
+                    女
+                    <ul>
+                        <li>
+                            A
+                            <ul>
+                                <li>阿恩騰賀</li>
+                                <li>安純</li>
+                            </ul>
+                        </li>
+                        <li>
+                            B
+                            <ul>
+                                <li>白田萌</li>
+                                <li>包慧文</li>
+                                <li>包巾幗</li>
+                            </ul>
+                        </li>
+                        <li>
+                            C
+                            <ul>
+                                <li>蔡依夢</li>
+                                <li>蔡曼玲</li>
+                                <li>蔡緹緹</li>
+                                <li>曹越(曹爽)</li>
+                                <li>曹婧雯</li>
+                                <li>陳琦</li>
+                                <li>陳幂</li>
+                                <li>陳秀欣</li>
+                                <li>陳欣宇</li>
+                                <li>陳璐</li>
+                                <li>陳思羽</li>
+                                <li>陳陽</li>
+                                <li>陳雯</li>
+                                <li>陳心萌</li>
+                                <li>陳婉蓉</li>
+                                <li>晨香凝</li>
+                                <li>初奧琳</li>
+                                <li>崔晶</li>
+                                <li>崔玲玲</li>
+                                <li>崔月</li>
+                                <li>崔滿</li>
+                            </ul>
+                        </li>
+                        <li>
+                            D
+                            <ul>
+                                <li>刁小娟</li>
+                                <li>丁卉</li>
+                                <li>丁忠怡</li>
+                                <li>董羽霖</li>
+                                <li>董卿霞</li>
+                                <li>杜冬雨</li>
+                                <li>杜怡如</li>
+                                <li>杜詩悅</li>
+                                <li>段冰</li>
+                                <li>多美婧</li>
+                            </ul>
+                        </li>
+                        <li>
+                            E
+                            <ul>
+                                <li>鄂曉紅</li>
+                            </ul>
+                        </li>
+                        <li>
+                            F
+                            <ul>
+                                <li>範曉潔</li>
+                                <li>方芳(學生)</li>
+                                <li>方芳(學院書記)</li>
+                                <li>方雨晴</li>
+                                <li>方詩語</li>
+                                <li>馮麗元</li>
+                                <li>馮忠慧</li>
+                                <li>傅亞東</li>
+                                <li>傅曉華</li>
+                                <li>傅雁琳</li>
+                            </ul>
+                        </li>
+                        <li>
+                            G
+                            <ul>
+                                <li>高悅</li>
+                                <li>高尚一</li>
+                                <li>高斯瑶</li>
+                                <li>顧頎</li>
+                                <li>管悅</li>
+                                <li>郭明潔</li>
+                                <li>郭榕</li>
+                                <li>甘增芹</li>
+                            </ul>
+                        </li>
+                        <li>
+                            H
+                            <ul>
+                                <li>韓紅玉</li>
+                                <li>韓雪</li>
+                                <li>郝璟萱</li>
+                                <li>何珍</li>
+                                <li>何晶</li>
+                                <li>何暢</li>
+                                <li>侯姍姍</li>
+                                <li>侯可鑫</li>
+                                <li>胡丹</li>
+                                <li>黃義文</li>
+                                <li>黃嘉琪</li>
+                                <li>黃鈺婷</li>
+                            </ul>
+                        </li>
+                        <li>I</li>
+                        <li>
+                            J
+                            <ul>
+                                <li>江鷗童</li>
+                                <li>江心怡</li>
+                                <li>姜楠</li>
+                                <li>姜莉莉</li>
+                                <li>姜智薇</li>
+                                <li>姜娜</li>
+                                <li>蔣佳恬</li>
+                                <li>金志蘭</li>
+                                <li>金羽鑫</li>
+                                <li>金笛</li>
+                                <li>靳琳琳</li>
+                                <li>靳蝶花</li>
+                            </ul>
+                        </li>
+                        <li>
+                            K
+                            <ul>
+                                <li>康慧</li>
+                                <li>孔德慧</li>
+                                <li>孔令琪</li>
+                            </ul>
+                        </li>
+                        <li>
+                            L
+                            <ul>
+                                <li>李婉蓉</li>
+                                <li>李志玲</li>
+                                <li>李夢冉</li>
+                                <li>李佳欣</li>
+                                <li>李明欣</li>
+                                <li>李淼</li>
+                                <li>李聖潔</li>
+                                <li>李嵐</li>
+                                <li>李冰芳</li>
+                                <li>李雙月</li>
+                                <li>李艾紋</li>
+                                <li>李夢雲</li>
+                                <li>李子婷</li>
+                                <li>李睿穎</li>
+                                <li>李佾寰</li>
+                                <li>李媛媛</li>
+                                <li>梁潔</li>
+                                <li>梁磊</li>
+                                <li>林蘇穎(軟件1509班帶班)</li>
+                                <li>劉洋</li>
+                                <li>劉蕊</li>
+                                <li>劉晶慧</li>
+                                <li>劉秀麗</li>
+                                <li>劉夕蕊</li>
+                                <li>劉星瑤</li>
+                                <li>劉陸</li>
+                                <li>劉文婷</li>
+                                <li>盧楠</li>
+                                <li>盧佳平</li>
+                                <li>蘆珺爽</li>
+                                <li>魯思琪</li>
+                                <li>魯玉</li>
+                                <li>魯雅欣</li>
+                                <li>羅婕妤</li>
+                                <li>駱林媛</li>
+                                <li>呂林淼</li>
+                                <li>呂沫</li>
+                            </ul>
+                        </li>
+                        <li>
+                            M
+                            <ul>
+                                <li>馬盛楠</li>
+                                <li>馬樹微</li>
+                                <li>馬天雨</li>
+                                <li>馬立曉</li>
+                                <li>馬雨薇</li>
+                                <li>梅琳</li>
+                                <li>孟秀琳</li>
+                                <li>孟慶玉</li>
+                                <li>宓雪</li>
+                            </ul>
+                        </li>
+                        <li>
+                            N
+                            <ul>
+                                <li>聶秀娟</li>
+                                <li>聶佳新</li>
+                                <li>甯寧</li>
+                                <li>甯甜甜</li>
+                                <li>牛米佳</li>
+                                <li>牛傲雪</li>
+                                <li>牛偉娜</li>
+                                <li>牛予迪</li>
+                                <li>諾敏</li>
+                            </ul>
+                        </li>
+                        <li>O</li>
+                        <li>
+                            P
+                            <ul>
+                                <li>盤詩婷</li>
+                                <li>彭冉</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Q
+                            <ul>
+                                <li>齊夢雅</li>
+                                <li>曲夢迪</li>
+                                <li>曲紫薇</li>
+                                <li>曲永嬌</li>
+                                <li>曲海月</li>
+                                <li>全秀文</li>
+                            </ul>
+                        </li>
+                        <li>
+                            R
+                            <ul>
+                                <li>任靜</li>
+                                <li>任希晶</li>
+                                <li>任淑霞</li>
+                            </ul>
+                        </li>
+                        <li>
+                            S
+                            <ul>
+                                <li>沙文文</li>
+                                <li>沙見雪</li>
+                                <li>邵海琳</li>
+                                <li>申嘉敏</li>
+                                <li>申志鉉</li>
+                                <li>師紅梅</li>
+                                <li>石淑娟</li>
+                                <li>石佳</li>
+                                <li>宋萍</li>
+                                <li>宋寧寧</li>
+                                <li>宋晗英</li>
+                                <li>宋怡</li>
+                                <li>宋紅舫</li>
+                                <li>宋穎</li>
+                                <li>宋佳</li>
+                                <li>宋琳璇</li>
+                                <li>宋琳琳</li>
+                                <li>隨晶晶</li>
+                                <li>孫志霞</li>
+                                <li>孫雅琴</li>
+                                <li>孫思淼</li>
+                                <li>孫蘊奇</li>
+                                <li>孫姍姍</li>
+                                <li>孫小娜</li>
+                                <li>孫曉藝</li>
+                            </ul>
+                        </li>
+                        <li>
+                            T
+                            <ul>
+                                <li>譚晶</li>
+                                <li>湯敏</li>
+                                <li>田佩文</li>
+                                <li>田雪</li>
+                                <li>佟春玲</li>
+                                <li>佟雨</li>
+                            </ul>
+                        </li>
+                        <li>
+                            W
+                            <ul>
+                                <li>萬晶晶</li>
+                                <li>汪海清</li>
+                                <li>王雪多</li>
+                                <li>王麗</li>
+                                <li>王雪婷</li>
+                                <li>王天璠</li>
+                                <li>王喆</li>
+                                <li>王錫珍</li>
+                                <li>王淇</li>
+                                <li>王珂</li>
+                                <li>王寶瑩</li>
+                                <li>王琳</li>
+                                <li>王雪純</li>
+                                <li>王路娟</li>
+                                <li>王孟園</li>
+                                <li>王瑜</li>
+                                <li>王藝</li>
+                                <li>王雪</li>
+                                <li>王明遷</li>
+                                <li>魏金夢</li>
+                                <li>韋煥英</li>
+                                <li>沃妮</li>
+                                <li>吳芸倩</li>
+                                <li>吳雪娜</li>
+                                <li>吳艷麗</li>
+                                <li>吳爾璇</li>
+                                <li>吳貴琴</li>
+                                <li>吳楷鈺</li>
+                                <li>吳夢穎</li>
+                            </ul>
+                        </li>
+                        <li>X</li>
+                        <li>Y</li>
+                        <li>Z</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="../js/timeline/male-names-alphabet-map.js"></script>
+    <script src="../js/timeline/books-index.js"></script>
+    <script src="../js/timeline/names.js"></script>
+    <script src="../js/timeline/ajax.js"></script>
+    <script src="../js/timeline/search.js"></script>
+    <script>
+        function getAlias(name) {
+            name = name.split("(")[0];
+            for (const list of window.peoplesNames) {
+                const pureList = list.map(item => item.split(";")[0]);
+                if (pureList.includes(name)) {
+                    return {
+                        html: list.map(item => {
+                            if (item.split(";")[0] === name) {
+                                return "<span class=highlight-green onclick=searchKeywords(['" + item.split(";")[0] + "'])>" + item + "</span>";
+                            } else {
+                                return "<span class=has-outline onclick=searchKeywords(['" + item.split(";")[0] + "'])>" + item + "</span>";
+                            }
+                        }),
+                        pure: pureList
+                    };
+                }
+            }
+            return { html: [], pure: [name] };
+        }
+
+        const notFound = '<span class=highlight-red>Not Found</span>';
+        const maleList = document.getElementById("male-list");
+        for (const [key, names] of Object.entries(window.malePeopleNamesAlphabetMap)) {
+            const listItem = document.createElement("li");
+            const lines = names.map(name => {
+                const alias = getAlias(name);
+                const majorName = "<span onclick='searchKeywords(" + JSON.stringify(alias.pure) + ")'>" + name + "</span>";
+                return "<div>" + majorName + ": " + (alias.html.join(",") || notFound) + "</div>";
+            });
+            listItem.innerHTML = "<div>" + key + "</div><ul><li>" + lines.join("</li><li>") + "</li></ul>";
+            maleList.append(listItem);
+        }
+    </script>
+</body>
+
+</html>
