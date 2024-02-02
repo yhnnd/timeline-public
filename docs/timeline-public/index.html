@@ -138,6 +138,38 @@
                         <li><a href="index-alias.html">Index of Alias (別名索引)</a></li>
                     </ul>
                 </li>
+                <li>
+                    新版
+                    <ul>
+                        <li><a href="../demo/index.html">Demo Website</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col">
+            <div class="w-fit-content rounded-circle img-thumbnail" id="web-browser-logo" style="margin: 1rem;"></div>
+            <div style="margin: 1rem;">
+                <div data-inner-text="window.navigator.userAgent"></div>
+            </div>
+            <div style="margin: 1rem;display: flex;justify-content: space-between;">
+                Operating System:
+                <span class="highlight-green" data-inner-text="window.navigator.platform"></span>
+            </div>
+            <div style="margin: 1rem;display: flex;justify-content: space-between;">
+                最新的文章:
+                <span class="highlight-green" data-inner-html="getLatestArticleLink()"></span>
+            </div>
+            <script>
+                function getLatestArticleLink() {
+                    const url = "book-reader.html?src=" + deepCopy(window.books).pop().indexList.pop();
+                    const bookName = "<span>" + deepCopy(bookNames).pop() + "</span>";
+                    const articleTitle = "<span class='badge' onclick='openFile(" + JSON.stringify(url) + ")'>" + url.split("/").pop() + "</span>";
+                    return "<span>" + bookName + "&nbsp;/&nbsp;" + articleTitle + "</span>";
+                }
+            </script>
+        </div>
+        <div class="col">
+            <ul>
                 <li class="settings">
                     設置
                     <ul>

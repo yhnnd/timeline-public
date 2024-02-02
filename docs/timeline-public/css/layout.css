@@ -11,6 +11,10 @@
     border: 1px dashed yellowgreen;
 }
 
+.row.single-col>.col:not(:nth-child(1)) {
+    border-top: none;
+}
+
 .row.double-col {
     display: flex;
     align-items: start;
@@ -97,5 +101,24 @@ pre del * {
     padding: 4px 8px;
     border-radius: 8px;
     background-color: white;
+    cursor: pointer;
+}
+
+.w-fit-content {
+    width: fit-content;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+}
+
+.img-thumbnail {
+    padding: 0.25rem !important;
+    font-size: 0;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    max-width: 100%;
+    height: auto;
     cursor: pointer;
 }
