@@ -393,6 +393,7 @@ window.books[15].indexList = [
 
 window.books[16] = {};
 window.books[16].indexList = [
+    "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2023.03.18.txt"
 ];
 
 window.books[17] = {};
@@ -405,4 +406,5 @@ window.books[17].indexList = [
     "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.01.21.txt",
     "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.01.27.txt",
     "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.01.31.txt",
+    "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.02.02.txt",
 ];
