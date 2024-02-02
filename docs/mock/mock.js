@@ -2,6 +2,9 @@ class Mock {
     constructor() {
         this.callbacks = {};
         this.origin = "https://raw.githubusercontent.com/yhnnd/wecard/master/src/main/resources/static/mock/";
+        if (window.location.href.startsWith("http://localhost:")) {
+            this.origin = "mock/";
+        }
         this.data = new Proxy({}, {
             "set": function (target, key, value) {
                 target[key] = value;
