@@ -40,3 +40,24 @@ pre .name-link:hover::before {
     top: -18px;
     width: 160px;
 }
+
+body[data-value-of-enable-hover-show-line-info="true"] pre [data-line-number]:not(:has([data-line-number]:hover)):hover {
+    background-color: lightgoldenrodyellow;
+    outline: 1px dashed black;
+    position: relative;
+}
+
+body[data-value-of-enable-hover-show-line-info="true"] pre [data-line-number]:not(:has([data-line-number]:hover)):hover::before {
+    content: attr(class) ' ' attr(data-line-number);
+    position: absolute;
+    left: -230px;
+    width: 200px;
+    padding-right: 4px;
+    height: 100%;
+    display: block;
+    border-top: 1px dashed black;
+    border-right: 1px dashed black;
+    border-bottom: 1px dashed black;
+    text-align: right;
+    background: linear-gradient(to right, white, lightyellow);
+}

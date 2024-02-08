@@ -28,7 +28,7 @@ if (src != undefined) {
         responseText = responseText.replaceAll('@command("delete-start")', "<del>");
         responseText = responseText.replaceAll('@command("delete-end")', "</del>");
         responseText = responseText.replaceAll('@command("border-start")', "<div class='has-border'>");
-        responseText = responseText.replaceAll('@command("border-end")', "<br></div>");
+        responseText = responseText.replaceAll('@command("border-end")', "\n</div>");
 
         if (localStorage.getItem("enable-highlight-red") === "true") {
             // highlight all the symbols like ①, ②, ③.
@@ -69,6 +69,20 @@ if (src != undefined) {
                     }
                 }
             }
+        }
+
+        if (localStorage.getItem("enable-line-split") === "true") {
+            let lineNumber = 0;
+            responseText = responseText.split("\n").map(line => {
+                if (line === "<div class='has-border'>") {
+                    return "<div class='has-border' data-line-number='" + (lineNumber++) + "'><div class='empty-line' data-line-number='" + (lineNumber++) + "'><br></div>";
+                } else if (line === "</div>") {
+                    return line;
+                } else if (line === '') {
+                    return "<div class='empty-line' data-line-number='" + (lineNumber++) + "'><br></div>";
+                }
+                return "<div class='line' data-line-number='" + (lineNumber++) + "'>" + line + "</div>";
+            }).join("");
         }
 
         const pre = document.getElementsByClassName("container")[0].getElementsByTagName("pre")[0];
