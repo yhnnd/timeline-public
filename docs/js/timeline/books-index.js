@@ -399,7 +399,8 @@ window.books[16].indexList = [
     "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2023.10.20.txt",
     "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2023.10.25.txt",
     "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2023.12.04.txt",
-    "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2023.12.13.txt"
+    "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2023.12.13.txt",
+    "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2024.02.11.txt"
 ];
 
 window.books[17] = {};

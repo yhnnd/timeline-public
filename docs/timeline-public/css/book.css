@@ -78,7 +78,7 @@
     color: white;
     text-align: left;
     content: attr(data-folder);
-    overflow: scroll;
+    overflow: hidden;
 }
 
 .index-wrapper>.item>.cover::after {
@@ -95,7 +95,7 @@
     color: white;
     text-align: right;
     content: attr(data-filename);
-    overflow: scroll;
+    overflow: hidden;
 }
 
 .index-wrapper>.item>iframe {
