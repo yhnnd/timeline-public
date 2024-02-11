@@ -1,0 +1,4 @@
+@command("enable-image-recognition")
+2023/08/16
+page 1
+<img src="../wangzhen/from-wangzhen/2023.08.16.jpg">

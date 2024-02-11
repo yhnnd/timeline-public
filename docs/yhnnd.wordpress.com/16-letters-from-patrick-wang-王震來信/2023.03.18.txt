@@ -1,3 +1,4 @@
+@command("enable-image-recognition")
 2023/03/18
 page 1
 
@@ -23,6 +24,7 @@ page 1
 不知道该如何排列组合大脑中识得的几千个汉字。修辞
 为何物我差不多忘掉了。
     多可怕。我说一个学过如何写字的人竟将看家本领
+<img src="../wangzhen/from-wangzhen/2023.03.16.01.jpg">
 
 
 page 2
@@ -35,3 +37,12 @@ page 2
 那么地恐惧，恐惧我的人生还没等到出彩时刻，就像卡
 住齿轮的钟，一动不动了。我很喜欢你形容刘夕蕊的一
 段话，讲“人一辈子至少要发一次光的”，否则，我们来到
+<img src="../wangzhen/from-wangzhen/2023.03.16.02.jpg">
+
+
+page 3
+<img src="../wangzhen/from-wangzhen/2023.03.16.03.jpg">
+
+
+page 4
+<img src="../wangzhen/from-wangzhen/2023.03.18.jpg">

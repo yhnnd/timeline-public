@@ -23,7 +23,25 @@ if (src != undefined) {
             }).join("\n");
         }(responseText);
 
+        if (localStorage.getItem("enable-img-recognition") === "true" || responseText.includes("@command(\"enable-image-recognition\")")) {
+            responseText = responseText.split("\n").map(line => {
+                if (line.startsWith("<img ") && line.endsWith(">")) {
+                    return "@image " + line;
+                }
+                return line;
+            }).join("\n");
+        }
+
         responseText = responseText.replaceAll("<", "&lt;");
+
+        if (localStorage.getItem("enable-img-recognition") === "true" || responseText.includes("@command(\"enable-image-recognition\")")) {
+            responseText = responseText.split("\n").map(line => {
+                if (line.startsWith("@image &lt;img ") && line.endsWith(">")) {
+                    return line.replace("@image &lt;img ", "<img style='width:100%;' ");
+                }
+                return line;
+            }).join("\n");
+        }
 
         responseText = responseText.replaceAll('@command("delete-start")', "<del>");
         responseText = responseText.replaceAll('@command("delete-end")', "</del>");

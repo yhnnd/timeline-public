@@ -15,3 +15,129 @@ protege /n./@門徒;/n./@门生;
 我一個人在西安高新區萬家燈火小區的單間裏看 bilibili 上美國總統 Trump 今年競選總統的影片和電腦遊戲 Quake（雷神之鎚）的影片。
 我坐在床上觀看電影《奧本海默》的時候，李俊給我打微信電話拜年，我跟他聊了電影《奧本海默》和我從 YouTube 上發現的粉絲製作的這部電影的正序版。我和李俊聊了我製作的網站《我的回憶錄》。李俊問我有沒有在網站上寫什麼政治敏感的內容，我說沒有。李俊問我有沒有貼春聯，我說我沒有貼。李俊瀏覽我的網站，看到了前幾天我上傳的可信認證考試的編程題以及我在2019年所寫的小說《鳳凰古君書》。
 現在我住的地方可以聽見外面放炮仗的轟隆隆的聲音連綿不絕，就像在打仗一樣。我看了一眼時間，現在已經過了半夜十二點了。春節到來了。
+
+
+@command("enable-image-recognition")
+
+Albert Einstein
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/albert_einstein/albert-1.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/albert_einstein/albert-2.png">
+
+Boris Pash
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/boris_pash/pash-1.png">
+
+David Hill
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/david_hill/hill-1.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/david_hill/hill-2.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/david_hill/hill-3.png">
+
+Edward Teller
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/edward_teller/teller-1.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/edward_teller/teller-2.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/edward_teller/teller-3.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/edward_teller/teller-4.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/edward_teller/teller-5.png">
+
+Enrico Fermi
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/enrico_fermi/fermi-1.png">
+
+Ernest Lawrence
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/ernest_lawrence/lawrence-1.png">
+
+Flora Nolan
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/flora_nolan/nolan-1.png">
+
+Frank Oppenheimer
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/frank_oppenheimer/frank-1.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/frank_oppenheimer/frank-2.png">
+
+Leslie Groves
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/groves/groves-1.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/groves/groves-2.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/groves/groves-3.png">
+
+Haakon Chevalier
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/haakon_chevalier/chevalier-1.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/haakon_chevalier/chevalier-2.png">
+
+Hans Bethe
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/hans_bethe/hans-1.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/hans_bethe/hans-2.png">
+
+Henry Stimson
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/henry_stimson/stimson-1.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/henry_stimson/stimson-2.png">
+
+James Byrnes
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/james_byrnes/byrnes-1.png">
+
+Jean Tatlock
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/jean_tatlock/jean-1.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/jean_tatlock/jean-2.png">
+
+George Kistiakowsky
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/kistiakowsky/kistiakowsky-1.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/kistiakowsky/kistiakowsky-2.png">
+
+Kitty Oppenheimer
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/kitty_oppenheimer/kitty-1.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/kitty_oppenheimer/kitty-2.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/kitty_oppenheimer/kitty-3.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/kitty_oppenheimer/kitty-4.png">
+
+Klaus Fuchs
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/klaus_fuchs/fuchs-1.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/klaus_fuchs/fuchs-2.png">
+
+Leo Szilard
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/leo_szilard/szilard-1.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/leo_szilard/szilard-2.png">
+
+Lloyd Garrison
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/lloyd_garrison/garrison-1.png">
+
+Kenneth Nichols
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/nichols/nichols-1.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/nichols/nichols-2.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/nichols/nichols-3.png">
+
+Niels Bohr
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/niels_bohr/bohr-1.png">
+
+Isador Rabi
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/rabi/rabi-1.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/rabi/rabi-2.png">
+
+Richard Tolman
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/richard_tolman/richard-1.png">
+
+Robert Oppenheimer
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/robert_oppenheimer/robert-1.png">
+
+Roger Robb
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/roger_robb/robb-1.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/roger_robb/robb-2.png">
+
+Rossi Lomanitz
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/rossi_lomanitz/lomanitz-1.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/rossi_lomanitz/lomanitz-2.png">
+
+Thomas Morgan
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/thomas_morgan/morgan-1.png">
+
+Vannevar Bush
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/vannevar_bush/bush-1.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/vannevar_bush/bush-2.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/vannevar_bush/bush-3.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/vannevar_bush/bush-4.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/vannevar_bush/bush-5.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/vannevar_bush/bush-6.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/vannevar_bush/bush-7.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/vannevar_bush/bush-8.png">
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/vannevar_bush/bush-9.png">
+
+Werner Heisenberg
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/werner_heisenberg/heisenberg-1.png">
+
+William Borden
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/oppenheimer-2023/william_borden/borden-1.png">
