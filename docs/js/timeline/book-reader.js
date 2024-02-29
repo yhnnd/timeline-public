@@ -111,7 +111,7 @@ if (src != undefined) {
             pre.prepend(function () {
                 const title = document.createElement("div");
                 title.style.color = "var(--studio-purple-50)";
-                title.style.width = "100vw";
+                title.style.width = "min(100vw, calc(512px + (100vw - 512px) / 2))";
                 title.innerHTML = "<span class='badge'>" + getParameter("src").split("/").slice(1).join("</span>&nbsp;/&nbsp;<span class='badge'>") + "</span>";
                 return title;
             }());
