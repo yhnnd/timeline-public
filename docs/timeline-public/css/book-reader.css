@@ -62,7 +62,17 @@ body[data-value-of-enable-hover-show-line-info="true"] pre [data-line-number]:no
     background: linear-gradient(to right, white, lightyellow);
 }
 
-body[data-value-of-enable-line-width-800px="true"] pre .line,
-body[data-value-of-enable-line-width-800px="true"] pre .empty-line {
-    width: 800px;
+body[data-value-of-enable-line-width-560px="true"] pre .line,
+body[data-value-of-enable-line-width-560px="true"] pre .empty-line {
+    width: 560px;
+}
+
+body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"] pre .line,
+body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"] pre .empty-line {
+    width: 608px;
+}
+
+body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"][data-value-of-enable-line-width-656px="true"] pre .line,
+body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"][data-value-of-enable-line-width-656px="true"] pre .empty-line {
+    width: 656px;
 }

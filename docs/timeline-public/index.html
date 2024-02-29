@@ -270,17 +270,39 @@
                             </div>
                         </li>
 <style>
+.hidden-when-line-split-is-disabled {
+    background: linear-gradient(to right, lightyellow, yellow);
+}
 body[data-value-of-enable-line-split="false"] .hidden-when-line-split-is-disabled {
     display: none;
 }
-.hidden-when-line-split-is-disabled {
-    background: linear-gradient(to right, lightyellow, yellow);
+body[data-value-of-enable-line-width-560px="false"] .hidden-when-line-width-560px-is-disabled {
+    display: none;
+}
+body[data-value-of-enable-line-width-608px="false"] .hidden-when-line-width-608px-is-disabled {
+    display: none;
 }
 </style>
                         <li class="hidden-when-line-split-is-disabled">
                             <div style="display: flex; align-items: center; gap: 1rem;">
-                                <div>Enable Line Width 800px</div>
-                                <div class="ios-button" data-key="enable-line-width-800px">
+                                <div>Enable Line Width 560px</div>
+                                <div class="ios-button" data-key="enable-line-width-560px">
+                                    <div class="ios-button-circle"></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="hidden-when-line-split-is-disabled hidden-when-line-width-560px-is-disabled">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div>Enable Line Width 608px</div>
+                                <div class="ios-button" data-key="enable-line-width-608px">
+                                    <div class="ios-button-circle"></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="hidden-when-line-split-is-disabled hidden-when-line-width-560px-is-disabled hidden-when-line-width-608px-is-disabled">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div>Enable Line Width 656px</div>
+                                <div class="ios-button" data-key="enable-line-width-656px">
                                     <div class="ios-button-circle"></div>
                                 </div>
                             </div>
