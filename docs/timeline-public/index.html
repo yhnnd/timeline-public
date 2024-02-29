@@ -261,10 +261,26 @@
                                 </div>
                             </div>
                         </li>
-                        <li>
+                        <li class="hidden-when-line-split-is-disabled">
                             <div style="display: flex; align-items: center; gap: 1rem;">
                                 <div>Enable Hover Show Line Info</div>
                                 <div class="ios-button" data-key="enable-hover-show-line-info">
+                                    <div class="ios-button-circle"></div>
+                                </div>
+                            </div>
+                        </li>
+<style>
+body[data-value-of-enable-line-split="false"] .hidden-when-line-split-is-disabled {
+    display: none;
+}
+.hidden-when-line-split-is-disabled {
+    background: linear-gradient(to right, lightyellow, yellow);
+}
+</style>
+                        <li class="hidden-when-line-split-is-disabled">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div>Enable Line Width 800px</div>
+                                <div class="ios-button" data-key="enable-line-width-800px">
                                     <div class="ios-button-circle"></div>
                                 </div>
                             </div>

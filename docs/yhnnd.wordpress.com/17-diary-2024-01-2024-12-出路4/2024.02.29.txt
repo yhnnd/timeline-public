@@ -1,0 +1,154 @@
+// Timer System
+
+let n = 0, sysTime = 0, period = [], time = [], flag = [];
+
+function timerSystem(s) {
+  n = s.length;
+  sysTime = 0;
+  period = s;
+  for (let i = 0; i < n; ++i) {
+    time[i] = 0;
+    flag[i] = false;
+  }
+}
+
+function runSystem(endTime) {
+  let str = '';
+  for (; sysTime < endTime;) {
+    ++sysTime;
+    for (let i = 0; i < n; ++i) {
+      if (flag[i]) {
+        ++time[i];
+        if (time[i] % period[i] === 0) {
+          if (str) {
+            str += ' ';
+          }
+          str += JSON.stringify([sysTime, i]);
+        }
+      }
+    }
+  }
+  return str;
+}
+
+function timerStart (i) {
+  time[i] = 0;
+  flag[i] = true;
+}
+
+function timerStop (i) {
+  flag[i] = false;
+}
+
+
+
+timerSystem([3, 5])
+timerStart(0)
+timerStart(1)
+runSystem(10)
+
+[3, 0] [5, 1] [6, 0] [9, 0] [10, 1]
+
+timerStop(0)
+runSystem(20)
+
+[15, 1] [20, 1]
+
+timerStart(0)
+runSystem(25)
+
+[23, 0] [25, 1]
+
+
+
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+
+0 1 2 3 4 5 6 7 8 9 10                                1  2  3  4  5
+      0     0     0  X  -  -  -  -  -  -  -  -  -  -        0      
+
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+          1          1              1              1              1
+
+
+
+
+// Steps
+
+1 2 3 4 5 6 7 8
+a[n + 1] = a[n] + 1
+
+a[0] = 1    index[1] = 0      steps[n] = abs(index[n] - index[n - 1])
+a[1] = 5    index[5] = 1      n from 2 to 8
+a[2] = 2    index[2] = 2
+a[3] = 7    index[7] = 3
+a[4] = 8    index[8] = 4
+a[5] = 4    index[4] = 5
+a[6] = 6    index[6] = 6
+a[7] = 3    index[3] = 7
+
+1 5 2 7 8 4 6 3     steps
+* ->2                 2 abs( 2 - 0 )
+    *    ->   3       5 abs( 7 - 2 )
+          4<- *       2 abs( 5 - 7 )
+  5 <-    *           4 abs( 1 - 5 )
+  *      -> 6         5 abs( 6 - 1 )
+      7 <-  *         3 abs( 3 - 6 )
+      ->8             1 abs( 4 - 3 )
+
+0 1 2 3 4 5 6 7
+
+index[1] = 0      steps[n] = abs(index[n] - index[n - 1])
+index[2] = 2      n from 2 to 8
+index[3] = 7
+index[4] = 5
+index[5] = 1
+index[6] = 6
+index[7] = 3
+index[8] = 4
+
+const a = [1, 5, 2, 7, 8, 4, 6, 3];
+let index = [], m = 0;
+for (let i = 0; i < a.length; ++i) {
+    index[ a[i] ] = i;
+}
+for (let i = 2; i < index.length; ++i) {
+    m += Math.abs(index[i] - index[i - 1]);
+}
+
+
+
+// Load Balancer
+
+10 +-------+-------+-------+
+ 9 |-------|       |       |
+ 8 |       |       |       |
+ 7 |   B   |-------|       |
+ 6 |       |       |-------|
+ 5 |-------|       |   E   |
+ 4 |       |   C   |       |
+ 3 |   A   |       |-------|
+ 2 |       |       |   D   |
+ 1 |       |       |       |
+ 0 +-------+-------+-------+
+
+fiberNum = 3
+requests = [5, 4, 7, 3, 3]
+            A  B  C  D  E
+
+A.size = 5
+B.size = 4
+C.size = 7
+D.size = 3
+E.size = 3
+
+10 +-------+-------+-------+
+ 9 |       |       |       |
+ 8 |-------|       |       |
+ 7 |   E   |-------|-------|
+ 6 |       |       |       |
+ 5 |-------|       |   B   |
+ 4 |       |   C   |       |
+ 3 |   A   |       |-------|
+ 2 |       |       |   D   |
+ 1 |       |       |       |
+ 0 +-------+-------+-------+
