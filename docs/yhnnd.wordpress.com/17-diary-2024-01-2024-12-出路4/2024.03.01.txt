@@ -1,0 +1,52 @@
+const fiberCapacity = 100;
+const fiberNum = 3;
+const connections = [100, 50, 30, 40, 20, 11, 1];
+
+function iterate (s, level, maxlevel, solutions) {
+    if (level < maxlevel) {
+        for (let i = 0; i < fiberNum; ++i) {
+            s[ level ] = i;
+            iterate (s, level + 1, maxlevel, solutions);
+        }
+    } else {
+        solutions.push(JSON.parse(JSON.stringify(s)));
+    }
+}
+
+function generateSolutions () {
+    const solutions = [];
+    s = [];
+    iterate(s, 0, connections.length, solutions);
+    return solutions;
+}
+
+function calculate(solutions) {
+    const v = [];
+    let bestDelta = undefined, bestS = [], bestV = [];
+    for (const s of solutions) {
+        for (let i = 0; i < fiberNum; ++i) {
+            v[i] = 0;
+        }
+        for (let i = 0; i < s.length; ++i) {
+            v [ s[i] ] += connections[i];
+        }
+        const min = Math.min(...v), max = Math.max(...v);
+        if (max > fiberCapacity) {
+            continue;
+        }
+        const delta = max - min;
+        if (bestDelta === undefined || delta < bestDelta) {
+            bestDelta = delta;
+            bestS = JSON.parse(JSON.stringify(s));
+            bestV = JSON.parse(JSON.stringify(v));
+        }
+    }
+    return {
+        bestDelta,
+        bestS,
+        bestV
+    };
+}
+
+const solutions = generateSolutions();
+calculate(solutions);
