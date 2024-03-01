@@ -132,8 +132,8 @@ for (let i = 2; i < index.length; ++i) {
  0 +-------+-------+-------+
 
 fiberNum = 3
-requests = [5, 4, 7, 3, 3]
-            A  B  C  D  E
+connections = [5, 4, 7, 3, 3]
+               A  B  C  D  E
 
 A.size = 5
 B.size = 4
