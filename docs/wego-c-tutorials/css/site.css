@@ -1,0 +1,226 @@
+/* index.html */
+button,
+[onclick],
+[data-toggle] {
+    cursor: pointer;
+}
+
+.br-0 {
+    border-radius: 0;
+}
+
+/* index.html */
+.badge-wrapper {
+    position: absolute;
+    margin-top: -1.5px;
+    margin-left: .5rem;
+}
+
+/* console.css */
+.hidden {
+    opacity: 0;
+}
+
+.console {
+    background: black;
+}
+
+.console pre {
+    color: white;
+    margin-bottom: 0;
+}
+
+.console pre [data-type="input"] {
+    color: lightgreen;
+}
+
+.console pre [data-type="input-spaces"] {
+    color: lightgreen;
+}
+
+/* console input blinking cursor */
+.console pre .has-blinking-cursor {
+  position: relative;
+  display: inline-block;
+}
+
+.console pre .has-blinking-cursor::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -.75rem;
+  /* Remove display: inline-block if not required to be on the same line as text etc */
+  display: inline-block;
+  background-color: lightgray;
+  vertical-align: top;
+  width: 10px;
+  /* Set height to the line height of .text */
+  height: 24px;
+  /* 
+  Animation paramaters:
+  blink = animation-name, 
+  1s = animation-duration, 
+  step-end = animation-timing-function,
+  infinite = animation-iteration-count
+  */
+  -webkit-animation: blink 1s step-end infinite;
+  animation: blink 1s step-end infinite;
+}
+
+@-webkit-keyframes blink {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@keyframes blink {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+/* width.css */
+@media (max-width: 576px) {
+    .w-xs-25 {
+        width: 25%;
+    }
+    .w-xs-50 {
+        width: 50%;
+    }
+    .w-xs-75 {
+        width: 75%;
+    }
+}
+@media (min-width: 576px) {
+    .w-sm-25 {
+        width: 25%;
+    }
+    .w-sm-50 {
+        width: 50%;
+    }
+    .w-sm-75 {
+        width: 75%;
+    }
+}
+@media (min-width: 768px) {
+    .w-md-25 {
+        width: 25%;
+    }
+    .w-md-50 {
+        width: 50%;
+    }
+    .w-md-75 {
+        width: 75%;
+    }
+}
+@media (min-width: 992px) {
+    .w-lg-25 {
+        width: 25%;
+    }
+    .w-lg-50 {
+        width: 50%;
+    }
+    .w-lg-75 {
+        width: 75%;
+    }
+}
+
+/* comment.css */
+.comment-bubble {
+    display: inline-block;
+    word-wrap: break-word;
+    min-width: 40px;
+    margin-top: .25rem;
+    border-radius: 2px;
+    padding: 7px;
+    box-shadow: 0 0 1px rgb(37, 40, 48);
+}
+@media (max-width: 576px) {
+    .comment-bubble {
+        max-width: 100%;
+    }
+}
+@media (min-width: 576px) {
+    .comment-bubble {
+        max-width: 90%;
+    }
+}
+@media (min-width: 768px) {
+    .comment-bubble {
+        max-width: 80%;
+    }
+}
+@media (min-width: 992px) {
+    .comment-bubble {
+        max-width: 75%;
+    }
+}
+@media (min-width: 1200px) {
+    .comment-bubble {
+        max-width: 50%;
+    }
+}
+
+
+/* popover */
+.popover {
+    max-width: 400px!important;
+}
+
+@media (max-width: 1400px) {
+    .popover {
+        background: transparent;
+    }
+    .popover:hover {
+        background: white;
+    }
+    .popover .arrow::before {
+        border-top-color: transparent!important;
+        border-bottom-color: transparent!important;
+        border-left-color: transparent!important;
+        border-right-color: transparent!important;
+    }
+    .popover .arrow::after {
+        border-top-color: transparent!important;
+        border-bottom-color: transparent!important;
+        border-left-color: transparent!important;
+        border-right-color: transparent!important;
+    }
+    .popover.bs-popover-top:hover .arrow::before {
+        border-top-color: rgba(0,0,0,.25)!important;
+    }
+    .popover.bs-popover-top:hover .arrow::after {
+        border-top-color: #fff!important;
+    }
+    .popover.bs-popover-bottom:hover .arrow::before {
+        border-bottom-color: rgba(0,0,0,.25)!important;
+    }
+    .popover.bs-popover-bottom:hover .arrow::after {
+        border-bottom-color: #fff!important;
+    }
+    .popover.bs-popover-left:hover .arrow::before {
+        border-left-color: rgba(0,0,0,.25)!important;
+    }
+    .popover.bs-popover-left:hover .arrow::after {
+        border-left-color: #fff!important;
+    }
+    .popover.bs-popover-right:hover .arrow::before {
+        border-right-color: rgba(0,0,0,.25)!important;
+    }
+    .popover.bs-popover-right:hover .arrow::after {
+        border-right-color: #fff!important;
+    }
+    .popover .popover-header,
+    .popover .popover-body {
+        background: transparent;
+        opacity: 0!important;
+        transition: inherit;
+    }
+    .popover:hover .popover-header,
+    .popover:hover .popover-body {
+        opacity: 1!important;
+    }
+    .popover .popover-header {
+        background: transparent;
+    }
+}

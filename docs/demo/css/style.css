@@ -203,7 +203,7 @@ button.close:hover {
     background-color: #d7b119;
 }
 
-.navbar {
+.global-navbar {
     background: rgba(0, 0, 0, 0.77);
     overflow-x: auto;
     overflow-y: hidden;
@@ -223,7 +223,7 @@ button.close:hover {
     padding-bottom: 0.5rem !important;
 }
 
-.navbar button {
+.global-navbar button {
     display: inline-block;
     font-weight: 400;
     text-align: center;
@@ -240,16 +240,16 @@ button.close:hover {
     border-color: #007bff;
 }
 
-.navbar button:hover {
+.global-navbar button:hover {
     color: #fff;
     background-color: #0069d9;
     border-color: #0062cc;
     text-decoration: none;
 }
 
-body[is-iframe] .navbar,
+body[is-iframe] .global-navbar,
 body[is-iframe] .fake-navbar,
-body[data-value-of-enable-navbar="false"] .navbar,
+body[data-value-of-enable-navbar="false"] .global-navbar,
 body[data-value-of-enable-navbar="false"] .fake-navbar {
     display: none;
 }

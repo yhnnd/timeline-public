@@ -1,0 +1,55 @@
+div.db-info{
+    font-weight: bolder;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 2px;
+}
+
+div.Form {
+    height: 260px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding-top: 40px;
+    background: -webkit-linear-gradient(#000066, #3333ff, #ccffff);
+    background: -moz-linear-gradient(#000066, #3333ff, #ccffff);
+    background: -o-linear-gradient(#000066, #3333ff, #ccffff);
+    background: linear-gradient(#000066, #3333ff, #ccffff);
+    filter: blur(1px);
+}
+
+div.Middle{
+    height: 50px;
+    margin: 0px;
+    background: -webkit-linear-gradient(#ccffff, #ffffff);
+    background: -moz-linear-gradient(#ccffff, #ffffff);
+    background: -o-linear-gradient(#ccffff, #ffffff);
+    background: linear-gradient(#ccffff, #ffffff);
+    filter: blur(10px);
+}
+div.Footer{
+    height: 100px;
+    background: -webkit-linear-gradient(#ffffff, #ff8020);
+    background: -moz-linear-gradient(#ffffff, #ff8020);
+    background: -o-linear-gradient(#ffffff, #ff8020);
+    background: linear-gradient(#ffffff, #ff8020);
+    filter: blur(1px);
+
+}
+div.table-background{
+    padding:40px;
+    position:relative;
+    top:-430px;
+    background-color: rgba(255,255,255,0.2);
+}
+div.FormLine {
+    height: 30px;
+    width: 320px;
+    text-align: center;
+}
+
+table.db-table > thead > tr > th.center,
+table.db-table > tbody > tr > td,
+input.row-input {
+    text-align: center;
+}

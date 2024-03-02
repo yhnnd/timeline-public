@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Card Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+<div class="container">
+    <div class="card-field">
+    </div>
+</div>
+<script src="js/vendor/jquery.min.js"></script>
+<script src="js/vendor/tether.min.js"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/get_web_root.js"></script>
+<script src="js/parse_param.js"></script>
+<script src="js/append_modal.js"></script>
+<script src="js/is_mobile.js"></script>
+<script src="js/loading_icon.js"></script>
+<script src="js/settings/advanced/system_language.js"></script>
+<!--点击头像发起私聊-->
+<script src="js/user/get_user_by_userid.js"></script>
+<script src="js/friend/get_room_by_friend_id.js"></script>
+<script src="js/chat/private_chat.js"></script>
+<!--显示卡片-->
+<script src="js/file/file_upload.js"></script>
+<script src="js/card/append_article.js"></script>
+<script src="js/card/append_image.js"></script>
+<script>
+    function getParameter(name) {
+        let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        let r = window.location.search.substr(1).match(reg);
+        if (r) return decodeURIComponent(r[2]);
+        return null;
+    }
+
+    let card_id = getParameter("card-id");
+    let user_id = getParameter("user-id");
+    let session_id = getParameter("session-id");
+    if (card_id && user_id) {
+        $.getJSON("card", {
+            "card-id": card_id,
+            "user-id": user_id,
+            "session-id": session_id
+        }, function (card) {
+            switch (card["card-type"]) {
+                case "article":
+                    append_card_article(card);
+                    break;
+                case "image":
+                    append_card_image(card);
+                    break;
+            }
+            change_system_language(localStorage.getItem("application-language"));
+        });
+    } else {
+        appendModal("bg-danger text-white", "text-danger", "Warning", "please log in first");
+    }
+</script>
+</body>
+</html>

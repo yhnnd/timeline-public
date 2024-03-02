@@ -1,0 +1,22 @@
+<p class="card-text">Personal Homepage</p>
+<p class="username-field">
+    <span>username</span>
+    <span class="value"></span>
+</p>
+<p class="user-id-field">
+    <span>user id</span>
+    <span class="value"></span>
+</p>
+<script>
+    $(".username-field > .value").text(
+        JSON.parse($(".username-field").parent().data('user'))8.username
+    )
+    $(".user-id-field > .value").text(
+        $(".user-id-field").parent().data('user-id')
+    )
+</script>
+<style scoped>
+    .value {
+        color: black;
+    }
+</style>

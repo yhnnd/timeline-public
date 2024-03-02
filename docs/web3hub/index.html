@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web 3 Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="../timeline-public/css/navbar.css">
+    <script src="../js/timeline/navbar.js"></script>
+</head>
+<body>
+    <div x-data="{tab: 'home'}">
+        <div class="flex flex-row px-6 bg-gray-800">
+            <div class="flex flex-col px-6 xl:px-12 py-4 text-white text-2xl hover:bg-gray-700 transition-all duration-300 cursor-pointer" x-on:click="tab = 'home'">
+                Home
+            </div>
+            <div class="flex flex-col px-6 xl:px-12 py-4 text-white text-2xl hover:bg-gray-700 transition-all duration-300 cursor-pointer" x-on:click="tab = 'docs'">
+                Docs
+            </div>
+            <div class="flex flex-col px-6 xl:px-12 py-4 text-white text-2xl hover:bg-gray-700 transition-all duration-300 cursor-pointer" x-on:click="tab = 'videos'">
+                Videos
+            </div>
+            <div class="flex flex-col px-6 xl:px-12 py-4 text-white text-2xl hover:bg-gray-700 transition-all duration-300 cursor-pointer" x-on:click="tab = 'blogs'">
+                Blogs
+            </div>
+            <div class="flex flex-col px-6 xl:px-12 py-4 text-white text-2xl hover:bg-gray-700 transition-all duration-300 cursor-pointer" x-on:click="tab = 'about'">
+                About
+            </div>
+        </div>
+
+
+
+        <div x-show="tab == 'home'">
+            <div class="px-24 py-16 bg-gradient-to-r from-sky-900 via-sky-700 to-sky-400">
+                <div class="text-white text-6xl">Web 3 Hub</div>
+                <p class="text-gray-300 text-2xl mt-2">On this site we share everything about Web3 and blockchain technology.</p>
+            </div>
+            <div class="container mx-auto py-6">
+                <article class="px-12">
+                    <h1 class="text-xl">Ethereum</h1>
+                    <ul class="mt-2 list-disc">
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://ethereum.org/en/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://ethereum.org/en/</span>
+                            </a>
+                        </li>
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://docs.soliditylang.org/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://docs.soliditylang.org/</span>
+                            </a>
+                        </li>
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://etherscan.io/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://etherscan.io/</span>
+                            </a>
+                        </li>
+                    </ul>
+                </article>
+                <article class="px-12 mt-6">
+                    <h1 class="text-xl">NFT Marketplace</h1>
+                    <ul class="mt-2 list-disc">
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://opensea.io/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://opensea.io/</span>
+                            </a>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+
+        
+        <div x-show="tab == 'docs'">
+            <div class="px-24 py-16 bg-gradient-to-r from-sky-700 via-sky-400 to-blue-800">
+                <div class="text-white text-6xl">Documents</div>
+                <p class="text-gray-300 text-2xl mt-2">On this site we share everything about Web3 and blockchain technology.</p>
+            </div>
+
+            <div class="container mx-auto py-6">
+                <article class="px-12">
+                    <h1 class="text-xl">Tools</h1>
+                    <ul class="mt-2 list-disc">
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://brew.sh/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://brew.sh/</span>
+                            </a>
+                        </li>
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://nuwen.net/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://nuwen.net/</span>
+                            </a>
+                        </li>
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://remix.ethereum.org/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://remix.ethereum.org/</span>
+                            </a>
+                        </li>
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://github.com/ethereum/remix-project" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://github.com/ethereum/remix-project</span>
+                            </a>
+                        </li>
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://remix-ide.readthedocs.io/en/latest/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://remix-ide.readthedocs.io/en/latest/</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </article>
+                <article class="px-12 mt-6">
+                    <h1 class="text-xl">De-Fi</h1>
+                    <ul class="mt-2 list-disc">
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://docs.desmolabs.org/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://docs.desmolabs.org/</span>
+                            </a>
+                        </li>
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://docs.defactor.com/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://docs.defactor.com/</span>
+                            </a>
+                        </li>
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://consensys.net/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://consensys.net/</span>
+                            </a>
+                        </li>
+                    </ul>
+                </article>
+                <article class="px-12 mt-6">
+                    <h1 class="text-xl">Front End</h1>
+                    <ul class="mt-2 list-disc">
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://alpinejs.dev/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://alpinejs.dev/</span>
+                            </a>
+                        </li>
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://tailwindcss.com/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://tailwindcss.com/</span>
+                            </a>
+                        </li>
+                    </ul>
+                </article>
+                <article class="px-12 mt-6">
+                    <h1 class="text-xl">C Language Programming</h1>
+                    <ul class="mt-2 list-disc">
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://celestial-learned-light.glitch.me/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://celestial-learned-light.glitch.me/</span>
+                            </a>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+
+
+        <div x-show="tab == 'videos'">
+            <div class="px-24 py-16 bg-gradient-to-r from-sky-400 via-blue-800 to-indigo-700">
+                <div class="text-white text-6xl">Videos</div>
+                <p class="text-gray-300 text-2xl mt-2">On this site we share everything about Web3 and blockchain technology.</p>
+            </div>
+
+            <div class="container mx-auto py-6 min-h-[20rem]">
+                <article class="px-12">
+                    <h1 class="text-xl">Videos</h1>
+                    <ul class="mt-2 list-disc">
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://www.youtube.com/@EthereumProtocol" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://www.youtube.com/@EthereumProtocol</span>
+                            </a>
+                        </li>
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://www.youtube.com/watch?v=dC2jgnYyfxU&list=PLGbw9rWAAIw0u3eThwbqCLJnYQsIrk-mI" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>Ethereum and Solidity The Complete Developers Guide</span>
+                            </a>
+                        </li>
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://www.youtube.com/watch?v=Wn_Kb3MR_cU" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>Build and Deploy a Modern Web 3.0 Blockchain App | Solidity, Smart Contracts, Crypto</span>
+                            </a>
+                        </li>
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://www.youtube.com/watch?v=BDCT6TYLYdI" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>Build and Deploy a Web3 Blockchain Crowdfunding Platform (Kickstarter)</span>
+                            </a>
+                        </li>
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://www.youtube.com/watch?v=gyMwXuJrbJQ" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>Learn Blockchain, Solidity, and Full Stack Web3 Development with JavaScript - 32-Hour Course</span>
+                            </a>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+
+
+        <div x-show="tab == 'blogs'">
+            <div class="px-24 py-16 bg-gradient-to-r from-blue-800 via-indigo-700 to-indigo-400">
+                <div class="text-white text-6xl pl-8">Blogs</div>
+                <p class="text-gray-300 text-2xl mt-2 pl-8">On this site we share everything about Web3 and blockchain technology.</p>
+            </div>
+
+            <div class="container mx-auto py-6">
+                <article class="px-12">
+                    <h1 class="text-xl">Personal Websites</h1>
+                    <ul class="mt-2 list-disc">
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://mxcl.dev/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://mxcl.dev/</span>
+                            </a>
+                        </li>
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://mikemcquaid.com/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://mikemcquaid.com/</span>
+                            </a>
+                        </li>
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://exomel.com/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://exomel.com/</span>
+                            </a>
+                        </li>
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://yhnnd.wordpress.com/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://yhnnd.wordpress.com/</span>
+                            </a>
+                        </li>
+                    </ul>
+                </article>
+                <article class="px-12 mt-6">
+                    <h1 class="text-xl">Interviews</h1>
+                    <ul class="mt-2 list-disc">
+                        <li class="ml-4 pl-2 pt-2">
+                            <a href="https://usesthis.com/" target="_blank" class="text-blue-600 hover:text-blue-500">
+                                <span>https://usesthis.com/</span>
+                            </a>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+
+        <div x-show="tab == 'about'">
+            <div class="px-24 py-16 bg-gradient-to-r from-indigo-700 via-indigo-400 to-sky-900">
+                <div class="text-white text-6xl">About Us</div>
+                <p class="text-gray-300 text-2xl mt-2">On this site we share everything about Web3 and blockchain technology.</p>
+            </div>
+            <div class="container mx-auto py-6">
+                <article class="flex flex-wrap pl-24 md:pl-12">
+                    <h1 class="w-full lg:w-48 text-2xl m-4">Contact Us</h1>
+                    <section class="w-full xl:w-1/2 m-4">
+                        <p class="text-xl py-3">
+                            <span>Web 3 Hub Community</span>
+                            <span class="text-md pt-2 pl-4">
+                                <sub>Founded in 2023</sub>
+                            </span>
+                        </p>
+                        <ul>
+                            <li class="mt-3">
+                                <span>Follow us on GitHub</span>
+                                <a class="text-blue-600 hover:text-blue-500" href="https://github.com/yhnnd" target="_blank">
+                                    <span>https://github.com/yhnnd</span>
+                                </a>
+                            </li>
+                            <li class="mt-3">
+                                <span>Follow us on Glitch</span>
+                                <a class="text-blue-600 hover:text-blue-500" href="https://glitch.com/@yhnnd" target="_blank">
+                                    <span>https://glitch.com/@yhnnd</span>
+                                </a>
+                            </li>
+                            <li class="mt-3">
+                                <span>Follow us on Observable</span>
+                                <a class="text-blue-600 hover:text-blue-500" href="https://observablehq.com/@yhnnd/" target="_blank">
+                                    <span>https://observablehq.com/@yhnnd/</span>
+                                </a>
+                            </li>
+                            <li class="mt-3">
+                                <span>Ethereum Account</span>
+                                <a class="text-blue-600 hover:text-blue-500" href="https://etherscan.io/address/0x2ef9eda24899f204e2be63feb7e0445b45d8989c" target="_blank">
+                                    <span>0x2Ef9edA24899F204E2Be63feB7E0445B45d8989c</span>
+                                </a>
+                            </li>
+                            <li class="mt-3">
+                                <span>Follow us on Tumblr</span>
+                                <a class="text-blue-600 hover:text-blue-500" href="https://www.tumblr.com/yhnnd" target="_blank">
+                                    <span>https://www.tumblr.com/yhnnd</span>
+                                </a>
+                            </li>
+                            <li class="mt-3">
+                                <span>Follow us on Mastodon</span>
+                                <a class="text-blue-600 hover:text-blue-500" href="https://mstdn.jp/@yhnnd" target="_blank">
+                                    <span>https://mstdn.jp/@yhnnd</span>
+                                </a>
+                            </li>
+                            <li class="mt-3">
+                                <span>Join us on Telegram</span>
+                                <a class="text-blue-600 hover:text-blue-500" href="https://t.me/+c66_5dJOYbZmOThl" target="_blank">
+                                    <span>https://t.me/+c66_5dJOYbZmOThl</span>
+                                </a>
+                            </li>
+                            <li class="mt-3">
+                                <span>Join us on Discord</span>
+                                <a class="text-blue-600 hover:text-blue-500" href="https://discord.gg/Kzv4pBa8" target="_blank">
+                                    <span>https://discord.gg/Kzv4pBa8</span>
+                                </a>
+                            </li>
+                            <li class="mt-3">
+                                <span>Email:</span>
+                                <span>yhnnd@proton.me</span>
+                            </li>
+                        </ul>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </div>
+    <footer class="flex h-56 mt-16 bg-gray-100 py-24 justify-center">
+        <div class="text-gray-500">Skyside Inc. 2023 - 2028</div>
+    </footer>
+</body>
+</html>

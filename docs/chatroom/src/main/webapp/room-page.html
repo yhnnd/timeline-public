@@ -1,0 +1,123 @@
+<html>
+<head>
+    <title>Chat Room</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="jumbotron m-0">
+        <h3 class="display-3">
+            <span class="room-name"></span>
+            <span id="join-button" class="btn btn-outline-success" style="font-size: 1.5rem;">Join</span>
+        </h3>
+        <p class="lead">you were invited by <span class="badge badge-primary" id="inviter-name"></span></p>
+    </div>
+    <table class="table table-inverse">
+        <thead>
+        <tr>
+            <th>Room Name</th>
+            <th class="room-name"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">Room ID</th>
+            <td id="room-id"></td>
+        </tr>
+        <tr>
+            <th scope="row">Room Type</th>
+            <td id="room-type"></td>
+        </tr>
+        <tr>
+            <th scope="row">Room Live</th>
+            <td id="room-live"></td>
+        </tr>
+        <tr>
+            <th scope="row">Create Time</th>
+            <td id="room-create-time"></td>
+        </tr>
+        <tr>
+            <th scope="row">Room Members</th>
+            <td id="room-members"></td>
+        </tr>
+        </tbody>
+    </table>
+    <footer class="p-5 text-center text-muted">
+        Provided by Chat Room
+    </footer>
+</div>
+<script src="js/vendor/jquery.min.js"></script>
+<script src="js/vendor/dark_mode_start.js"></script>
+<script src="js/vendor/tether.min.js"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+
+<script src="js/append_modal.js"></script>
+<script src="js/user/get_user_by_userid.js"></script>
+<script src="js/room/get_room.js"></script>
+<script src="js/is_mobile.js"></script>
+
+<script src="js/vendor/dark_mode.js"></script>
+<script>
+    if (isMobile()) {
+        $('.container').removeClass("container").addClass("container-fluid");
+    }
+
+    function getParameter(name) {
+        let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        let r = window.location.search.substr(1).match(reg);
+        if (r != null) return decodeURIComponent(r[2]);
+        return null;
+    }
+
+    let inviter_id = getParameter("user-id");
+    let room_name = getParameter("name");
+    let room_id = getParameter("roomid");
+    let room_type = getParameter("type");
+    let room_live = getParameter("live");
+    let create_time = getParameter("create-time");
+
+    $('.room-name').html(room_name);
+    $('#room-id').html(room_id);
+    $('#room-type').html(room_type);
+    $('#room-live').html(room_live == 1 ? "true" : "false");
+    $('#room-create-time').html(create_time);
+
+    get_user_by_userid(inviter_id, function (user) {
+        $("#inviter-name").text(user.username);
+    })
+
+    get_users_by_roomid(room_id, function (users) {
+        if (users) {
+            for (i = 0; i < users.length; ++i) {
+                get_user_by_userid(users[i].userid, function (user) {
+                    if (user && user.avatar) {
+                        let avatar = $("<img>").css({"width": "2rem", "height": "2rem", "border-radius": "1rem"});
+                        avatar.attr("src", user.avatar);
+                        $("#room-members").append(avatar);
+                    }
+                });
+            }
+        }
+    })
+
+    $("#join-button").on("click", function () {
+        let ModalTitle = "Join Us Now";
+        let ModalBody =
+            "<p>log in with your <a class='chat-room-link chat-room-text-wrapper'></a> account to join in this chat room.</p>" +
+            "<div class='mb-3 text-center'><a class='chat-room-link'><img src='img/screenshot.png' class='w-50'></a></div>" +
+            "<div class='text-center'><a class='btn btn-block btn-outline-success chat-room-link'>Log In</a></div>";
+        appendModal("bg-success text-white", "text-success", ModalTitle, ModalBody, "", false);
+        let text = $("<span>Chat Room</span>").addClass("d-inline-block px-1 mx-1 text-success").css('border', '1px solid rgba(92, 184, 92, 0.8)');
+        $(".chat-room-text-wrapper").append(text);
+        $(".chat-room-link").attr("href", "index.html");
+    });
+
+    // 初始化夜间模式
+    init_dark_mode(init_dark_mode_end);
+</script>
+</body>
+</html>

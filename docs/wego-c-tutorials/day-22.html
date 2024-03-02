@@ -1,0 +1,854 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>C Tutorial</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/prettify.min.css">
+    <link rel="stylesheet" href="css/site.css">
+    
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/prettify/prettify.js"></script>
+    <script src="js/console.js"></script>
+    <script src="js/site.js"></script>
+
+    <link rel="stylesheet" href="../timeline-public/css/navbar.css">
+    <script src="../js/timeline/navbar.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <h1 class="display-4 m-lg-3 text-center"><b class="text-dark">C</b> Language Tutorial</h1>
+    <h2 class="text-center">
+        <button class="btn btn-sm btn-outline-dark" onclick="loadPage('index.html?highlight=day-22.html');">
+            目录 <var>contents</var>
+        </button>
+    </h2>
+    <hr/>
+    <div class="row mb-3 text-secondary">
+        <div class="col">
+            <span class="btn btn-outline-primary float-left mr-3" onclick="loadPage('day-21-5.html')">上一页</span>
+            <h2 class="d-inline mobile-hidden">
+                Day 22 <small class="ml-3 text-primary">处理字符串的函数</small>
+            </h2>
+            <span class="btn btn-outline-primary float-right" onclick="loadPage('day-23.html')">下一页</span>
+        </div>
+    </div>
+    <h2 class="mb-3 text-secondary mobile-show">
+        Day 22 <small class="ml-3 text-primary">处理字符串的函数</small>
+    </h2>
+    <div class="card">
+        <div class="card-block">
+            <p class="px-3 pt-3 mb-0">之前我们讲过 <b>C</b> 语言的 <span class="text-primary" onclick="loadPage('day-11.html')">字符串</span>。</p>
+            <p class="px-3 pt-3 mb-0"><b>C</b> 语言以字符的数组来表示字符串，对此标准库提供了一些专门用于对字符串进行处理的函数。使用这些函数之前，必须引入 <b>string.h</b> 头文件。</p>
+            <p class="p-3 mb-0"><b><var>strlen</var></b> 函数用于计算字符串的长度</p>
+            <pre class="prettyprint mb-0">
+    #include &lt;stdio.h&gt;
+    #include &lt;string.h&gt;
+    
+    int main() {
+        char a [101];
+        printf("please input a string (no more than 100 chars)\n");
+        scanf("%s", a);
+        printf("length of \"%s\" is %d.\n", a, strlen(a));
+        return 0;
+    }
+            </pre>
+            <div class="alert alert-secondary mb-0 border-top-0 border-secondary rounded-0">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-8 d-flex align-items-center">
+                        <div class="mb-2 mb-sm-2 mb-md-2 mb-lg-0">
+                            <span class="fa fa-lg fa-question-circle"></span> 以上代码编译的程序执行后会输出什么结果？
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 text-center">
+                        <button class="btn btn-sm btn-outline-success px-3 py-1" data-toggle="collapse" data-target="#result-1">执行结果</button>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse" id="result-1">
+                <div class="alert mb-0 border-top-0 border-secondary rounded-0 console p-0" style="min-height: 10rem" onclick="$('#result-1-input').focus()">
+                    <pre></pre>
+                </div>
+                <div class="px-3 py-1 alert-dark text-center">
+                    <div class="row">
+                        <div class="col-4">
+                            <input type="text" id="result-1-input" class="hidden"/>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-sm btn-dark" onclick="run(this,'result-1',console_1,program_1)">运行程序</button>
+                        </div>
+                        <div class="col-4 d-flex align-items-center" id="result-1-input-status">
+                        </div>
+                    </div>
+                </div>
+                <div class="px-3 py-1 alert-warning">
+                    <i class="fa fa-quote-left"></i>
+                    <small><kbd style="color: lightgreen">绿色字符串</kbd> 为用户输入的字符串</small>
+                    <i class="fa fa-quote-right"></i>
+                </div>
+            </div>
+
+
+
+
+
+
+            
+            <p class="p-3 mb-0"><b><var>strcpy</var></b> 函数用于复制字符串</p>
+            <pre class="prettyprint mb-0">
+    #include &lt;stdio.h&gt;
+    #include &lt;string.h&gt;
+    
+    int main() {
+        char a[101], b[101] = "";
+        printf("please input a string (no more than 100 chars)\na = ");
+        scanf("%s", a);
+        strcpy(b, a);
+        printf("b = %s\n", b);
+        return 0;
+    }
+            </pre>
+            <div class="alert alert-secondary mb-0 border-top-0 border-secondary rounded-0">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-8 d-flex align-items-center">
+                        <div class="mb-2 mb-sm-2 mb-md-2 mb-lg-0">
+                            <span class="fa fa-lg fa-question-circle"></span> 以上代码编译的程序执行后会输出什么结果？
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 text-center">
+                        <button class="btn btn-sm btn-outline-success px-3 py-1" data-toggle="collapse" data-target="#result-2">执行结果</button>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse" id="result-2">
+                <div class="alert mb-0 border-top-0 border-secondary rounded-0 console p-0" style="min-height: 10rem" onclick="$('#result-2-input').focus()">
+                    <pre></pre>
+                </div>
+                <div class="px-3 py-1 alert-dark text-center">
+                    <div class="row">
+                        <div class="col-4">
+                            <input type="text" id="result-2-input" class="hidden"/>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-sm btn-dark" onclick="run(this,'result-2',console_2,program_2)">运行程序</button>
+                        </div>
+                        <div class="col-4 d-flex align-items-center" id="result-2-input-status">
+                        </div>
+                    </div>
+                </div>
+                <div class="px-3 py-1 alert-warning">
+                    <i class="fa fa-quote-left"></i>
+                    <small><kbd style="color: lightgreen">绿色字符串</kbd> 为用户输入的字符串</small>
+                    <i class="fa fa-quote-right"></i>
+                </div>
+            </div>
+            
+
+
+
+
+
+            <p class="p-3 mb-0"><b><var>strcat</var></b> 函数用于连接字符串</p>
+            <pre class="prettyprint mb-0">
+    #include &lt;stdio.h&gt;
+    #include &lt;string.h&gt;
+    
+    int main() {
+        char a[101] = "", b[101] = "";
+        printf("please input two strings\n");
+        scanf("%s %s", a, b);
+        strcat(a, b);
+        printf("%s\n", a);
+        return 0;
+    }
+            </pre>
+            <div class="alert alert-secondary mb-0 border-top-0 border-secondary rounded-0">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-8 d-flex align-items-center">
+                        <div class="mb-2 mb-sm-2 mb-md-2 mb-lg-0">
+                            <span class="fa fa-lg fa-question-circle"></span> 以上代码编译的程序执行后会输出什么结果？
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 text-center">
+                        <button class="btn btn-sm btn-outline-success px-3 py-1" data-toggle="collapse" data-target="#result-3">执行结果</button>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse" id="result-3">
+                <div class="alert mb-0 border-top-0 border-secondary rounded-0 console p-0" style="min-height: 10rem" onclick="$('#result-3-input').focus()">
+                    <pre></pre>
+                </div>
+                <div class="px-3 py-1 alert-dark text-center">
+                    <div class="row">
+                        <div class="col-4">
+                            <input type="text" id="result-3-input" class="hidden"/>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-sm btn-dark" onclick="run(this,'result-3',console_3,program_3)">运行程序</button>
+                        </div>
+                        <div class="col-4 d-flex align-items-center" id="result-3-input-status">
+                        </div>
+                    </div>
+                </div>
+                <div class="px-3 py-1 alert-warning">
+                    <i class="fa fa-quote-left"></i>
+                    <small><kbd style="color: lightgreen">绿色字符串</kbd> 为用户输入的字符串</small>
+                    <i class="fa fa-quote-right"></i>
+                </div>
+            </div>
+
+
+
+
+
+
+            <p class="p-3 mb-0"><b><var>strcmp</var></b> 函数用于比较字符串</p>
+            <pre class="prettyprint mb-0">
+    #include &lt;stdio.h&gt;
+    #include &lt;string.h&gt;
+    
+    int main() {
+        char a[101] = "", b[101] = "";
+        printf("please input two strings\n");
+        scanf("%s %s", a, b);
+        printf("%d\n", strcmp(a, b));
+        return 0;
+    }
+            </pre>
+            <div class="alert alert-secondary mb-0 border-top-0 border-secondary rounded-0">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-8 d-flex align-items-center">
+                        <div class="mb-2 mb-sm-2 mb-md-2 mb-lg-0">
+                            <span class="fa fa-lg fa-question-circle"></span> 以上代码编译的程序执行后会输出什么结果？
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 text-center">
+                        <button class="btn btn-sm btn-outline-success px-3 py-1" data-toggle="collapse" data-target="#result-4">执行结果</button>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse" id="result-4">
+                <div class="alert mb-0 border-top-0 border-secondary rounded-0 console p-0" style="min-height: 10rem" onclick="$('#result-4-input').focus()">
+                    <pre></pre>
+                </div>
+                <div class="px-3 py-1 alert-dark text-center">
+                    <div class="row">
+                        <div class="col-4">
+                            <input type="text" id="result-4-input" class="hidden"/>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-sm btn-dark" onclick="run(this,'result-4',console_4,program_4)">运行程序</button>
+                        </div>
+                        <div class="col-4 d-flex align-items-center" id="result-4-input-status">
+                        </div>
+                    </div>
+                </div>
+                <div class="px-3 py-1 alert-warning">
+                    <i class="fa fa-quote-left"></i>
+                    <small><kbd style="color: lightgreen">绿色字符串</kbd> 为用户输入的字符串</small>
+                    <i class="fa fa-quote-right"></i>
+                </div>
+            </div>
+
+
+
+
+
+
+            <p class="p-3 mb-0"><b><var>strchr</var></b> 函数用于在字符串中查找某个字符</p>
+            <pre class="prettyprint mb-0">
+    #include &lt;stdio.h&gt;
+    #include &lt;string.h&gt;
+    
+    int main() {
+        char a[101], c;
+        printf("please input a string and a char\n");
+        scanf("%s %c", a, &amp;c);
+        char * p = strchr(a, c);
+        if (p != NULL) {
+            printf("%d\n", p - a);
+        } else {
+            printf("\"%s\" does not contain '%c'\n", a, c);
+        }
+        return 0;
+    }
+            </pre>
+            <div class="alert alert-secondary mb-0 border-top-0 border-secondary rounded-0">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-8 d-flex align-items-center">
+                        <div class="mb-2 mb-sm-2 mb-md-2 mb-lg-0">
+                            <span class="fa fa-lg fa-question-circle"></span> 以上代码编译的程序执行后会输出什么结果？
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 text-center">
+                        <button class="btn btn-sm btn-outline-success px-3 py-1" data-toggle="collapse" data-target="#result-5">执行结果</button>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse" id="result-5">
+                <div class="alert mb-0 border-top-0 border-secondary rounded-0 console p-0" style="min-height: 10rem" onclick="$('#result-5-input').focus()">
+                    <pre></pre>
+                </div>
+                <div class="px-3 py-1 alert-dark text-center">
+                    <div class="row">
+                        <div class="col-4">
+                            <input type="text" id="result-5-input" class="hidden"/>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-sm btn-dark" onclick="run(this,'result-5',console_5,program_5)">运行程序</button>
+                        </div>
+                        <div class="col-4 d-flex align-items-center" id="result-5-input-status">
+                        </div>
+                    </div>
+                </div>
+                <div class="px-3 py-1 alert-warning">
+                    <i class="fa fa-quote-left"></i>
+                    <small><kbd style="color: lightgreen">绿色字符串</kbd> 为用户输入的字符串</small>
+                    <i class="fa fa-quote-right"></i>
+                </div>
+            </div>
+
+
+
+
+            
+
+
+            <p class="p-3 mb-0"><b><var>strstr</var></b> 函数用于在字符串中查找某个子字符串</p>
+            <pre class="prettyprint mb-0">
+    #include &lt;stdio.h&gt;
+    #include &lt;string.h&gt;
+    
+    int main() {
+        char a[101], b[101];
+        printf("please input a string and a substring\n");
+        scanf("%s %s", a, b);
+        char * p = strstr(a, b);
+        if (p != NULL) {
+            printf("%d\n", p - a);
+        } else {
+            printf("\"%s\" does not contain \"%s\"\n", a, b);
+        }
+        return 0;
+    }
+            </pre>
+            <div class="alert alert-secondary mb-0 border-top-0 border-secondary rounded-0">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-8 d-flex align-items-center">
+                        <div class="mb-2 mb-sm-2 mb-md-2 mb-lg-0">
+                            <span class="fa fa-lg fa-question-circle"></span> 以上代码编译的程序执行后会输出什么结果？
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 text-center">
+                        <button class="btn btn-sm btn-outline-success px-3 py-1" data-toggle="collapse" data-target="#result-6">执行结果</button>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse" id="result-6">
+                <div class="alert mb-0 border-top-0 border-secondary rounded-0 console p-0" style="min-height: 10rem" onclick="$('#result-6-input').focus()">
+                    <pre></pre>
+                </div>
+                <div class="px-3 py-1 alert-dark text-center">
+                    <div class="row">
+                        <div class="col-4">
+                            <input type="text" id="result-6-input" class="hidden"/>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-sm btn-dark" onclick="run(this,'result-6',console_6,program_6)">运行程序</button>
+                        </div>
+                        <div class="col-4 d-flex align-items-center" id="result-6-input-status">
+                        </div>
+                    </div>
+                </div>
+                <div class="px-3 py-1 alert-warning">
+                    <i class="fa fa-quote-left"></i>
+                    <small><kbd style="color: lightgreen">绿色字符串</kbd> 为用户输入的字符串</small>
+                    <i class="fa fa-quote-right"></i>
+                </div>
+            </div>
+
+
+
+
+
+
+            <p class="p-3 mb-0"><b><var>strpbrk(const char * s1, const char * s2)</var></b> 在字符串 <b>s1</b> 中查找字符串 <b>s2</b> 中的任意字符</p>
+            <pre class="prettyprint mb-0">
+    #include &lt;stdio.h&gt;
+    #include &lt;string.h&gt;
+    
+    int main() {
+        char a[101], b[101];
+        printf("please input two strings\n");
+        scanf("%s %s", a, b);
+        char * p = strpbrk(a, b);
+        if (p != NULL) {
+            printf("%d\n", p - a);
+        } else {
+            printf("\"%s\" does not contain any char in \"%s\"\n", a, b);
+        }
+        return 0;
+    }
+            </pre>
+            <div class="alert alert-secondary mb-0 border-top-0 border-secondary rounded-0">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-8 d-flex align-items-center">
+                        <div class="mb-2 mb-sm-2 mb-md-2 mb-lg-0">
+                            <span class="fa fa-lg fa-question-circle"></span> 以上代码编译的程序执行后会输出什么结果？
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 text-center">
+                        <button class="btn btn-sm btn-outline-success px-3 py-1" data-toggle="collapse" data-target="#result-7">执行结果</button>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse" id="result-7">
+                <div class="alert mb-0 border-top-0 border-secondary rounded-0 console p-0" style="min-height: 10rem" onclick="$('#result-7-input').focus()">
+                    <pre></pre>
+                </div>
+                <div class="px-3 py-1 alert-dark text-center">
+                    <div class="row">
+                        <div class="col-4">
+                            <input type="text" id="result-7-input" class="hidden"/>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-sm btn-dark" onclick="run(this,'result-7',console_7,program_7)">运行程序</button>
+                        </div>
+                        <div class="col-4 d-flex align-items-center" id="result-7-input-status">
+                        </div>
+                    </div>
+                </div>
+                <div class="px-3 py-1 alert-warning">
+                    <i class="fa fa-quote-left"></i>
+                    <small><kbd style="color: lightgreen">绿色字符串</kbd> 为用户输入的字符串</small>
+                    <i class="fa fa-quote-right"></i>
+                </div>
+            </div>
+
+
+
+
+            <blockquote class="mt-3">
+                <footer class="blockquote-footer text-right pr-3">
+                    部分内容参考 
+                    <cite title="C Primer Plus">[(美) Stephen Prata] C Primer Plus (第五版)</cite>
+                </footer>
+            </blockquote>
+
+
+
+
+            <div id="day-22-comment-area-1">
+                <p class="mb-0 px-3 py-2 alert-primary text-center border border-bottom-0 border-secondary">
+                    <button class="btn btn-sm btn-outline-primary" data-toggle="collapse" data-target="#comment-area-1" onclick="if($(this).html()=='显示评论'){$(this).html('隐藏评论')}else{$(this).html('显示评论')}">显示评论</button>
+                </p>
+                
+                <div class="collapse" id="comment-area-1">
+                    <div class="mb-0 px-3 py-2" style="clear:both;background:rgb(181, 190, 200);">
+                        <img class="message-avatar" style="width:40px;height:40px;border-radius:20px;" src="img/avatar-anuil.jpg">
+                        <span class="badge badge-light">A.Nuil</span>
+                        <br>
+                        <span class="comment-bubble alert-primary">
+                            学长，<br>
+                            <pre class="d-inline-block w-100 mt-1 mb-0 pl-3 prettyprint bg-white">
+                char * s;
+                s = "abcd";</pre>
+                            这种写法，严格来说，是不是不对的？我百度了哈，啥都没有......<br>
+                            我就觉得不是很不对，在 Visual Studio 上，就会出现 error<br>
+                            <pre class="px-2 pt-1 mb-0 bg-white text-dark"><big>无法把 <b>const char *</b> 转变为 <b>char *</b></big></pre>
+                            这种错误是因为那个 <b>"abcd"</b> 字符串存在静态存储区的原因吗？<br>
+                        </span>
+                    </div>
+                
+                    <div class="mb-0 px-3 py-2" style="clear:both;background:rgb(181, 190, 200);">
+                        <img class="message-avatar" style="width:40px;height:40px;border-radius:20px;filter:brightness(1.4) grayscale(0.1);" src="img/avatar-yhn.jpg">
+                        <span class="badge badge-primary">yhn</span>
+                        <br>
+                        <span class="comment-bubble alert-warning text-left">
+                            这个代码是错的
+                            <br>
+                            因为 <b>s</b> 是指针，需要给指针分配内存
+                            <br>
+                            但是声明该指针时未初始化，也就没有为其分配内存
+                            <br>
+                            所以声明之后，不能用 <b>=</b> 将一个常量字符串赋值给它
+                            <br>
+                            而且 <b>const</b> 指针不能赋值给非 <b>const</b> 指针
+                            <br>
+                            可以改成
+                            <pre class="d-inline-block w-100 mt-1 mb-0 pl-3 prettyprint bg-white">
+                const char * s = "abcd";</pre>
+                            或者
+                            <pre class="d-inline-block w-100 mt-1 mb-0 pl-3 prettyprint bg-white">
+                char s[] = "abcd";</pre>
+                        </span>
+                    </div>
+                
+                
+                    <div class="mb-0 px-3 py-2" style="clear:both;background:rgb(181, 190, 200);">
+                        <img class="message-avatar" style="width:40px;height:40px;border-radius:20px;" src="img/avatar-anuil.jpg">
+                        <span class="badge badge-light">A.Nuil</span>
+                        <br>
+                        <span class="comment-bubble alert-primary">
+                            原来如此，谢谢啦
+                        </span>
+                    </div>
+                
+                
+                    <div class="mb-0 px-3 py-2" style="clear:both;background:rgb(181, 190, 200);">
+                        <img class="message-avatar" style="width:40px;height:40px;border-radius:20px;filter:brightness(1.4) grayscale(0.1);" src="img/avatar-yhn.jpg">
+                        <span class="badge badge-primary">yhn</span>
+                        <br>
+                        <span class="comment-bubble alert-warning text-left">
+                            将来还会有给指针分配内存的方法
+                            <br>
+                            用 <b>malloc</b> 函数
+                            <br>
+                            给指针分配了内存，就能给它指向的内存区赋值了
+                        </span>
+                    </div>
+                
+                
+                    <div class="mb-0 px-3 py-2" style="clear:both;background:rgb(181, 190, 200);">
+                        <img class="message-avatar" style="width:40px;height:40px;border-radius:20px;" src="img/avatar-anuil.jpg">
+                        <span class="badge badge-light">A.Nuil</span>
+                        <br>
+                        <span class="comment-bubble alert-primary">
+                            <b>malloc</b> 还是知道滴
+                        </span>
+                    </div>
+                
+                
+                    <div class="mb-0 px-3 py-2" style="clear:both;background:rgb(181, 190, 200);">
+                        <img class="message-avatar" style="width:40px;height:40px;border-radius:20px;filter:brightness(1.4) grayscale(0.1);" src="img/avatar-yhn.jpg">
+                        <span class="badge badge-primary">yhn</span>
+                        <br>
+                        <span class="comment-bubble alert-warning text-left">
+                            还有 <b>free</b> 函数，用于释放内存
+                        </span>
+                    </div>
+                
+                
+                    <div class="mb-0 px-3 py-2" style="clear:both;background:rgb(181, 190, 200);">
+                        <img class="message-avatar" style="width:40px;height:40px;border-radius:20px;" src="img/avatar-anuil.jpg">
+                        <span class="badge badge-light">A.Nuil</span>
+                        <br>
+                        <span class="comment-bubble alert-primary">
+                            谢谢学长啦
+                            <br>
+                            <img class="mt-1 img-fluid w-100" src="img/day-22-comment-7-1.gif" alt="">
+                        </span>
+                    </div>
+                
+                
+                    <div class="mb-0 px-3 py-2" style="clear:both;background:rgb(181, 190, 200);">
+                        <img class="message-avatar" style="width:40px;height:40px;border-radius:20px;" src="img/avatar-anuil.jpg">
+                        <span class="badge badge-light">A.Nuil</span>
+                        <br>
+                        <span class="comment-bubble alert-primary">
+                            还有个问题
+                            <br>
+                            <img class="mt-1 img-fluid w-100" src="img/day-22-comment-8-1.jpg" alt="">
+                            求解释
+                            <br>
+                            <img class="mt-1 img-fluid" src="img/day-22-comment-8-2.gif" alt="" style="width: 200px;">
+                        </span>
+                    </div>
+                
+                
+                    <div class="mb-0 px-3 py-2" style="clear:both;background:rgb(181, 190, 200);">
+                        <img class="message-avatar" style="width:40px;height:40px;border-radius:20px;filter:brightness(1.4) grayscale(0.1);" src="img/avatar-yhn.jpg">
+                        <span class="badge badge-primary">yhn</span>
+                        <br>
+                        <span class="comment-bubble alert-warning text-left">
+                            这肯定内存溢出啊
+                            <br>
+                            <b>conj</b> 函数的作用和 <b>strcat</b> 一样
+                            <br>
+                            是把 <b>s2</b> 连到 <b>s1</b> 后面
+                            <br>
+                            因为 <b>s1</b> 字符串的长度是 <b>4</b>, <b>s2</b> 字符串的长度是 <b>4</b>, 要能拼接成功, <b>s1</b> 的真实长度至少得是 <b>9</b> 才行
+                            <br>
+                            所以你声明 <b>s1</b> 的时候必须显式指出它的长度：
+                            <pre class="d-inline-block w-100 mt-1 mb-0 pl-3 prettyprint bg-white">char s1[9] = "1234";</pre>
+                        </span>
+                    </div>
+                
+                
+                    <div class="mb-0 px-3 py-2" style="clear:both;background:rgb(181, 190, 200);">
+                        <img class="message-avatar" style="width:40px;height:40px;border-radius:20px;" src="img/avatar-anuil.jpg">
+                        <span class="badge badge-light">A.Nuil</span>
+                        <br>
+                        <span class="comment-bubble alert-primary">
+                            原来如此，谢啦
+                            <br>
+                            <img class="mt-1 img-fluid" src="img/day-22-comment-10-1.gif" alt="" style="width: 200px;">
+                        </span>
+                    </div>
+                
+                
+                    <div class="mb-0 px-3 py-2" style="clear:both;background:rgb(181, 190, 200);">
+                        <img class="message-avatar" style="width:40px;height:40px;border-radius:20px;filter:brightness(1.4) grayscale(0.1);" src="img/avatar-yhn.jpg">
+                        <span class="badge badge-primary">yhn</span>
+                        <br>
+                        <span class="comment-bubble alert-warning text-left">
+                            你把所有在初始化时忘记设置长度的全都设置好长度
+                            <pre class="d-inline-block w-100 mt-1 mb-0 pl-3 prettyprint bg-white">char s[] = "123";</pre>
+                            这种代码很危险
+                            <br>
+                            在声明 <b>s</b> 的时候, 没有指明长度, <b>s</b> 的长度默认是 <b>4</b>, 因为字符串最后有一个 <b>'\0'</b>
+                            <br>
+                            如果用 <b>strcpy</b> 等方法给 <b>s</b> 赋值更长的字符串, 就会发生内存溢出错误
+                            <br>
+                            我们在写代码时候, <b>[]</b> 里面不指明长度也可以, 但是最好这样写
+                            <pre class="d-inline-block w-100 mt-1 mb-0 pl-3 prettyprint bg-white">const char s[] = "123";</pre>
+                            这样字符串初始化之后就不能被修改了
+                        </span>
+                    </div>
+                
+                
+                    <div class="mb-0 px-3 py-2" style="clear:both;background:rgb(181, 190, 200);">
+                        <img class="message-avatar" style="width:40px;height:40px;border-radius:20px;" src="img/avatar-anuil.jpg">
+                        <span class="badge badge-light">A.Nuil</span>
+                        <br>
+                        <span class="comment-bubble alert-primary">
+                            哦，原来如此
+                        </span>
+                    </div>
+                
+                
+                    <div class="mb-0 px-3 py-2" style="clear:both;background:rgb(181, 190, 200);">
+                        <img class="message-avatar" style="width:40px;height:40px;border-radius:20px;filter:brightness(1.4) grayscale(0.1);" src="img/avatar-yhn.jpg">
+                        <span class="badge badge-primary">yhn</span>
+                        <br>
+                        <span class="comment-bubble alert-warning text-left">
+                            如果你希望字符串可以被修改长度，就得给它一些空余存储空间：
+                            <pre class="d-inline-block w-100 mt-1 mb-0 pl-3 prettyprint bg-white">char s[30] = "123";</pre>
+                            这个字符串最多能存 <b>29</b> 个字符
+                        </span>
+                    </div>
+                
+                
+                    <div class="mb-0 px-3 py-2" style="clear:both;background:rgb(181, 190, 200);">
+                        <img class="message-avatar" style="width:40px;height:40px;border-radius:20px;" src="img/avatar-anuil.jpg">
+                        <span class="badge badge-light">A.Nuil</span>
+                        <br>
+                        <span class="comment-bubble alert-primary">
+                            哦，这样啊
+                        </span>
+                    </div>
+                
+                
+                    <div class="mb-0 px-3 py-2" style="clear:both;background:rgb(181, 190, 200);">
+                        <img class="message-avatar" style="width:40px;height:40px;border-radius:20px;filter:brightness(1.4) grayscale(0.1);" src="img/avatar-yhn.jpg">
+                        <span class="badge badge-primary">yhn</span>
+                        <br>
+                        <span class="comment-bubble alert-warning text-left">
+                            注意，字符串末尾必须要有一个 <b>'\0'</b> 字符，表示字符串结束，它不能被改成其它字符，否则将无法确定字符串在何处结束
+                            <br>
+                            <div class="d-flex align-items-center">
+                                所以 <pre class="d-inline-block mx-2 my-1 px-2 prettyprint bg-white">char s[30]</pre> 其实只能存 <b>29</b> 个有用的字符
+                            </div>
+                        </span>
+                    </div>
+                
+                
+                    <div class="mb-0 px-3 py-2" style="clear:both;background:rgb(181, 190, 200);">
+                        <img class="message-avatar" style="width:40px;height:40px;border-radius:20px;" src="img/avatar-anuil.jpg">
+                        <span class="badge badge-light">A.Nuil</span>
+                        <br>
+                        <span class="comment-bubble alert-primary">
+                            我再去看看，谢谢啦
+                        </span>
+                    </div>
+                
+                
+                    <div class="mb-0 px-3 py-2" style="clear:both;text-align:right;background:rgb(181, 190, 200);">
+                        <p class="card-text text-dark text-center">
+                            <small>powered by
+                                <a target="_blank" href="http://www.impte.com/chatroom/">ChatRoom</a>
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="card-footer p-0">
+                <div class="btn-group w-100">
+                    <div class="btn btn-outline-primary w-50 br-0" onclick="loadPage('day-21-5.html')">
+                        上一页
+                    </div>
+                    <div class="btn btn-outline-primary w-50 br-0" onclick="loadPage('day-23.html')">
+                        下一页
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="p-3">
+    <div class="container">
+        <div class="row">
+            <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-6 mt-2 text-center">
+                <span class="text-danger mr-3">电脑上还没有 C 语言编译器 ?</span>
+                <a class="btn btn-primary" target="_blank" href="resources/Dev-Cpp-Setup.exe" download="dev-cpp-setup.exe">下载 Dev C++ <small>(Windows)</small></a>
+            </div>
+            <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-6 mt-2 text-center">
+                <span class="text-primary mr-3">或者</span>
+                <a class="btn btn-secondary" target="_blank" href="https://sourceforge.net/projects/orwelldevcpp/files/latest/download">下载 Dev C++ <small>(Windows)</small></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="js/is_mobile.js"></script>
+<script src="js/page_init.js"></script>
+
+<script src="js/sprintf.js"></script>
+<script>
+    function program_1(input, printf) {
+        const inputs = $("#result-1").find(".console").find("pre").find("[data-type='input']");
+        let a = inputs.eq(0).text();
+        printf(sprintf("length of \"%s\" is %d.\n", a, a.length));
+        return 0;
+    }
+
+    function console_1(_console) {
+        _console.html('<span data-type="output">please input a string (no more than 100 chars)</span>\n' +
+            '<span data-type="input"></span>\n');
+    }
+
+
+    function program_2(input, printf) {
+        const inputs = $("#result-2").find(".console").find("pre").find("[data-type='input']");
+        let a = inputs.eq(0).text();
+        let b = a;
+        printf(sprintf("b = %s\n", b));
+        return 0;
+    }
+
+    function console_2(_console) {
+        _console.html('<span data-type="output">please input a string (no more than 100 chars)</span>\n<span data-type="output">a = </span>' +
+            '<span data-type="input"></span>\n');
+    }
+
+
+    function program_3(input, printf) {
+        let inputs = $("#result-3").find(".console").find("pre").find("[data-type='input']");
+        let a = "", b = "";
+        a = inputs.eq(0).text();
+        b = inputs.eq(1).text();
+        a = a + b;
+        printf(sprintf("%s\n", a));
+        return 0;
+    }
+
+    function console_3(_console) {
+        _console.html('<span data-type="output">please input two strings</span>\n' +
+            '<span data-type="input"></span>' +
+            '<span data-type="input"></span>\n');
+    }
+
+
+
+    function program_4(input, printf) {
+        let inputs = $("#result-4").find(".console").find("pre").find("[data-type='input']");
+        let a = "", b = "";
+        a = inputs.eq(0).text();
+        b = inputs.eq(1).text();
+        printf(sprintf("%d\n", (a < b) ? -1 : ((a > b) ? 1 : 0)));
+        return 0;
+    }
+
+    function console_4(_console) {
+        _console.html('<span data-type="output">please input two strings</span>\n' +
+            '<span data-type="input"></span>' +
+            '<span data-type="input"></span>\n');
+    }
+
+
+
+    function program_5(input, printf) {
+        let inputs = $("#result-5").find(".console").find("pre").find("[data-type='input']");
+        let a, c;
+        a = inputs.eq(0).text();
+        c = inputs.eq(1).text()[0];
+        let p = a.indexOf(c);
+        if (p != -1) {
+            printf(sprintf("%d\n", p));
+        } else {
+            printf(sprintf("\"%s\" does not contain '%s'\n", a, c));
+        }
+        return 0;
+    }
+
+    function console_5(_console) {
+        _console.html('<span data-type="output">please input a string and a char</span>\n' +
+            '<span data-type="input"></span>' +
+            '<span data-type="input"></span>\n');
+    }
+
+
+
+    function program_6(input, printf) {
+        let inputs = $("#result-6").find(".console").find("pre").find("[data-type='input']");
+        let a, b;
+        a = inputs.eq(0).text();
+        b = inputs.eq(1).text();
+        let p = a.indexOf(b);
+        if (p != -1) {
+            printf(sprintf("%d\n", p));
+        } else {
+            printf(sprintf("\"%s\" does not contain \"%s\"\n", a, b));
+        }
+        return 0;
+    }
+
+    function console_6(_console) {
+        _console.html('<span data-type="output">please input a string and a substring</span>\n' +
+            '<span data-type="input"></span>' +
+            '<span data-type="input"></span>\n');
+    }
+
+
+
+
+    function strpbrk(string, chars) {
+        for(var i = 0, len = string.length; i < len; ++i) {
+            if(chars.indexOf(string.charAt(i)) >= 0) {
+                // return string.substring(i);
+                return i;
+            }
+        }
+        return null;
+    }
+
+    function program_7(input, printf) {
+        let inputs = $("#result-7").find(".console").find("pre").find("[data-type='input']");
+        let a, b;
+        a = inputs.eq(0).text();
+        b = inputs.eq(1).text();
+        let p = strpbrk(a, b);
+        if (p != null) {
+            printf(sprintf("%d\n", p));
+        } else {
+            printf(sprintf("\"%s\" does not contain any char in \"%s\"\n", a, b));
+        }
+        return 0;
+    }
+
+    function console_7(_console) {
+        _console.html('<span data-type="output">please input two strings</span>\n' +
+            '<span data-type="input"></span>' +
+            '<span data-type="input"></span>\n');
+    }  
+</script>

@@ -1,0 +1,644 @@
+<%@ page contentType="text/html"%>
+<%@ page pageEncoding="utf-8"%>
+<%@ page import="java.util.*"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.sql.Date"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.io.File"%>
+<%@ page import="java.lang.String.*"%>
+<html>
+<head>
+	<title>personal account</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/buttons.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<style>
+		.image{
+			height:32px;width:20px;
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+	</style>
+</head>
+<body>
+<%
+	if(session.getAttribute("userid")!=null){
+		String home_btn_redirected_url = "";
+		Object identity = session.getAttribute("useridentity");
+		if( identity != null ) home_btn_redirected_url = "account.html";
+		else home_btn_redirected_url = "error.html";
+%>
+	<style>
+		.bs-table th small, .responsive-utilities th small {
+			display: block;
+			font-weight: 400;
+			color: #999;
+			font-size: 85%;
+		}
+		.responsive-utilities td.is-visible {
+			color: #468847;
+			background-color: #dff0d8!important;
+		}
+		.responsive-utilities td.is-hidden {
+			color: #ccc;
+			background-color: #f9f9f9!important;
+		}
+		.responsive-utilities td.collapse-is-visible {
+			color: #357736;
+			background-color: #c7dfc7!important;
+		}
+		.responsive-utilities td.collapse-is-hidden {
+			color: #999;
+			background-color: #e8e8e8!important;
+		}
+	</style>
+	<div class='db-info alert alert-danger' role='alert'>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	<script>
+		function setAlert(alertClass,n,msg){
+			var Alert = document.getElementsByClassName(alertClass)[0];
+			var div = Alert.getElementsByTagName('div')[n];
+			div.innerHTML = msg;
+		}
+		var array_book_item_id = new Array(0);
+		// used in:
+		// function book_item_select_submit()
+	</script>
+	
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-5" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+				</button>
+				<a class="navbar-brand" href="bookstore.html">HOME</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="<%=home_btn_redirected_url%>">
+							Welcome 
+							<span style="color: #222;"><%=session.getAttribute("username")%></span>
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+					<li>
+						<a href="http://getbootstrap.com/" target="_blank">
+							Powered by Bootstrap 3.3.6
+						</a>
+					</li>
+					<li>
+						<a href="bookstore.html" class="navbar-link">
+							book&nbsp;store&nbsp;&nbsp;
+							<span class="glyphicon glyphicon-book" aria-hidden="true" style="position:relative;top:2px;"></span>
+						</a>
+					</li>
+					<li>
+						<a href="logout.html" class="navbar-link">
+							log&nbsp;out&nbsp;&nbsp;
+							<span class="glyphicon glyphicon-log-out" aria-hidden="true" style="position:relative;top:2px;"></span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 col-md-12">
+						<div class="jumbotron">
+							<div id="page-title" style="color:#666">
+							<!--page title-->
+							</div>
+						</div>
+					</div>
+				</div>
+
+<div class="row">
+<div class="col-sm-12 col-md-12">
+	<div class="well" style="height:200px">
+ 		<ul class="nav nav-tabs" id="myTabs" role="tablist"> 
+			<li role="presentation" class="active">
+				<a href="#book-abstract" id="book-abstract-tab" role="tab" data-toggle="tab" aria-controls="book-abstract" aria-expanded="false">
+					Abstract
+				</a>
+			</li> 
+			<li role="presentation" class="">
+				<a href="#author-profile" id="author-profile-tab" role="tab" data-toggle="tab" aria-controls="author-profile" aria-expanded="false">
+					about the Author
+				</a>
+			</li>
+			<li role="presentation" class="dropdown">
+				<a href="#" class="dropdown-toggle" id="dropdown-author-about" data-toggle="dropdown" aria-controls="dropdown-author-about-contents" aria-expanded="false">
+					More about the Author <span class="caret"></span>
+				</a> 
+				<ul class="dropdown-menu" aria-labelledby="dropdown-author-about" id="dropdown-author-about-contents">
+					<li class="">
+						<a href="#author-works" role="tab" id="author-works-tab" data-toggle="tab" aria-controls="author-works" aria-expanded="false">
+							Author's other works
+						</a>
+					</li> 
+					<li class="">
+						<a href="#author-places" role="tab" id="author-places-tab" data-toggle="tab" aria-controls="author-places" aria-expanded="true">
+							Places related to the Author
+						</a>
+					</li> 
+				</ul>
+			</li>
+		</ul> <!-- nav-tabs -->
+		<div class="tab-content" id="myTabContent">
+			<div class="tab-pane fade in active" role="tabpanel" id="book-abstract" aria-labelledby="book-abstract-tab">
+				<p id="book-abstract-content"></p>
+			</div>
+			<div class="tab-pane fade" role="tabpanel" id="author-profile" aria-labelledby="author-profile-tab">
+				<p id="author-profile-content"></p>
+			</div>
+			<div class="tab-pane fade" role="tabpanel" id="author-works" aria-labelledby="author-works-tab">
+				<p id="author-works-content"></p>
+			</div>
+			<div class="tab-pane fade" role="tabpanel" id="author-places" aria-labelledby="author-places-tab">
+				<p id="author-places-content"></p>
+			</div>
+		</div> <!-- tab-content -->
+	</div><!-- well -->
+</div><!-- col -->
+</div><!-- row -->
+
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="table-responsive">
+							<table class="table table-bordered table-striped responsive-utilities">
+								<thead>
+									<tr>
+										<th> Item ID <small>Item ID</small> </th>
+										<th> Product ID <small>Book ID / No.</small> </th>
+										<th> Image <small>Cover</small> </th>
+										<th> Product Name <small>Book Title</small> </th>
+										<th> Manufacturer <small>Book Author</small> </th>
+										<th> Country <small>Language</small> </th>
+										<th> Copyright <small>Publisher</small> </th>
+										<th> MFD <small>Publishing Date</small> </th>
+										<th> Actions <small>Actions</small> </th>
+									</tr>
+								</thead>
+								<tbody>
+<%
+	String book_name_global = "";
+	String author_name_global = "";
+	// this code block can distinguish variables inside it from those below the block
+ 	{
+		String DBDRIVER = "sun.jdbc.odbc.JdbcOdbcDriver" ;
+		String DBURL="jdbc:odbc:driver={Microsoft Access Driver (*.mdb)};DBQ=C:\\Program Files (x86)\\Apache Software Foundation\\Tomcat 7.0\\webapps\\BookStorePoweredbyAccess\\Access\\db.mdb";
+		Connection conn = null ;//should import java.sql.*
+		Statement stmt = null ;
+		String sql = null ;
+		String sqlQuery = null;
+		ResultSet rs = null;
+		// step 1
+		try
+		{
+			Class.forName(DBDRIVER);
+		}
+		catch(Exception e)
+		{
+			out.println("<script>console.log('数据库驱动程序加载失败！');</script>");
+			e.printStackTrace();
+		}
+		// step 2
+		try
+		{
+			conn = DriverManager.getConnection(DBURL);
+			stmt = conn.createStatement();
+			out.println("<script>console.log('数据库连接成功.');</script>");
+		}
+		catch(Exception e)
+		{
+			out.println("<script>console.log('数据库连接失败！');</script>");
+			e.printStackTrace();
+		}
+		// step 3
+		try {
+			// table book
+			int book_id = 0;
+			String book_name, book_author, book_publisher, book_language, book_publishDate;
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			boolean book_available = false;
+			String book_price;
+			int book_amount = 0, book_chapterCount = 0, book_wordCount = 0;
+			String book_cover_image, book_ISBN, item_EAN, item_UPC;
+
+			// table item
+			int item_id = 0, item_number = 0, item_ownerID;
+			boolean item_available = false;
+
+			// query book name
+			sqlQuery = "select name,author from book where id = " + request.getParameter("bookid");
+			rs = stmt.executeQuery(sqlQuery);
+			if(rs.next()){
+				book_name = rs.getString("name");
+				book_author = rs.getString("author");
+				book_name_global = book_name;
+				author_name_global = book_author;
+				%>
+				<script>
+					document.getElementById("page-title").innerHTML = "<p style='font-size:30px'><i><%=book_name%></i></p> by <b><%=book_author%></b>";
+					document.getElementById("author-profile-tab").innerHTML = "about <%=book_author%>";
+				</script>
+				<%
+			}
+
+			// query book item list
+			sqlQuery = "select book.*, item.id as itemID, item.number as itemNumber, "
+			+ "item.ownerid as ownerID, item.available as itemAvailable "
+			+ "from item INNER JOIN book ON item.typeid = book.id "
+			+ "where item.id IN "
+			+ " ( SELECT id FROM item WHERE ownerid=0 AND available=true AND typeid=" + request.getParameter("bookid") + " ) ";
+			rs = stmt.executeQuery(sqlQuery);
+
+			while(rs.next()) {
+				book_id = rs.getInt("id");
+				book_name = rs.getString("name");
+				book_author = rs.getString("author");
+				book_language = rs.getString("language");
+				book_publisher = rs.getString("publisher");
+				book_publishDate = format.format(rs.getDate("publishDate"));
+				book_available = rs.getBoolean("available");
+				book_price = rs.getObject("price").toString();
+				book_amount = rs.getInt("amount");
+				book_chapterCount = rs.getInt("chapterCount");
+				book_wordCount = rs.getInt("wordCount");
+				book_cover_image = rs.getString("coverImage");
+				book_ISBN = "null";
+				item_UPC = "null";
+				item_EAN = "null";
+				item_id = rs.getInt("itemID");
+				item_number = rs.getInt("itemNumber");
+				item_ownerID = rs.getInt("ownerID");
+				item_available = rs.getBoolean("itemAvailable");
+				String collapse_td_class = book_available && item_available == true ? 
+				"collapse-is-visible" : "collapse-is-hidden";
+				String collapse_btn_class = book_available && item_available == true ?
+				"btn-primary" : "btn-default";
+				String book_filename = book_name + " by " + book_author + ".txt";
+				String book_file_relative_path = "docs/" + book_filename;
+				String book_file_real_path = request.getRealPath("\\") + book_file_relative_path;
+				String download_disabled = "disabled";
+				String download_btn_class = "btn-default";
+				String download_btn_onclick_script = "alert('the link you click is not valid\\n"
+					+ "Cannot find file " + book_file_relative_path +"');";
+				File book_file = new File(book_file_real_path);
+				if( book_file.exists() ){
+					download_disabled = "";
+					download_btn_onclick_script = "this.children[0].click();";
+					download_btn_class = "btn-success";
+				} else {
+					String book_file_real_path_modified = "";
+					for( int i=0; i < book_file_real_path.length(); ++i ){
+						if( book_file_real_path.charAt(i) == '\\' ) book_file_real_path_modified += '\\';
+						book_file_real_path_modified += book_file_real_path.charAt(i);
+					}
+		%>
+					<script type="text/javascript">
+						console.log("cannot open file");
+						console.log("<%=book_filename%>");
+						console.log("<%=book_file_real_path_modified%>");
+					</script>
+		<%
+				}
+		%>
+					<tr>
+						<th scope="row"><code><%=item_id%></code></th>
+						<td class="is-hidden"><%=book_id%>/<%=item_number%></td>
+						<td class="is-visible">
+							<div class="image" style="background-image: url(&quot;img/<%=book_cover_image%>&quot;);"></div>
+						</td>
+						<td class="is-visible"><%=book_name%></td>
+						<td class="is-visible"><%=book_author%></td>
+						<td class="is-visible"><%=book_language%></td>
+						<td class="is-visible"><%=book_publisher%></td>
+						<td class="is-visible"><%=book_publishDate%></td>
+						<td class="is-hidden">
+							<div class="btn-group btn-group-md" role="group" aria-label="...">
+								<div class='btn <%=download_btn_class%> glyphicon glyphicon-save' 
+								onclick="<%=download_btn_onclick_script%>" <%=download_disabled%> >
+									<a href="<%=book_file_relative_path%>" target='_blank' download="<%=book_filename%>">
+									</a>
+								</div>
+								<button aria-controls="collapse<%=item_id%>" aria-expanded="false" 
+								class="btn btn-primary collapsed glyphicon glyphicon-search" 
+								data-target="#collapse<%=item_id%>" data-toggle="collapse" type="button"
+								onclick="togglecollapse('#collapse<%=item_id%>')">
+								</button>
+								<div tabindex="<%=item_id%>" class='btn btn-info glyphicon glyphicon-heart-empty' role="button" 
+								data-container="body" data-toggle="popover" data-trigger="focus" data-placement="left" 
+								title="message" data-content="Add this item to my favorite list&nbsp;&nbsp;"
+								onmouseover="$(this).popover('show')" onmouseout="$(this).popover('hide');" onclick="book_item_heart(this)">
+								</div>
+								<div class='btn btn-default glyphicon glyphicon-unchecked' 
+								onclick="book_item_check(this);book_item_select_by_id(<%=item_id%>,this)">
+								</div>
+								<input hidden type='text' id='book-item-select-input-<%=item_id%>'/>
+								<script type="text/javascript">
+									if(array_book_item_id!=undefined){
+										array_book_item_id.push(<%=item_id%>);
+										console.log("array_book_item_id["+array_book_item_id.length+"]=<%=item_id%>");
+									}else{
+										console.log("cannot find array_book_item_id");
+									}
+								</script>
+							</div>
+						</td>
+					</tr>
+
+<tr hidden>
+<td colspan="9">
+  <div class="collapse" id="collapse<%=item_id%>" aria-expanded="false" style="height: 0px;"> 
+	<div class="well" style="width:97.5%;padding-bottom:0px;">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ISBN <small>String</small></th>
+					<th>EAN <small>String</small></th>
+					<th>UPC <small>String</small></th>
+					<th>Available <small>Bool</small></th>
+					<th>Amount <small>Count</small></th>
+					<th>Price <small>Currency</small></th>
+					<th>Chapter <small>Count</small></th>
+					<th>Word <small>Count</small></th>
+					<th>Owner <small>ID</small></th>
+					<th>Item Available <small>Bool</small></th>
+					<th>Track Shipment<small>Button</small></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="<%=collapse_td_class%>"><%=book_ISBN%></td>
+					<td class="<%=collapse_td_class%>"><%=item_EAN%></td>
+					<td class="<%=collapse_td_class%>"><%=item_UPC%></td>
+					<td class="<%=collapse_td_class%>"><%=book_available%></td>
+					<td class="<%=collapse_td_class%>"><%=book_amount%></td>
+					<td class="<%=collapse_td_class%>">
+						<span class='glyphicon glyphicon-usd'></span>
+						<%=book_price%>
+					</td>
+					<td class="<%=collapse_td_class%>"><%=book_chapterCount%></td>
+					<td class="<%=collapse_td_class%>"><%=book_wordCount%></td>
+					<td class="<%=collapse_td_class%>"><%=item_ownerID%></td>
+					<td class="<%=collapse_td_class%>"><%=item_available%></td>
+					<td class="<%=collapse_td_class%>">
+						<div class='btn btn-xs <%=collapse_btn_class%> glyphicon glyphicon-plane'>
+						</div>
+						<div class='btn btn-xs <%=collapse_btn_class%> glyphicon glyphicon-info-sign'>
+						</div>
+						<div class='btn btn-xs <%=collapse_btn_class%> glyphicon glyphicon-calendar'>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div> 
+  </div>
+</td>
+</tr>
+
+<%
+			}// while( rs.next() )
+		}// end of step 3 try
+		catch ( Exception e ) {
+			String error_msg_UTF8 = new String(e.getMessage().getBytes(),"UTF-8");
+			String error_msg_GBK = new String(e.getMessage().getBytes(),"GBK");
+			out.println("<script>");
+			out.println("console.log(\"数据库查詢失败!\");");
+			out.println("console.log(\"" + error_msg_UTF8 + "\");");
+			out.println("console.log(\"" + error_msg_GBK + "\");");
+			out.println("</script>");
+			e.printStackTrace();
+		}
+%>
+
+								</tbody>
+							</table>
+						</div> <!--table-responsive-->
+					</div> <!--col-sm-12-->
+				</div> <!--row-->
+				<div class='row'>
+					<div class='col-sm-12' style="text-align: center;">
+						<div class="panel panel-default" style="padding-top:12px;padding-bottom:12px;">
+							<div class="panel-body" style="text-align: center;">
+								<a href="javascript:void(0)" onclick="book_item_select_submit()"
+								class="button button-glow button-rounded button-border button-primary button-capitalize">
+									<div class='glyphicon glyphicon-plus' style='position:relative;top:9px;'>
+									</div>
+								</a>
+								<a href="javascript:void(0)" class="button button-glow button-rounded button-border button-primary button-capitalize">
+									<div class='glyphicon glyphicon-shopping-cart' style='position:relative;top:9px;'>
+									</div>
+								</a>
+								<a href="javascript:void(0)" class="button button-glow button-rounded button-border button-primary button-capitalize">
+									<div class='glyphicon glyphicon-download-alt' style='position:relative;top:9px;'>
+									</div>
+								</a>
+								<a href="javascript:void(0)" class="button button-glow button-rounded button-border button-primary button-capitalize">
+									<div class='glyphicon glyphicon-refresh' style='position:relative;top:9px;'>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='row'>
+					<div class='col-lg-12'>
+						<div class="panel panel-default">
+							<div class="panel-body" style="text-align: center;">
+								<nav aria-label="..."> 
+									<ul class="pagination"> 
+										<li class="disabled">
+											<a href="javascript:void(0)" aria-label="Previous">
+												<span aria-hidden="true">&laquo;</span>
+											</a>
+										</li> 
+										<li class="active">
+											<a href="javascript:void(0)">
+												1 <span class="sr-only">(current)</span>
+											</a>
+										</li>
+										<li>
+											<a href="javascript:void(0)">2</a>
+										</li> 
+										<li>
+											<a href="javascript:void(0)">3</a>
+										</li> 
+										<li>
+											<a href="javascript:void(0)">4</a>
+										</li> 
+										<li>
+											<a href="javascript:void(0)">5</a>
+										</li> 
+										<li>
+											<a href="javascript:void(0)" aria-label="Next">
+												<span aria-hidden="true">&raquo;</span>
+											</a>
+										</li> 
+									</ul> 
+								</nav>
+							</div><!-- panel body -->
+						</div><!-- panel -->
+					</div><!-- col -->
+				</div><!-- row -->
+			</div><!-- container -->
+<%
+		// Step 3-2
+		try {
+			String author_profile = "";
+			sqlQuery = "select description from author where author_name = \'" + author_name_global +"\'";
+			rs.close();
+			rs = stmt.executeQuery(sqlQuery);
+			if(rs.next()) {
+				author_profile = rs.getString("description");
+				if(author_profile != null) {
+					String author_profile_utf8 = new String(author_profile.getBytes(),"GBK");
+%>
+					<script>
+					document.getElementById("author-profile-content").innerHTML = "<%=author_profile_utf8%>"
+					</script>
+<%
+				}
+%>
+			<script>
+			document.getElementById("book-abstract-content").innerHTML = "Intro to <%=book_name_global%>"
+			document.getElementById("author-works-content").innerHTML = "More Works of <%=author_name_global%>"
+			document.getElementById("author-places-content").innerHTML = "Places where <%=author_name_global%> have been to"
+			</script>
+<%
+			}// end of if (rs.next())
+		}// end of try Step 3-2
+		catch(Exception e){
+			String error_msg_UTF8 = new String(e.getMessage().getBytes(),"UTF-8");
+			String error_msg_GBK = new String(e.getMessage().getBytes(),"GBK");
+			out.println("<script>");
+			out.println("console.log(\"数据库查詢失败!\");");
+			out.println("console.log(\"" + error_msg_UTF8 + "\");");
+			out.println("console.log(\"" + error_msg_GBK + "\");");
+			out.println("</script>");
+			e.printStackTrace();
+		}
+		// Step 4 Shut Database Connection
+		try
+		{
+			if (null != stmt) stmt.close();
+			if (null != conn) conn.close();
+		}
+		catch(Exception e)
+		{
+			out.println("<script>console.log('数据库关闭失败!');</script>");
+			e.printStackTrace();
+		}
+	}// block
+	}else{
+%>
+		<div style="padding-top:100px;text-align:center;">
+			<h3>
+				<kbd>unauthorized&nbsp;user</kbd>
+			</h3>
+			<h3>
+				to check out user account
+			</h3>
+			<h3>
+				please <a href="login.html">login</a> as <code>normal</code> first
+			</h3>
+		</div>
+<%
+	}
+%>
+
+	<script type="text/javascript">
+		function togglecollapse(btnid){
+			var tr = $(btnid)[0].parentElement.parentElement;
+			if( tr.hasAttribute('hidden') ) tr.removeAttribute('hidden');
+			else{
+				var timer = setTimeout(function() {
+					$(btnid)[0].parentElement.parentElement.setAttribute('hidden','true');
+					prev_btnid = undefined;
+				}, 260 );
+			}
+		}
+		function book_item_check(btn){
+			if(btn.hasAttribute('checked')){
+				btn.removeAttribute('checked');
+				btn.setAttribute('class','btn btn-default glyphicon glyphicon-unchecked')
+			} else {
+				btn.setAttribute('checked',"");
+				btn.setAttribute('class','btn btn-default glyphicon glyphicon-check active')
+			}
+		}
+		function book_item_select_by_id(itemid,btn){
+			var book_item_select_input = document.getElementById("book-item-select-input-"+itemid);
+			if(btn.hasAttribute('checked')){
+				book_item_select_input.setAttribute("value","1");
+				console.log("book-item-"+itemid+" was checked");
+			}else{
+				book_item_select_input.setAttribute("value","0");
+				console.log("book-item-"+itemid+" was unchecked");
+			}
+		}
+		function book_item_select_submit(){
+			var myform = document.createElement("form");
+			myform.setAttribute("action","bookpurchase.html");
+			myform.setAttribute("method","post");
+			var myinput = document.createElement("input");
+			myinput.setAttribute("name","bookid");
+			myinput.setAttribute("value","<%=request.getParameter("bookid")%>");
+			myform.appendChild(myinput);
+			console.log("function book_item_select_submit(): ");
+			console.log("bookid = "+myinput.value);
+
+			var itemids = array_book_item_id;
+			var itemmax = 0;
+			if( itemids == undefined || itemids == null ){
+				console.log("cannot find array_book_item_id");
+			} else {
+				for( var i = 0; i < itemids.length; ++i ){
+					var myinput = document.getElementById("book-item-select-input-"+itemids[i]);
+					if( myinput == null ){
+						console.log("cannot find book-item-select-input-"+itemids[i]);
+					} else if(myinput.value=="1"){
+						myinput.setAttribute("name","id-of-item-"+itemmax);
+						myinput.setAttribute("value",itemids[i]);
+						itemmax++;
+						myform.appendChild(myinput);
+						console.log("input name ='" + myinput.name + "' value = " + myinput.value);
+					}
+				}
+				myinput = document.createElement("input");
+				myinput.setAttribute("name","item-max");
+				myinput.setAttribute("value",itemmax);
+				myform.appendChild(myinput);
+				console.log("input name ='" + myinput.name + "' value = " + myinput.value);
+				document.body.appendChild(myform);
+				myform.submit();
+				document.body.removeChild(myform);
+			}
+		}
+		function book_item_heart(btn){
+			if(btn.hasAttribute('checked')){
+				btn.removeAttribute('checked');
+				btn.setAttribute('class','btn btn-info glyphicon glyphicon-heart-empty')
+			} else {
+				btn.setAttribute('checked',"");
+				btn.setAttribute('class','btn btn-info glyphicon glyphicon-heart active')
+			}
+		}
+	</script>
+	<script src="js/sql_error.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

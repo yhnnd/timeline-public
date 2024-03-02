@@ -1,0 +1,1815 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Room</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval';">-->
+    <meta http-equiv="Content-Security-Policy" content="connect-src 'self' ws://yhnnd.cn ws://www.yhnnd.cn ws://impte.com ws://www.impte.com ws://localhost:* http://up.qiniu.com/;">
+    <meta http-equiv="Content-Security-Policy" content="object-src 'self';">
+    <!--<meta http-equiv="Cache-Control" content="no-cache">-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/prettify.css">
+    <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+<script src="js/vendor/underscore.min.js"></script>
+<script src="js/vendor/jquery.min.js"></script>
+<script src="js/vendor/dark_mode_start.js"></script>
+    <div class="container">
+        <a href="#" name="page-top"></a>
+        <div id="settings-field">
+            <div class="fixed-top" style="background-color: white;z-index: 100;">
+                <div class="container">
+                    <ul class="nav nav-tabs nav-main">
+                        <li class="nav-item" hidden>
+                            <a class="nav-link active br-0" data-toggle="tab" href="#profile">
+                                <i class="fa fa-user fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link br-0" data-toggle="tab" href="#settings">
+                                <i class="fa fa-cog fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link br-0" data-toggle="tab" href="#contact">
+                                <i class="fa fa-address-book fa-lg" style="transform: scale(1.1,1.0);"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link br-0" data-toggle="tab" href="#chat-list">
+                                <i class="fa fa-bell fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link br-0" data-toggle="tab" href="#chat">
+                                <i class="fa fa-comments fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link br-0" data-toggle="tab" href="#cards">
+                                <i class="fa fa-newspaper-o fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item" hidden>
+                            <a class="nav-link br-0" data-toggle="tab" href="#console">
+                                <span data-chinese="控制臺">console</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" hidden>
+                            <a class="nav-link br-0" data-toggle="tab" href="#album">
+                                <i class="fa fa-picture-o fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item" hidden>
+                            <a class="nav-link br-0" data-toggle="tab" href="#logs">
+                                <i class="fa fa-terminal fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item" hidden>
+                            <a class="nav-link br-0" data-toggle="tab" href="#error-logs">
+                                <i class="fa fa-exclamation-circle fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item" hidden>
+                            <a class="nav-link br-0" data-toggle="tab" href="#user-events">
+                                <i class="fa fa-calendar fa-lg" style="position: relative;top: -2px;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Tab panes -->
+            <div class="tab-content" style="padding-top: 60px;">
+                <div class="tab-pane active" id="profile">
+                    <style>
+                        @media screen {
+                            @media (max-height: 568px) {
+                                .tab-pane#profile {
+                                    margin-top: -30px;
+                                }
+                            }
+                            @media (min-height: 569px) and (max-height: 736px) {
+                                .tab-pane#profile {
+                                    margin-top: -20px;
+                                }
+                            }
+                        }
+                    </style>
+                    <!-- user -->
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link do-not-hide active"
+                                       data-toggle="tab" data-target="#login-field" data-chinese="登录">log in</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link do-not-hide"
+                                       data-toggle="tab" data-target="#signup-field" data-chinese="注册">sign up</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="login-field">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                    <div class="input-group input-group-sm dropdown">
+                                        <button id="login-by" class="input-group-addon" data-toggle="dropdown" data-login-by="username">
+                                            <span data-chinese="用户名">username</span>
+                                        </button>
+                                        <div class="dropdown-menu" id="login-by-options">
+                                            <button class="dropdown-item" data-login-by="user-id">
+                                                <span data-chinese="用户 id">user id</span>
+                                            </button>
+                                            <button class="dropdown-item disabled" data-login-by="username">
+                                                <span data-chinese="用户名">username</span>
+                                            </button>
+                                            <button class="dropdown-item disabled not-available" data-login-by="user-email">
+                                                <span class="text-deleted" data-chinese="邮箱地址">e-mail</span>
+                                            </button>
+                                            <button class="dropdown-item disabled not-available" data-login-by="user-tel">
+                                                <span class="text-deleted" data-chinese="电话号码">telephone</span>
+                                            </button>
+                                        </div>
+                                        <input class="form-control" id="username" type="text"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-addon" data-chinese="密码">password</span>
+                                        <input class="form-control" id="password" type="password"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                    <div class="btn-group btn-group-justified w-100">
+                                        <button type="button" class="btn btn-sm btn-outline-primary w-50" id="login" onclick="login()" data-chinese="登录">
+                                            log in
+                                        </button>
+                                        <div class="btn btn-sm btn-outline-dark w-50">
+                                            <label class="mb-0 mr-1" for="auto-login">
+                                                <span data-chinese="下次自动登录">auto login</span>
+                                            </label>
+                                            <input type="checkbox" id="auto-login" value="true">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                    <div class="row">
+                                        <small class="col text-center text-info hover-text-underline">
+                                            <span onclick="window.open('find-my-password.html')">
+                                                <span data-chinese="找回密码">forgot password</span>
+                                            </span>
+                                        </small>
+                                        <small class="col text-center text-success hover-text-underline">
+                                            <span onclick="$(`[data-toggle='tab'][data-target='#signup-field']`).click();">
+                                                <span data-chinese="注册">sign up</span>
+                                            </span>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="signup-field">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-addon" data-chinese="用户名">username</span>
+                                        <input class="form-control" id="signup-username" type="text"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-addon" data-chinese="密码">password</span>
+                                        <input class="form-control" id="signup-password" type="password"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-addon" data-chinese="年龄">age</span>
+                                        <input class="form-control" id="signup-age" type="number"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-addon" data-chinese="性别">gender</span>
+                                        <select class="form-control" id="signup-gender">
+                                            <option value="female" data-chinese="女">female</option>
+                                            <option value="male" data-chinese="男">male</option>
+                                            <option value="unknown" data-chinese="保密">secret</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-addon" data-chinese="邮箱">e-mail</span>
+                                        <input class="form-control" id="signup-email" type="email"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                    <div class="btn-group btn-group-justified w-100">
+                                        <div class="btn-group w-50" data-toggle="buttons">
+                                            <button class="btn btn-sm btn-outline-primary active px-0 w-100" id="agree-to-terms-of-use"
+                                                    onclick="toggle_agree_terms_of_use($(this))">
+                                                <small data-chinese="同意使用条款">Agree To Terms of Use</small>
+                                            </button>
+                                        </div>
+                                        <button type="button" class="btn btn-sm btn-outline-success w-50" id="signup"
+                                                onclick="signup(signup_callback)" data-chinese="注册">
+                                            sign up
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group text-center">
+                                    <small class="text-primary hover-text-underline"
+                                         onclick="$(`[data-toggle='tab'][data-target='#login-field']`).click();" data-chinese="返回登录">
+                                        return to log in
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="settings">
+                    <!-- nav-settings -->
+                    <div class="row link-row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <h6 class="text-center">
+                                <a name="nav-settings" href="#account">
+                                    <small class="text-primary" data-chinese="账户">account</small>
+                                </a>
+                                <a href="#history">
+                                    <small class="text-primary" data-chinese="历史">history</small>
+                                </a>
+                                <a href="#style">
+                                    <small class="text-primary" data-chinese="样式">style</small>
+                                </a>
+                                <a href="#advanced">
+                                    <small class="text-primary" data-chinese="高级">advanced</small>
+                                </a>
+                            </h6>
+                        </div>
+                    </div>
+
+                    <!-- account -->
+                    <div class="card card-block card-outline-primary px-3 pt-2 pb-0 settings-item first">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <p class="lead text-center">
+                                    <span class="link-prev">
+                                        <a name="account" href="#page-top" data-chinese="上一项">prev</a>
+                                    </span>
+                                    <span data-toggle="collapse" data-target="#account-field" data-chinese="账户" style="cursor: pointer;">
+                                        account
+                                    </span>
+                                    <span class="link-next">
+                                        <a name="account" href="#history" data-chinese="下一项">next</a>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row collapse" id="account-field">
+                            <div class="w-100" id="accordion" style="opacity: 0.8;">
+                                <div class="card">
+                                    <div class="btn btn-sm btn-outline-danger btn-block" id="logout" onclick="logout();">
+                                        <h5 class="mb-0" data-chinese="登出">
+                                            log out
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0 text-center">
+                                            <a data-toggle="collapse" href="#change-username-collapse" data-chinese="修改用户名">
+                                                change username
+                                            </a>
+                                        </h5>
+                                    </div>
+                                    <div class="collapse" id="change-username-collapse" data-parent="#accordion">
+                                        <div class="input-group mt-3">
+                                            <span class="input-group-addon cursor-pointer" onclick="refresh_user()"
+                                                  onmousedown="$(this).find('i').css({'color':'#aaa'});" onmouseup="$(this).find('i').css({'color':''});">
+                                                <i class="fa fa-user-o fa-1"></i>
+                                            </span>
+                                            <input type="text" class="form-control" id="new-username">
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-primary" onclick="change_username()" data-chinese="确认">confirm</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0 text-center">
+                                            <a data-toggle="collapse" href="#change-password-collapse" data-chinese="修改密码">
+                                                change password
+                                            </a>
+                                        </h5>
+                                    </div>
+                                    <div class="collapse" id="change-password-collapse" data-parent="#accordion">
+                                        <div class="form-group mt-3">
+                                            <div class="input-group">
+                                            <span class="input-group-addon cursor-pointer" onclick="refresh_user()"
+                                                  onmousedown="$(this).find('i').css({'color':'#aaa'});" onmouseup="$(this).find('i').css({'color':''});">
+                                                <i class="fa fa-key fa-1"></i>
+                                            </span>
+                                                <input type="password" class="form-control" id="new-password">
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon cursor-pointer" onclick="refresh_user()"
+                                                  onmousedown="$(this).find('i').css({'color':'#aaa'});" onmouseup="$(this).find('i').css({'color':''});">
+                                                <i class="fa fa-key fa-1"></i>
+                                            </span>
+                                            <input type="password" class="form-control" id="confirm-new-password">
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-primary" onclick="change_password()" data-chinese="确认">confirm</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0 text-center">
+                                            <a data-toggle="collapse" href="#change-avatar-collapse" data-chinese="修改头像">
+                                                change avatar
+                                            </a>
+                                        </h5>
+                                    </div>
+                                    <div class="collapse" id="change-avatar-collapse" data-parent="#accordion">
+                                        <div class="text-center mt-3">
+                                            <img style="width:3rem; height:3rem;" class="img-thumbnail" id="user-avatar"/>
+                                        </div>
+                                        <div class="input-group mt-3">
+                                            <span class="input-group-addon cursor-pointer" style="max-width:12%;" onclick="refresh_user()"
+                                                  onmousedown="$(this).find('i').css({'color':'#aaa'});" onmouseup="$(this).find('i').css({'color':''});">
+                                                <i class="fa fa-user-circle-o fa-1"></i>
+                                            </span>
+                                            <label class='custom-file' style="min-width:65%;">
+                                                <input type='file' id='avatar-to-change' class='custom-file-input' onchange="file_select_truncate(this);">
+                                                <span class='custom-file-control' id='avatar-filename' style="border-radius: 0;" data-chinese="更换头像">change avatar</span>
+                                            </label>
+                                            <div class="input-group-btn" style="max-width:23%;z-index: 6;">
+                                                <button class="btn btn-primary" onclick="change_avatar()" data-chinese="应用">apply</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0 text-center">
+                                            <a data-toggle="collapse" href="#change-gender-collapse" data-chinese="设置性别">
+                                                set gender
+                                            </a>
+                                        </h5>
+                                    </div>
+                                    <div class="collapse" id="change-gender-collapse" data-parent="#accordion">
+                                        <div class="input-group mt-3">
+                                            <span class="input-group-addon cursor-pointer" onclick="refresh_user()"
+                                                  onmousedown="$(this).find('i').css({'color':'#aaa'});" onmouseup="$(this).find('i').css({'color':''});">
+                                                <i class="fa fa-venus-mars fa-1"></i>
+                                            </span>
+                                            <select class="form-control" id="new-gender">
+                                                <option value="unknown">unknown</option>
+                                                <option value="female">female</option>
+                                                <option value="male">male</option>
+                                            </select>
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-primary" onclick="change_gender()" data-chinese="确认">confirm</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0 text-center">
+                                            <a data-toggle="collapse" href="#change-age-collapse" data-chinese="设置年龄">
+                                                set age
+                                            </a>
+                                        </h5>
+                                    </div>
+                                    <div class="collapse" id="change-age-collapse" data-parent="#accordion">
+                                        <div class="input-group mt-3">
+                                            <span class="input-group-addon cursor-pointer" onclick="refresh_user()"
+                                                  onmousedown="$(this).find('i').css({'color':'#aaa'});" onmouseup="$(this).find('i').css({'color':''});">
+                                                <i class="fa fa-certificate fa-1"></i>
+                                            </span>
+                                            <input class="form-control" id="new-age" type="number"/>
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-primary" onclick="change_age()" data-chinese="确认">confirm</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0 text-center">
+                                            <a data-toggle="collapse" href="#change-email-collapse" data-chinese="设置邮箱">
+                                                change e-mail
+                                            </a>
+                                        </h5>
+                                    </div>
+                                    <div class="collapse" id="change-email-collapse" data-parent="#accordion">
+                                        <div class="input-group mt-3">
+                                            <span class="input-group-addon" style="cursor: pointer;" onclick="refresh_user()"
+                                                  onmousedown="$(this).find('i').css({'color':'#aaa'});" onmouseup="$(this).find('i').css({'color':''});">
+                                                <i class="fa fa-envelope-o fa-1"></i>
+                                            </span>
+                                            <input class="form-control" id="new-email" type="email"/>
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-primary" onclick="change_email()" data-chinese="确认">confirm</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- history -->
+                    <div class="card card-block card-outline-primary px-3 pt-2 pb-0 settings-item middle">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <p class="lead text-center">
+                                    <span class="link-prev">
+                                        <a name="history" href="#account" data-chinese="上一项">prev</a>
+                                    </span>
+                                    <span data-toggle="collapse" data-target="#history-field" data-chinese="历史" style="cursor: pointer;">
+                                        history
+                                    </span>
+                                    <span class="link-next">
+                                        <a name="history" href="#style" data-chinese="下一项">next</a>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row collapse" id="history-field">
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                <div class="btn btn-sm btn-outline-primary btn-block" onclick="search_room(search_room_callback_history)" data-chinese="查看聊天记录">
+                                    Chat History
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                <div class="btn btn-sm btn-outline-danger btn-block" onclick="clearHistory()" data-chinese="清除聊天记录">
+                                    Clear Chat History
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                <div class="btn btn-sm btn-outline-success btn-block" onclick="clearCache()" data-chinese="清除缓存">
+                                    Clear Cache
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                <button class="btn btn-sm btn-outline-success btn-block" onclick="clearCookies()" data-chinese="清除 Cookies">
+                                    Clear Cookies
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- style -->
+                    <div class="card card-block card-outline-primary px-3 pt-2 pb-0 settings-item middle">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <p class="lead text-center">
+                                    <span class="link-prev">
+                                        <a name="style" href="#history" data-chinese="上一项">prev</a>
+                                    </span>
+                                    <span data-toggle="collapse" data-target="#style-field" data-chinese="样式" style="cursor: pointer;">
+                                        style
+                                    </span>
+                                    <span class="link-next">
+                                        <a name="style" href="#advanced" data-chinese="下一项">next</a>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row collapse" id="style-field">
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+                                <p class="text-left text-color-animated" data-chinese="情景模式">style mode</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                <a class="btn btn-sm btn-outline-secondary btn-block" href="javascript:void(0);" onclick="toggle_dark_mode({'class':'style-mode-name','true':'dark mode','false':'light mode'})">
+                                    <span class="style-mode-name">dark mode</span>
+                                </a>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+                                <p class="text-left text-color-animated" data-chinese="用户头像">avatar</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                <div class="input-group input-group-sm">
+                                    <label class="input-group-addon badge-default text-white" id="avatar-style" for="avatar-class" data-chinese="头像样式">avatar style</label>
+                                    <select class="form-control" id="avatar-class" onchange="">
+                                        <option value="rounded">rounded</option>
+                                        <option value="rounded-top">rounded-top</option>
+                                        <option value="rounded-right">rounded-right</option>
+                                        <option value="rounded-bottom">rounded-bottom</option>
+                                        <option value="rounded-left">rounded-left</option>
+                                        <option value="rounded-circle">rounded-circle</option>
+                                        <option value="rounded-0">rounded-0</option>
+                                        <option value="img-thumbnail">img-thumbnail</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="border-selector" data-object="avatar">
+                            </div>
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+                                <p class="text-left text-color-animated" data-chinese="用户名">username</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                <div class="input-group input-group-sm">
+                                    <label class="input-group-addon bg-primary text-white" id="username-text-style" for="username-text-class" data-chinese="文本样式">text style</label>
+                                    <select class="form-control" id="username-text-class" onchange="selectUsernameTextStyle(this)">
+                                        <option value="white">white</option>
+                                        <option value="primary">primary</option>
+                                        <option value="success">success</option>
+                                        <option value="danger">danger</option>
+                                        <option value="warning">warning</option>
+                                        <option value="info">info</option>
+                                        <option value="muted">default</option>
+                                        <option value="gray-dark">dark</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                <div class="input-group input-group-sm">
+                                    <label class="input-group-addon bg-primary text-white" id="badge-style" for="badge-class" data-chinese="徽章样式">badge style</label>
+                                    <select class="form-control" id="badge-class" onchange="selectUsernameBadgeStyle(this)">
+                                        <option value="primary">primary</option>
+                                        <option value="success">success</option>
+                                        <option value="info">info</option>
+                                        <option value="warning">warning</option>
+                                        <option value="danger">danger</option>
+                                        <option value="default">default</option>
+                                        <option value="inverse">dark</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+                                <p class="text-left text-color-animated" data-chinese="消息文本">message</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                <div class="input-group input-group-sm">
+                                    <label class="input-group-addon text-gray-dark" id="text-style" for="text-class" data-chinese="文本样式">text style</label>
+                                    <select class="form-control" id="text-class" onchange="selectMessageTextStyle(this)">
+                                        <option value="primary">primary</option>
+                                        <option value="success">success</option>
+                                        <option value="info">info</option>
+                                        <option value="warning">warning</option>
+                                        <option value="danger">danger</option>
+                                        <option value="muted">default</option>
+                                        <option value="gray-dark" selected>dark</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                <div class="input-group input-group-sm">
+                                    <label class="input-group-addon bg-faded text-gray-dark" id="alert-style" for="alert-class" data-chinese="背景样式">background</label>
+                                    <select class="form-control" id="alert-class" onchange="selectMessageBackgroundStyle(this)">
+                                        <option value="primary">primary</option>
+                                        <option value="secondary">secondary</option>
+                                        <option value="success">success</option>
+                                        <option value="danger">danger</option>
+                                        <option value="warning">warning</option>
+                                        <option value="info">info</option>
+                                        <option value="light" selected>light</option>
+                                        <option value="dark">dark</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="border-selector" data-object="message">
+                            </div>
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group message-body-sample">
+                                <h5 data-style="no-support" style="clear:both;text-align:right;">
+                                    <span class="badge badge-primary">username</span>
+                                    <img class="message-avatar mb-1" style="width:40px;height:40px;border-radius:20px;" src="img/avatar-me.jpg">
+                                    <br>
+                                    <span class="message-text text-gray-dark" style="
+                                            display:inline-block;
+                                            min-width:40px;
+                                            max-width:80%;
+                                            word-wrap:break-word;
+                                            /*background-color:#fff;*/
+                                            border-radius:2px;
+                                            padding:7px;
+                                            box-shadow: 0 0 1px rgb(37, 40, 48);
+                                            text-align:left;
+                                    ">
+                                        sample message text for demonstration
+                                    </span>
+                                </h5>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                <button class="btn btn-block btn-primary" data-chinese="应用" onclick="set_message_style()">Apply</button>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+                                <p class="text-left text-color-animated" data-chinese="背景图片">background image</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                <div class="input-group">
+                                    <label class='custom-file' style="min-width:65%;">
+                                        <input type='file' id='profile-background-to-change' class='custom-file-input' onchange="file_select_truncate(this);">
+                                        <span class='custom-file-control' id='profile-background-filename' style="border-radius: 0;" data-chinese="更换账户背景">
+                                            change profile background
+                                        </span>
+                                    </label>
+                                    <div class="input-group-btn" style="max-width:23%;z-index: 6;">
+                                        <button class="btn btn-primary" onclick="change_profile_background()" data-chinese="应用">
+                                            apply
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                <div class="input-group">
+                                    <label class='custom-file' style="min-width:65%;">
+                                        <input type='file' id='chat-background-to-change' class='custom-file-input' onchange="file_select_truncate(this);">
+                                        <span class='custom-file-control' id='chat-background-filename' style="border-radius: 0;" data-chinese="更换聊天背景">
+                                            change chat background
+                                        </span>
+                                    </label>
+                                    <div class="input-group-btn" style="max-width:23%;z-index: 6;">
+                                        <button class="btn btn-primary" onclick="change_chat_background()" data-chinese="应用">
+                                            apply
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- advanced -->
+                    <div class="card card-block card-outline-primary px-3 pt-2 pb-0 settings-item last">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <p class="lead text-center">
+                                    <span class="link-prev">
+                                        <a name="advanced" href="#style" data-chinese="上一项">prev</a>
+                                    </span>
+                                    <span data-toggle="collapse" data-target="#advanced-field" data-chinese="高级" style="cursor: pointer;">
+                                        advanced
+                                    </span>
+                                    <span class="link-next">
+                                        <a name="advanced" href="#settings-bottom" data-chinese="下一项">next</a>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row collapse" id="advanced-field">
+                            <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-input-group">
+                                <div class="form-group row">
+                                    <div class="col-8">
+                                        <small class="text-muted" data-chinese="按回车发送消息">
+                                            Press Enter to Send
+                                        </small>
+                                    </div>
+                                    <div class="col text-right">
+                                        <div class="ios-button" id="toggle-press-enter-to-send"
+                                             data-button-on="enablePressEnterToSend()"
+                                             data-button-off="disablePressEnterToSend()"
+                                             data-style="no-support">
+                                            <div class="ios-button-circle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-6">
+                                        <small class="text-muted" data-chinese="系统语言">
+                                            Application Language
+                                        </small>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <div class="btn-group w-100" data-toggle="buttons">
+                                            <div class="btn btn-sm btn-outline-primary size-important w-50 active" data-toggle="tooltip" data-placement="top" data-trigger="hover" title="set language to English" onclick="select_system_language(this)">
+                                                <input type="radio" name="language" id="lang-en" checked/> English
+                                            </div>
+                                            <div class="btn btn-sm btn-outline-primary size-important w-50" data-toggle="tooltip" data-placement="top" data-trigger="hover" title="设置系统语言为中文" onclick="select_system_language(this)">
+                                                <input type="radio" name="language" id="lang-zh"/> 中文
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-8">
+                                        <small class="text-muted" data-chinese="允许同时在线">
+                                            Allow Multiple Online Devices
+                                        </small>
+                                    </div>
+                                    <div class="col text-right">
+                                        <div class="ios-button" id="button-allow-multiple-online-devices"
+                                             data-button-on="set_multiple_online_devices(1)"
+                                             data-button-off="set_multiple_online_devices(0)"
+                                             data-style="no-support">
+                                            <div class="ios-button-circle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-8">
+                                        <small class="text-muted" data-chinese="允许强制下线">
+                                            Allow Compulsory Disconnect
+                                        </small>
+                                    </div>
+                                    <div class="col text-right">
+                                        <div class="ios-button" id="button-allow-compulsory-disconnect"
+                                             data-button-on="set_compulsory_disconnect(1)"
+                                             data-button-off="set_compulsory_disconnect(0)"
+                                             data-style="no-support">
+                                            <div class="ios-button-circle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-8">
+                                        <small class="text-muted" data-chinese="在线状态对好友可见">
+                                            Allow Friends to Know if I'm Online
+                                        </small>
+                                    </div>
+                                    <div class="col text-right">
+                                        <div class="ios-button" id="button-allow-online-status-exposed"
+                                             data-button-on="set_online_status_exposed(1)"
+                                             data-button-off="set_online_status_exposed(0)"
+                                             data-style="no-support">
+                                            <div class="ios-button-circle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-8">
+                                        <small class="text-muted" data-chinese="允许加载 HTML 类型消息（可能含有恶意脚本或病毒）">
+                                            Allow loading HTML messages (May Include Malicious Scripts or Viruses)
+                                        </small>
+                                    </div>
+                                    <div class="col text-right">
+                                        <div class="ios-button" id="button-allow-loading-html-messages"
+                                             data-button-on="set_loading_html_messages(1)"
+                                             data-button-off="set_loading_html_messages(0)"
+                                             data-style="no-support">
+                                            <div class="ios-button-circle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-8">
+                                        <small class="text-muted" data-chinese="允许隐藏滚动控制器">
+                                            Toggle to Hide Scroll Control
+                                        </small>
+                                    </div>
+                                    <div class="col text-right">
+                                        <div class="ios-button" id="button-toggle-to-hide-scroll-control"
+                                             data-button-on="change_toggle_scroll_control(1)"
+                                             data-button-off="change_toggle_scroll_control(0)"
+                                             data-style="no-support">
+                                            <div class="ios-button-circle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-8">
+                                        <small class="text-muted" data-chinese="允许隐藏房间标题栏">
+                                            Toggle to Hide Page Header
+                                        </small>
+                                    </div>
+                                    <div class="col text-right">
+                                        <div class="ios-button" id="button-toggle-to-hide-page-header"
+                                             data-button-on="change_toggle_page_header(1)"
+                                             data-button-off="change_toggle_page_header(0)"
+                                             data-style="no-support">
+                                            <div class="ios-button-circle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-8">
+                                        <small class="text-muted" data-chinese="允许隐藏消息输入框（仅适用于移动端）">
+                                            Toggle to Hide Message Input (Mobile Only)
+                                        </small>
+                                    </div>
+                                    <div class="col text-right">
+                                        <div class="ios-button" id="button-toggle-to-hide-message-input"
+                                             data-button-on="change_toggle_message_input(1)"
+                                             data-button-off="change_toggle_message_input(0)"
+                                             data-style="no-support">
+                                            <div class="ios-button-circle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-8">
+                                        <small class="text-muted" data-chinese="聊天室关键词通知">
+                                            Chat Room Keyword Notification
+                                        </small>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="btn btn-sm btn-outline-dark size-important px-3 float-right" onclick="">
+                                            <i class="fa fa-bullhorn pr-1"></i>
+                                            <i class="fa fa-assistive-listening-systems pl-1"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-8">
+                                        <small class="text-muted" data-chinese="好友卡片关键词通知">
+                                            Friend's Card Keyword Notification
+                                        </small>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="btn btn-sm btn-outline-dark size-important px-3 float-right" onclick="">
+                                            <i class="fa fa-bullhorn pr-1"></i>
+                                            <i class="fa fa-assistive-listening-systems pl-1"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-8">
+                                        <small class="text-muted" data-chinese="更新日志">
+                                            Update Logs
+                                        </small>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="btn btn-sm btn-outline-dark size-important float-right" onclick="show_update_logs()">
+                                            <span data-chinese="查看日志">view logs</span>
+                                            <i class="fa fa-caret-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-8">
+                                        <small class="text-muted" data-chinese="应用程序日志">
+                                            Application Logs
+                                        </small>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="btn btn-sm btn-outline-dark size-important float-right" onclick="$(&quot;[data-toggle='tab'][href='#logs']&quot;).click();">
+                                            <span data-chinese="查看日志">view logs</span>
+                                            <i class="fa fa-caret-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-8">
+                                        <small class="text-muted" data-chinese="错误日志">
+                                            Error Logs
+                                        </small>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="btn btn-sm btn-outline-danger size-important float-right" onclick="$(&quot;[data-toggle='tab'][href='#error-logs']&quot;).click();">
+                                            <span data-chinese="查看日志">view logs</span>
+                                            <i class="fa fa-caret-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-8">
+                                        <small class="text-info" data-chinese="用户日程（测试功能）">
+                                            User Events (Experimental Functions)
+                                        </small>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="btn btn-sm btn-outline-info size-important float-right" onclick="$(&quot;[data-toggle='tab'][href='#user-events']&quot;).click();">
+                                            <span data-chinese="浏览日程">View Events</span>
+                                            <i class="fa fa-caret-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- settings bottom -->
+                    <div class="row link-row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <h6 class="text-center">
+                                <a name="settings-bottom" href="#page-top">
+                                    <small data-chinese="回到顶部">go back to top</small>
+                                </a>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- contact -->
+                <div class="tab-pane" id="contact">
+                    <div class="tab-content">
+                        <ul class="nav nav-tabs" hidden>
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#friends">
+                                    <span data-chinese="好友">friends</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#rooms">
+                                    <span data-chinese="房间">rooms</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- friends -->
+                        <div class="tab-pane active" id="friends">
+                            <!-- friends -->
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <p class="lead text-center">
+                                        <span class="link-prev">
+                                            <a name="friends-link" href="#page-top" data-chinese="上一项">prev</a>
+                                        </span>
+                                        <span onclick="$(&quot;[data-toggle='tab'][href='#friends']&quot;).click()" data-chinese="好友">
+                                            friends
+                                        </span>
+                                        <span class="text-primary hover-text-underline" onclick="$(&quot;[data-toggle='tab'][href='#rooms']&quot;).click()" data-chinese="房间">
+                                            rooms
+                                        </span>
+                                        <i class="fa fa-refresh fa-1" id="button-refresh-friends" onclick="refresh_friends()"></i>
+                                        <span class="link-next">
+                                            <a name="friends-link" href="#friends-bottom" data-chinese="下一项">next</a>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-input-group">
+                                    <div class="card card-outline-primary br-0" onselectstart="return false;">
+                                        <h5 class="card-header br-0" data-toggle="collapse" data-target="#friend-list" style="border-radius: calc(.25rem - 1px);">
+                                            <span data-chinese="好友列表">Friend List</span>
+                                            <small class="float-right">
+                                                <span class="text-color-animated" data-chinese="点击">click</span>
+                                                <span class="text-color-animated fa fa-comments"></span>
+                                                <span class="text-color-animated" data-chinese="发起聊天">to chat</span>
+                                            </small>
+                                        </h5>
+                                        <div class="collapse show" id="friend-list">
+                                            <table class="table table-sm table-hover mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th data-chinese="头像">Avatar</th>
+                                                        <th data-chinese="用户名">Name</th>
+                                                        <th data-chinese="性别">Gender</th>
+                                                        <th data-chinese="选项">Options</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <!-- friends -->
+                                                </tbody>
+                                            </table>
+                                            <div class="card-footer text-center br-0">
+                                                <small class="text-muted" data-chinese="你的好友不在这里？">
+                                                    Your friend is not here?
+                                                </small>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                <button class="btn btn-sm btn-outline-primary" onclick="search_user(search_user_callback)" data-chinese="添加新好友">
+                                                    Add New Friend
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-input-group">
+                                    <div class="card card-outline-primary br-0" onselectstart="return false;">
+                                        <h5 class="card-header br-0" data-toggle="collapse" data-target="#incoming-add-friend-list" style="border-radius: calc(.25rem - 1px);">
+                                            <span data-chinese="已收到加好友请求">Incoming Add Friend List</span>
+                                        </h5>
+                                        <div class="collapse show" id="incoming-add-friend-list">
+                                            <table class="table table-sm table-hover mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th data-chinese="头像">Avatar</th>
+                                                        <th data-chinese="用户名">Name</th>
+                                                        <th data-chinese="性别">Gender</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <!-- incoming friends -->
+                                                </tbody>
+                                            </table>
+                                            <div class="card-footer text-center br-0">
+                                                <small class="text-muted" data-chinese="不认识这些人？">
+                                                    Don't know who they are ?
+                                                </small>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                <button class="btn btn-sm btn-outline-primary" onclick="$('#incoming-add-friend-list table > tbody ').empty()" data-chinese="清空所有">
+                                                    Clear All
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-input-group">
+                                    <div class="card card-outline-primary br-0" onselectstart="return false;">
+                                        <h5 class="card-header br-0" data-toggle="collapse" data-target="#outcoming-add-friend-list" style="border-radius: calc(.25rem - 1px);">
+                                            <span data-chinese="已发送加好友请求">Outcoming Add Friend List</span>
+                                        </h5>
+                                        <div class="collapse show" id="outcoming-add-friend-list">
+                                            <table class="table table-sm table-hover mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th data-chinese="头像">Avatar</th>
+                                                        <th data-chinese="用户名">Name</th>
+                                                        <th data-chinese="性别">Gender</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <!-- friends -->
+                                                </tbody>
+                                            </table>
+                                            <div class="card-footer text-center br-0">
+                                                <small class="text-muted" data-chinese="你的好友不在这里？">
+                                                    Your friend is not here?
+                                                </small>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                <button class="btn btn-sm btn-outline-primary" onclick="search_user(search_user_callback)" data-chinese="添加新好友">
+                                                    Add New Friend
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- friends bottom -->
+                            <div class="row link-row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <h6 class="text-center">
+                                        <a name="friends-bottom" href="#page-top">
+                                            <small data-chinese="回到顶部">go back to top</small>
+                                        </a>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="rooms">
+                            <!-- rooms -->
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <p class="lead text-center">
+                                        <span class="link-prev">
+                                            <a name="rooms-link" href="#page-top" data-chinese="上一项">prev</a>
+                                        </span>
+                                        <span class="text-primary hover-text-underline" onclick="$(&quot;[data-toggle='tab'][href='#friends']&quot;).click();" data-chinese="好友">
+                                            friends
+                                        </span>
+                                        <span onclick="$(&quot;[data-toggle='tab'][href='#rooms']&quot;).click();" data-chinese="房间">
+                                            rooms
+                                        </span>
+                                        <i class="fa fa-refresh fa-1" id="button-refresh-rooms" onclick="refresh_rooms()"></i>
+                                        <span class="link-next">
+                                            <a name="rooms-link" href="#rooms-bottom" data-chinese="下一项">next</a>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-input-group">
+                                    <input type="number" id="room-id" data-room-id="0" value="0" hidden/>
+                                    <div class="card card-outline-primary br-0" onselectstart="return false;">
+                                        <h5 class="card-header br-0" data-toggle="collapse" data-target="#room-list" style="border-radius: calc(.25rem - 1px);">
+                                            <span data-chinese="房间列表">Room List</span>
+                                            <small class="float-right">
+                                                <span class="text-color-animated" data-chinese="点击">click</span>
+                                                <span class="text-color-animated fa fa-comments"></span>
+                                                <span class="text-color-animated" data-chinese="进入房间">to center room</span>
+                                            </small>
+                                        </h5>
+                                        <div class="collapse show" id="room-list">
+                                            <table class="table table-sm table-hover mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th data-chinese="房间名">Name</th>
+                                                        <th data-chinese="类型">Type</th>
+                                                        <th data-chinese="选项">Options</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="cursor-pointer">
+                                                <!-- rooms -->
+                                                </tbody>
+                                            </table>
+                                            <div class="card-footer text-center br-0">
+                                                <small class="text-muted" data-chinese="你的好友不在这里？">
+                                                    your friend is not here?
+                                                </small>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                <button class="btn btn-sm btn-outline-primary" data-chinese="邀请好友">
+                                                    Invite Friend
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-input-group">
+                                    <div class="card card-outline-primary br-0" onselectstart="return false;">
+                                        <h5 class="card-header br-0" data-toggle="collapse" data-target="#room-waiting-for-my-permission" style="border-radius: calc(.25rem - 1px);">
+                                            <span data-chinese="这些房间邀请你加入">
+                                                These Rooms Invited You to Join
+                                            </span>
+                                        </h5>
+                                        <div class="collapse show" id="room-waiting-for-my-permission">
+                                            <table class="table table-sm table-hover mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width:20%;">#</th>
+                                                        <th style="width:40%;" data-chinese="房间名">Name</th>
+                                                        <th style="width:40%;" data-chinese="类型">Type</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="cursor-pointer">
+                                                <!-- rooms waiting for my permission -->
+                                                </tbody>
+                                            </table>
+                                            <div class="card-footer text-center br-0">
+                                                <small class="text-muted" data-chinese="为什么加入房间需要同意？">
+                                                    Why joining room need permission?
+                                                </small>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                <button class="btn btn-sm btn-outline-primary" data-chinese="查看详情" onclick="show_update_logs()">
+                                                    View Details
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-input-group">
+                                    <div class="card card-outline-primary br-0" onselectstart="return false;">
+                                        <h5 class="card-header br-0" data-toggle="collapse" data-target="#room-not-permitted-list" style="border-radius: calc(.25rem - 1px);">
+                                            <span data-chinese="请求未通过的房间">
+                                                Rooms Not Permitted
+                                            </span>
+                                        </h5>
+                                        <div class="collapse show" id="room-not-permitted-list">
+                                            <table class="table table-sm table-hover mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width:20%;">#</th>
+                                                        <th style="width:40%;" data-chinese="房间名">Name</th>
+                                                        <th style="width:40%;" data-chinese="类型">Type</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="cursor-pointer">
+                                                <!-- rooms not permitted -->
+                                                </tbody>
+                                            </table>
+                                            <div class="card-footer text-center br-0">
+                                                <small class="text-muted" data-chinese="为什么加入房间需要同意？">
+                                                    Why joining room need permission?
+                                                </small>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                <button class="btn btn-sm btn-outline-primary" data-chinese="查看详情">
+                                                    View Details
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-input-group">
+                                    <div class="card card-outline-primary br-0" onselectstart="return false;">
+                                        <h5 class="card-header br-0" data-toggle="collapse" data-target="#join-room-requests-which-need-my-permission" style="border-radius: calc(.25rem - 1px);">
+                                            <span data-chinese="这些用户请求批准加入房间">
+                                                These Users are Requesting Permission to Join Room
+                                            </span>
+                                        </h5>
+                                        <div class="collapse show" id="join-room-requests-which-need-my-permission">
+                                            <table class="table table-sm table-hover mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="w-20" data-chinese="房间 id">room id</th>
+                                                        <th class="w-20" data-chinese="房间名">room name</th>
+                                                        <th class="w-20" data-chinese="房间类型">room type</th>
+                                                        <th class="w-20" data-chinese="用户 id">user id</th>
+                                                        <th class="w-20" data-chinese="用户名">username</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="cursor-pointer">
+                                                <!-- join room requests which need my permission -->
+                                                </tbody>
+                                            </table>
+                                            <div class="card-footer text-center br-0">
+                                                <small class="text-muted" data-chinese="我能批准哪些加入房间请求？">
+                                                    What Kind of Join Room Requests Can I Permit?
+                                                </small>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                <button class="btn btn-sm btn-outline-primary" data-chinese="查看详情">
+                                                    View Details
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                                    <div class="btn-group btn-group-justified col-input-group w-100">
+                                        <div class="btn btn-sm btn-outline-primary w-50 br-0" onclick="search_room(search_room_callback_join_room)" data-chinese="加入">
+                                            join
+                                        </div>
+                                        <div class="btn btn-sm btn-outline-success w-50 br-0" onclick="create_room()" data-chinese="创建">
+                                            create
+                                        </div>
+                                    </div>
+                                    <div class="btn-group btn-group-justified col-input-group w-100">
+                                        <button class="btn btn-sm btn-secondary w-50 br-0" onclick="all_room_users()" data-chinese="房间成员">
+                                            room user
+                                        </button>
+                                        <button class="btn btn-sm btn-secondary w-50 br-0" onclick="all_rooms()" data-chinese="房间信息">
+                                            room info
+                                        </button>
+                                    </div>
+                                    <div class="w-100 px-3 mb-3" id="all-rooms"></div>
+                                </div>
+                            </div>
+                            <!-- rooms bottom -->
+                            <div class="row link-row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <h6 class="text-center">
+                                        <a name="rooms-bottom" href="#page-top">
+                                            <small data-chinese="回到顶部">go back to top</small>
+                                        </a>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- chat list -->
+                <div class="tab-pane" id="chat-list">
+
+                </div>
+
+                <!-- chat room -->
+                <div class="tab-pane" id="chat">
+                    <div id="chat-field">
+                        <div id="chat-background" data-style="no-support" style="position: fixed;top:0;left:0;width:100%;height:100%;background: rgb(181,190,200);">
+                        </div>
+                        <div class="page-header mt-2 pt-5 pt-lg-5 pb-2 w-100 fixed-top" style="z-index: 80;background: rgba(255,255,255,0.8);border-bottom: 1px solid rgba(0,0,0,.125);">
+                            <div class="container">
+                                <h1 class="display-4" id="room-name">
+                                    <span id="room-info" data-toggle="popover" data-placement="bottom" data-trigger="hover" title="room info" data-content="please select chat room id">
+                                        Chat Room
+                                    </span>
+                                </h1>
+                                <p class="lead" id="room-description">
+                                    <!-- room name for mobile -->
+                                </p>
+                            </div>
+                        </div>
+                        <div id="message-window" class="card" data-style="no-support" style="background-color: transparent;border: none;">
+                            <div class="card-block">
+                                <div id="messages" style="min-height: 375px;margin-bottom: 10rem;"></div>
+                            </div>
+                        </div>
+                        <div id="editor" class="pb-4 w-100 fixed-bottom" style="background-color: white;border-top: 1px solid rgba(0,0,0,.125);">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-10 py-2 text-center" data-toggle="collapse" data-target="#editor-plus">
+                                        <small class="text-muted" data-chinese="更多消息类型">more message types</small>
+                                    </div>
+                                    <div class="col-2 p-0" style="position: relative;">
+                                        <div id="scroll-control" class="d-flex justify-content-center" data-style="no-support"
+                                             style="position: absolute;top: -4rem;width: 3rem;height: 3rem;border-radius: 1.5rem;background-color: rgba(255, 255, 255, 0.8);">
+                                            <div class="w-100 h-100 align-self-center">
+                                                <small class="d-block w-100 h-50 d-flex justify-content-center text-muted" onclick="$('#messages h5:first').get(0).scrollIntoView();">
+                                                    <i class="fa fa-lg fa-angle-up align-self-center"></i>
+                                                </small>
+                                                <small class="d-block w-100 h-50 d-flex justify-content-center text-muted" onclick="$('#messages h5:last').get(0).scrollIntoView();">
+                                                    <i class="fa fa-lg fa-angle-down align-self-center"></i>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div id="unread-message-count" class="badge badge-pill badge-default" style="position: absolute;top: -3rem;left:-1rem;">
+                                            &nbsp;
+                                        </div>
+                                        <div class="w-100 h-100 d-flex justify-content-center" style="position: absolute;" onclick="toggle_scroll_control();">
+                                            <div class="w-100 pr-3 align-self-center text-center text-muted">
+                                                <i class="fa fa-toggle-on" id="toggle-scroll-control"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="collapse" id="editor-plus">
+                                            <div class="btn btn-outline-primary p-2 mb-2" onclick="select_message_image()">
+                                                <i class="fa fa-picture-o"></i>
+                                            </div>
+                                            <input type="file" id="message-image-input" hidden/>
+                                            <div class="btn btn-outline-primary mb-2" id="send-audio-message-button" style="padding: .5rem .75rem!important;">
+                                                <i class="fa fa-microphone"></i>
+                                            </div>
+                                            <div class="btn btn-outline-primary p-2 mb-2">
+                                                <i class="fa fa-music"></i>
+                                            </div>
+                                            <div class="btn btn-outline-primary p-2 mb-2">
+                                                <i class="fa fa-film"></i>
+                                            </div>
+                                            <div class="btn btn-outline-primary p-2 mb-2">
+                                                <i class="fa fa-file-text-o"></i>
+                                            </div>
+                                            <div class="btn-group" data-toggle="buttons">
+                                                <label class="btn btn-outline-primary p-2 mb-2">
+                                                    <input type="checkbox" name="message-type-option" id="message-type-option-html" autocomplete="off">
+                                                    <i class="fa fa-html5"></i>
+                                                </label>
+                                            </div>
+                                            <div class="btn-group" data-toggle="buttons">
+                                                <label class="btn btn-outline-primary p-2 mb-2">
+                                                    <input type="checkbox" name="message-type-option" id="message-type-option-code" autocomplete="off">
+                                                    <i class="fa fa-code"></i>
+                                                </label>
+                                            </div>
+                                            <div class="btn btn-outline-primary p-2 mb-2" data-toggle="collapse" data-target="#message-draft-field">
+                                                <i class="fa fa-pencil"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 collapse alert-primary" id="message-draft-field" onselectstart="return false;">
+                                        <div class="w-100" id="message-drafts" style="max-height: 10rem;overflow-x: hidden;overflow-y: scroll;">
+                                            <!-- message drafts -->
+                                        </div>
+                                        <div class="w-100">
+                                            <div class="row my-1 my-sm-2">
+                                                <div class="col-8 d-flex justify-content-start align-items-center">
+                                                    <small data-chinese="消息草稿">message drafts</small>
+                                                    <i class="fa fa-lg fa-caret-up p-1" data-toggle="collapse" data-target="#message-draft-field"></i>
+                                                </div>
+                                                <div class="col-4 d-flex justify-content-around justify-content-sm-center align-items-center">
+                                                    <i class="fa fa-lg fa-plus px-1" onclick="add_message_draft()"></i>
+                                                    <i class="fa fa-lg fa-times px-1" data-toggle="collapse" data-target="#message-draft-field"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        function finish_edit_message_draft() {
+                                            $("#message").off("input");
+                                            let drafts = $(".message-draft");
+                                            drafts.find(".draft").removeClass("text-white bg-primary");
+                                            drafts.find(".fa-check").each(function () {
+                                                $(this).replaceWith("<i class='fa fa-lg fa-pencil-square px-1' onclick='edit_message_draft($(this))'>");
+                                            });
+                                        }
+                                        function edit_message_draft(button) {
+                                            let draft = button.closest(".message-draft").find(".draft");
+                                            let input = $("#message");
+                                            finish_edit_message_draft();
+                                            draft.addClass("text-white bg-primary");
+                                            input.val(draft.text()).on("input", function () {
+                                                draft.text(input.val());
+                                            });
+                                            button.replaceWith("<i class='fa fa-lg fa-check px-1' onclick='finish_edit_message_draft()'>");
+                                        }
+                                        function remove_message_draft(button) {
+                                            $("#message").off("input");
+                                            $(button).closest(".message-draft").remove();
+                                        }
+                                        function add_message_draft() {
+                                            let wrapper = $('#message-drafts');
+                                            let message = $("<span>").text($('#message').val()).html();
+                                            if (wrapper) {
+                                                let draft = $("<div class='row my-1 my-sm-2 message-draft'>" +
+                                                    `<div class='col-8'>` +
+                                                    `   <div class='draft border border-secondary px-2 py-1'>${message}</div>` +
+                                                    `</div>` +
+                                                    "<div class='col-4 d-flex justify-content-around justify-content-sm-center align-items-center'>" +
+                                                    `   <i class='fa fa-lg fa-pencil-square px-1' onclick='edit_message_draft($(this))'></i>` +
+                                                    `   <i class='fa fa-lg fa-trash px-1' onclick='remove_message_draft($(this))'></i>` +
+                                                    "</div>" +
+                                                    "</div>").appendTo(wrapper);
+                                                draft.get(0).scrollIntoView();
+                                                edit_message_draft(draft.find(".fa-pencil-square"));
+                                            }
+                                        }
+                                    </script>
+                                    <div class="col-12" id="send-message-input-group-wrapper">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" data-chinese="消息">message</span>
+                                            <textarea class="form-control" id="message"></textarea>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-primary" id="send-message-button" onclick="sendMessage()" data-chinese="发送">send</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="cards">
+                    <div class="card-field" onselectstart="javascript: return false;">
+                        <!-- cards -->
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="console">
+                    <div class="container">
+                        <div class="w-100 p-2">
+                            <p data-chinese="當前在線用戶">current online users</p>
+                            <div id="console-online-users">
+                                <table class="table table-sm table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="w-20" data-chinese="#">#</th>
+                                            <th class="w-20" data-chinese="用戶 id">user id</th>
+                                            <th class="w-20" data-chinese="用戶名">user name</th>
+                                            <th class="w-20" data-chinese="用戶身份">user role</th>
+                                            <th class="w-20" data-chinese="會話 id">session id</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="cursor-pointer">
+                                    <!-- online users -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="album">
+                    <!-- album -->
+                </div>
+
+                <div class="tab-pane" id="logs">
+                    <div class="fixed-top text-white bg-inverse" style="z-index: 200;">
+                        <div class="container">
+                            <div class="w-100 p-2">
+                                <div class="d-flex align-items-baseline" style="font-size: 2rem;height: 3.25rem;">
+                                    <div class="align-self-center">
+                                        <i class="fa fa-chevron-left fa-3 mr-3" onclick="$(&quot;[data-toggle='tab'][href='#settings']&quot;).click();"></i>
+                                    </div>
+                                    <div class="align-self-start">
+                                        <span data-chinese="日志">logs</span>
+                                    </div>
+                                    <div class="align-self-center ml-auto">
+                                        <i class="fa fa-cogs cursor-pointer" data-toggle="collapse" data-target="#logs-tools-collapse" onclick="if(!$($(this).data('target')).hasClass('show')) $(body).scrollTop(0)"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100" id="logs-wrapper" style="position: absolute;left: 0;top: 4.5rem;">
+                        <div class="collapse" id="logs-tools-collapse">
+                            <div class="container bg-faded text-gray-dark">
+                                <div class="row p-2">
+                                    <div class="col px-2 py-0">
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-addon btn btn-outline-dark" style="cursor: pointer;" onclick="log.search($(this).siblings('input').val())">
+                                                <i class="fa fa-search"></i>
+                                            </span>
+                                            <input type="text" class="form-control form-control-sm" oninput="log.search($(this).val())"/>
+                                            <span class="input-group-btn">
+                                                <span class="btn-group">
+                                                    <span class="btn btn-outline-dark" style="cursor: pointer;" onclick="log.reverseAll()">
+                                                        <i class="fa fa-sort"></i>
+                                                    </span>
+                                                    <span class="btn btn-outline-dark" style="cursor: pointer;" onclick="log.toggleAll()">
+                                                        <i class="fa fa-list"></i>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid" id="logs-field">
+                            <!-- logs -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="error-logs">
+                    <div class="fixed-top p-2 bg-danger text-white" style="z-index: 200;">
+                        <div class="container">
+                            <div class="d-flex align-items-baseline" style="font-size: 2rem;height: 3.25rem;">
+                                <div class="align-self-center">
+                                    <i class="fa fa-chevron-left fa-3 mr-3" onclick="$(&quot;[data-toggle='tab'][href='#settings']&quot;).click();"></i>
+                                </div>
+                                <div class="align-self-start" data-chinese="错误日志">
+                                    Error Logs
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100" id="error-logs-wrapper" style="position: absolute; left: 0; top: 4.5rem;">
+                        <div class="container-fluid" id="error-logs-field">
+                            <!-- error logs -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="user-events">
+                    <div class="fixed-top p-2 text-white" style="z-index: 200;background-color: rgba(2, 117, 216, 0.85);">
+                        <div class="container">
+                            <div class="d-flex align-items-center" style="font-size: 1.5rem;height: 3.25rem;">
+                                <div>
+                                    <i class="fa fa-chevron-left fa-3 mr-3" onclick="$(&quot;[data-toggle='tab'][href='#settings']&quot;).click();"></i>
+                                </div>
+                                <div data-chinese="用户日程">
+                                    User Events
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100" style="margin-top: 2rem;" id="user-events-wrapper">
+                        <div class="container-fluid p-0" id="user-events-field">
+                            <div class="row">
+                                <div class="col-12 p-0">
+                                    <div id="user-events-accordion">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" data-toggle="collapse" href="#collapse-user-events-how-tos">
+                                                        <span data-chinese="使用手册">How Tos</span>
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-user-events-how-tos" class="collapse" data-parent="#user-events-accordion">
+                                                <div class="card-block">
+                                                    <h4 class="card-text" data-chinese="什么是用户日程">
+                                                        What is User Events
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        <span data-chinese="用户日程在如何规划你的日程表上不是一种革新，因为这不是我们开发它的主要目的。">
+                                                            User Events is not a new way to schedule your to-dos in a timetable since this is not our main purpose to develop User Events.
+                                                        </span>
+                                                        <span data-chinese="我们的任务是让用户通过分享自己的日程，探索好友的日程的新方式，在 ChatRoom 中和好友沟通。">
+                                                            Our mission is to redefine the way people interact with their friends on ChatRoom
+                                                            by making it possible to share their timetable and explore their friends' timetables.
+                                                        </span>
+                                                        <span data-chinese="你会发现在使用用户日程之后，了解自己的好友想要在几天后做什么不再是难事。">
+                                                            You will find it more simple to know what your friends want to do in the days to come.
+                                                        </span>
+                                                        <span data-chinese="这些新功能在用户之间如何交流，如何会见上，是巨大的革新。">
+                                                            These new functions revolutionized how people chat and meet with each other.
+                                                        </span>
+                                                        <span data-chinese="还有更多功能等待着你。">
+                                                            And There are more features awaiting for you.
+                                                        </span>
+                                                    </p>
+                                                    <h5 class="card-text" data-chinese="如何使用">How to Use</h5>
+                                                    <p class="card-text" data-chinese="每个用户都有一个属于自己的日程表，用户可以在日程表上添加和编辑事件，查看好友的日程表，参加好友的事件。">
+                                                        Each User has a timetable. User can add and edit events on the timetable, view timetables of friends and join events of friends.
+                                                    </p>
+                                                    <h5 class="card-text" data-chinese="如何添加新事件">
+                                                        How to Add New Events
+                                                    </h5>
+                                                    <p class="card-text" data-chinese="点击添加新事件，设置事件开始时间和结束时间，事件类型，事件名称和描述等信息。">
+                                                        Click Add New Events. Set event begin time and end time, event type, event name and description and other info.
+                                                    </p>
+                                                    <h5 class="card-text" data-chinese="查看我的日程">
+                                                        View My Timetable
+                                                    </h5>
+                                                    <p class="card-text" data-chinese="点击我的日程，可以查看所有事件，包括已完成的事件，未完成的事件，还能查看来自其他用户的加入请求。">
+                                                        Click My Timetable to view all my events including finished and unfinished events as well as joining requests from other users.
+                                                    </p>
+                                                    <h5 class="card-text" data-chinese="查看好友的日程">
+                                                        View Friends' Timetable
+                                                    </h5>
+                                                    <p class="card-text" data-chinese="点击好友的日程，选中好友，可以查看好友设置允许外界访问的事件。">
+                                                        Click Friends' Timetable, Select one of your friends, you can view his/her events which are allowed to be visited by others.
+                                                    </p>
+                                                    <h5 class="card-text" data-chinese="查看推荐的事件">
+                                                        Check out what are recommended
+                                                    </h5>
+                                                    <div class="card-text">
+                                                        <div data-chinese="点击推荐的事件，就能查看我们推荐给你的事件，你可以通过以下过滤器过滤事件">
+                                                            Click Recommended Events to check out events we recommended to you.
+                                                            You can use these filters to filter events recommended.
+                                                        </div>
+                                                        <div data-chinese="1 按事件发起人过滤">
+                                                            1 Filtered by User
+                                                        </div>
+                                                        <div data-chinese="2 按事件时间段过滤">
+                                                            2 Filtered by Time
+                                                        </div>
+                                                        <div data-chinese="3 按事件类型过滤">
+                                                            3 Filtered by Type
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" data-toggle="collapse" href="#collapse-add-new-events">
+                                                        <span data-chinese="添加新事件">Add New Events</span>
+                                                    </a>
+                                                </h5>
+                                            </div>
+
+                                            <div id="collapse-add-new-events" class="collapse" data-parent="#user-events-accordion">
+                                                <div class="card-block">
+                                                    Add New Events
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" data-toggle="collapse" href="#collapse-my-events">
+                                                        <span data-chinese="我的日程">My Events</span>
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-my-events" class="collapse" data-parent="#user-events-accordion">
+                                                <div class="card-block">
+                                                    My Events
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" data-toggle="collapse" href="#collapse-friends-events">
+                                                        <span data-chinese="好友的日程">Friends' Events</span>
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-friends-events" class="collapse" data-parent="#user-events-accordion">
+                                                <div class="card-block">
+                                                    Friends' Events
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" data-toggle="collapse" href="#collapse-recommended-events">
+                                                        <span data-chinese="推荐的事件">Recommended Events</span>
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-recommended-events" class="collapse" data-parent="#user-events-accordion">
+                                                <div class="card-block">
+                                                    Recommended Events
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="js/vendor/tether.min.js"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/vendor/recorder.js"></script>
+<script src="js/vendor/jquery.mousewheel.min.js"></script>
+<script src="js/vendor/prettify/prettify.js"></script>
+<script src="js/vendor/prettify/lang-css.js"></script>
+<script src="js/vendor/d3.v3.min.js"></script>
+
+<script src="js/draw_pie.js"></script>
+<script src="js/get_web_root.js"></script>
+<script src="js/parse_param.js"></script>
+<script src="js/append_modal.js"></script>
+<script src="js/logs.js"></script>
+<script src="js/open_new_page.js"></script>
+<script src="js/is_mobile.js"></script>
+
+<!-- account -->
+<script src="js/account/login.js"></script>
+<script src="js/account/login_failed.js"></script>
+<script src="js/account/login_success.js"></script>
+<script src="js/account/logout.js"></script>
+<script src="js/account/signup.js"></script>
+<script src="js/account/update_logs.js"></script>
+
+<!-- user -->
+<script src="js/user/get_rooms_by_userid.js"></script>
+<script src="js/user/get_user_by_userid.js"></script>
+<script src="js/user/get_friends_by_userid.js"></script>
+<script src="js/user/refresh_user.js"></script>
+<script src="js/user/change_username.js"></script>
+<script src="js/user/change_password.js"></script>
+<script src="js/user/change_avatar.js"></script>
+<script src="js/user/change_gender.js"></script>
+
+<!-- friend -->
+<script src="js/friend/refresh_friends.js"></script>
+<script src="js/friend/get_room_by_friend_id.js"></script>
+<script src="js/friend/add_friend.js"></script>
+<script src="js/friend/add_friend_accept.js"></script>
+<script src="js/friend/search_user_by_username.js"></script>
+<script src="js/friend/search_user_by_userid.js"></script>
+<script src="js/friend/search_user.js"></script>
+
+<!-- settings (history) -->
+<script src="js/settings/history/history.js"></script>
+<script src="js/settings/history/clear_history.js"></script>
+
+<!-- settings (advanced) -->
+<script src="js/settings/advanced/system_language.js"></script>
+<script src="js/settings/advanced/advanced_settings.js"></script>
+<script src="js/settings/advanced/preferences.js"></script>
+
+<!-- settings (chat window) -->
+<script src="js/settings/chat_window/press_enter_to_send.js"></script>
+<script src="js/settings/chat_window/toggle_scroll_control.js"></script>
+<script src="js/settings/chat_window/toggle_page_components.js"></script>
+<script src="js/settings/chat_window/unread_message_count.js"></script>
+<script src="js/settings/chat_window/room_notification.js"></script>
+<script src="js/settings/chat_window/room_notification_popup.js"></script>
+<script src="js/settings/chat_window/select_room_messages.js"></script>
+<script src="js/settings/chat_window/page_header.js"></script>
+
+<!-- settings (style) -->
+<script src="js/settings/style/border_selector.js"></script>
+<script src="js/settings/style/select_username_badge_style.js"></script>
+<script src="js/settings/style/select_username_text_style.js"></script>
+<script src="js/settings/style/select_message_text_style.js"></script>
+<script src="js/settings/style/select_message_background_style.js"></script>
+<script src="js/settings/style/message_style.js"></script>
+<script src="js/settings/style/profile_background.js"></script>
+<script src="js/settings/style/chat_background.js"></script>
+
+<!-- room -->
+<script src="js/loading_icon.js"></script>
+<script src="js/room/get_room_messages.js"></script>
+<script src="js/room/select_room_id.js"></script>
+<script src="js/room/goto_room.js"></script>
+<script src="js/room/create_room.js"></script>
+<script src="js/room/delete_room.js"></script>
+<script src="js/room/join_room.js"></script>
+<script src="js/room/search_room_by_name.js"></script>
+<script src="js/room/search_room_by_roomid.js"></script>
+<script src="js/room/search_room.js"></script>
+<script src="js/room/invite_room.js"></script>
+<script src="js/room/report_room.js"></script>
+<script src="js/room/quit_room.js"></script>
+<script src="js/room/refresh_rooms.js"></script>
+<script src="js/room/get_room.js"></script>
+<script src="js/room/get_room_info.js"></script>
+<script src="js/room/get_room_manager.js"></script>
+<script src="js/room/get_room_managers.js"></script>
+<script src="js/room/get_room_info_enable_editing.js"></script>
+<script src="js/room/update_room.js"></script>
+
+<!-- file -->
+<script src="js/file/file_upload.js"></script>
+<script src="js/file/file_select.js"></script>
+
+<!-- card -->
+<script src="js/card/append_article.js"></script>
+<script src="js/card/append_image.js"></script>
+<script src="js/card/init_cards_callback.js"></script>
+<script src="js/card/init_cards.js"></script>
+<script src="js/card/init_cards_friends.js"></script>
+<script src="js/card/create_card.js"></script>
+<script src="js/card/refresh_cards.js"></script>
+<script src="js/card/init_album.js"></script>
+<script src="js/card/goto_album.js"></script>
+<script src="js/card/delete_card.js"></script>
+<script src="js/card/like_card.js"></script>
+<script src="js/card/comment_card.js"></script>
+<script src="js/card/forward_card.js"></script>
+<script src="js/card/share_card.js"></script>
+
+<!-- chat -->
+<script src="js/chat/chat_list.js"></script>
+<script src="js/chat/print_room.js"></script>
+<script src="js/chat/print_rooms.js"></script>
+<script src="js/chat/temporary_chats.js"></script>
+<script src="js/chat/private_chat.js"></script>
+
+<!-- message -->
+<script src="js/message/append_message_login.js"></script>
+<script src="js/message/append_message_elsewhere.js"></script>
+<script src="js/message/append_message_room_link.js"></script>
+<script src="js/message/append_message_linkable.js"></script>
+<script src="js/message/append_message_audio.js"></script>
+<script src="js/message/append_message_reset_password.js"></script>
+<script src="js/message/append_message_avatar.js"></script>
+<script src="js/message/append_message_system.js"></script>
+<script src="js/message/append_message.js"></script>
+<script src="js/message/append_system_message.js"></script>
+<script src="js/message/append_message_no_connection.js"></script>
+<script src="js/message/toggle_message_send_time.js"></script>
+<script src="js/message/withdraw_message.js"></script>
+<script src="js/message/delete_message.js"></script>
+<script src="js/message/reply_message.js"></script>
+<script src="js/message/forward_message.js"></script>
+<script src="js/message/check_message_info.js"></script>
+<script src="js/message/send_message.js"></script>
+
+<!-- editor -->
+<script src="js/editor/send_message_image.js"></script>
+<script src="js/editor/upload_message_image.js"></script>
+<script src="js/editor/select_message_image.js"></script>
+<script src="js/editor/send_message_audio.js"></script>
+<script src="js/editor/upload_message_audio.js"></script>
+<script src="js/editor/init_message_audio.js"></script>
+
+<script src="js/vendor/ios-button.js"></script>
+<script src="js/vendor/pageSwitch.js"></script>
+<script src="js/vendor/dark_mode.js"></script>
+
+<script src="js/window.js"></script>
+<script src="js/message/inspect_message_image.js"></script>
+</html>

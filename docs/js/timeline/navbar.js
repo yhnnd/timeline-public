@@ -252,7 +252,7 @@ function deepCopy(obj, maxLevel = 3, level = 0) {
 
 function initNavbar() {
     const navbar = document.createElement("div");
-    navbar.classList.add("navbar");
+    navbar.classList.add("global-navbar");
     const button = document.createElement("button");
     button.innerText = "Go Back";
     button.addEventListener("click", function () {

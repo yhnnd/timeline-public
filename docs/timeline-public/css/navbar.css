@@ -1,4 +1,4 @@
-.navbar {
+.global-navbar {
     background: #343a40;
     overflow-x: auto;
     overflow-y: hidden;
@@ -11,38 +11,38 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: start;
-    gap: 2rem;
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
-    padding-top: 0.5rem !important;
-    padding-bottom: 0.5rem !important;
+    gap: 32px;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
 }
 
-.navbar button {
+.global-navbar button {
     display: inline-block;
     font-weight: 400;
     text-align: center;
     vertical-align: middle;
     user-select: none;
     border: 1px solid transparent;
-    border-radius: 0.2rem;
+    border-radius: 3.2px;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    padding: 0.25rem 0.5rem;
-    font-size: .875rem;
+    padding: 4px 8px;
+    font-size: 14px;
     line-height: 1.5;
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
 }
 
-.navbar button:hover {
+.global-navbar button:hover {
     color: #fff;
     background-color: #0069d9;
     border-color: #0062cc;
     text-decoration: none;
 }
 
-.navbar .info {
+.global-navbar .info {
     color: #fff;
 }
 
@@ -52,9 +52,9 @@
     height: 56px;
 }
 
-body[is-iframe] .navbar,
+body[is-iframe] .global-navbar,
 body[is-iframe] .fake-navbar,
-body[data-value-of-enable-navbar="false"] .navbar,
+body[data-value-of-enable-navbar="false"] .global-navbar,
 body[data-value-of-enable-navbar="false"] .fake-navbar {
     display: none;
 }

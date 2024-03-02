@@ -1,0 +1,491 @@
+/*** BOOTSTRAP ***/
+.alert-primary {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+
+.alert-secondary {
+    color: #464a4e;
+    background-color: #e7e8ea;
+    border-color: #dddfe2;
+}
+
+.border {
+    border: 1px solid #e9ecef !important;
+}
+
+.border-0 {
+    border: 0 !important;
+}
+
+.border-top-0 {
+    border-top: 0 !important;
+}
+
+.border-right-0 {
+    border-right: 0 !important;
+}
+
+.border-bottom-0 {
+    border-bottom: 0 !important;
+}
+
+.border-left-0 {
+    border-left: 0 !important;
+}
+
+.border-primary {
+    border-color: #007bff !important;
+}
+
+.border-secondary {
+    border-color: #868e96 !important;
+}
+
+.border-success {
+    border-color: #28a745 !important;
+}
+
+.border-info {
+    border-color: #17a2b8 !important;
+}
+
+.border-warning {
+    border-color: #ffc107 !important;
+}
+
+.border-danger {
+    border-color: #dc3545 !important;
+}
+
+.border-light {
+    border-color: #f8f9fa !important;
+}
+
+.border-dark {
+    border-color: #343a40 !important;
+}
+
+.border-white {
+    border-color: #fff !important;
+}
+
+/*** GLOBAL ***/
+.w-20 {
+    width: 20% !important
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.text-deleted {
+    text-decoration: line-through;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.hover-text-underline:hover {
+    text-decoration: underline;
+}
+
+.hover-highlight:hover {
+    background: darkolivegreen;
+    color: lightgoldenrodyellow;
+}
+
+.break-all {
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.overflow-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.badge-optimized {
+    padding: .25em .8em .5em .8em;
+}
+
+/* NAVBAR */
+@media screen {
+    @media (max-width: 320px) {
+        ul.nav.nav-tabs.nav-main > li.nav-item > .nav-link {
+            padding: .75em .5rem;
+        }
+    }
+    @media (min-width: 320px) {
+        ul.nav.nav-tabs.nav-main > li.nav-item > .nav-link {
+            padding: .75em .75rem;
+        }
+    }
+    @media (min-width: 375px) {
+        ul.nav.nav-tabs.nav-main > li.nav-item > .nav-link {
+            padding: .75em 1.25em;
+        }
+    }
+    @media (min-width: 768px) {
+        ul.nav.nav-tabs.nav-main > li.nav-item > .nav-link {
+            padding: .75em 1.5em;
+        }
+    }
+}
+
+/* INPUT GROUP */
+.col-input-group {
+    margin-bottom: 20px;
+}
+
+/* LINK */
+.link-prev {
+    display: inline-block;
+    float: left;
+    font-size: 12.8px;
+    width: 20%;
+    height: 30px;
+    position: relative;
+}
+
+.link-prev > a {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.link-next {
+    display: inline-block;
+    float: right;
+    font-size: 12.8px;
+    width: 20%;
+    height: 30px;
+    position: relative;
+}
+
+.link-next > a {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* SETTINGS ITEM */
+.card.settings-item {
+    border-bottom-width: 0;
+}
+
+.card.settings-item.first {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.card.settings-item.middle {
+    border-radius: 0;
+}
+
+.card.settings-item.last {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-width: 1px;
+}
+
+/* ACCOUNT SETTINGS */
+#account-field > #accordion > .card:last-child {
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    #account-field > #accordion > .card {
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+}
+
+/* ROOM TABLE TD BORDER */
+#friend-list table th,
+#friend-list table td,
+#incoming-add-friend-list table th,
+#incoming-add-friend-list table td,
+#outcoming-add-friend-list table th,
+#outcoming-add-friend-list table td,
+#room-list table th,
+#room-list table td {
+    border: 1px solid lightgray;
+    /*border: 1px solid red;*/
+}
+
+#friend-list table th:first-child,
+#friend-list table td:first-child,
+#incoming-add-friend-list table th:first-child,
+#incoming-add-friend-list table td:first-child,
+#outcoming-add-friend-list table th:first-child,
+#outcoming-add-friend-list table td:first-child,
+#room-list table th:first-child,
+#room-list table td:first-child {
+    /*background: yellow;*/
+    border-left-width: 0;
+}
+
+#friend-list table th:last-child,
+#friend-list table td:last-child,
+#incoming-add-friend-list table th:last-child,
+#incoming-add-friend-list table td:last-child,
+#outcoming-add-friend-list table th:last-child,
+#outcoming-add-friend-list table td:last-child,
+#room-list table th:last-child,
+#room-list table td:last-child {
+    /*background-color: blue;*/
+    border-right-width: 0;
+}
+
+/* COLOR ANIMATED */
+.text-color-animated {
+    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 10s infinite linear;
+}
+
+@-webkit-keyframes hue {
+    from {
+        -webkit-filter: hue-rotate(0deg);
+    }
+    to {
+        -webkit-filter: hue-rotate(-360deg);
+    }
+}
+
+/**************************************************
+*                       CARD                      *
+***************************************************/
+/* 自定义样式，解决 .card-columns 在 sm 屏幕上的 bugs */
+@media (max-width: 576px) {
+    .card-field {
+        column-count: 1; /* 在 xs 屏幕上 .card 只显示一列 */
+    }
+}
+
+/* 自定义样式，解决 .card-columns 在 sm 和 md 屏幕上的 bugs */
+@media (min-width: 576px) and (max-width: 992px) {
+    .card-field {
+        column-count: 1; /* 防止 .card-columns 在 sm 和 md 屏幕上显示三列 */
+    }
+}
+
+.card-field > .collapse > .card,
+.card-field > .card {
+    display: inline-block;
+    width: 100%; /* 解决 .card 在 xs 屏幕上宽度不是 100% 的 bug */
+    margin-bottom: 20px; /* 解决 .card 在 xs 屏幕上没有 margin-bottom 的 bug */
+}
+
+/* 自定义样式，card 中的 avatar */
+.card-field > .card img.rounded-circle[src*="avatar"] {
+    margin-top: -0.5rem;
+    margin-right: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: transform .3s;
+}
+
+/* 自定义样式，card 中的 avatar 在 hover 时放大 */
+.card-field > .card img.rounded-circle[src*="avatar"]:hover {
+    transform: scale(2, 2);
+}
+
+/* CARD COMMENT */
+.card-comment {
+    border: 1px solid royalblue;
+}
+
+.card-comment:not(:last-of-type) {
+    border-bottom: none !important;
+}
+
+.card-comment > .avatar-field {
+    width: 20%;
+    max-width: 20%;
+}
+
+.card-comment > .comment-text {
+    width: 60%;
+    max-width: 80%;
+    word-break: break-all;
+}
+
+.card-comment > .operation-field {
+    width: 20%;
+}
+
+/* PAGE SWITCH */
+#wrap {
+    min-height: 100%;
+    min-width: 320px;
+    background: black;
+    overflow: hidden;
+}
+
+#imgs {
+    position: relative;
+    width: 375px;
+    height: 667px;
+    margin: 0 auto;
+    top: 100px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#imgs.visible {
+    overflow: visible;
+}
+
+#imgs .img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+}
+
+#navs {
+    z-index: 10;
+    position: absolute;
+    left: 50%;
+    top: 360px;
+    margin-left: 180px;
+    width: 8px;
+}
+
+#navs a {
+    display: block;
+    width: 100%;
+    height: 20px;
+    border: 1px solid #fff;
+    margin: 0 0 4px;
+    transition: background 600ms ease;
+    overflow: hidden;
+}
+
+#navs .active {
+    background: #fff;
+}
+
+@media (max-width: 540px) {
+    #navs {
+        left: auto;
+        right: 10px;
+        top: 50%;
+        margin-top: -80px;
+    }
+
+    #imgs {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* iOS BUTTON */
+.ios-button {
+    display: inline-block;
+    height: 28px;
+    width: 56px;
+    transition: height 0.3s ease-in, width 0.3s ease-in, background-color 0.4s ease;
+    background-color: lightgray;
+    border-radius: 50px;
+}
+
+.ios-button-circle {
+    width: 0;
+    height: 0;
+    border: 14px solid white;
+    border-radius: 14px;
+    box-shadow: 0 0 2px dimgray;
+    transition: transform 0.3s ease, margin 0.3s ease, border 1s ease;
+}
+
+/* CHART */
+.chart-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    border: 1px solid steelblue;
+}
+
+@media screen {
+    @media (max-width: 768px) {
+        .chart-wrapper {
+            width: 100%;
+        }
+    }
+    @media (min-width: 768px) {
+        .chart-wrapper {
+            width: calc(20rem + 2px);
+        }
+    }
+}
+
+.data-container {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: .5rem;
+}
+
+.svg-container {
+    width: calc(100% - 1rem);
+    margin: .5rem;
+}
+
+.avatar {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+}
+
+.room-avatar {
+    width: 2rem;
+    height: 2rem;
+}
+
+.message-avatar {
+    width: 40px;
+    height: 40px;
+}
+
+/*** Editor ***/
+#editor #message-drafts .draft {
+    background: white;
+    /* line-height + padding + border */
+    min-height: calc(1.5rem + .5rem + 2px);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/*** LOADING ***/
+.loading-background {
+    filter: blur(1.3px);
+}
+
+.loading-midground {
+    background: black;
+    opacity: 0.3;
+}
+
+.loading-foreground {
+    z-index: 1050;
+}
+
+.br-0 {
+    border-radius: 0!important;
+}

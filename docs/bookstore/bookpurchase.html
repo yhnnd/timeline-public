@@ -1,0 +1,129 @@
+<%@ page contentType="text/html"%>
+<%@ page pageEncoding="utf-8"%>
+<%@ page import="java.util.*"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.sql.Date"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.io.File"%>
+<%@ page import="java.lang.String.*"%>
+<html>
+<head>
+	<title>personal account</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+<%
+	if(session.getAttribute("userid")!=null){
+		String home_btn_redirected_url = "";
+		Object identity = session.getAttribute("useridentity");
+		if( identity != null ) home_btn_redirected_url = "account.html";
+		else home_btn_redirected_url = "error.html";
+
+		String DBDRIVER = "sun.jdbc.odbc.JdbcOdbcDriver" ;
+		String DBURL="jdbc:odbc:driver={Microsoft Access Driver (*.mdb)};DBQ=C:\\Program Files (x86)\\Apache Software Foundation\\Tomcat 7.0\\webapps\\BookStorePoweredbyAccess\\Access\\db.mdb";
+		Connection conn = null ;//should import java.sql.*
+		Statement stmt = null ;
+		String sql = null ;
+		String sqlQuery = null;
+		ResultSet rs = null;
+		// step 1
+		try
+		{
+			Class.forName(DBDRIVER) ;
+		}
+		catch(Exception e)
+		{
+			out.println("<script>console.log('数据库驱动程序加载失败！');</script>") ;
+			e.printStackTrace();
+		}
+		// step 2
+		try
+		{
+			conn = DriverManager.getConnection(DBURL) ;
+			stmt = conn.createStatement();
+			out.println("<script>console.log('数据库连接成功.');</script>") ;
+			
+		}
+		catch(Exception e)
+		{
+			out.println("<script>console.log('数据库连接失败！');</script>") ;
+			e.printStackTrace();
+		}
+		// step 3
+		try {
+			// table book
+			int book_id = 0;
+			String book_name, book_author, book_publisher, book_language, book_publishDate;
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			boolean book_available = false;
+			String book_price;
+			int book_amount = 0, book_chapterCount = 0, book_wordCount = 0;
+			String book_cover_image, book_ISBN, item_EAN, item_UPC;
+
+			// table item
+			int item_id = 0, item_number = 0, item_ownerID;
+			boolean item_available = false;
+
+			// update item ownerid
+			if(request.getParameter("item-max")!=null){
+				int item_max = Integer.parseInt(request.getParameter("item-max"));
+				String condition = "";
+				for(int i = 0; i < item_max; ++i){
+					if( request.getParameter("id-of-item-"+i)==null ){
+						%><script>console.log("cannot find input name='id-of-item-<%=i%>'");</script><%
+						break;
+					}else{
+						if(i==0) condition += "id=" + request.getParameter("id-of-item-"+i);
+						else condition += " OR id=" + request.getParameter("id-of-item-"+i);
+					}
+				}
+				sqlQuery = "UPDATE item " + "SET ownerid=" + session.getAttribute("userid") + " WHERE " + condition;
+				%><script>console.log('<%=sqlQuery%>');</script><%
+				stmt.executeQuery(sqlQuery);
+			}
+		}// try step 3
+		catch ( Exception e ) {
+			String error_msg_UTF8 = new String(e.getMessage().getBytes(),"UTF-8");
+			String error_msg_GBK = new String(e.getMessage().getBytes(),"GBK");
+			out.println("<script>");
+			out.println("console.log('数据库查詢失败!');");
+			out.println("console.log('" + error_msg_UTF8 + "');");
+			out.println("console.log('" + error_msg_GBK + "');");
+			out.println("</script>");
+			e.printStackTrace();
+		}
+
+		// Step 4 Shut Database Connection
+		try
+		{
+			if (null != stmt) stmt.close();
+			if (null != conn) conn.close();
+		}
+		catch(Exception e)
+		{
+			out.println("<script>console.log('数据库关闭失败!');</script>");
+			e.printStackTrace();
+		}
+		response.setHeader("refresh","0;URL=bookpage.html?bookid="+request.getParameter("bookid"));
+	}else{
+%>
+		<div style="padding-top:100px;text-align:center;">
+			<h3>
+				<kbd>unauthorized&nbsp;user</kbd>
+			</h3>
+			<h3>
+				to check out user account
+			</h3>
+			<h3>
+				please <a href="login.html">login</a> as <code>normal</code> first
+			</h3>
+		</div>
+<%
+	}
+%>
+	<script src="js/sql_error.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
