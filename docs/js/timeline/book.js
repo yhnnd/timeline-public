@@ -57,13 +57,14 @@ if (indexWrapper != undefined) {
         const filename = nameSplit.pop();
         const folder = nameSplit.pop();
         const folderAbbr = folder.split("-").shift() + ' ' + folder.split("-").pop();
-        let iframeSrc = link;
+        let iframeSrc = link, previewSrc = link;
         if (window.location.href.startsWith("file://")) {
         } else {
             link = "book-reader.html?src=" + link;
             iframeSrc = link + "&is-iframe=true";
+            previewSrc = link + "&is-iframe=true&is-preview=true";
         }
-        html += "<div class=\"item\" id=\"item-" + counter + "\" onmouseover=\"previewFile('" + link + "','" + iframeSrc + "')\" onclick=\"openFile('" + link + "')\">";
+        html += "<div class=\"item\" id=\"item-" + counter + "\" onmouseover=\"previewFile('" + link + "','" + previewSrc + "')\" onclick=\"openFile('" + link + "')\">";
         html += "<div class=\"cover\" data-folder=\"" + folderAbbr + '-' + counter++ + "\" data-filename=\"" + filename + "\"></div>";
         html += "<iframe src=\"" + iframeSrc + "\" scrolling=\"no\"></iframe>";
         html += "</div>";

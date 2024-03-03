@@ -285,9 +285,10 @@ function initNavbar() {
         return null;
     }
 
-    const isIframe = getParameter("is-iframe");
-    if (isIframe == "true") {
-        document.body.setAttribute("is-iframe", "true");
+    for (const key of ["is-iframe", "is-preview"]) {
+        if (getParameter(key) === "true") {
+            document.body.setAttribute(key, "true");
+        }
     }
 }
 

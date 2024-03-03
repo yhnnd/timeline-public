@@ -4,11 +4,20 @@
     margin-bottom: 219px;
 }
 
+[is-iframe="true"]:not([is-preview="true"]) .container {
+    max-height: 256px;
+    overflow: hidden;
+}
+
 pre {
     width: 512px;
     max-width: 100%;
     white-space: pre-wrap;
     word-wrap: break-word;
+}
+
+[is-iframe="true"]:not([is-preview="true"]) pre {
+    margin-top: 0;
 }
 
 pre .censored {
