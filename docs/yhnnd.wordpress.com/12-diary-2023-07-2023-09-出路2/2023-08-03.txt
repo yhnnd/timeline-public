@@ -17,6 +17,18 @@
 去津南面试智浩编程(明玉老师)
 中德大学门卫不让进
 坐地铁回天职师大
+@command("enable-image-recognition")
+<img src="../yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/raw-2023-07-27-pics/IMG_20230727_162946.jpg">
+<img src="../yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/raw-2023-07-27-pics/IMG_20230727_163909.jpg">
+<img src="../yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/raw-2023-07-27-pics/IMG_20230727_164345.jpg">
+<img src="../yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/raw-2023-07-27-pics/IMG_20230727_165014.jpg">
+<img src="../yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/raw-2023-07-27-pics/IMG_20230727_165710.jpg">
+<img src="../yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/raw-2023-07-27-pics/IMG_20230727_170249.jpg">
+<img src="../yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/raw-2023-07-27-pics/IMG_20230727_170838.jpg">
+<img src="../yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/raw-2023-07-27-pics/IMG_20230727_171132.jpg">
+<img src="../yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/raw-2023-07-27-pics/IMG_20230727_174846.jpg">
+<img src="../yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/raw-2023-07-27-pics/IMG_20230727_180022.jpg">
+<img src="../yhnnd.wordpress.com/12-diary-2023-07-2023-09-出路2/raw-2023-07-27-pics/IMG_20230727_182103.jpg">
 
 7月28日
 腿疼，没出门
