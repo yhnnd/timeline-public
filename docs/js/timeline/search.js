@@ -34,7 +34,7 @@ function initSearch(resultWrapper) {
             if (++searchInfo.counter == articles.length) {
                 searchInfo.isLoading = false;
                 searchInfo.isReady = true;
-                document.querySelector(".navbar .info").innerText = "Search Ready";
+                document.querySelector(".global-navbar .info").innerText = "Search Ready";
                 if (searchInfo.hasUnfinishedTask) {
                     if (searchInfo.keywords.length) {
                         searchKeywords(searchInfo.keywords);
@@ -44,7 +44,7 @@ function initSearch(resultWrapper) {
                 }
             } else {
                 const indicator = "Search Loading " + searchInfo.counter + "/" + articles.length;
-                document.querySelector(".navbar .info").innerText = indicator;
+                document.querySelector(".global-navbar .info").innerText = indicator;
                 resultWrapper.innerText = indicator;
             }
         });
