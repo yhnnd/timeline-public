@@ -105,7 +105,7 @@ if (src != undefined) {
             const pages = [];
             let temp = '';
             for (let i = 0; i < lines1.length; ++i) {
-                if (lines1[i].startsWith("page ") && parseInt(lines1[i].split(' ')[1]) > 1) {
+                if (lines1[i].startsWith("page ") && parseInt(lines1[i].split(' ')[1]) > 1 && temp.length) {
                     pages.push(temp);
                     temp = '';
                 }
