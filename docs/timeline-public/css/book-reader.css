@@ -6,8 +6,20 @@
     align-items: center;
 }
 
+.page:not(:first-child) {
+    margin-top: 0;
+    border-top: none;
+}
+
+.page:not(:last-child) {
+    margin-bottom: 0;
+}
+
 .page {
-    outline: 1px dashed var(--studio-black);
+    border: 1px solid var(--studio-black);
+    border-right-style: dashed;
+    padding: 4px 8px;
+    position: relative;
 }
 
 [is-iframe="true"]:not([is-preview="true"]) .container {
@@ -78,16 +90,46 @@ body[data-value-of-enable-hover-show-line-info="true"] pre [data-line-number]:no
     background: linear-gradient(to right, white, lightyellow);
 }
 
+body[data-value-of-enable-hover-show-page-info="true"] .page:hover::before {
+    content: attr(data-page-info);
+    position: absolute;
+    top: 0;
+    left: -222px;
+    width: 200px;
+    height: calc(100% - 4px);
+    padding-top: 3px;
+    padding-right: 4px;
+    display: block;
+    border-top: 1px dashed black;
+    border-right: 1px dashed black;
+    border-bottom: 1px dashed black;
+    text-align: right;
+    background: linear-gradient(to right, white, lightgoldenrodyellow);
+}
+
+body[data-value-of-enable-hover-show-page-info="true"] .page:not(:first-child):hover::before {
+    height: calc(100% - 5px);
+    padding-top: 4px;
+}
+
+body[data-value-of-enable-hover-show-page-info="true"] .page.extra-width:hover::before {
+    left: -322px;
+    width: 300px;
+}
+
+body[data-value-of-enable-line-width-560px="true"] pre,
 body[data-value-of-enable-line-width-560px="true"] pre .line,
 body[data-value-of-enable-line-width-560px="true"] pre .empty-line {
     width: 560px;
 }
 
+body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"] pre,
 body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"] pre .line,
 body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"] pre .empty-line {
     width: 608px;
 }
 
+body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"][data-value-of-enable-line-width-656px="true"] pre,
 body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"][data-value-of-enable-line-width-656px="true"] pre .line,
 body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"][data-value-of-enable-line-width-656px="true"] pre .empty-line {
     width: 656px;

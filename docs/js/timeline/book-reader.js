@@ -89,10 +89,12 @@ if (src != undefined) {
             }
         }
 
+        const lines1 = responseText.split("\n");
+        let lines2 = lines1;
+
         if (localStorage.getItem("enable-line-split") === "true") {
             let lineNumber = 0;
-            const lines1 = responseText.split("\n");
-            const lines2 = lines1.map(line => {
+            lines2 = lines1.map(line => {
                 if (line === "<div class='has-border'>") {
                     return "<div class='has-border' data-line-number='" + (lineNumber++) + "'><div class='empty-line' data-line-number='" + (lineNumber++) + "'><br></div>";
                 } else if (line === "</div>") {
@@ -102,22 +104,47 @@ if (src != undefined) {
                 }
                 return "<div class='line' data-line-number='" + (lineNumber++) + "'>" + line + "</div>";
             });
-            const pages = [];
-            let temp = '';
-            for (let i = 0; i < lines1.length; ++i) {
-                if (lines1[i].startsWith("page ") && parseInt(lines1[i].split(' ')[1]) > 1 && temp.length) {
-                    pages.push(temp);
-                    temp = '';
+            responseText = lines2.join("");
+        }
+
+        if (localStorage.getItem("enable-page-split") === "true") {
+            const pages = [], linesPage = [];
+            let temp = [];
+            function pushTempPage() {
+                if (linesPage.length === 0) {
+                    linesPage.push(lines1[0].includes("page ") ? lines1[0] : "");
                 }
-                temp += lines2[i];
+                if (localStorage.getItem("enable-line-split") === "true") {
+                    pages.push(temp.join(""));
+                } else {
+                    pages.push(temp.join("\n"));
+                }
+                temp = [];
+            }
+            for (let i = 0; i < lines1.length; ++i) {
+                if (lines1[i].startsWith("page ") && lines1[i].split(' ').length <= 3) {
+                    const pageNumber = parseInt(lines1[i].split(' ')[1]);
+                    if (pageNumber > 1 && temp.length) {
+                        pushTempPage();
+                    }
+                    linesPage.push(lines1[i]);
+                }
+                temp.push(lines2[i]);
             }
             if (temp.length) {
-                pages.push(temp);
+                pushTempPage();
             }
-            let pageNumber = 0;
             const container = document.getElementsByClassName("container")[0];
+            let pageNumber = 0;
+            function getClass() {
+                const classList = ["page"];
+                if (linesPage[pageNumber].length > 12) {
+                    classList.push("extra-width");
+                }
+                return classList.join(" ");
+            }
             container.innerHTML = pages.map(page => {
-                return "<pre class='page' data-page-number=" + (pageNumber++) + ">" + page + "</pre>";
+                return "<pre class=\"" + getClass() + "\" data-page-number=" + pageNumber + " data-page-info=\"" + linesPage[pageNumber++] + "\">" + page + "</pre>";
             }).join("");
         } else {
             const pre = document.getElementsByClassName("container")[0].getElementsByTagName("pre")[0];

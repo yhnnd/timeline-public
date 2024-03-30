@@ -261,6 +261,30 @@
                         </li>
                         <li>
                             <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div>Enable Page Split</div>
+                                <div class="ios-button" data-key="enable-page-split">
+                                    <div class="ios-button-circle"></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="hidden-when-page-split-is-disabled">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div>Enable Hover Show Page Info</div>
+                                <div class="ios-button" data-key="enable-hover-show-page-info">
+                                    <div class="ios-button-circle"></div>
+                                </div>
+                            </div>
+                        </li>
+<style>
+.hidden-when-page-split-is-disabled {
+    background: linear-gradient(to right, lightyellow, yellow);
+}
+body[data-value-of-enable-page-split="false"] .hidden-when-page-split-is-disabled {
+    display: none;
+}
+</style>
+                        <li>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
                                 <div>Enable Line Split</div>
                                 <div class="ios-button" data-key="enable-line-split">
                                     <div class="ios-button-circle"></div>
