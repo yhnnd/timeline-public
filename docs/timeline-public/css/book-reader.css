@@ -2,6 +2,12 @@
     display: flex;
     justify-content: center;
     margin-bottom: 219px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page {
+    outline: 1px dashed var(--studio-black);
 }
 
 [is-iframe="true"]:not([is-preview="true"]) .container {
