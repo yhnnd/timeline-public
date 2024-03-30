@@ -91,7 +91,8 @@ if (src != undefined) {
 
         if (localStorage.getItem("enable-line-split") === "true") {
             let lineNumber = 0;
-            responseText = responseText.split("\n").map(line => {
+            const lines1 = responseText.split("\n");
+            const lines2 = lines1.map(line => {
                 if (line === "<div class='has-border'>") {
                     return "<div class='has-border' data-line-number='" + (lineNumber++) + "'><div class='empty-line' data-line-number='" + (lineNumber++) + "'><br></div>";
                 } else if (line === "</div>") {
@@ -100,11 +101,28 @@ if (src != undefined) {
                     return "<div class='empty-line' data-line-number='" + (lineNumber++) + "'><br></div>";
                 }
                 return "<div class='line' data-line-number='" + (lineNumber++) + "'>" + line + "</div>";
-            }).join("");
+            });
+            const pages = [];
+            let temp = '';
+            for (let i = 0; i < lines1.length; ++i) {
+                if (lines1[i].startsWith("page ") && parseInt(lines1[i].split(' ')[1]) > 1) {
+                    pages.push(temp);
+                    temp = '';
+                }
+                temp += lines2[i];
+            }
+            if (temp.length) {
+                pages.push(temp);
+            }
+            let pageNumber = 0;
+            const container = document.getElementsByClassName("container")[0];
+            container.innerHTML = pages.map(page => {
+                return "<pre class='page' data-page-number=" + (pageNumber++) + ">" + page + "</pre>";
+            });
+        } else {
+            const pre = document.getElementsByClassName("container")[0].getElementsByTagName("pre")[0];
+            pre.innerHTML = responseText;
         }
-
-        const pre = document.getElementsByClassName("container")[0].getElementsByTagName("pre")[0];
-        pre.innerHTML = responseText;
 
         if (getParameter("is-iframe") !== "true" && localStorage.getItem("enable-badge") === "true") {
             pre.prepend(document.createElement("br"));
