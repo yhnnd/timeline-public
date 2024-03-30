@@ -78,6 +78,7 @@ body[data-value-of-enable-hover-show-line-info="true"] pre [data-line-number]:no
 body[data-value-of-enable-hover-show-line-info="true"] pre [data-line-number]:not(:has([data-line-number]:hover)):hover::before {
     content: attr(class) ' ' attr(data-line-number);
     position: absolute;
+    top: -1px;
     left: -230px;
     width: 200px;
     padding-right: 4px;
