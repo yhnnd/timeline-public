@@ -118,7 +118,7 @@ if (src != undefined) {
             const container = document.getElementsByClassName("container")[0];
             container.innerHTML = pages.map(page => {
                 return "<pre class='page' data-page-number=" + (pageNumber++) + ">" + page + "</pre>";
-            });
+            }).join("");
         } else {
             const pre = document.getElementsByClassName("container")[0].getElementsByTagName("pre")[0];
             pre.innerHTML = responseText;
