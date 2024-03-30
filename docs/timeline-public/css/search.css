@@ -68,6 +68,7 @@
 
 .search>.search-result>.link>.cover-wrapper>.cover {
     position: absolute;
+    z-index: 43;
     width: calc(100% - 100px);
     background: rgba(0, 0, 0, 0.05);
     height: 500px;
@@ -110,8 +111,25 @@ pre {
     outline-offset: 2px;
     outline-style: dashed;
     font-style: normal;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    position: relative;
+    z-index: 32;
 }
 
 .marker-wrapper {
-    outline: 2px solid var(--studio-yellow-10);
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.marker-wrapper::before {
+    display: inline-block;
+    content: '';
+    position: absolute;
+    z-index: 31;
+    left: -2px;
+    top: 0;
+    width: calc(100% + 4px);
+    height: 23px;
+    background: var(--studio-yellow-10);
 }
