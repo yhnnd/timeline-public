@@ -107,6 +107,8 @@ if (src != undefined) {
             responseText = lines2.join("");
         }
 
+        const container = document.getElementsByClassName("container")[0];
+
         if (localStorage.getItem("enable-page-split") === "true") {
             const pages = [], linesPage = [];
             let temp = [];
@@ -134,10 +136,12 @@ if (src != undefined) {
             if (temp.length) {
                 pushTempPage();
             }
-            const container = document.getElementsByClassName("container")[0];
             let pageNumber = 0;
             function getClass() {
                 const classList = ["page"];
+                if (pageNumber === 0) {
+                    classList.push("first-page");
+                }
                 if (linesPage[pageNumber].length > 12) {
                     classList.push("extra-width");
                 }
@@ -147,18 +151,19 @@ if (src != undefined) {
                 return "<pre class=\"" + getClass() + "\" data-page-number=" + pageNumber + " data-page-info=\"" + linesPage[pageNumber++] + "\">" + page + "</pre>";
             }).join("");
         } else {
-            const pre = document.getElementsByClassName("container")[0].getElementsByTagName("pre")[0];
+            const pre = container.getElementsByTagName("pre")[0];
             pre.innerHTML = responseText;
         }
 
         if (getParameter("is-iframe") !== "true" && localStorage.getItem("enable-badge") === "true") {
-            pre.prepend(document.createElement("br"));
-            pre.prepend(function () {
+            container.prepend(function () {
                 const title = document.createElement("div");
                 title.style.color = "var(--studio-purple-50)";
                 title.style.width = "min(100vw, calc(512px + (100vw - 512px) / 2))";
                 title.innerHTML = "<span class='badge'>" + getParameter("src").split("/").slice(1).join("</span>&nbsp;/&nbsp;<span class='badge'>") + "</span>";
-                return title;
+                const wrapper = document.createElement("pre");
+                wrapper.innerHTML = title.outerHTML;
+                return wrapper;
             }());
         }
     });

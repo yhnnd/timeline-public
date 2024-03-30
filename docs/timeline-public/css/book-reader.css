@@ -8,6 +8,9 @@
 
 .page:not(:first-child) {
     margin-top: 0;
+}
+
+.page:not(.first-page) {
     border-top: none;
 }
 
