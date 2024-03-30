@@ -109,6 +109,7 @@
 pre {
     white-space: pre-wrap;
     word-wrap: break-word;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 body[data-value-of-enable-file-preview="true"] .reader-wrapper {
