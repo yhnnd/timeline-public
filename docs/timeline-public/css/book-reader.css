@@ -35,7 +35,7 @@ pre {
     max-width: 100%;
     white-space: pre-wrap;
     word-wrap: break-word;
-    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-family: Menlo, Monaco, Consolas, "Courier New", "Microsoft YaHei", monospace;
 }
 
 [is-iframe="true"]:not([is-preview="true"]) pre {
