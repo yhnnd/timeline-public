@@ -9,21 +9,25 @@
   <style>
     body {
       font-family: "Microsoft YaHei Light";
-      background-color: white;
+    }
+    body:has(dialog[open]) .dialog-wrapper {
+      display: flex;
+      z-index: 1000;
     }
     body:has(dialog[open]) .desktop {
-      background-color: white;
+      backdrop-filter: brightness(.5);
       filter: brightness(.5);
+      overflow: hidden;
     }
     .dialog-wrapper {
-      background-color: white;
+      display: none;
       position: fixed;
       top: 0;
       left: 0;
-      z-index: 1000;
-      width: 100vw;
-      margin-top: calc(50vh - 45px);
-      display: flex;
+      z-index: 0;
+      min-width: 800px;
+      width: max(100%, 100vw);
+      height: max(100%, 100vh);
       align-items: center;
     }
     dialog {
@@ -41,10 +45,19 @@
       text-decoration: none;
     }
     .desktop {
-      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      min-width: 800px;
+      width: max(100%, 100vw);
+      height: max(100%, 100vh);
+      overflow-x: visible;
+      overflow-y: scroll;
       display: flex;
       flex-direction: column;
       align-items: center;
+      background-color: white;
     }
     .paper {
       min-width: 800px;
@@ -54,7 +67,7 @@
       border: 1px solid lightgray;
       padding: 32px;
       background-color: white;
-      margin-bottom: 48px;
+      margin: 48px auto;
     }
     .page {
       border: 1px solid white;
@@ -103,6 +116,22 @@
     dt {
       width: 240px;
     }
+    .left dl > div {
+      position: relative;
+      z-index: 20;
+    }
+    .left dl > div > dt,
+    .left dl > div > dd {
+      display: inline-block;
+      width: unset;
+    }
+    .left dt {
+      padding-right: 12px;
+      background-color: white;
+    }
+    .left dd {
+      border-right: 24px solid rgba(255, 255, 255, .5);
+    }
     dd {
       width: calc(100% - 245px);
     }
@@ -122,6 +151,7 @@
       width: 200px;
       background-color: bisque;
       padding: 30px 0;
+      transition: all .3s;
     }
     .timeline {
       border-left: 10px solid royalblue;
@@ -156,6 +186,15 @@
       position: absolute;
       top: 9px;
       left: -25px;
+      transition: all .3s;
+    }
+    .sidebar:has(.timeline):hover {
+      transform: unset !important;
+      left: 0 !important;
+    }
+    .sidebar:has(.timeline):hover .node::after {
+      width: 670px;
+      left: -670px;
     }
     .iframe-row {
       width: 100%;
@@ -215,6 +254,16 @@
                   <dd>1996</dd>
                 </div>
                 <div>
+                  <dt>e-mail</dt>
+                  <dd>yhn1210460391@icloud.com</dd>
+                </div>
+              </dl>
+              <dl>
+                <div>
+                  <dt>university</dt>
+                  <dd>tianjin polytechnic university</dd>
+                </div>
+                <div>
                   <dt>major</dt>
                   <dd>software engineering</dd>
                 </div>
@@ -222,27 +271,9 @@
                   <dt>occupation</dt>
                   <dd>web developer</dd>
                 </div>
-              </dl>
-              <dl>
-                <div>
-                  <dt>e-mail</dt>
-                  <dd>yhn1210460391@icloud.com</dd>
-                </div>
-                <div>
-                  <dt>address</dt>
-                  <dd>399 binshuixidao xiqing(district) tianjin</dd>
-                </div>
                 <div>
                   <dt>github</dt>
                   <dd>@yhnnd</dd>
-                </div>
-                <div>
-                  <dt>website</dt>
-                  <dd>https://yhnnd.github.io/timeline-public/resume.html</dd>
-                </div>
-                <div>
-                  <dt>blogs</dt>
-                  <dd>yhnnd.wordpress.com</dd>
                 </div>
               </dl>
             </div>
@@ -257,13 +288,34 @@
               </div>
               <div class="section-content">
                 <dl>
-                  <div>● win price</div>
-                  <div>● win lanqiao cup</div>
-                  <div>● develop BookStore</div>
-                  <div>● develop ChatRoom</div>
-                  <div>● develop Wego C Language Tutorials</div>
-                  <div>● develop WeCard</div>
-                  <div>● graduate from TJPU with a bachelor degree of software engineering</div>
+                  <div>
+                    <dt>● win price</dt>
+                    <dd></dd>
+                  </div>
+                  <div>
+                    <dt>● win lanqiao cup</dt>
+                    <dd></dd>
+                  </div>
+                  <div>
+                    <dt>● develop BookStore</dt>
+                    <dd></dd>
+                  </div>
+                  <div>
+                    <dt>● develop ChatRoom</dt>
+                    <dd></dd>
+                  </div>
+                  <div>
+                    <dt>● develop Wego C Language Tutorials</dt>
+                    <dd></dd>
+                  </div>
+                  <div>
+                    <dt>● develop WeCard</dt>
+                    <dd></dd>
+                  </div>
+                  <div>
+                    <dt>● graduate from TJPU with a bachelor degree of software engineering</dt>
+                    <dd></dd>
+                  </div>
                 </dl>
               </div>
             </section>
@@ -274,10 +326,22 @@
               </div>
               <div class="section-content">
                 <dl>
-                  <div>● Anhui Fuchi Information Technology Co., Ltd.</div>
-                  <div>● Standard Chartered Global Business Services Co., Ltd.</div>
-                  <div>● Desmo Labs</div>
-                  <div>● Huawei Technologies Co., Ltd.</div>
+                  <div>
+                    <dt>● Anhui Fuchi Information Technology Co., Ltd.</dt>
+                    <dd></dd>
+                  </div>
+                  <div>
+                    <dt>● Standard Chartered Global Business Services Co., Ltd.</dt>
+                    <dd></dd>
+                  </div>
+                  <div>
+                    <dt>● Desmo Labs</dt>
+                    <dd></dd>
+                  </div>
+                  <div>
+                    <dt>● Huawei Technologies Co., Ltd.</dt>
+                    <dd></dd>
+                  </div>
                 </dl>
               </div>
             </section>
