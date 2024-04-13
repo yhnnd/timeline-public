@@ -234,22 +234,45 @@
       width: 300px;
       height: 200px;
       position: relative;
+      overflow: hidden;
     }
     .iframe-cover {
       width: 100%;
       height: 100%;
       position: absolute;
       z-index: 2;
-      background: white;
-      transition: opacity 3s ease-in;
-      opacity: 1;
+      background-color: white;
+      transition: background-color 3s ease-in, transform .1s;
       cursor: pointer;
+      transform-origin: left top;
+    }
+    .iframe-cover::before {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      content: "loading";
+      background-color: white;
+    }
+    .iframe-cover.loaded {
+      background-color: transparent;
+    }
+    .iframe-cover.loaded::before {
+      display: none;
     }
     .iframe-zoomer {
       width: 1200px;
       height: 800px;
       transform: scale(.25);
       transform-origin: left top;
+      transition: transform .1s;
+    }
+    .iframe-cover.loaded:hover {
+      transform: scale(1.025);
+    }
+    .iframe-cover.loaded:hover + .iframe-zoomer {
+      transform: scale(calc(.25 * 1.025));
     }
     .clickable {
       cursor: pointer;
@@ -336,10 +359,10 @@
         <section>
           <div class="section-title">
             <span class="dingbat">➣</span>
-            <span>books</span>
+            <span>prizes</span>
           </div>
           <div class="section-content">
-            <dl id=books></dl>
+            <dl id=prizes></dl>
           </div>
         </section>
       </div>
@@ -425,23 +448,23 @@
       dt: "● Go",
       dd: "developed WordLab Go, a website powered by WordLab"
     }];
-    const booksData = [{
-      dt: "the black book",
-      dd: "life from 2014 to 2017, in high school and college"
-    }, {
-      dt: "the brown book",
-      dd: "life from 2017 to 2018, in college"
-    }, {
-      dt: "the big brown book",
-      dd: "life from 2018 to 2019, after i came back to tianjin from peking"
-    }, {
-      dt: "the way out",
-      dd: "life from 2023 to 2024, after i came back to tianjin from inner mongolia"
-    }];
-    const pricesData = [
+    // const booksData = [{
+    //   dt: "the black book",
+    //   dd: "life from 2014 to 2017, in high school and college"
+    // }, {
+    //   dt: "the brown book",
+    //   dd: "life from 2017 to 2018, in college"
+    // }, {
+    //   dt: "the big brown book",
+    //   dd: "life from 2018 to 2019, after i came back to tianjin from peking"
+    // }, {
+    //   dt: "the way out",
+    //   dd: "life from 2023 to 2024, after i came back to tianjin from inner mongolia"
+    // }];
+    const prizesData = [
       "天津工业大学 耀华杯 计算机 C 语言知识竞赛二等奖(专业组)",
       "天津工业大学(单科成绩优异)奖学金",
-      "天津工业大学校⻓三等奖学金",
+      "天津工业大学校长三等奖学金",
       "天津工业大学 耀华杯 计算机 C 语言知识竞赛一等奖(专业组)",
       "天津工业大学 兴华杯 英语竞赛一等奖(非专业组)",
       "蓝桥杯竞赛三等奖"
@@ -503,7 +526,7 @@
       let html = "";
       for (const div of data) {
         if (typeof div === "string") {
-          html += "<div>" + div + "</div>";
+          html += "<div><dt style='width: 16px;'>●</dt><dd>" + div + "</dd></div>";
         } else {
           html += "<div><dt>" + div.dt + "</dt><dd>" + div.dd + "</dd></div>";
         }
@@ -514,7 +537,7 @@
       }
     }
     renderContent(skillsData, "skills");
-    renderContent(pricesData, "books");
+    renderContent(prizesData, "prizes");
 
     let html = document.body.innerHTML, links = '';
     function appendLink (anchor, text, link) {
@@ -539,7 +562,7 @@
 
     function iframeLoaded () {
       document.querySelectorAll(".iframe-cover").forEach(e => {
-        e.setAttribute("style", "opacity: 0");
+        e.classList.add("loaded");
         const url = e.getAttribute("data-url");
         e.setAttribute("onclick", "openLink('" + url + "');");
       });
