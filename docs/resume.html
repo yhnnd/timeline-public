@@ -78,6 +78,7 @@
       font-size: 32px;
       padding: 20px;
       text-align: center;
+      text-transform: capitalize;
     }
     .section-title {
       background-color: black;
@@ -147,6 +148,11 @@
     .row {
       display: flex;
     }
+    .row.rotate {
+      width: 1000px;
+      perspective: 800px;
+      perspective-origin: center;
+    }
     .left {
       width: 600px;
     }
@@ -156,9 +162,18 @@
       padding: 30px 0;
       transition: all .3s;
     }
+    .sidebar.rotate {
+      width: 224px;
+      transform: rotateY(-33.333deg);
+      position: relative;
+      left: -7.5px;
+    }
     .timeline {
       border-left: 10px solid royalblue;
       margin-left: 30px;
+      height: 480px;
+      width: 140px;
+      background-color: aquamarine;
     }
     .timeline > .node {
       margin-top: 9px;
@@ -191,11 +206,19 @@
       left: -25px;
       transition: all .3s;
     }
-    .sidebar:has(.timeline):hover {
-      transform: unset !important;
-      left: 0 !important;
+    .timeline > .divider {
+      height: 30px;
+      width: 10px;
+      margin-top: 22px;
+      margin-bottom: 21px;
+      margin-left: -10px;
+      background-color: bisque;
     }
-    .sidebar:has(.timeline):hover .node::after {
+    .sidebar.rotate:hover {
+      transform: unset;
+      left: 0;
+    }
+    .sidebar.rotate:hover .timeline > .node::after {
       width: 670px;
       left: -670px;
     }
@@ -228,61 +251,27 @@
       transform: scale(.25);
       transform-origin: left top;
     }
+    .clickable {
+      cursor: pointer;
+      color: royalblue;
+    }
   </style>
   <div class="dialog-wrapper"><dialog></dialog></div>
   <div class="desktop">
     <div class="paper">
       <div class="page">
-        <div class="resume-title">
-          <div class="person-name">Résumé</div>
-        </div>
+        <div class="resume-title">résumé</div>
         <section>
           <div class="section-title">
             <span class="dingbat">➣</span>
             <span>basic info</span>
           </div>
           <div class="section-content">
-            <div class="row">
-              <dl>
-                <div>
-                  <dt>name</dt>
-                  <dd>yu haining</dd>
-                </div>
-                <div>
-                  <dt>sex</dt>
-                  <dd>male</dd>
-                </div>
-                <div>
-                  <dt>year of birth</dt>
-                  <dd>1996</dd>
-                </div>
-                <div>
-                  <dt>e-mail</dt>
-                  <dd>yhn1210460391@icloud.com</dd>
-                </div>
-              </dl>
-              <dl>
-                <div>
-                  <dt>university</dt>
-                  <dd>tianjin polytechnic university</dd>
-                </div>
-                <div>
-                  <dt>major</dt>
-                  <dd>software engineering</dd>
-                </div>
-                <div>
-                  <dt>occupation</dt>
-                  <dd>web developer</dd>
-                </div>
-                <div>
-                  <dt>github</dt>
-                  <dd>@yhnnd</dd>
-                </div>
-              </dl>
+            <div class="row" id="profile">
             </div>
           </div>
         </section>
-        <div class="row" style="width: 1000px; perspective: 800px; perspective-origin: center;">
+        <div class="row rotate">
           <div class="left" style="width: 640px;">
             <section>
               <div class="section-title">
@@ -290,36 +279,7 @@
                 <span>education</span>
               </div>
               <div class="section-content">
-                <dl>
-                  <div>
-                    <dt>● win price</dt>
-                    <dd></dd>
-                  </div>
-                  <div>
-                    <dt>● win lanqiao cup</dt>
-                    <dd></dd>
-                  </div>
-                  <div>
-                    <dt>● develop BookStore</dt>
-                    <dd></dd>
-                  </div>
-                  <div>
-                    <dt>● develop ChatRoom</dt>
-                    <dd></dd>
-                  </div>
-                  <div>
-                    <dt>● develop Wego C Language Tutorials</dt>
-                    <dd></dd>
-                  </div>
-                  <div>
-                    <dt>● develop WeCard</dt>
-                    <dd></dd>
-                  </div>
-                  <div>
-                    <dt>● graduate from TJPU with a bachelor degree of software engineering</dt>
-                    <dd></dd>
-                  </div>
-                </dl>
+                <dl id="education"></dl>
               </div>
             </section>
             <section>
@@ -328,42 +288,12 @@
                 <span>work experience</span>
               </div>
               <div class="section-content">
-                <dl>
-                  <div>
-                    <dt>● Anhui Fuchi Information Technology Co., Ltd.</dt>
-                    <dd></dd>
-                  </div>
-                  <div>
-                    <dt>● Standard Chartered Global Business Services Co., Ltd.</dt>
-                    <dd></dd>
-                  </div>
-                  <div>
-                    <dt>● Desmo Labs</dt>
-                    <dd></dd>
-                  </div>
-                  <div>
-                    <dt>● Huawei Technologies Co., Ltd.</dt>
-                    <dd></dd>
-                  </div>
-                </dl>
+                <dl id="work-experience"></dl>
               </div>
             </section>
           </div>
-          <div class="sidebar" style="width: 224px; transform: rotateY(-33.333deg); position: relative; left: -7.5px;">
-            <div class="timeline" style="height: 480px; width: 140px; background-color: aquamarine;">
-              <div style="height: 19px;"></div>
-              <div class="node">2016</div>
-              <div class="node">2017</div>
-              <div class="node">4/2017</div>
-              <div class="node">6/2017</div>
-              <div class="node">6/2017</div>
-              <div class="node">3/2018</div>
-              <div class="node">6/2019</div>
-              <div style="height: 30px; width: 10px; margin-top: 22px; margin-bottom: 21px; margin-left: -10px; background-color: bisque;"></div>
-              <div class="node">8/2018</div>
-              <div class="node">4/2019</div>
-              <div class="node">2/2023</div>
-              <div class="node">12/2023</div>
+          <div class="sidebar rotate">
+            <div class="timeline" id="timeline">
             </div>
           </div>
         </div>
@@ -373,28 +303,7 @@
             <span>skills</span>
           </div>
           <div class="section-content">
-            <dl>
-              <div>
-                <dt>● C/C++ </dt>
-                <dd>developed many C/C++ programs including WordLab</dd>
-              </div>
-              <div>
-                <dt>● HTML/CSS/JavaScript</dt>
-                <dd>developed many websites such as BookStore, Wego C Language Tutorials, ChatRoom, WeCard, Timeline, Web3Hub, Demo Website</dd>
-              </div>
-              <div>
-                <dt>● Java</dt>
-                <dd>developed back-end for BookStore, ChatRoom</dd>
-              </div>
-              <div>
-                <dt>● Python</dt>
-                <dd>I use python to fetch papers of Machine Learning</dd>
-              </div>
-              <div>
-                <dt>● Go</dt>
-                <dd>developed WordLab Go, a website powered by WordLab</dd>
-              </div>
-            </dl>
+            <dl id="skills"></dl>
           </div>
         </section>
       </div>
@@ -430,30 +339,113 @@
             <span>books</span>
           </div>
           <div class="section-content">
-            <dl>
-              <div>
-                <dt>the black book</dt>
-                <dd>life from 2014 to 2017, in high school and college</dd>
-              </div>
-              <div>
-                <dt>the brown book</dt>
-                <dd>life from 2017 to 2018, in college</dd>
-              </div>
-              <div>
-                <dt>the big brown book</dt>
-                <dd>life from 2018 to 2019, after i came back to tianjin from peking</dd>
-              </div>
-              <div>
-                <dt>the way out</dt>
-                <dd>life from 2023 to 2024, after i came back to tianjin from inner mongolia</dd>
-              </div>
-            </dl>
+            <dl id=books></dl>
           </div>
         </section>
       </div>
     </div>
   </div>
   <script>
+    const profileData = [
+      [{
+        dt: "name",
+        dd: "yu haining"
+      }, {
+        dt: "sex",
+        dd: "male"
+      }, {
+        dt: "year of birth",
+        dd: "1996"
+      }, {
+        dt: "e-mail",
+        dd: "yhn1210460391@icloud.com"
+      }],
+      [{
+        dt: "university",
+        dd: "tianjin polytechnic university"
+      }, {
+        dt: "major",
+        dd: "software engineering"
+      }, {
+        dt: "occupation",
+        dd: "web developer"
+      }, {
+        dt: "github",
+        dd: "yhnnd"
+      }]
+    ];
+    const educationData = [{
+      dt: "● win many prices",
+      info: "2016"
+    }, {
+      dt: "● win lanqiao cup",
+      info: "2017"
+    }, {
+      dt: "● develop BookStore",
+      info: "4/2017"
+    }, {
+      dt: "● develop ChatRoom",
+      info: "6/2017"
+    }, {
+      dt: "● develop Wego C Language Tutorials",
+      info: "6/2017"
+    }, {
+      dt: "● develop WeCard",
+      info: "3/2018"
+    }, {
+      dt: "● graduate from TJPU with a bachelor degree of software engineering",
+      info: "6/2019"
+    }];
+    const workExperienceData = [{
+      dt: "● Anhui Fuchi Information Technology Co., Ltd.",
+      info: "8/2018"
+    }, {
+      dt: "● Standard Chartered Global Business Services Co., Ltd.",
+      info: "4/2019"
+    }, {
+      dt: "● Desmo Labs",
+      info: "2/2023"
+    }, {
+      dt: "● Huawei Technologies Co., Ltd.",
+      info: "12/2023"
+    }];
+    const skillsData = [{
+      dt: "● C/C++",
+      dd: "developed many C/C++ programs including WordLab"
+    }, {
+      dt: "● HTML/CSS/JavaScript",
+      dd: "developed many websites such as BookStore, Wego C Language Tutorials, ChatRoom, WeCard, Timeline, Web3Hub, Demo Website"
+    }, {
+      dt: "● Java",
+      dd: "developed back-end for BookStore, ChatRoom"
+    }, {
+      dt: "● Python",
+      dd: "I use python to fetch papers of Machine Learning"
+    }, {
+      dt: "● Go",
+      dd: "developed WordLab Go, a website powered by WordLab"
+    }];
+    const booksData = [{
+      dt: "the black book",
+      dd: "life from 2014 to 2017, in high school and college"
+    }, {
+      dt: "the brown book",
+      dd: "life from 2017 to 2018, in college"
+    }, {
+      dt: "the big brown book",
+      dd: "life from 2018 to 2019, after i came back to tianjin from peking"
+    }, {
+      dt: "the way out",
+      dd: "life from 2023 to 2024, after i came back to tianjin from inner mongolia"
+    }];
+    const pricesData = [
+      "天津工业大学 耀华杯 计算机 C 语言知识竞赛二等奖(专业组)",
+      "天津工业大学(单科成绩优异)奖学金",
+      "天津工业大学校⻓三等奖学金",
+      "天津工业大学 耀华杯 计算机 C 语言知识竞赛一等奖(专业组)",
+      "天津工业大学 兴华杯 英语竞赛一等奖(非专业组)",
+      "蓝桥杯竞赛三等奖"
+    ];
     const hyperTexts = {
       "WordLab": "https://yhnnd.github.io/wordlab/Architecture.html",
       "BookStore": "https://yhnnd.github.io/timeline-public/bookstore/bookstore.html",
@@ -478,13 +470,59 @@
         "https://yhnnd.github.io/timeline-public/timeline-public/css/navbar.css"
       ]
     }
+
+    let profileHtml = "";
+    for (const dl of profileData) {
+      profileHtml += "<dl>";
+      for (const div of dl) {
+        profileHtml += "<div><dt>" + div.dt + "</dt><dd>" + div.dd + "</dd></div>";
+      }
+      profileHtml += "</dl>";
+    }
+    const profile = document.getElementById("profile");
+    profile.innerHTML = profileHtml;
+    
+    let educationHtml = "", workExperienceHtml = "", timelineHtml = "<div style='height: 19px;'></div>";
+    for (const div of educationData) {
+      educationHtml += "<div><dt>" + div.dt + "</dt><dd></dd></div>";
+      timelineHtml += "<div class=node >" + div.info + "</div>";
+    }
+    timelineHtml += "<div class='divider'></div>";
+    for (const div of workExperienceData) {
+      workExperienceHtml += "<div><dt>" + div.dt + "</dt><dd></dd></div>";
+      timelineHtml += "<div class=node >" + div.info + "</div>";
+    }
+    const education = document.getElementById("education");
+    education.innerHTML = educationHtml;
+    const workExperience = document.getElementById("work-experience");
+    workExperience.innerHTML = workExperienceHtml;
+    const timeline = document.getElementById("timeline");
+    timeline.innerHTML = timelineHtml;
+
+    function renderContent(data, domId) {
+      let html = "";
+      for (const div of data) {
+        if (typeof div === "string") {
+          html += "<div>" + div + "</div>";
+        } else {
+          html += "<div><dt>" + div.dt + "</dt><dd>" + div.dd + "</dd></div>";
+        }
+      }
+      const dom = document.getElementById(domId);
+      if (dom) {
+        dom.innerHTML = html;
+      }
+    }
+    renderContent(skillsData, "skills");
+    renderContent(pricesData, "books");
+
     let html = document.body.innerHTML, links = '';
     function appendLink (anchor, text, link) {
-      links += "<div id='" + anchor + "'><dt><a href='#" + anchor + "'>" + text + "</a></dt><dd><span style='cursor: pointer;' onclick=openLink('" + link + "')>" + link + "</span></dd></div>";
+      links += "<div id='" + anchor + "'><dt><a href='#" + anchor + "'></a>" + text + "</dt><dd><span class=clickable onclick=openLink('" + link + "')>" + link + "</span></dd></div>";
     }
     for (const [text, link] of Object.entries(hyperTexts)) {
       const anchor = text.split(' ').join('_');
-      html = html.replaceAll(text, "<span style='cursor: pointer;' onclick=goto('" + anchor + "')>" + text + "</span>");
+      html = html.replaceAll(text, "<span class='clickable' onclick=goto('" + anchor + "')>" + text + "</span>");
       if (typeof link === 'string') {
         appendLink(anchor, text, link);
       } else {
@@ -519,7 +557,7 @@
       const dialog = document.querySelector(".dialog-wrapper > dialog");
       dialog.setAttribute("open", true);
       dialog.innerHTML = "open link " + url + " ?<form method='dialog'>" +
-        "<button onclick=window.open('" + url + "')>ok</button>" +
+        "<button onclick=window.open('" + url + "')>&nbsp;ok&nbsp;</button>" +
         "<button autofocus style='margin-left: 16px;'>close</button></form>";
     }
   </script>
