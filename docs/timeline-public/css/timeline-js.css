@@ -28,6 +28,10 @@
   transform-origin: top left;
 }
 
+body[data-value-of-platform="Win32"] {
+  transform: scaleY(.9125);
+}
+
 .timeline>.node {
   padding-top: 2px;
   padding-bottom: 2px;
