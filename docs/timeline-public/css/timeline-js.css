@@ -28,7 +28,7 @@
   transform-origin: top left;
 }
 
-body[data-value-of-platform="Win32"] {
+body[data-value-of-platform="Win32"] .timeline {
   transform: scaleY(.9125);
 }
 
