@@ -311,6 +311,7 @@ function renderDomHtml() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    localStorage.setItem("platform", window.navigator.platform);
     initNavbar();
     const webBrowserName = window.getBrowserName();
     localStorage.setItem("webBrowserName", webBrowserName);
