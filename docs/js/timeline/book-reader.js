@@ -56,7 +56,7 @@ if (src != undefined) {
             window.openLink = function (event) {
                 const to = event.target.getAttribute('to');
                 if (to) {
-                    window.open(to);
+                    window.open(to, "_self");
                 }
             }
         }
