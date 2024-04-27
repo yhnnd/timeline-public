@@ -50,26 +50,37 @@ pre .censored {
     line-height: 0;
 }
 
-pre .name-link {
+pre .name-link,
+pre .link {
     color: var(--studio-blue);
     cursor: pointer;
     position: relative;
     display: inline-block;
 }
 
-pre .name-link::before {
+pre .name-link::before,
+pre .link::before {
     display: none;
-    content: attr(data-info);
+    position: absolute;
+    left: 0;
+    top: -18px;
+    min-width: 160px;
+    width: max-content;
     color: white;
     background-color: rgba(0, 0, 0, .75);
 }
 
-pre .name-link:hover::before {
+pre .name-link::before {
+    content: attr(data-info);
+}
+
+pre .link::before {
+    content: attr(to);
+}
+
+pre .name-link:hover::before,
+pre .link:hover::before {
     display: block;
-    position: absolute;
-    left: 0;
-    top: -18px;
-    width: 160px;
 }
 
 body[data-value-of-enable-hover-show-line-info="true"] pre [data-line-number]:not(:has([data-line-number]:hover)):hover {

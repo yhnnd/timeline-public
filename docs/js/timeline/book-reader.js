@@ -19,6 +19,8 @@ if (src != undefined) {
                 } else if (line === "</border>" && localStorage.getItem("enable-border") === "true") {
                     return '@command("border-end")';
                 }
+                line = line.replaceAll("<link", '@command("link-start")');
+                line = line.replaceAll("</link>", '@command("link-end")');
                 return line;
             }).join("\n");
         }(responseText);
@@ -47,6 +49,17 @@ if (src != undefined) {
         responseText = responseText.replaceAll('@command("delete-end")', "</del>");
         responseText = responseText.replaceAll('@command("border-start")', "<div class='has-border'>");
         responseText = responseText.replaceAll('@command("border-end")', "\n</div>");
+        responseText = responseText.replaceAll('@command("link-start")', "<div class='link' onclick='openLink(event)'");
+        responseText = responseText.replaceAll('@command("link-end")', "</div>");
+
+        if (window.openLink === undefined) {
+            window.openLink = function (event) {
+                const to = event.target.getAttribute('to');
+                if (to) {
+                    window.open(to);
+                }
+            }
+        }
 
         if (localStorage.getItem("enable-highlight-red") === "true") {
             // highlight all the symbols like ①, ②, ③.
