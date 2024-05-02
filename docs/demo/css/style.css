@@ -251,8 +251,8 @@ button.close:hover {
     text-decoration: none;
 }
 
-body[is-iframe] .global-navbar,
-body[is-iframe] .fake-navbar,
+body[is-iframe="true"] .global-navbar,
+body[is-iframe="true"] .fake-navbar,
 body[data-value-of-enable-navbar="false"] .global-navbar,
 body[data-value-of-enable-navbar="false"] .fake-navbar {
     display: none;

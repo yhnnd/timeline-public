@@ -432,4 +432,6 @@ window.books[17].indexList = [
     "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.03.27.txt",
     "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.04.07.txt",
     "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.04.27.txt",
+    "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.05.01.txt",
+    "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.05.02.txt",
 ];
