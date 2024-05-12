@@ -29,7 +29,15 @@ if (bookList.length) {
             const listItem = document.createElement("li");
             const link = document.createElement("a");
             link.href = "book.html?book=" + i;
-            link.innerText = "" + i + " " + bookNames[i];
+            link.innerHTML = "<span>" + i + "</span>";
+            if (bookNames[i] === "致王震書") {
+                link.innerHTML += '&nbsp;<span class="rounded-circle" style="display: inline-block; width: 1rem; height: 1rem; background: var(--studio-blue-50); position: relative; top: 3px;"></span>';
+                link.innerHTML += '&nbsp;<span class="rounded-circle" style="display: inline-block; width: 1rem; height: 1rem; background: var(--studio-green-30); position: relative; top: 3px; left: -10px;"></span>';
+            } else if (bookNames[i] === "王震來信") {
+                link.innerHTML += '&nbsp;<span class="rounded-circle" style="display: inline-block; width: 1rem; height: 1rem; background: var(--studio-red-50); position: relative; top: 3px;"></span>';
+                link.innerHTML += '&nbsp;<span class="rounded-circle" style="display: inline-block; width: 1rem; height: 1rem; background: var(--studio-yellow-30); position: relative; top: 3px; left: -10px;"></span>';
+            }
+            link.innerHTML += "&nbsp;<span>" + bookNames[i] + "</span>";
             listItem.append(link);
             if (window.books[i]?.indexList?.length) {
                 listItem.innerHTML += "<div class='highlight-green' style='margin-left: 16px;'>(" + window.books[i].indexList.length + ")</div>";

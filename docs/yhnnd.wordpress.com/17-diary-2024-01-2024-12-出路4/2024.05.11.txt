@@ -1,0 +1,89 @@
+// 将对象内的所有以 Id 结尾的属性的类型都转换为 string 类型
+// 我在 5 月 10 日下午在环普和史鑫瑞解决问题时编写
+
+if (!Object.entries) {
+  Object.entries = function (obj) {
+    var entries = [];
+    if (typeof obj !== "object" || obj === null) {
+      return [];
+    }
+    for (var key in obj) {
+      entries.push([key, obj[key]]);
+    }
+    return entries;
+  };
+}
+
+function deepCopyArray(obj, maxLevel, level) {
+  var dst = [];
+  var i;
+  for (i = 0; i < obj.length; ++i) {
+    (function () {
+      var value = obj[i];
+      if (typeof value === "undefined") {
+        dst.push(undefined);
+      } else if (typeof value === "object") {
+        dst.push(deepCopy(value, maxLevel, level + 1));
+      } else {
+        dst.push(value);
+      }
+    })(i);
+  }
+  return dst;
+}
+
+function deepCopyObject(obj, maxLevel, level, key) {
+  var dst = {};
+  var entries = Object.entries(obj);
+  var i;
+  var isId = false;
+  if (key !== undefined && key !== null) {
+    var strKey = new java.lang.String(key);
+    isId = strKey.endsWith("Id");
+  }
+  for (i = 0; i < entries.length; ++i) {
+    (function (i) {
+      var key = entries[i][0],
+        value = entries[i][1];
+      if (typeof value === "undefined") {
+        dst[key] = undefined;
+      } else if (isId) {
+        dst[key] = value === null ? null : "" + value;
+      } else if (typeof value === "object") {
+        dst[key] = deepCopy(value, maxLevel, level + 1, key);
+      } else {
+        dst[key] = value;
+      }
+    })(i);
+  }
+  return dst;
+}
+
+function deepCopy(obj) {
+  var maxLevel = arguments[1] !== void 0 ? arguments[1] : 8;
+  var level = arguments[2] !== void 0 ? arguments[2] : 0;
+  var key = arguments[3];
+  if (level >= maxLevel) {
+    return "[Too Deep]";
+  }
+  var isId = false;
+  if (key !== undefined && key !== null) {
+    var strKey = new java.lang.String(key);
+    isId = strKey.endsWith("Id");
+  }
+  if (typeof obj === "undefined") {
+    return undefined;
+  } else if (isId) {
+    return obj === null ? null : "" + obj;
+  } else if (typeof obj !== "object") {
+    return obj;
+  }
+  if (obj === null) {
+    return obj;
+  }
+  if (obj instanceof Array) {
+    return deepCopyArray(obj, maxLevel, level);
+  }
+  return deepCopyObject(obj, maxLevel, level, key);
+}
+srDetailMainInfoVOJson = deepCopy(srDetailMainInfoVOJson);
