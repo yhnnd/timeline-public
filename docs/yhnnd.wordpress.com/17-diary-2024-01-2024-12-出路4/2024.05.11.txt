@@ -36,15 +36,14 @@ function deepCopyObject(obj, maxLevel, level, key) {
   var dst = {};
   var entries = Object.entries(obj);
   var i;
-  var isId = false;
-  if (key !== undefined && key !== null) {
-    var strKey = new java.lang.String(key);
-    isId = strKey.endsWith("Id");
-  }
   for (i = 0; i < entries.length; ++i) {
     (function (i) {
-      var key = entries[i][0],
-        value = entries[i][1];
+      var key = entries[i][0], value = entries[i][1];
+      var isId = false;
+      if (key !== undefined && key !== null) {
+        var strKey = new java.lang.String(key);
+        isId = strKey.endsWith("Id");
+      }
       if (typeof value === "undefined") {
         dst[key] = undefined;
       } else if (isId) {
