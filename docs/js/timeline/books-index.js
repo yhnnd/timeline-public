@@ -395,6 +395,7 @@ window.books[15].indexList = [
     "../yhnnd.wordpress.com/15-letters-to-patrick-wang-致王震書/2024.04.27.txt", /* 10 */
     "../yhnnd.wordpress.com/15-letters-to-patrick-wang-致王震書/2024.05.12.txt", /* 11 */
     "../yhnnd.wordpress.com/15-letters-to-patrick-wang-致王震書/2024.05.21.txt", /* 12 */
+    "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.05.22.txt", /* 13 */
 ];
 
 // 16《王震來信》
@@ -411,7 +412,7 @@ window.books[16].indexList = [
     "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2023.12.13-9-你离开不久.txt", /* 9 */
     "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2024.02.11-10-聂君说有段日子他天天应酬.txt", /* 10 */
     "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2024.02.11-11-昨晚给你寄了信.txt", /* 11 */
-    "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2024.02.24-12-今年十月发的2X的球衣.txt", /* 12 */
+    "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2024.02.24-12-今年十月发的2X的秋衣.txt", /* 12 */
     "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2024.05.11-13-三号提工第一天.txt", /* 13 */
 ];
 
@@ -449,4 +450,5 @@ window.books[17].indexList = [
     "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.05.12.txt",
     "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.05.20.txt",
     "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.05.21.txt",
+    "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.05.22.txt",
 ];
