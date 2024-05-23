@@ -152,3 +152,26 @@ body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-wid
 body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"][data-value-of-enable-line-width-656px="true"] pre .empty-line {
     width: 656px;
 }
+
+pre img {
+    width: 100%;
+}
+
+pre .thumbnail {
+    display: inline;
+    max-width: 100px;
+}
+
+pre .thumbnail-2x {
+    display: inline;
+    max-width: 200px;
+}
+
+pre .row {
+    display: flex;
+}
+
+pre .row:has(.thumbnail),
+pre .row:has(.thumbnail-2x) {
+    gap: 10px;
+}
