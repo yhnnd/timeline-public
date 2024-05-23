@@ -395,7 +395,7 @@ window.books[15].indexList = [
     "../yhnnd.wordpress.com/15-letters-to-patrick-wang-致王震書/2024.04.27.txt", /* 10 */
     "../yhnnd.wordpress.com/15-letters-to-patrick-wang-致王震書/2024.05.12.txt", /* 11 */
     "../yhnnd.wordpress.com/15-letters-to-patrick-wang-致王震書/2024.05.21.txt", /* 12 */
-    "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.05.22.txt", /* 13 */
+    "../yhnnd.wordpress.com/15-letters-to-patrick-wang-致王震書/2024.05.22.txt", /* 13 */
 ];
 
 // 16《王震來信》
