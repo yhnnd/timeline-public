@@ -30,6 +30,12 @@ if (src != undefined) {
                 if (line.startsWith("<img ") && line.endsWith(">")) {
                     return "@image " + line;
                 }
+                if (line.startsWith("<div") && line.endsWith(">")) {
+                    return "@div_start " + line;
+                }
+                if (line.startsWith("</div") && line.endsWith(">")) {
+                    return "@div_end " + line;
+                }
                 return line;
             }).join("\n");
         }
@@ -39,7 +45,13 @@ if (src != undefined) {
         if (localStorage.getItem("enable-img-recognition") === "true" || responseText.includes("@command(\"enable-image-recognition\")")) {
             responseText = responseText.split("\n").map(line => {
                 if (line.startsWith("@image &lt;img ") && line.endsWith(">")) {
-                    return line.replace("@image &lt;img ", "<img style='width:100%;' ");
+                    return line.replace("@image &lt;img ", "<img ");
+                }
+                if (line.startsWith("@div_start &lt;div") && line.endsWith(">")) {
+                    return line.replace("@div_start &lt;div", "<div");
+                }
+                if (line.startsWith("@div_end &lt;/div") && line.endsWith(">")) {
+                    return line.replace("@div_end &lt;/div", "</div");
                 }
                 return line;
             }).join("\n");
