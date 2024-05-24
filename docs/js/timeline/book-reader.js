@@ -10,10 +10,9 @@ function insertStr(source, start, newStr) {
 }
 
 function inspectImage(src) {
-    quitInspectImage()
-    inspectImageWrapper.innerHTML += '<div id="background" onclick="quitInspectImage()" style="display: block; position: fixed; top: 0; left: 0; width: 100%; z-index: 1499; height: ' + window.innerHeight + 'px; opacity: 0.8; background: black; filter: brightness(0.1);">' +
+    document.getElementById('inspectImageWrapper').innerHTML += '<div onclick="quitInspectImage()" style="display: block; position: fixed; top: 0; left: 0; width: 100%; z-index: 1499; height: ' + window.innerHeight + 'px; opacity: 0.8; background: black; filter: brightness(0.1);">' +
     '</div>' +
-    '<div id="foreground" onclick="quitInspectImage()" style="display: block; position: fixed; top: 0; left: 0; width: 100%; height: ' + window.innerHeight + 'px; z-index: 1500;">' +
+    '<div onclick="quitInspectImage()" style="display: block; position: fixed; top: 0; left: 0; width: 100%; height: ' + window.innerHeight + 'px; z-index: 1500;">' +
     '<div style="display: flex; width: 100%; height: 100%; align-items: center; justify-content: center;">' +
     '<img style="max-width: 100%; height: auto; max-height: 100%;" src="' + src + '">' +
     '</div>' +
@@ -21,12 +20,7 @@ function inspectImage(src) {
 }
 
 function quitInspectImage() {
-    if (window.background) {
-        background.remove()
-    }
-    if (window.foreground) {
-        foreground.remove()
-    }
+    document.getElementById('inspectImageWrapper').innerHTML = '';
 }
 
 const src = getParameter("src");
