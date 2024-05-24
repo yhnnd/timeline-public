@@ -250,18 +250,20 @@ function deepCopy(obj, maxLevel = 3, level = 0) {
     }
 }
 
+function goBack() {
+    if (window.location.pathname.endsWith("/book.html")) {
+        window.open("index.html", "_self");
+    } else {
+        history.back();
+    }
+}
+
 function initNavbar() {
     const navbar = document.createElement("div");
     navbar.classList.add("global-navbar");
     const button = document.createElement("button");
     button.innerText = "Go Back";
-    button.addEventListener("click", function () {
-        if (window.location.pathname.endsWith("/book.html")) {
-            window.open("index.html", "_self");
-        } else {
-            history.back();
-        }
-    });
+    button.setAttribute("onclick", "goBack()");
     navbar.append(button);
 
     const info = document.createElement("div");
