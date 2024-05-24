@@ -5,6 +5,30 @@ const symbols = ['⓪', '①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧', 
 
 const censored = ["中國", "中国", "中共國", "中共国", "共匪國", "共匪国", "大陸", "大陆", "美國", "美国", "淪陷區", "沦陷区", "匪佔區", "匪占区", "共產主義", "共产主义", "共產黨", "共产党", "中共", "共匪", "共黨", "共党", "赤黨", "赤党", "赤匪", "匪黨", "匪党", "匪諜", "匪谍", "毛賊", "毛贼", "黨中央", "党中央", "紅色政權", "CCP", "天安門", "天安门", "中華民國", "中华民国", "國民黨", "国民党", "反共", "滅共", "灭共"];
 
+function insertStr(source, start, newStr) {
+    return source.slice(0, start) + newStr + source.slice(start)
+}
+
+function inspectImage(src) {
+    quitInspectImage()
+    document.body.innerHTML += '<div id="background" onclick="quitInspectImage()" style="display: block; position: fixed; top: 0; left: 0; width: 100%; z-index: 1499; height: ' + window.innerHeight + 'px; opacity: 0.8; background: black; filter: brightness(0.1);">' +
+    '</div>' +
+    '<div id="foreground" onclick="quitInspectImage()" style="display: block; position: fixed; top: 0; left: 0; width: 100%; height: ' + window.innerHeight + 'px; z-index: 1500;">' +
+    '<div style="display: flex; width: 100%; height: 100%; align-items: center; justify-content: center;">' +
+    '<img style="max-width: 100%; height: auto; max-height: 100%;" src="' + src + '">' +
+    '</div>' +
+    '</div>'
+}
+
+function quitInspectImage() {
+    if (window.background) {
+        background.remove()
+    }
+    if (window.foreground) {
+        foreground.remove()
+    }
+}
+
 const src = getParameter("src");
 if (src != undefined) {
     ajax(src, undefined, function (responseText) {
@@ -45,7 +69,8 @@ if (src != undefined) {
         if (localStorage.getItem("enable-img-recognition") === "true" || responseText.includes("@command(\"enable-image-recognition\")")) {
             responseText = responseText.split("\n").map(line => {
                 if (line.startsWith("@image &lt;img ") && line.endsWith(">")) {
-                    return line.replace("@image &lt;img ", "<img ");
+                    line = line.replace("@image &lt;img ", "<img ");
+                    return insertStr(line, line.length - 1, " onclick=\"inspectImage(this.src)\"");
                 }
                 if (line.startsWith("@div_start &lt;div") && line.endsWith(">")) {
                     return line.replace("@div_start &lt;div", "<div");
