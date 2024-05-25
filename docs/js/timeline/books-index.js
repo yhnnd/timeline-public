@@ -16,7 +16,8 @@ window.books[1] = {
         "../yhnnd.wordpress.com/1-diary-2014-12-2014-12-黑書1/2014.12.12.txt",
         "../yhnnd.wordpress.com/1-diary-2014-12-2014-12-黑書1/2014.12.13.txt",
         "../yhnnd.wordpress.com/1-diary-2014-12-2014-12-黑書1/2014.12.14.txt",
-        "../yhnnd.wordpress.com/1-diary-2014-12-2014-12-黑書1/2014.12.15.txt"]
+        "../yhnnd.wordpress.com/1-diary-2014-12-2014-12-黑書1/2014.12.15.txt"
+    ]
 };
 
 window.books[2] = {
@@ -62,7 +63,8 @@ window.books[2] = {
         "../yhnnd.wordpress.com/2-diary-2014-12-2015-05-黑書2/2015.04.30.txt",
         "../yhnnd.wordpress.com/2-diary-2014-12-2015-05-黑書2/2015.05.01.txt",
         "../yhnnd.wordpress.com/2-diary-2014-12-2015-05-黑書2/2015.05.03.txt",
-        "../yhnnd.wordpress.com/2-diary-2014-12-2015-05-黑書2/words.txt"]
+        "../yhnnd.wordpress.com/2-diary-2014-12-2015-05-黑書2/words.txt"
+    ]
 };
 
 window.books[3] = {};
@@ -209,6 +211,7 @@ window.books[6].indexList = [
 
 window.books[7] = {};
 window.books[7].indexList = [
+    "../yhnnd.wordpress.com/7-diary-2018-12-2020-05-棕書2/2018.12.18.txt",
 ];
 
 window.books[8] = {};
