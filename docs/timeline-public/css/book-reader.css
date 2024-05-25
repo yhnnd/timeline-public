@@ -45,6 +45,11 @@ pre {
     margin-top: 0;
 }
 
+body[data-value-of-enable-pre-width-fit-content="true"] pre,
+pre.width-fit-content {
+    width: fit-content;
+}
+
 pre .censored {
     color: var(--studio-black);
     cursor: pointer;
