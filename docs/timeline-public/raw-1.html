@@ -34,7 +34,7 @@
             const number = document.getElementsByClassName("number")[0];
             for (const i in pics) {
                 const button = document.createElement("button");
-                button.setAttribute("onclick", "gotoPage(" + (i + 1) + ")");
+                button.setAttribute("onclick", "gotoPage(" + (parseInt(i) + 1) + ")");
                 button.innerText = parseInt(i) + 1;
                 container.appendChild(button);
             }
