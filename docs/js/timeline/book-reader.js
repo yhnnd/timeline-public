@@ -189,6 +189,9 @@ if (src != undefined) {
                 if (linesPage[pageNumber].length > 12) {
                     classList.push("extra-width");
                 }
+                if (localStorage.getItem("enable-pre-width-fit-content") === "true" || responseText.includes("@command(\"enable-pre-width-fit-content\")")) {
+                    classList.push("width-fit-content");
+                }
                 return classList.join(" ");
             }
             container.innerHTML = pages.map(page => {
@@ -196,6 +199,9 @@ if (src != undefined) {
             }).join("");
         } else {
             const pre = container.getElementsByTagName("pre")[0];
+            if (localStorage.getItem("enable-pre-width-fit-content") === "true" || responseText.includes("@command(\"enable-pre-width-fit-content\")")) {
+                pre.classList.add("width-fit-content");
+            }
             pre.innerHTML = responseText;
         }
 
