@@ -46,10 +46,38 @@
     color: #fff;
 }
 
+.global-navbar .btn-settings {
+    margin-left: auto;
+}
+
 .fake-navbar {
     position: relative;
     width: 100%;
     height: 56px;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    backdrop-filter: blur(1px) brightness(.5);
+}
+
+.settings-2 {
+    width: 512px;
+    height: max-content;
+    max-height: calc(100vh - 128px);
+    background-color: white;
+    box-shadow: 0 0 4px var(--studio-black);
+    margin-top: 64px;
+    padding-inline-start: 0;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    overflow: scroll;
 }
 
 body[is-iframe="true"] .global-navbar,

@@ -258,6 +258,212 @@ function goBack() {
     }
 }
 
+function renderSettings() {
+    const div = document.createElement("div");
+    div.innerHTML =
+        `<ul class="settings-2" onclick="event.stopPropagation()">
+        <li class="settings" style="list-style-type: none; border-left: 16px solid var(--studio-green-5);">
+            設置
+            <ul>
+                <li>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>显示顶部导航栏</div>
+                        <div class="ios-button" data-key="enable-navbar">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable Place Index (地名索引)</div>
+                        <div class="ios-button" data-key="enable-place-index">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable Name Index (人名索引)</div>
+                        <div class="ios-button" data-key="enable-name-index">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable Censorship (自我审查)</div>
+                        <div class="ios-button" data-key="enable-censorship">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable &lbrace;&lbrace;<del>Delete Line</del>&rbrace;&rbrace;</div>
+                        <div class="ios-button" data-key="enable-delete-line">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable <span class="has-border">&lt;border&gt;</span></div>
+                        <div class="ios-button" data-key="enable-border">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable <span class="badge">badge</span></div>
+                        <div class="ios-button" data-key="enable-badge">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable Highlight Red <span class="highlight-red">①</span></div>
+                        <div class="ios-button" data-key="enable-highlight-red">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable <span class="message-bubble">Message Bubble</span></div>
+                        <div class="ios-button" data-key="enable-message-bubble">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable File Preview</div>
+                        <div class="ios-button" data-key="enable-file-preview">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable Page Split</div>
+                        <div class="ios-button" data-key="enable-page-split">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="hidden-when-page-split-is-disabled">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable Hover Show Page Info</div>
+                        <div class="ios-button" data-key="enable-hover-show-page-info">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+<style>
+.hidden-when-page-split-is-disabled {
+background: linear-gradient(to right, lightyellow, yellow);
+}
+body[data-value-of-enable-page-split="false"] .hidden-when-page-split-is-disabled {
+display: none;
+}
+</style>
+                <li>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable Line Split</div>
+                        <div class="ios-button" data-key="enable-line-split">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="hidden-when-line-split-is-disabled">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable Hover Show Line Info</div>
+                        <div class="ios-button" data-key="enable-hover-show-line-info">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+<style>
+.hidden-when-line-split-is-disabled {
+background: linear-gradient(to right, lightyellow, yellow);
+}
+body[data-value-of-enable-line-split="false"] .hidden-when-line-split-is-disabled {
+display: none;
+}
+body[data-value-of-enable-line-width-560px="false"] .hidden-when-line-width-560px-is-disabled {
+display: none;
+}
+body[data-value-of-enable-line-width-608px="false"] .hidden-when-line-width-608px-is-disabled {
+display: none;
+}
+</style>
+                <li class="hidden-when-line-split-is-disabled">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable Line Width 560px</div>
+                        <div class="ios-button" data-key="enable-line-width-560px">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="hidden-when-line-split-is-disabled hidden-when-line-width-560px-is-disabled">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable Line Width 608px</div>
+                        <div class="ios-button" data-key="enable-line-width-608px">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="hidden-when-line-split-is-disabled hidden-when-line-width-560px-is-disabled hidden-when-line-width-608px-is-disabled">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable Line Width 656px</div>
+                        <div class="ios-button" data-key="enable-line-width-656px">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable &lt;img&gt; Recognition</div>
+                        <div class="ios-button" data-key="enable-img-recognition">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable &lt;pre&gt; Width Fit Content</div>
+                        <div class="ios-button" data-key="enable-pre-width-fit-content">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>`;
+    div.classList.add("backdrop");
+    div.setAttribute("onclick", "hideSettings()");
+    document.body.append(div);
+}
+
+function showSettings(btn) {
+    btn.innerText = "Exit Settings";
+    btn.setAttribute("onclick", "hideSettings(this)");
+    document.querySelector(".settings-2").parentElement.style.display = "flex";
+    document.body.style.overflow = "hidden";
+}
+
+function hideSettings(btn) {
+    if (btn === undefined) {
+        btn = document.querySelector(".btn-settings");
+    }
+    btn.innerText = "Settings";
+    btn.setAttribute("onclick", "showSettings(this)");
+    document.querySelector(".settings-2").parentElement.style.display = "none";
+    document.body.style.overflow = "initial";
+}
+
 function initNavbar() {
     const navbar = document.createElement("div");
     navbar.classList.add("global-navbar");
@@ -270,7 +476,13 @@ function initNavbar() {
     info.classList.add("info");
     navbar.append(info);
 
+    const button2 = document.createElement("button");
+    button2.classList.add("btn-settings");
+    navbar.append(button2);
+
     document.body.prepend(navbar);
+    renderSettings();
+    hideSettings(button2);
 
     const fakeNavbar = document.createElement("div");
     fakeNavbar.classList.add("fake-navbar");
@@ -291,6 +503,14 @@ function initNavbar() {
         if (getParameter(key) === "true") {
             document.body.setAttribute(key, "true");
         }
+    }
+
+    if (window.location.hostname === "localhost") {
+        button2.style.marginRight = "200px";
+        setTimeout(() => {
+            button2.style.transition = "margin-right .3s ease";
+            button2.style.marginRight = "unset";
+        }, 2100);
     }
 }
 
@@ -327,3 +547,15 @@ document.addEventListener("DOMContentLoaded", function () {
     renderDomText();
     renderDomHtml();
 });
+
+window.onload = function () {
+    try {
+        ios_button_init(".settings-2");
+    } catch (e) {
+        const btn = document.querySelector(".btn-settings");
+        btn.disabled = true;
+        btn.style.backgroundColor = "var(--studio-gray-50)";
+        btn.style.borderColor = "var(--studio-gray-10)";
+        hideSettings(btn);
+    }
+}

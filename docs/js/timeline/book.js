@@ -131,4 +131,6 @@ for (const i in bookNames) {
     }
 }
 const timeline = document.getElementById("timeline");
-timeline.innerHTML = timelineHtml;
+if (timeline) {
+    timeline.innerHTML = timelineHtml;
+}

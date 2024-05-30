@@ -26,8 +26,6 @@ function quitInspectImage() {
 const src = getParameter("src");
 if (src != undefined) {
     ajax(src, undefined, function (responseText) {
-        console.log("responseText: ", responseText);
-
         responseText = function (responseText) {
             return responseText.split("\n").map((line) => {
                 if (line.trim().startsWith("{{") && line.trim().endsWith("}}") && localStorage.getItem("enable-delete-line") === "true") {
