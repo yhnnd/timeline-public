@@ -451,7 +451,7 @@ function showSettings(btn) {
     btn.innerText = "Exit Settings";
     btn.setAttribute("onclick", "hideSettings(this)");
     document.querySelector(".settings-2").parentElement.style.display = "flex";
-    document.body.style.overflow = "hidden";
+    document.body.classList.add("modal-open");
 }
 
 function hideSettings(btn) {
@@ -461,7 +461,7 @@ function hideSettings(btn) {
     btn.innerText = "Settings";
     btn.setAttribute("onclick", "showSettings(this)");
     document.querySelector(".settings-2").parentElement.style.display = "none";
-    document.body.style.overflow = "initial";
+    document.body.classList.remove("modal-open");
 }
 
 function initNavbar() {
