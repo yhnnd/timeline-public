@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Map Demo</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+<body>
+  <div class="container">
+    <pre>
+1
+@map {id: 'map_1', center: {lat: 37, lng: 120}, zoomLevel: 4}
+2
+@map {id: 'map_2', center: {lat: 39.06508132468046, lng: 117.10561037063599}, zoomLevel: 15}
+3
+@map {id: 'map_3', center: {lat: 33, lng: 60}, zoomLevel: 4}
+
+<div contenteditable="true" style="display: block; padding: 8px; width: max-content; border: 1px solid lightblue;"
+>1
+<span>@</span>map {id: 'map_1', center: {lat: 37, lng: 120}, zoomLevel: 4}
+2
+<span>@</span>map {id: 'map_2', center: {lat: 39.06508132468046, lng: 117.10561037063599}, zoomLevel: 15}
+3
+<span>@</span>map {id: 'map_3', center: {lat: 33, lng: 60}, zoomLevel: 4}
+
+<div class="style-edit"></div>
+</div>
+    </pre>
+  </div>
+<style>
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+pre {
+  width: 512px;
+}
+.outer-wrapper {
+  height: calc((512 / 1000) * 500px);
+  position: relative;
+  background: rgba(0, 0, 0, .06);
+}
+.map-wrapper {
+  width: 512px;
+  max-height: 100%;
+  position: absolute;
+}
+.map-wrapper.on {
+  position: fixed;
+  z-index: 100;
+  top: calc((100vh - 500px) / 2);
+}
+.map {
+  width: 1000px;
+  height: 500px;
+  transform: translateX(0) scale(calc(512 / 1000));
+  transform-origin: top left;
+  transition: transform .03s linear;
+}
+.map-wrapper.on .map {
+  transform: translateX(calc((512px - 1000px) / 2)) scale(1);
+  transform-origin: top left;
+}
+.map-wrapper.on .button-wrapper {
+  left: calc((1000px - 512px) / 2);
+}
+.button-wrapper {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: left .03s linear;
+}
+.button-wrapper button {
+  position: absolute;
+  right: 0;
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0);
+  transition: all .03s linear;
+}
+.backdrop.on {
+  background: rgba(0, 0, 0, 0.66);
+}
+body:has(.backdrop) {
+  overflow: hidden;
+}
+</style>
+<script>
+function renderMap(id, center, zoomLevel) {
+  const map = L.map(id).setView(center, zoomLevel);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '<a href="http://www.openstreetmap.org/">OpenStreetMap</a>'
+  }).addTo(map);
+  map.on('click', function (e) {
+    if (document.querySelector('.backdrop')) {
+      console.log(e.latlng);
+      const marker = L.marker(e.latlng).addTo(map);
+    }
+  });
+}
+
+function toggleMap(button, event) {
+  event.stopPropagation();
+  if (!button) {
+    button = document.querySelector(".map-wrapper.on button");
+  }
+  button.parentElement.parentElement.classList.toggle('on');
+  if (button.innerText === "close") {
+    button.innerText = "expand";
+    document.body.removeChild(document.querySelector(".backdrop"));
+  } else {
+    button.innerText = "close";
+    const backdrop = document.createElement("div");
+    backdrop.classList.add("backdrop");
+    setTimeout(() => {
+      backdrop.classList.add("on");
+      backdrop.setAttribute("onclick", "toggleMap(null, event)");
+    }, 0);
+    document.body.append(backdrop);
+  }
+}
+
+function getMapHtml(id) {
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("map-wrapper");
+  const buttonWrapper = document.createElement("div");
+  buttonWrapper.classList.add("button-wrapper");
+  const button = document.createElement("button");
+  button.innerText = "expand";
+  button.setAttribute("onclick", "toggleMap(this, event)");
+  const map = document.createElement("div");
+  map.classList.add("map");
+  map.id = id;
+  wrapper.append(map);
+  buttonWrapper.append(button);
+  wrapper.append(buttonWrapper);
+  const outerWrapper = document.createElement("div");
+  outerWrapper.classList.add("outer-wrapper");
+  outerWrapper.append(wrapper);
+  return outerWrapper.outerHTML;
+}
+
+function parseMaps() {
+  const lines = document.querySelector("pre").innerHTML.split('\n');
+  const identifier = '@map ';
+  const maps = [];
+  for (let i = 0; i < lines.length; ++i) {
+    console.log(lines[i])
+    if (lines[i].startsWith(identifier)) {
+      const mapData = (new Function("return " + lines[i].substr(identifier.length)))();
+      maps.push(mapData);
+      lines[i] = getMapHtml(mapData.id);
+    }
+  }
+  document.querySelector("pre").innerHTML = lines.join('\n');
+  for (item of maps) {
+    renderMap(item.id, item.center, item.zoomLevel);
+  }
+}
+
+parseMaps();
+
+document.querySelector(".style-edit").innerText = document.querySelector("style").innerText;
+</script>
+</body>
+</html>
