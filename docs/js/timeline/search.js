@@ -75,6 +75,7 @@ function searchKeywords(keywords) {
     document.body.classList.add("modal-open");
     searchWrapper.parentElement.classList.add("on");
     keywordWrapper.innerText = keywords.join(",");
+    keywordWrapper.parentElement.classList.add("on");
     if (searchInfo.isReady) {
         resultWrapper.innerHTML = "";
         for (const item of articles) {
@@ -121,6 +122,8 @@ function highlight(text, keywords) {
 function closeSearch() {
     const target = document.getElementsByClassName("search-backdrop")[0];
     target.classList.remove("on");
+    const searchBar = document.getElementsByClassName("search-bar")[0];
+    searchBar.classList.remove("on");
     document.body.classList.remove("modal-open");
     searchInfo.hasUnfinishedTask = false;
     searchInfo.keywords = [];
