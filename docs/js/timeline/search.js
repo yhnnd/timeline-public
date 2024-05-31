@@ -70,7 +70,7 @@ function searchElement(element) {
 
 function searchKeywords(keywords) {
     const searchWrapper = document.getElementsByClassName("search")[0];
-    const keywordWrapper = searchWrapper.getElementsByClassName("search-keyword")[0];
+    const keywordWrapper = document.getElementsByClassName("search-keyword")[0];
     const resultWrapper = searchWrapper.getElementsByClassName("search-result")[0];
     document.body.classList.add("modal-open");
     searchWrapper.parentElement.classList.add("on");
