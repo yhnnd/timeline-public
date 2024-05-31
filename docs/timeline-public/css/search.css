@@ -55,11 +55,10 @@
     display: flex;
     flex-direction: column;
     max-width: 100%;
-    margin-top: 48px;
 }
 
 .search>.search-result {
-    margin-top: 40px;
+    margin-top: 80px;
     width: 512px;
     max-width: 100%;
     padding-bottom: 320px;
