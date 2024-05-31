@@ -439,6 +439,14 @@ display: none;
                         </div>
                     </div>
                 </li>
+                <li>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable @map</div>
+                        <div class="ios-button" data-key="enable-at-sign-map">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </li>
     </ul>`;

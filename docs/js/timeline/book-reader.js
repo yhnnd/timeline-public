@@ -131,6 +131,14 @@ if (src != undefined) {
             }
         }
 
+        const parseMapsResult = { };
+
+        if (localStorage.getItem("enable-at-sign-map") === "true" && window.parseMaps && window.renderMaps) {
+            const result = parseMaps(responseText);
+            responseText = result.text;
+            parseMapsResult.maps = result.maps;
+        }
+
         const lines1 = responseText.split("\n");
         let lines2 = lines1;
 
@@ -201,6 +209,10 @@ if (src != undefined) {
                 pre.classList.add("width-fit-content");
             }
             pre.innerHTML = responseText;
+        }
+
+        if (localStorage.getItem("enable-at-sign-map") === "true" && window.parseMaps && window.renderMaps) {
+            renderMaps(parseMapsResult.maps);
         }
 
         if (getParameter("is-iframe") !== "true" && localStorage.getItem("enable-badge") === "true") {

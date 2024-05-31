@@ -1,0 +1,11 @@
+2024 May 31 Fri
+I integrate Leaflet 1.9.4 with Timeline-Public.
+
+1
+@map {id: 'map_1', center: {lat: 37, lng: 120}, zoomLevel: 4}
+2
+@map {id: 'map_2', center: {lat: 39.06508132468046, lng: 117.10561037063599}, zoomLevel: 15, marks: [{lat: 39.06508132468046, lng: 117.10561037063599}]}
+3
+@map {id: 'map_3', center: {lat: 33, lng: 60}, zoomLevel: 4}
+
+Went to barbeque with 方志清 and 杨大泽. Go home late night with 方志清.
