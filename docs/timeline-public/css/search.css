@@ -7,6 +7,10 @@
     width: calc(100% - 16px);
     padding: 8px;
     color: white;
+    display: none;
+}
+
+.search-bar.on {
     display: flex;
 }
 
