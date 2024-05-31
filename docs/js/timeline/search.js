@@ -101,6 +101,9 @@ function searchKeywords(keywords) {
                 resultWrapper.appendChild(link);
             }
         }
+        if (resultWrapper.innerHTML === "") {
+            resultWrapper.innerHTML = "No Result";
+        }
     } else {
         searchInfo.hasUnfinishedTask = true;
         searchInfo.keywords = keywords;
