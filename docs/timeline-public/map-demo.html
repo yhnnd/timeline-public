@@ -76,6 +76,17 @@ pre {
 .button-wrapper button {
   position: absolute;
   right: 0;
+  border-radius: 0;
+  border-left-width: 1px;
+  border-bottom-width: 1px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-color: var(--studio-gray);
+  text-align: center;
+  padding: 4px 0;
+  width: 72px;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(3px);
 }
 .backdrop {
   position: fixed;
@@ -154,7 +165,6 @@ function parseMaps() {
   const identifier = '@map ';
   const maps = [];
   for (let i = 0; i < lines.length; ++i) {
-    console.log(lines[i])
     if (lines[i].startsWith(identifier)) {
       const mapData = (new Function("return " + lines[i].substr(identifier.length)))();
       maps.push(mapData);

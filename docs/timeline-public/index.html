@@ -43,7 +43,10 @@
     </script>
 
     <div class="row single-col" style="margin-top: 10px;margin-bottom: 219px;">
-        <div class="col">
+        <div class="calendar-wrapper">
+            <div class='calendar'></div>
+        </div>
+        <div class="col first">
             <ul>
                 <div class="display-min-width-1200px" style="position: relative;">
                     <div style="position: absolute; width: 0; right: -1px; top: -30px;">
@@ -186,6 +189,7 @@
                     <ul>
                         <li><a href="tools.html">编辑工具</a></li>
                         <li><a href="map-demo.html">地图工具</a></li>
+                        <li><a href="calendar-demo.html">Calendar Demo</a></li>
                     </ul>
                 </li>
             </ul>
@@ -414,5 +418,54 @@ body[data-value-of-enable-line-width-608px="false"] .hidden-when-line-width-608p
     <script src="../js/timeline/search.js"></script>
     <script src="../js/vendor/param.js"></script>
     <script src="../js/timeline/book.js"></script>
+    <script src='../js/vendor/full-calendar.min.js'></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const calendarEl = document.getElementsByClassName('calendar')[0];
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        initialDate: '2024-05-07',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        events: [{
+            title: 'Read 05.21',
+            url: 'book-reader.html?src=../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.05.21.txt',
+            start: '2024-05-21'
+        }, {
+            title: 'Read 05.22',
+            url: 'book-reader.html?src=../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.05.22.txt',
+            start: '2024-05-22'
+        }, {
+            title: 'Read 05.24',
+            url: 'book-reader.html?src=../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.05.24.txt',
+            start: '2024-05-24'
+        }, {
+            title: 'Read 05.27',
+            url: 'book-reader.html?src=../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.05.27.txt',
+            start: '2024-05-27'
+        }, {
+            title: 'Read 06.01',
+            url: 'book-reader.html?src=../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.06.01.txt',
+            start: '2024-06-01'
+        }]
+    });
+    calendar.render();
+});
+    </script>
+    <style>
+.calendar-wrapper {
+    font-size: 14px;
+    width: min(512px, 100%);
+    margin: 10px auto 20px auto;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.calendar {
+    width: 100%;
+}
+    </style>
 </body>
 </html>

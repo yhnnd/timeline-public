@@ -11,7 +11,7 @@
     border: 1px dashed yellowgreen;
 }
 
-.row.single-col>.col:not(:nth-child(1)) {
+.row.single-col>.col:not(.first) {
     border-top: none;
 }
 

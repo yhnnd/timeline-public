@@ -9,3 +9,7 @@ I integrate Leaflet 1.9.4 with Timeline-Public.
 @map {id: 'map_3', center: {lat: 33, lng: 60}, zoomLevel: 4}
 
 Went to barbeque with 方志清 and 杨大泽. Go home late night with 方志清.
+
+Stay up very late until 6AM in the morning. Been developing Timeline-Public all night long. Add a calendar to the home page.
+
+转正答辩 was finished on 30th May 2024. Will go to Peking the next week.
