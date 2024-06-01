@@ -83,11 +83,11 @@ function openBook(bookName) {
 }
 
 if (window.onload) {
-    window.onloadprev = window.onload;
+    window.onloadPrev = window.onload;
 }
 window.onload = function () {
-    if (window.onloadprev) {
-        window.onloadprev();
+    if (window.onloadPrev) {
+        window.onloadPrev();
     }
     const container = document.getElementById("books");
     for (const [key, value] of Object.entries(window.books)) {
