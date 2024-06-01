@@ -447,6 +447,14 @@ display: none;
                         </div>
                     </div>
                 </li>
+                <li>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable Dual Article Container</div>
+                        <div class="ios-button" data-key="enable-dual-article-container">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </li>
     </ul>`;
@@ -556,7 +564,14 @@ document.addEventListener("DOMContentLoaded", function () {
     renderDomHtml();
 });
 
+if (window.onload) {
+    window.onloadPrev1 = window.onload;
+}
+
 window.onload = function () {
+    if (window.onloadPrev1) {
+        window.onloadPrev1();
+    }
     try {
         ios_button_init(".settings-2");
     } catch (e) {
