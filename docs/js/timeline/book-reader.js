@@ -23,7 +23,7 @@ function quitInspectImage() {
     document.getElementById('inspectImageWrapper').innerHTML = '';
 }
 
-function renderArticle(src, containerClassName) {
+function renderArticle(src, containerClassName, container2ClassName) {
     ajax(src, undefined, function (responseText) {
         responseText = function (responseText) {
             return responseText.split("\n").map((line) => {
@@ -156,7 +156,7 @@ function renderArticle(src, containerClassName) {
             responseText = lines2.join("");
         }
 
-        const container = document.getElementsByClassName(containerClassName)[0];
+        const container1 = document.getElementsByClassName(containerClassName)[0];
 
         if (localStorage.getItem("enable-page-split") === "true") {
             const pages = [], linesPage = [];
@@ -199,11 +199,11 @@ function renderArticle(src, containerClassName) {
                 }
                 return classList.join(" ");
             }
-            container.innerHTML = pages.map(page => {
+            container1.innerHTML = pages.map(page => {
                 return "<pre class=\"" + getClass() + "\" data-page-number=" + pageNumber + " data-page-info=\"" + linesPage[pageNumber++] + "\">" + page + "</pre>";
             }).join("");
         } else {
-            const pre = container.getElementsByTagName("pre")[0];
+            const pre = container1.getElementsByTagName("pre")[0];
             if (localStorage.getItem("enable-pre-width-fit-content") === "true" || responseText.includes("@command(\"enable-pre-width-fit-content\")")) {
                 pre.classList.add("width-fit-content");
             }
@@ -215,7 +215,7 @@ function renderArticle(src, containerClassName) {
         }
 
         if (getParameter("is-iframe") !== "true" && localStorage.getItem("enable-badge") === "true") {
-            container.prepend(function () {
+            container1.prepend(function () {
                 const title = document.createElement("div");
                 title.style.color = "var(--studio-purple-50)";
                 title.style.width = "min(100vw, calc(512px + (100vw - 512px) / 2))";
@@ -225,10 +225,18 @@ function renderArticle(src, containerClassName) {
                 return wrapper;
             }());
         }
+
+        if (localStorage.getItem("enable-dual-article-container") === "true") {
+            const container2 = document.getElementsByClassName(container2ClassName)[0];
+            container2.innerHTML = container1.innerHTML;
+            container1.style.alignItems = "end";
+            container2.style.alignItems = "start";
+            container2.classList.remove("hidden");
+        }
     });
 }
 
 const src = getParameter("src");
 if (src != undefined) {
-    renderArticle(src, "container-1");
+    renderArticle(src, "container-1", "container-2");
 }
