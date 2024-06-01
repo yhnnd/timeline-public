@@ -238,7 +238,7 @@ function renderArticle(src, containerClassName, container2ClassName) {
                 container2.querySelectorAll(".outer-wrapper").forEach(w => {
                     const t = document.createElement("div");
                     t.classList.add("src-text");
-                    t.innerText = "@map " + parseMapsResult.maps.shift();
+                    t.innerText = parseMapsResult.src.shift();
                     w.prepend(t);
                     w.querySelector(".map-wrapper").style.display = "none";
                 });
