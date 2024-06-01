@@ -1,5 +1,6 @@
 // Mon Oct 23 2023
 // require function ajax
+// require leaflet map
 
 const symbols = ['⓪', '①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧', '⑨', '⑩', '⑪', '⑫', '⑬', '⑭', '⑮', '⑯', '⑰', '⑱', '⑲', '⑳', '㉑', '㉒', '㉓', '㉔', '㉕', '㉖', '㉗', '㉘', '㉙', '㉚', '㉛', '㉜', '㉝', '㉞', '㉟', '㊱', '㊲', '㊳', '㊴', '㊵', '㊶', '㊷', '㊸', '㊹', '㊺', '㊻', '㊼', '㊽', '㊾', '㊿'];
 
@@ -232,6 +233,14 @@ function renderArticle(src, containerClassName, container2ClassName) {
             container1.style.alignItems = "end";
             container2.style.alignItems = "start";
             container2.classList.remove("hidden");
+            container2.querySelectorAll(".outer-wrapper").forEach(w => {
+                const t = document.createElement("div");
+                t.classList.add("src-text");
+                t.innerText = "@map " + parseMapsResult.maps.shift();
+                w.prepend(t);
+            });
+        } else {
+            container2.style.display = "none";
         }
     });
 }
