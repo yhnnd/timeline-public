@@ -45,7 +45,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(244, 244, 244, .8);
+    background-color: rgba(0, 0, 0, .5);
     color: black;
     backdrop-filter: blur(2.5px);
     display: none;
@@ -61,6 +61,9 @@
     display: flex;
     flex-direction: column;
     max-width: 100%;
+    height: fit-content;
+    overflow-x: hidden;
+    background: rgba(244,244,244,.5);
 }
 
 .search>.search-result {
@@ -74,12 +77,16 @@
     display: block;
 }
 
+.search>.search-result>.link>a {
+    background: white;
+}
+
 .search>.search-result>.link>.text {
     display: block;
     width: 100%;
     height: 500px;
-    overflow: scroll;
-    background: rgba(116, 255, 167, 0.3);
+    overflow-y: scroll;
+    background: rgba(222, 255, 222, .8);
     color: black;
     padding-left: .5rem;
     padding-right: .5rem;
