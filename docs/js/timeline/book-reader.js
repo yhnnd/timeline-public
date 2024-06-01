@@ -41,9 +41,12 @@ function renderArticle(src, containerClassName, container2ClassName) {
             }).join("\n");
         }(responseText);
 
+        const imgs = [];
+
         if (localStorage.getItem("enable-img-recognition") === "true" || responseText.includes("@command(\"enable-image-recognition\")")) {
             responseText = responseText.split("\n").map(line => {
                 if (line.startsWith("<img ") && line.endsWith(">")) {
+                    imgs.push(line);
                     return "@image " + line;
                 }
                 if (line.startsWith("<div") && line.endsWith(">")) {
@@ -222,30 +225,50 @@ function renderArticle(src, containerClassName, container2ClassName) {
                 title.style.width = "min(100vw, calc(512px + (100vw - 512px) / 2))";
                 title.innerHTML = "<span class='badge'>" + getParameter("src").split("/").slice(1).join("</span>&nbsp;/&nbsp;<span class='badge'>") + "</span>";
                 const wrapper = document.createElement("pre");
-                wrapper.innerHTML = title.outerHTML;
+                wrapper.classList = "badges";
+                wrapper.append(title);
                 return wrapper;
             }());
         }
 
-        const container2 = document.getElementsByClassName(container2ClassName)[0];
-
-        if (localStorage.getItem("enable-dual-article-container") === "true") {
+        if (getParameter("is-iframe") !== "true" && localStorage.getItem("enable-dual-article-container") === "true") {
+            const container2 = document.getElementsByClassName(container2ClassName)[0];
             container2.innerHTML = container1.innerHTML;
-            container1.style.alignItems = "end";
-            container2.style.alignItems = "start";
-            container2.classList.remove("hidden");
+            container2.parentElement.classList.remove("hidden");
+            container2.querySelectorAll("img").forEach(img => {
+                const t = document.createElement("div");
+                t.innerText = imgs.shift();
+                t.style.position = "absolute";
+                t.style.top = "0";
+                t.style.left = "0";
+                const d = document.createElement("div");
+                d.style.position = "relative";
+                d.append(t);
+                const c = img.cloneNode();
+                d.append(c);
+                c.style.visibility = "hidden";
+                img.replaceWith(d);
+            });
+            if (localStorage.getItem("enable-name-index") === "true") {
+                container2.querySelectorAll(".name-link").forEach(l => {
+                    l.replaceWith(l.innerText);
+                });
+            }
             if (isMapEnabled) {
                 container2.querySelectorAll(".outer-wrapper").forEach(w => {
                     const t = document.createElement("div");
                     t.classList.add("src-text");
                     t.innerText = parseMapsResult.src.shift();
                     w.prepend(t);
-                    w.querySelector(".map-wrapper").style.display = "none";
+                    w.querySelector(".map-wrapper").remove();
+                    w.style.background = "unset";
                 });
             }
+            if (getParameter("is-iframe") !== "true" && localStorage.getItem("enable-badge") === "true") {
+                container2.querySelector(".badges").style.visibility = "hidden";
+            }
         } else {
-            container2.classList.add("hidden");
-            container2.style.display = "none";
+            container1.parentElement.style.justifyContent = "center";
         }
     });
 }
