@@ -132,8 +132,9 @@ function renderArticle(src, containerClassName, container2ClassName) {
         }
 
         const parseMapsResult = { };
+        const isMapEnabled = localStorage.getItem("enable-at-sign-map") === "true" && window.parseMaps && window.renderMaps;
 
-        if (localStorage.getItem("enable-at-sign-map") === "true" && window.parseMaps && window.renderMaps) {
+        if (isMapEnabled) {
             const result = parseMaps(responseText);
             responseText = result.text;
             parseMapsResult.maps = result.maps;
@@ -211,7 +212,7 @@ function renderArticle(src, containerClassName, container2ClassName) {
             pre.innerHTML = responseText;
         }
 
-        if (localStorage.getItem("enable-at-sign-map") === "true" && window.parseMaps && window.renderMaps) {
+        if (isMapEnabled) {
             renderMaps(parseMapsResult.maps);
         }
 
@@ -233,13 +234,15 @@ function renderArticle(src, containerClassName, container2ClassName) {
             container1.style.alignItems = "end";
             container2.style.alignItems = "start";
             container2.classList.remove("hidden");
-            container2.querySelectorAll(".outer-wrapper").forEach(w => {
-                const t = document.createElement("div");
-                t.classList.add("src-text");
-                t.innerText = "@map " + parseMapsResult.maps.shift();
-                w.prepend(t);
-                w.querySelector(".map-wrapper").style.display = "none";
-            });
+            if (isMapEnabled) {
+                container2.querySelectorAll(".outer-wrapper").forEach(w => {
+                    const t = document.createElement("div");
+                    t.classList.add("src-text");
+                    t.innerText = "@map " + parseMapsResult.maps.shift();
+                    w.prepend(t);
+                    w.querySelector(".map-wrapper").style.display = "none";
+                });
+            }
         } else {
             container2.style.display = "none";
         }
