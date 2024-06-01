@@ -44,9 +44,10 @@ function getMapHtml(id) {
 function parseMaps(text) {
     const lines = text.split('\n');
     const identifier = '@map ';
-    const maps = [];
+    const maps = [], src = [];
     for (let i = 0; i < lines.length; ++i) {
         if (lines[i].startsWith(identifier)) {
+            src.push(lines[i]);
             const mapData = (new Function("return " + lines[i].substr(identifier.length)))();
             maps.push(mapData);
             lines[i] = getMapHtml(mapData.id);
@@ -54,7 +55,8 @@ function parseMaps(text) {
     }
     return {
         text: lines.join('\n'),
-        maps: maps
+        maps: maps,
+        src: src
     };
 }
 
