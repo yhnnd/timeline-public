@@ -238,6 +238,7 @@ function renderArticle(src, containerClassName, container2ClassName) {
                 t.classList.add("src-text");
                 t.innerText = "@map " + parseMapsResult.maps.shift();
                 w.prepend(t);
+                w.querySelector(".map-wrapper").style.display = "none";
             });
         } else {
             container2.style.display = "none";
