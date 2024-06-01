@@ -122,3 +122,8 @@ pre del * {
     height: auto;
     cursor: pointer;
 }
+
+.hidden,
+[hidden] {
+    display: none;
+}
