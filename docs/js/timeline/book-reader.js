@@ -23,8 +23,7 @@ function quitInspectImage() {
     document.getElementById('inspectImageWrapper').innerHTML = '';
 }
 
-const src = getParameter("src");
-if (src != undefined) {
+function renderArticle(src, containerClassName) {
     ajax(src, undefined, function (responseText) {
         responseText = function (responseText) {
             return responseText.split("\n").map((line) => {
@@ -157,7 +156,7 @@ if (src != undefined) {
             responseText = lines2.join("");
         }
 
-        const container = document.getElementsByClassName("container")[0];
+        const container = document.getElementsByClassName(containerClassName)[0];
 
         if (localStorage.getItem("enable-page-split") === "true") {
             const pages = [], linesPage = [];
@@ -227,4 +226,9 @@ if (src != undefined) {
             }());
         }
     });
+}
+
+const src = getParameter("src");
+if (src != undefined) {
+    renderArticle(src, "container-1");
 }
