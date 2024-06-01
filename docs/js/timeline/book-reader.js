@@ -131,13 +131,12 @@ function renderArticle(src, containerClassName, container2ClassName) {
             }
         }
 
-        const parseMapsResult = { };
+        let parseMapsResult = { };
         const isMapEnabled = localStorage.getItem("enable-at-sign-map") === "true" && window.parseMaps && window.renderMaps;
 
         if (isMapEnabled) {
-            const result = parseMaps(responseText);
-            responseText = result.text;
-            parseMapsResult.maps = result.maps;
+            parseMapsResult = parseMaps(responseText);
+            responseText = parseMapsResult.text;
         }
 
         const lines1 = responseText.split("\n");
@@ -228,8 +227,9 @@ function renderArticle(src, containerClassName, container2ClassName) {
             }());
         }
 
+        const container2 = document.getElementsByClassName(container2ClassName)[0];
+
         if (localStorage.getItem("enable-dual-article-container") === "true") {
-            const container2 = document.getElementsByClassName(container2ClassName)[0];
             container2.innerHTML = container1.innerHTML;
             container1.style.alignItems = "end";
             container2.style.alignItems = "start";
@@ -244,6 +244,7 @@ function renderArticle(src, containerClassName, container2ClassName) {
                 });
             }
         } else {
+            container2.classList.add("hidden");
             container2.style.display = "none";
         }
     });
