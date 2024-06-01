@@ -82,7 +82,13 @@ function openBook(bookName) {
     }
 }
 
+if (window.onload) {
+    window.onloadprev = window.onload;
+}
 window.onload = function () {
+    if (window.onloadprev) {
+        window.onloadprev();
+    }
     const container = document.getElementById("books");
     for (const [key, value] of Object.entries(window.books)) {
         let div = document.createElement("div");
