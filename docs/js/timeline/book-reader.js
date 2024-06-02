@@ -214,10 +214,6 @@ function renderArticle(src, containerClassName, container2ClassName) {
             pre.innerHTML = responseText;
         }
 
-        if (isMapEnabled) {
-            renderMaps(parseMapsResult.maps);
-        }
-
         if (getParameter("is-iframe") !== "true" && localStorage.getItem("enable-badge") === "true") {
             container1.prepend(function () {
                 const title = document.createElement("div");
@@ -235,19 +231,48 @@ function renderArticle(src, containerClassName, container2ClassName) {
             const container2 = document.getElementsByClassName(container2ClassName)[0];
             container2.innerHTML = container1.innerHTML;
             container2.parentElement.classList.remove("hidden");
+            function getImageWrapper (img) {
+                const imgWrapper = document.createElement("div");
+                imgWrapper.classList = "img-wrapper";
+                imgWrapper.style.width = parseFloat(img.clientWidth) + "px";
+                imgWrapper.style.minWidth = parseFloat(img.clientWidth) + "px";
+                imgWrapper.style.maxWidth = parseFloat(img.clientWidth) + "px";
+                const height = (parseFloat(img.naturalHeight) * parseFloat(img.clientWidth) / parseFloat(img.naturalWidth)) + "px";
+                imgWrapper.style.height = height;
+                imgWrapper.style.minHeight = height;
+                imgWrapper.style.maxHeight = height;
+                return imgWrapper;
+            }
+            container1.querySelectorAll("img").forEach(img => {
+                img.onload = function () {
+                    const imgWrapper = getImageWrapper(img);
+                    imgWrapper.setAttribute("onclick", "inspectImage(\""+ img.src + "\")");
+                    const background = document.createElement("div");
+                    background.style.backgroundImage = "url(" + img.src + ")";
+                    background.classList = "background-image";
+                    imgWrapper.append(background);
+                    img.replaceWith(imgWrapper);
+                }
+            });
             container2.querySelectorAll("img").forEach(img => {
-                const t = document.createElement("div");
-                t.innerText = imgs.shift();
-                t.style.position = "absolute";
-                t.style.top = "0";
-                t.style.left = "0";
-                const d = document.createElement("div");
-                d.style.position = "relative";
-                d.append(t);
-                const c = img.cloneNode();
-                d.append(c);
-                c.style.visibility = "hidden";
-                img.replaceWith(d);
+                img.onload = function () {
+                    const imgWrapper = getImageWrapper(img);
+                    const background = document.createElement("div");
+                    background.style.backgroundImage = "url(" + img.src + ")";
+                    background.classList = "background-image";
+                    const backdropBlur = document.createElement("div");
+                    backdropBlur.classList = "backdrop-filter blur";
+                    const backdropWhite = document.createElement("div");
+                    backdropWhite.classList = "backdrop-filter white";
+                    const content = document.createElement("div");
+                    content.innerText = imgs.shift();
+                    content.classList = "content";
+                    imgWrapper.append(background);
+                    imgWrapper.append(backdropWhite);
+                    imgWrapper.append(backdropBlur);
+                    imgWrapper.append(content);
+                    img.replaceWith(imgWrapper);
+                }
             });
             if (localStorage.getItem("enable-name-index") === "true") {
                 container2.querySelectorAll(".name-link").forEach(l => {
@@ -269,6 +294,10 @@ function renderArticle(src, containerClassName, container2ClassName) {
             }
         } else {
             container1.parentElement.style.justifyContent = "center";
+        }
+
+        if (isMapEnabled) {
+            renderMaps(parseMapsResult.maps);
         }
     });
 }

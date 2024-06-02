@@ -455,6 +455,14 @@ display: none;
                         </div>
                     </div>
                 </li>
+                <li>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable No Backdrop</div>
+                        <div class="ios-button" data-key="enable-no-backdrop">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </li>
     </ul>`;

@@ -142,20 +142,26 @@ body[data-value-of-enable-hover-show-page-info="true"] .page.extra-width:hover::
 
 body[data-value-of-enable-line-width-560px="true"] pre,
 body[data-value-of-enable-line-width-560px="true"] pre .line,
-body[data-value-of-enable-line-width-560px="true"] pre .empty-line {
+body[data-value-of-enable-line-width-560px="true"] pre .empty-line,
+body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-split="true"] .img-wrapper .content {
     width: 560px;
+    max-width: min(560px, 100vw);
 }
 
 body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"] pre,
 body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"] pre .line,
-body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"] pre .empty-line {
+body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"] pre .empty-line,
+body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"][data-value-of-enable-line-split="true"] .img-wrapper .content {
     width: 608px;
+    max-width: min(608px, 100vw);
 }
 
 body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"][data-value-of-enable-line-width-656px="true"] pre,
 body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"][data-value-of-enable-line-width-656px="true"] pre .line,
-body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"][data-value-of-enable-line-width-656px="true"] pre .empty-line {
+body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"][data-value-of-enable-line-width-656px="true"] pre .empty-line,
+body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"][data-value-of-enable-line-width-656px="true"][data-value-of-enable-line-split="true"] .img-wrapper .content {
     width: 656px;
+    max-width: min(656px, 100vw);
 }
 
 pre img {
@@ -164,11 +170,15 @@ pre img {
 
 pre .thumbnail {
     display: inline;
+    width: 100px;
+    min-width: 100px;
     max-width: 100px;
 }
 
 pre .thumbnail-2x {
     display: inline;
+    width: 200px;
+    min-width: 200px;
     max-width: 200px;
 }
 
@@ -177,7 +187,8 @@ pre .row {
 }
 
 pre .row:has(.thumbnail),
-pre .row:has(.thumbnail-2x) {
+pre .row:has(.thumbnail-2x),
+pre .row:has(.img-wrapper) {
     gap: 10px;
 }
 
@@ -189,4 +200,45 @@ pre .row:has(.thumbnail-2x) {
     max-width: 0;
     max-height: 0;
     overflow: visible;
+}
+
+.img-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.img-wrapper .background-image,
+.img-wrapper .backdrop-filter,
+.img-wrapper .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.img-wrapper .background-image {
+    background-size: cover;
+}
+
+.img-wrapper .backdrop-filter.blur {
+    backdrop-filter: blur(2px);
+}
+
+.img-wrapper .backdrop-filter.white {
+    background-color: white;
+    opacity: .9;
+}
+
+body[data-value-of-enable-line-split="true"] .img-wrapper .content {
+    width: 512px;
+    max-width: 512px;
+}
+
+body[data-value-of-enable-no-backdrop="true"] .right .img-wrapper .background-image,
+body[data-value-of-enable-no-backdrop="true"] .img-wrapper .backdrop-filter {
+    display: none;
 }

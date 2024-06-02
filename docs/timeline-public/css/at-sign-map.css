@@ -1,5 +1,25 @@
+body {
+    --line-width: 512;
+    --line-width-px: 512px;
+}
+
+body[data-value-of-enable-line-width-560px="true"] {
+    --line-width: 560;
+    --line-width-px: 560px;
+}
+
+body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"] {
+    --line-width: 608;
+    --line-width-px: 608px;
+}
+
+body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"][data-value-of-enable-line-width-656px="true"] {
+    --line-width: 656;
+    --line-width-px: 656px;
+}
+
 .outer-wrapper {
-    height: calc((512 / 1000) * 500px);
+    height: calc((var(--line-width) / 1000) * 500px);
     position: relative;
     background: rgba(0, 0, 0, .06);
 }
@@ -11,7 +31,7 @@
 }
 
 .map-wrapper {
-    width: 512px;
+    width: var(--line-width-px);
     max-height: 100%;
     position: absolute;
 }
@@ -25,18 +45,18 @@
 .map {
     width: 1000px;
     height: 500px;
-    transform: translateX(0) scale(calc(512 / 1000));
+    transform: translateX(0) scale(calc(var(--line-width) / 1000));
     transform-origin: top left;
     transition: transform .03s linear;
 }
 
 .map-wrapper.on .map {
-    transform: translateX(calc((512px - 1000px) / 2)) scale(1);
+    transform: translateX(calc((var(--line-width-px) - 1000px) / 2)) scale(1);
     transform-origin: top left;
 }
 
 .map-wrapper.on .button-wrapper {
-    left: calc((1000px - 512px) / 2);
+    left: calc((1000px - var(--line-width-px)) / 2);
 }
 
 .button-wrapper {
