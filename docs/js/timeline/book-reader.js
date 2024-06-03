@@ -222,7 +222,13 @@ function renderArticle(src, containerClassName, container2ClassName) {
                 const title = document.createElement("div");
                 title.style.color = "var(--studio-purple-50)";
                 title.style.width = "min(100vw, calc(512px + (100vw - 512px) / 2))";
-                title.innerHTML = "<span class='badge'>" + getParameter("src").split("/").slice(1).join("</span>&nbsp;/&nbsp;<span class='badge'>") + "</span>";
+                const segments = getParameter("src").split("/").slice(1);
+                title.innerHTML = "<span class='badge'>" + segments.join("</span>&nbsp;/&nbsp;<span class='badge'>") + "</span>";
+                const folderIndex = segments.length - 2;
+                const badgeList = title.querySelectorAll(".badge");
+                if (folderIndex >= 0 && folderIndex < badgeList.length && searchKeywords) {
+                    badgeList[folderIndex].setAttribute("onclick", "searchKeywords([this.innerText], {type: 'folder'})");
+                }
                 const wrapper = document.createElement("pre");
                 wrapper.classList = "badges";
                 wrapper.append(title);

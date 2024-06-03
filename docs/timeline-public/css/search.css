@@ -120,7 +120,7 @@ body[data-value-of-platform="MacIntel"] .search>.search-result>.link>.text {
 .search>.search-result>.link::before {
     display: block;
     float: right;
-    margin-left: 2rem;
+    margin-left: auto;
     color: white;
     background: green;
     font-size: .8rem;
