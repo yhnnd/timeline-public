@@ -145,7 +145,7 @@ body[data-value-of-enable-line-width-560px="true"] pre .line,
 body[data-value-of-enable-line-width-560px="true"] pre .empty-line,
 body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-split="true"] .img-wrapper .content {
     width: 560px;
-    max-width: min(560px, 100vw);
+    max-width: min(560px, 100vw, 100%);
 }
 
 body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"] pre,
@@ -153,7 +153,7 @@ body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-wid
 body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"] pre .empty-line,
 body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"][data-value-of-enable-line-split="true"] .img-wrapper .content {
     width: 608px;
-    max-width: min(608px, 100vw);
+    max-width: min(608px, 100vw, 100%);
 }
 
 body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"][data-value-of-enable-line-width-656px="true"] pre,
@@ -161,7 +161,7 @@ body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-wid
 body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"][data-value-of-enable-line-width-656px="true"] pre .empty-line,
 body[data-value-of-enable-line-width-560px="true"][data-value-of-enable-line-width-608px="true"][data-value-of-enable-line-width-656px="true"][data-value-of-enable-line-split="true"] .img-wrapper .content {
     width: 656px;
-    max-width: min(656px, 100vw);
+    max-width: min(656px, 100vw, 100%);
 }
 
 pre img {
