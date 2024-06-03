@@ -173,17 +173,17 @@ pre {
     background: var(--studio-yellow-10);
 }
 
-.thumbnail,
-img.thumbnail {
+.search>.search-result>.link>.text .thumbnail,
+.search>.search-result>.link>.text img.thumbnail {
     display: inline;
     width: 100px;
     min-width: 100px;
     max-width: 100px;
 }
 
-img,
-.thumbnail-2x,
-img.thumbnail-2x {
+.search>.search-result>.link>.text img,
+.search>.search-result>.link>.text .thumbnail-2x,
+.search>.search-result>.link>.text img.thumbnail-2x {
     display: inline;
     width: 200px;
     min-width: 200px;
