@@ -73,6 +73,9 @@ function renderArticle(src, containerClassName, container2ClassName) {
                 if (line.startsWith("@div_end &lt;/div") && line.endsWith(">")) {
                     return line.replace("@div_end &lt;/div", "</div");
                 }
+                if (line.includes("@command(\"enable-image-recognition\")")) {
+                    return line.replace("@command(\"enable-image-recognition\")", "<span class='highlight-green'>" + "@command(\"enable-image-recognition\")" + "</span>");
+                }
                 return line;
             }).join("\n");
         }

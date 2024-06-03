@@ -92,6 +92,10 @@
     padding-right: .5rem;
 }
 
+body[data-value-of-platform="MacIntel"] .search>.search-result>.link>.text {
+    width: calc(100% - 1rem);
+}
+
 .search>.search-result>.link>.text:hover {
     box-shadow: 0 0 4px var(--studio-blue);
 }
@@ -167,4 +171,21 @@ pre {
     width: calc(100% + 4px);
     height: 23px;
     background: var(--studio-yellow-10);
+}
+
+.thumbnail,
+img.thumbnail {
+    display: inline;
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+}
+
+img,
+.thumbnail-2x,
+img.thumbnail-2x {
+    display: inline;
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
 }
