@@ -279,6 +279,12 @@ function renderArticle(src, containerClassName, container2ClassName) {
                     l.replaceWith(l.innerText);
                 });
             }
+            if (container2.querySelector(".has-border")) {
+                container2.querySelectorAll(".has-border").forEach(b => {
+                    b.style.borderColor = "transparent";
+                    b.innerHTML = "&lt;border&gt;" + b.innerHTML.replace(/\n$/, "") + "&lt;/border&gt;";
+                });
+            }
             if (isMapEnabled) {
                 container2.querySelectorAll(".outer-wrapper").forEach(w => {
                     const t = document.createElement("div");
