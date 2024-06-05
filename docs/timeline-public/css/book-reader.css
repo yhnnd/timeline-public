@@ -242,3 +242,15 @@ body[data-value-of-enable-no-backdrop="true"] .right .img-wrapper .background-im
 body[data-value-of-enable-no-backdrop="true"] .img-wrapper .backdrop-filter {
     display: none;
 }
+
+body[data-value-of-enable-dual-article-container="false"] .left {
+    overflow-x: hidden;
+}
+
+body[data-value-of-enable-dual-article-container="true"] .left {
+    overflow-x: visible;
+}
+
+body[data-value-of-enable-dual-article-container="true"] .right {
+    overflow-x: hidden;
+}
