@@ -254,3 +254,18 @@ body[data-value-of-enable-dual-article-container="true"] .left {
 body[data-value-of-enable-dual-article-container="true"] .right {
     overflow-x: hidden;
 }
+
+.badges .title {
+    color: var(--studio-purple-50);
+    width: max-content;
+    max-width: min(100vw, calc(512px + (100vw - 512px) / 2));
+    text-wrap: nowrap;
+}
+
+.right .badges {
+    visibility: hidden;
+}
+
+.right .badges .title {
+    max-width: min(100vw, calc(50vw - 20px));
+}
