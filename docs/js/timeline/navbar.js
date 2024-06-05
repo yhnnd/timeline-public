@@ -570,23 +570,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     renderDomText();
     renderDomHtml();
-});
-
-if (window.onload) {
-    window.onloadPrev1 = window.onload;
-}
-
-window.onload = function () {
-    if (window.onloadPrev1) {
-        window.onloadPrev1();
-    }
     try {
         ios_button_init(".settings-2");
     } catch (e) {
         const btn = document.querySelector(".btn-settings");
+        btn.removeAttribute("onclick");
         btn.disabled = true;
         btn.style.backgroundColor = "var(--studio-gray-50)";
         btn.style.borderColor = "var(--studio-gray-10)";
-        hideSettings(btn);
+        document.querySelector(".settings-2").parentElement.style.display = "none";
     }
-}
+});
