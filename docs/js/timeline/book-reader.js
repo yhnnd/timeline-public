@@ -220,8 +220,7 @@ function renderArticle(src, containerClassName, container2ClassName) {
         if (getParameter("is-iframe") !== "true" && localStorage.getItem("enable-badge") === "true") {
             container1.prepend(function () {
                 const title = document.createElement("div");
-                title.style.color = "var(--studio-purple-50)";
-                title.style.width = "min(100vw, calc(512px + (100vw - 512px) / 2))";
+                title.classList = "title";
                 const segments = getParameter("src").split("/").slice(1);
                 title.innerHTML = "<span class='badge'>" + segments.join("</span>&nbsp;/&nbsp;<span class='badge'>") + "</span>";
                 const folderIndex = segments.length - 2;
@@ -303,9 +302,6 @@ function renderArticle(src, containerClassName, container2ClassName) {
                     w.querySelector(".map-wrapper").remove();
                     w.style.background = "unset";
                 });
-            }
-            if (getParameter("is-iframe") !== "true" && localStorage.getItem("enable-badge") === "true") {
-                container2.querySelector(".badges").style.visibility = "hidden";
             }
         } else {
             container1.parentElement.style.justifyContent = "center";
