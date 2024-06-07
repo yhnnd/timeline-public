@@ -434,27 +434,7 @@ document.addEventListener('DOMContentLoaded', function() {
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay'
         },
-        events: [{
-            title: 'Read 05.21',
-            url: 'book-reader.html?src=../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.05.21.txt',
-            start: '2024-05-21'
-        }, {
-            title: 'Read 05.22',
-            url: 'book-reader.html?src=../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.05.22.txt',
-            start: '2024-05-22'
-        }, {
-            title: 'Read 05.24',
-            url: 'book-reader.html?src=../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.05.24.txt',
-            start: '2024-05-24'
-        }, {
-            title: 'Read 05.27',
-            url: 'book-reader.html?src=../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.05.27.txt',
-            start: '2024-05-27'
-        }, {
-            title: 'Read 06.01',
-            url: 'book-reader.html?src=../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.06.01.txt',
-            start: '2024-06-01'
-        }]
+        events: window.calendarEvents || []
     });
     calendar.render();
 });
@@ -469,6 +449,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .calendar {
     width: 100%;
+}
+
+.fc .fc-button {
+    padding: 4px 8px;
 }
     </style>
 </body>
