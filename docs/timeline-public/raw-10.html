@@ -20,7 +20,9 @@
                     <span class="number">1</span>
                     <button onclick="next()"> next </button>
                 </div>
-                <img src="../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_093739.jpg" alt="" style="width: 100%;">
+                <div>
+                    <img src="../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_093739.jpg" alt="">
+                </div>
             </div>
         </div>
     </div>
@@ -30,28 +32,26 @@
             const pics = ["../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_093739.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_093755.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_093810.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_093839.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_093918.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_093940.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_093957.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_094058.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_094133.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_094155.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_094218.jpg","../yhnnd.wordpress.com/raw-10-diary-2019-06-2020-04-黑書5-raw/IMG_20230719_094232.jpg"];
             const container = document.getElementsByClassName("dial")[0];
             const number = document.getElementsByClassName("number")[0];
-            const img = document.getElementsByTagName("img")[0];
             for (const i in pics) {
                 const button = document.createElement("button");
-                button.onclick = function () {
-                    number.innerText = parseInt(i) + 1;
-                    img.src = pics[i];
-                };
+                button.setAttribute("onclick", "gotoPage(" + (parseInt(i) + 1) + ")");
                 button.innerText = parseInt(i) + 1;
                 container.appendChild(button);
             }
 
-            function gotoPage (i) {
+            window.gotoPage = function(i) {
                 if (i > 0 && i <= pics.length) {
                     number.innerText = i;
+                    const img = document.getElementsByTagName("img")[0];
                     img.src = pics[i - 1];
+                    img.parentElement.innerHTML = img.outerHTML;
                 }
-            }
+            };
             window.prev = function() {
-                gotoPage(parseInt(number.innerText) - 1);
+                window.gotoPage(parseInt(number.innerText) - 1);
             };
             window.next = function() {
-                gotoPage(parseInt(number.innerText) + 1);
+                window.gotoPage(parseInt(number.innerText) + 1);
             };
         })();
     </script>
