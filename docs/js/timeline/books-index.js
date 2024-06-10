@@ -399,6 +399,7 @@ window.books[15].indexList = [
     "../yhnnd.wordpress.com/15-letters-to-patrick-wang-致王震書/2024.05.12.txt", /* 11 */
     "../yhnnd.wordpress.com/15-letters-to-patrick-wang-致王震書/2024.05.21.txt", /* 12 */
     "../yhnnd.wordpress.com/15-letters-to-patrick-wang-致王震書/2024.05.22.txt", /* 13 */
+    "../yhnnd.wordpress.com/15-letters-to-patrick-wang-致王震書/2024.06.09.txt", /* 14 */
 ];
 
 // 16《王震來信》
@@ -417,6 +418,11 @@ window.books[16].indexList = [
     "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2024.02.11-11-昨晚给你寄了信.txt", /* 11 */
     "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2024.02.24-12-今年十月发的2X的秋衣.txt", /* 12 */
     "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2024.05.11-13-三号提工第一天.txt", /* 13 */
+    "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2024.05.16-14-去岁年关前后.txt", /* 14 */
+    "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2024.05.16-15-清明盼了三星期.txt", /* 15 */
+    "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2024.05.16-16-清明小长假最后一天.txt", /* 16 */
+    "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2024.05.16-17-搬到七组第二天.txt", /* 17 */
+    "../yhnnd.wordpress.com/16-letters-from-patrick-wang-王震來信/2024.06.10-18-一天假期过后.txt", /* 18 */
 ];
 
 // 17《出路 4》
@@ -460,6 +466,7 @@ window.books[17].indexList = [
     "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.06.02.txt",
     "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.06.04.txt",
     "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.06.06.txt",
+    "../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/2024.06.09.txt",
 ];
 
 // [{
@@ -496,6 +503,9 @@ for (const book of window.books) {
         if (segments.length > 3) {
             Year = segments[0];
             Month = segments[1];
+            if (segments[2].includes("-")) {
+                segments[2] = segments[2].split("-")[0];
+            }
             MonthDay = segments[2];
         } else if(segments[0].includes("-")) {
             const fragments = segments[0].split("-");
@@ -512,13 +522,14 @@ for (const book of window.books) {
         if (isNaN(parseInt(Year)) || isNaN(parseInt(Month)) || isNaN(parseInt(MonthDay))) {
             continue;
         }
-        if (parseInt(Year) > 0 && parseInt(Month) > 0 && parseInt(MonthDay) > 0) {
-            calendarEvents.push({
-                title: "Read " + Month + "." + MonthDay,
-                url: "book-reader.html?src=" + url,
-                start: Year + "-" + Month + "-" + MonthDay
-            });
+        if (!(parseInt(Year) > 0 && parseInt(Month) > 0 && parseInt(MonthDay) > 0)) {
+            continue;
         }
+        calendarEvents.push({
+            title: "Read " + Month + "." + MonthDay,
+            url: "book-reader.html?src=" + url,
+            start: Year + "-" + Month + "-" + MonthDay
+        });
     }
 }
 window.calendarEvents = calendarEvents;
