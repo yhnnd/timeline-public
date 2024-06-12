@@ -269,3 +269,8 @@ body[data-value-of-enable-dual-article-container="true"] .right {
 .right .badges .title {
     max-width: min(100vw, calc(50vw - 20px));
 }
+
+.list-item-number {
+    font-style: italic;
+    font-weight: bold;
+}

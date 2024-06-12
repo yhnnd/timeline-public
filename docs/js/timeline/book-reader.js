@@ -163,6 +163,39 @@ function renderArticle(src, containerClassName, container2ClassName) {
             responseText = lines2.join("");
         }
 
+        if (localStorage.getItem("enable-at-sign-video") === "true") {
+            responseText = responseText.split("\n").map(line => {
+                if (line.startsWith("@video")) { // @video resources/35_1713060169.mp4
+                    const src = line.split(" ")[1]; // resources/35_1713060169.mp4
+                    const fileType = src.split(".").pop(); // mp4
+                    const tagOpen = '<video width="100%" controls="" style="width: 100%;">';
+                    const source = '<source src="' + src + '" type="video/' + fileType + '">'; // <source src="resources/35_1713060169.mp4" type="video/mp4">
+                    const tagClose = '</video>';
+                    return tagOpen + source + tagClose;
+                }
+                return line;
+            }).join("\n");
+        }
+
+        if (responseText.includes("@list-item-number-increment")) {
+            const vars = { };
+            responseText = responseText.split("\n").map(line => {
+                if (line.startsWith("@list-item-number-increment")) {
+                    const open = line.indexOf("(");
+                    const close = line.indexOf(")");
+                    if (open === -1 || close === -1 || open + 1 >= close) {
+                        return line;
+                    }
+                    const varName = line.substring(open + 1, close);
+                    if (vars[varName] === undefined) {
+                        vars[varName] = 1;
+                    }
+                    return "<span class=\"list-item-number\">" + (vars[varName]++) + "</span>";
+                }
+                return line;
+            }).join("\n");
+        }
+
         const container1 = document.getElementsByClassName(containerClassName)[0];
 
         if (localStorage.getItem("enable-page-split") === "true") {

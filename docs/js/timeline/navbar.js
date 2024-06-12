@@ -463,6 +463,14 @@ display: none;
                         </div>
                     </div>
                 </li>
+                <li>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div>Enable @video</div>
+                        <div class="ios-button" data-key="enable-at-sign-video">
+                            <div class="ios-button-circle"></div>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </li>
     </ul>`;
