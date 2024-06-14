@@ -1,0 +1,40 @@
+@list-item-number-increment(i)
+What do China's latest military drills around Taiwan mean for the region? | Inside Story
+https://www.youtube.com/watch?v=sTsVWIj1mkQ
+
+
+
+@list-item-number-increment(i)
+Military Strategist Shows How China Would Likely Invade Taiwan | WSJ
+https://www.youtube.com/watch?v=-CcQ4jKn8aE
+
+
+
+@list-item-number-increment(i)
+@command("enable-image-recognition")
+<img src="../yhnnd.wordpress.com/17-diary-2024-01-2024-12-出路4/raw-2024-06-14-diary-pics/2024-06-14.png" alt="">
+<border>
+@paullin375
+2 weeks ago
+A dictator, driven by his own ambition, not only plunges his own citizens into hardship but also drags the entire world down with him. The world is like a community; when we ignore any violence what we think doesn't concern us, we become accomplices, allow the evil power in this world to defeat over the good.
+</border>
+How would China's Invasion of Taiwan Unfold? | Vantage with Palki Sharma
+https://www.youtube.com/watch?v=Xp_umBGOgKk
+
+
+
+@list-item-number-increment(i)
+War Games: The Battle For Taiwan
+https://www.youtube.com/watch?v=qYfvm-JLhPQ
+
+
+
+@list-item-number-increment(i)
+Taiwan: Why the US & China are on collision course for war | DW Analysis
+https://www.youtube.com/watch?v=uQzAjUW2jis
+
+
+
+@list-item-number-increment(i)
+China’s New World Order - How dependent is the West? | DW Documentary
+https://www.youtube.com/watch?v=tQPvA6u8I-o

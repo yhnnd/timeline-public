@@ -12,16 +12,20 @@ function insertStr(source, start, newStr) {
 
 function inspectImage(src) {
     document.getElementById('inspectImageWrapper').innerHTML += '<div onclick="quitInspectImage()" style="display: block; position: fixed; top: 0; left: 0; width: 100%; z-index: 1499; height: ' + window.innerHeight + 'px; opacity: 0.8; background: black; filter: brightness(0.1);">' +
-    '</div>' +
-    '<div onclick="quitInspectImage()" style="display: block; position: fixed; top: 0; left: 0; width: 100%; height: ' + window.innerHeight + 'px; z-index: 1500;">' +
-    '<div style="display: flex; width: 100%; height: 100%; align-items: center; justify-content: center;">' +
-    '<img style="max-width: 100%; height: auto; max-height: 100%;" src="' + src + '">' +
-    '</div>' +
-    '</div>'
+        '</div>' +
+        '<div onclick="quitInspectImage()" style="display: block; position: fixed; top: 0; left: 0; width: 100%; height: ' + window.innerHeight + 'px; z-index: 1500;">' +
+        '<div style="display: flex; width: 100%; height: 100%; align-items: center; justify-content: center;">' +
+        '<img style="max-width: 100%; height: auto; max-height: 100%;" src="' + src + '">' +
+        '</div>' +
+        '</div>'
 }
 
 function quitInspectImage() {
     document.getElementById('inspectImageWrapper').innerHTML = '';
+}
+
+function getRandomId() {
+    return ("" + Math.random() * 10).split(".").join("").substring(0, 12) + "-" + (new Date()).getTime();
 }
 
 function renderArticle(src, containerClassName, container2ClassName) {
@@ -137,12 +141,51 @@ function renderArticle(src, containerClassName, container2ClassName) {
             }
         }
 
-        let parseMapsResult = { };
+        let parseMapsResult = {};
         const isMapEnabled = localStorage.getItem("enable-at-sign-map") === "true" && window.parseMaps && window.renderMaps;
 
         if (isMapEnabled) {
             parseMapsResult = parseMaps(responseText);
             responseText = parseMapsResult.text;
+        }
+
+        if (localStorage.getItem("enable-at-sign-video") === "true") {
+            responseText = responseText.split("\n").map(line => {
+                if (line.startsWith("@video")) { // @video resources/35_1713060169.mp4
+                    const src = line.split(" ")[1]; // resources/35_1713060169.mp4
+                    const fileType = src.split(".").pop(); // mp4
+                    const wrapperOpen = '<div class="video-wrapper">';
+                    const covers = '<div class="backdrop-filter blur"></div><div class="backdrop-filter white"></div><div class="cover">' + line + '</div>';
+                    const videoOpen = '<video width="100%" controls="" style="width: 100%;">';
+                    const source = '<source src="' + src + '" type="video/' + fileType + '">'; // <source src="resources/35_1713060169.mp4" type="video/mp4">
+                    const videoClose = '</video>';
+                    const wrapperClose = '</div>';
+                    return wrapperOpen + covers + videoOpen + source + videoClose + wrapperClose;
+                }
+                return line;
+            }).join("\n");
+        }
+
+        const listItemNumberLines = [];
+
+        if (responseText.includes("@list-item-number-increment")) {
+            const vars = {};
+            responseText = responseText.split("\n").map(line => {
+                if (line.startsWith("@list-item-number-increment")) {
+                    listItemNumberLines.push(line);
+                    const open = line.indexOf("(");
+                    const close = line.indexOf(")");
+                    if (open === -1 || close === -1 || open + 1 >= close) {
+                        return line;
+                    }
+                    const varName = line.substring(open + 1, close);
+                    if (vars[varName] === undefined) {
+                        vars[varName] = 1;
+                    }
+                    return "<span class=\"list-item-number\">" + (vars[varName]++) + "</span>";
+                }
+                return line;
+            }).join("\n");
         }
 
         const lines1 = responseText.split("\n");
@@ -161,39 +204,6 @@ function renderArticle(src, containerClassName, container2ClassName) {
                 return "<div class='line' data-line-number='" + (lineNumber++) + "'>" + line + "</div>";
             });
             responseText = lines2.join("");
-        }
-
-        if (localStorage.getItem("enable-at-sign-video") === "true") {
-            responseText = responseText.split("\n").map(line => {
-                if (line.startsWith("@video")) { // @video resources/35_1713060169.mp4
-                    const src = line.split(" ")[1]; // resources/35_1713060169.mp4
-                    const fileType = src.split(".").pop(); // mp4
-                    const tagOpen = '<video width="100%" controls="" style="width: 100%;">';
-                    const source = '<source src="' + src + '" type="video/' + fileType + '">'; // <source src="resources/35_1713060169.mp4" type="video/mp4">
-                    const tagClose = '</video>';
-                    return tagOpen + source + tagClose;
-                }
-                return line;
-            }).join("\n");
-        }
-
-        if (responseText.includes("@list-item-number-increment")) {
-            const vars = { };
-            responseText = responseText.split("\n").map(line => {
-                if (line.startsWith("@list-item-number-increment")) {
-                    const open = line.indexOf("(");
-                    const close = line.indexOf(")");
-                    if (open === -1 || close === -1 || open + 1 >= close) {
-                        return line;
-                    }
-                    const varName = line.substring(open + 1, close);
-                    if (vars[varName] === undefined) {
-                        vars[varName] = 1;
-                    }
-                    return "<span class=\"list-item-number\">" + (vars[varName]++) + "</span>";
-                }
-                return line;
-            }).join("\n");
         }
 
         const container1 = document.getElementsByClassName(containerClassName)[0];
@@ -270,9 +280,12 @@ function renderArticle(src, containerClassName, container2ClassName) {
 
         if (getParameter("is-iframe") !== "true" && localStorage.getItem("enable-dual-article-container") === "true") {
             const container2 = document.getElementsByClassName(container2ClassName)[0];
+            container1.querySelectorAll("img").forEach(img => {
+                img.setAttribute("random-id", "img-" + getRandomId());
+            });
             container2.innerHTML = container1.innerHTML;
             container2.parentElement.classList.remove("hidden");
-            function getImageWrapper (img) {
+            function getImageWrapper(img) {
                 const imgWrapper = document.createElement("div");
                 imgWrapper.classList = "img-wrapper";
                 imgWrapper.style.width = parseFloat(img.clientWidth) + "px";
@@ -287,16 +300,19 @@ function renderArticle(src, containerClassName, container2ClassName) {
             container1.querySelectorAll("img").forEach(img => {
                 img.onload = function () {
                     const imgWrapper = getImageWrapper(img);
-                    imgWrapper.setAttribute("onclick", "inspectImage(\""+ img.src + "\")");
+                    imgWrapper.setAttribute("onclick", "inspectImage(\"" + img.src + "\")");
                     const background = document.createElement("div");
                     background.style.backgroundImage = "url(" + img.src + ")";
                     background.classList = "background-image";
                     imgWrapper.append(background);
+                    imgWrapper.setAttribute("random-id", img.getAttribute("random-id"));
                     img.replaceWith(imgWrapper);
                 }
             });
             container2.querySelectorAll("img").forEach(img => {
+                const randomId = img.getAttribute("random-id");
                 img.onload = function () {
+                    const img = container2.querySelector("[random-id=\"" + randomId + "\"]");
                     const imgWrapper = getImageWrapper(img);
                     const background = document.createElement("div");
                     background.style.backgroundImage = "url(" + img.src + ")";
@@ -312,6 +328,16 @@ function renderArticle(src, containerClassName, container2ClassName) {
                     imgWrapper.append(backdropWhite);
                     imgWrapper.append(backdropBlur);
                     imgWrapper.append(content);
+                    imgWrapper.setAttribute("random-id", randomId);
+                    imgWrapper.innerHTML += `<style>
+body[data-value-of-enable-hover-highlight-img="true"]:has([random-id="${randomId}"]:hover) [random-id="${randomId}"] {
+    z-index: 10;
+    outline: 5px solid yellow;
+}
+body[data-value-of-enable-hover-highlight-img="true"]:has([random-id="${randomId}"]:hover) [random-id="${randomId}"] .content {
+    background-color: white;
+}
+</style>`;
                     img.replaceWith(imgWrapper);
                 }
             });
@@ -323,7 +349,12 @@ function renderArticle(src, containerClassName, container2ClassName) {
             if (localStorage.getItem("enable-border") === "true" && container2.querySelector(".has-border")) {
                 container2.querySelectorAll(".has-border").forEach(b => {
                     b.style.borderColor = "transparent";
-                    b.innerHTML = "&lt;border&gt;" + b.innerHTML.replace(/\n$/, "") + "&lt;/border&gt;";
+                    if (localStorage.getItem("enable-line-split") === "true") {
+                        b.querySelector(".empty-line:first-child").innerHTML = "&lt;border&gt;";
+                        b.querySelector(".empty-line:last-child").innerHTML = "&lt;/border&gt;";
+                    } else {
+                        b.innerHTML = "&lt;border&gt;" + b.innerHTML.replace(/\n$/, "") + "&lt;/border&gt;";
+                    }
                 });
             }
             if (isMapEnabled) {
@@ -334,6 +365,14 @@ function renderArticle(src, containerClassName, container2ClassName) {
                     w.prepend(t);
                     w.querySelector(".map-wrapper").remove();
                     w.style.background = "unset";
+                });
+            }
+            container2.querySelectorAll("video").forEach(video => {
+                video.removeAttribute("controls");
+            });
+            if (listItemNumberLines.length) {
+                container2.querySelectorAll(".list-item-number").forEach(li => {
+                    li.replaceWith(listItemNumberLines.shift());
                 });
             }
         } else {
