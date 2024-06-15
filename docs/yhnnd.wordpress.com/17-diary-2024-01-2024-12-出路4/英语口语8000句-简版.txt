@@ -1390,7 +1390,7 @@ Hush! (嘘! (安静!))
 It's too noisy. (太吵了。 )
 Don't make a fool of yourself. (别丢人现眼了!)
 Think about where you are. (分清场合。 )
-Act your age.你也不看看你多大了。
+Act your age. (你也不看看你多大了。)
 Your view is too optimistic.  (你想得也太天真了。)
 You should get your head out of the clouds. (你的想法太不现实了。)
 Don't make such stupid mistakes again! (不要重复这种愚蠢的错误。)
