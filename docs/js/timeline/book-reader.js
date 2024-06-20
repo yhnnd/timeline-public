@@ -28,6 +28,19 @@ function getRandomId() {
     return ("" + Math.random() * 10).split(".").join("").substring(0, 12) + "-" + (new Date()).getTime();
 }
 
+function revealOuterHTML(target) {
+    const to = target.getAttribute('to');
+    target.style.color = "var(--studio-red)";
+    target.innerHTML = "&lt;link to=\"" + to + "\"&gt;" + target.innerHTML + "&lt;/link&gt;";
+    target.setAttribute("onclick", "hideOuterHTML(this)");
+}
+
+function hideOuterHTML(target) {
+    target.style.color = "unset";
+    target.innerHTML = target.getAttribute('innerHTML');
+    target.setAttribute("onclick", "revealOuterHTML(this)");
+}
+
 function renderArticle(src, containerClassName, container2ClassName) {
     ajax(src, undefined, function (responseText) {
         responseText = function (responseText) {
@@ -88,7 +101,7 @@ function renderArticle(src, containerClassName, container2ClassName) {
         responseText = responseText.replaceAll('@command("delete-end")', "</del>");
         responseText = responseText.replaceAll('@command("border-start")', "<div class='has-border'>");
         responseText = responseText.replaceAll('@command("border-end")', "\n</div>");
-        responseText = responseText.replaceAll('@command("link-start")', "<div class='link' onclick='openLink(event)'");
+        responseText = responseText.replaceAll('@command("link-start")', "<div class='link' type='link' onclick='openLink(event)'");
         responseText = responseText.replaceAll('@command("link-end")', "</div>");
 
         if (window.openLink === undefined) {
@@ -183,6 +196,26 @@ function renderArticle(src, containerClassName, container2ClassName) {
                         vars[varName] = 1;
                     }
                     return "<span class=\"list-item-number\">" + (vars[varName]++) + "</span>";
+                }
+                return line;
+            }).join("\n");
+        }
+
+        if (localStorage.getItem("enable-url-recognition") === "true") {
+            responseText = responseText.split("\n").map(line => {
+                if (line.includes("https://")) {
+                    line = line.split(" ").map(segment => {
+                        if (segment.startsWith("https://")) {
+                            const span = document.createElement("span");
+                            span.classList = "link";
+                            span.setAttribute("type", "url-text");
+                            span.setAttribute("onclick", "openLink(event)");
+                            span.setAttribute("to", segment);
+                            span.innerHTML = segment;
+                            segment = span.outerHTML;
+                        }
+                        return segment;
+                    }).join(" ");
                 }
                 return line;
             }).join("\n");
@@ -375,6 +408,21 @@ body[data-value-of-enable-hover-highlight-img="true"]:has([random-id="${randomId
                     li.replaceWith(listItemNumberLines.shift());
                 });
             }
+            container2.querySelectorAll(".link").forEach(link => {
+                const text = document.createElement("span");
+                if (link.getAttribute("type") === "link") { // <link to=''></link>
+                    text.setAttribute("to", link.getAttribute("to"));
+                    text.setAttribute("innerHTML", link.innerHTML);
+                    text.innerHTML = link.innerHTML;
+                    text.setAttribute("onclick", "revealOuterHTML(this)");
+                } else if (link.getAttribute("type") === "url-text") { // url-text
+                    text.innerHTML = link.innerHTML;
+                } else {
+                    text.style.color = "var(--studio-red)";
+                    text.innerHTML = link.innerHTML;
+                }
+                link.replaceWith(text);
+            });
         } else {
             container1.parentElement.style.justifyContent = "center";
         }
