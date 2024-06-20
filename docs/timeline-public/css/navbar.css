@@ -85,6 +85,18 @@
     overflow: scroll;
 }
 
+.settings-2 .settings-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-right: 1rem;
+}
+
+.settings-2 .settings-item code {
+    color: yellowgreen;
+}
+
 body[is-iframe="true"] .global-navbar,
 body[is-iframe="true"] .fake-navbar,
 body[data-value-of-enable-navbar="false"] .global-navbar,

@@ -261,106 +261,154 @@ function goBack() {
 function renderSettings() {
     const div = document.createElement("div");
     div.innerHTML =
-        `<ul class="settings-2" onclick="event.stopPropagation()">
-        <li class="settings" style="list-style-type: none; border-left: 16px solid var(--studio-green-5);">
-            設置
-            <ul>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>显示顶部导航栏</div>
-                        <div class="ios-button" data-key="enable-navbar">
-                            <div class="ios-button-circle"></div>
-                        </div>
+`<ul class="settings-2" onclick="event.stopPropagation()">
+    <li class="settings" style="list-style-type: none; border-left: 16px solid var(--studio-green-5);">
+        設置
+        <ul>
+            <!-- 1 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>1</code>
+                        <span>显示顶部导航栏</span>
                     </div>
-                </li>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable Place Index (地名索引)</div>
-                        <div class="ios-button" data-key="enable-place-index">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                    <div class="ios-button" data-key="enable-navbar">
+                        <div class="ios-button-circle"></div>
                     </div>
-                </li>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable Name Index (人名索引)</div>
-                        <div class="ios-button" data-key="enable-name-index">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                </div>
+            </li>
+            <!-- 2 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>2</code>
+                        <span>Enable Place Index (地名索引)</span>
                     </div>
-                </li>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable Censorship (自我审查)</div>
-                        <div class="ios-button" data-key="enable-censorship">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                    <div class="ios-button" data-key="enable-place-index">
+                        <div class="ios-button-circle"></div>
                     </div>
-                </li>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable &lbrace;&lbrace;<del>Delete Line</del>&rbrace;&rbrace;</div>
-                        <div class="ios-button" data-key="enable-delete-line">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                </div>
+            </li>
+            <!-- 3 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>3</code>
+                        <span>Enable Name Index (人名索引)</span>
                     </div>
-                </li>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable <span class="has-border">&lt;border&gt;</span></div>
-                        <div class="ios-button" data-key="enable-border">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                    <div class="ios-button" data-key="enable-name-index">
+                        <div class="ios-button-circle"></div>
                     </div>
-                </li>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable <span class="badge">badge</span></div>
-                        <div class="ios-button" data-key="enable-badge">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                </div>
+            </li>
+            <!-- 4 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>4</code>
+                        <span>Enable Censorship (自我审查)</span>
                     </div>
-                </li>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable Highlight Red <span class="highlight-red">①</span></div>
-                        <div class="ios-button" data-key="enable-highlight-red">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                    <div class="ios-button" data-key="enable-censorship">
+                        <div class="ios-button-circle"></div>
                     </div>
-                </li>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable <span class="message-bubble">Message Bubble</span></div>
-                        <div class="ios-button" data-key="enable-message-bubble">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                </div>
+            </li>
+            <!-- 5 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>5</code>
+                        <span>Enable &lbrace;&lbrace;<del>Delete Line</del>&rbrace;&rbrace;</span>
                     </div>
-                </li>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable File Preview</div>
-                        <div class="ios-button" data-key="enable-file-preview">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                    <div class="ios-button" data-key="enable-delete-line">
+                        <div class="ios-button-circle"></div>
                     </div>
-                </li>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable Page Split</div>
-                        <div class="ios-button" data-key="enable-page-split">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                </div>
+            </li>
+            <!-- 6 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>6</code>
+                        <span>Enable <span class="has-border">&lt;border&gt;</span></span>
                     </div>
-                </li>
-                <li class="hidden-when-page-split-is-disabled">
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable Hover Show Page Info</div>
-                        <div class="ios-button" data-key="enable-hover-show-page-info">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                    <div class="ios-button" data-key="enable-border">
+                        <div class="ios-button-circle"></div>
                     </div>
-                </li>
+                </div>
+            </li>
+            <!-- 7 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>7</code>
+                        <span>Enable <span class="badge">badge</span></span>
+                    </div>
+                    <div class="ios-button" data-key="enable-badge">
+                        <div class="ios-button-circle"></div>
+                    </div>
+                </div>
+            </li>
+            <!-- 8 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>8</code>
+                        <span>Enable Highlight Red <span class="highlight-red">①</span></span>
+                    </div>
+                    <div class="ios-button" data-key="enable-highlight-red">
+                        <div class="ios-button-circle"></div>
+                    </div>
+                </div>
+            </li>
+            <!-- 9 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>9</code>
+                        <span>Enable <span class="message-bubble">Message Bubble</span></span>
+                    </div>
+                    <div class="ios-button" data-key="enable-message-bubble">
+                        <div class="ios-button-circle"></div>
+                    </div>
+                </div>
+            </li>
+            <!-- 10 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>10</code>
+                        <span>Enable File Preview</span>
+                    </div>
+                    <div class="ios-button" data-key="enable-file-preview">
+                        <div class="ios-button-circle"></div>
+                    </div>
+                </div>
+            </li>
+            <!-- 11 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>11</code>
+                        <span>Enable Page Split</span>
+                    </div>
+                    <div class="ios-button" data-key="enable-page-split">
+                        <div class="ios-button-circle"></div>
+                    </div>
+                </div>
+            </li>
+            <!-- 11.1 -->
+            <li class="hidden-when-page-split-is-disabled">
+                <div class="settings-item">
+                    <div>
+                        <code>11.1</code>
+                        <span>Enable Hover Show Page Info</span>
+                    </div>
+                    <div class="ios-button" data-key="enable-hover-show-page-info">
+                        <div class="ios-button-circle"></div>
+                    </div>
+                </div>
+            </li>
 <style>
 .hidden-when-page-split-is-disabled {
 background: linear-gradient(to right, lightyellow, yellow);
@@ -369,22 +417,30 @@ body[data-value-of-enable-page-split="false"] .hidden-when-page-split-is-disable
 display: none;
 }
 </style>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable Line Split</div>
-                        <div class="ios-button" data-key="enable-line-split">
-                            <div class="ios-button-circle"></div>
-                        </div>
+            <!-- 12 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>12</code>
+                        <span>Enable Line Split</span>
                     </div>
-                </li>
-                <li class="hidden-when-line-split-is-disabled">
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable Hover Show Line Info</div>
-                        <div class="ios-button" data-key="enable-hover-show-line-info">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                    <div class="ios-button" data-key="enable-line-split">
+                        <div class="ios-button-circle"></div>
                     </div>
-                </li>
+                </div>
+            </li>
+            <!-- 12.1 -->
+            <li class="hidden-when-line-split-is-disabled">
+                <div class="settings-item">
+                    <div>
+                        <code>12.1</code>
+                        <span>Enable Hover Show Line Info</span>
+                    </div>
+                    <div class="ios-button" data-key="enable-hover-show-line-info">
+                        <div class="ios-button-circle"></div>
+                    </div>
+                </div>
+            </li>
 <style>
 .hidden-when-line-split-is-disabled {
 background: linear-gradient(to right, lightyellow, yellow);
@@ -399,89 +455,141 @@ body[data-value-of-enable-line-width-608px="false"] .hidden-when-line-width-608p
 display: none;
 }
 </style>
-                <li class="hidden-when-line-split-is-disabled">
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable Line Width 560px</div>
-                        <div class="ios-button" data-key="enable-line-width-560px">
-                            <div class="ios-button-circle"></div>
-                        </div>
+            <!-- 12.2 -->
+            <li class="hidden-when-line-split-is-disabled">
+                <div class="settings-item">
+                    <div>
+                        <code>12.2</code>
+                        <span>Enable Line Width 560px</span>
                     </div>
-                </li>
-                <li class="hidden-when-line-split-is-disabled hidden-when-line-width-560px-is-disabled">
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable Line Width 608px</div>
-                        <div class="ios-button" data-key="enable-line-width-608px">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                    <div class="ios-button" data-key="enable-line-width-560px">
+                        <div class="ios-button-circle"></div>
                     </div>
-                </li>
-                <li class="hidden-when-line-split-is-disabled hidden-when-line-width-560px-is-disabled hidden-when-line-width-608px-is-disabled">
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable Line Width 656px</div>
-                        <div class="ios-button" data-key="enable-line-width-656px">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                </div>
+            </li>
+            <!-- 12.3 -->
+            <li class="hidden-when-line-split-is-disabled hidden-when-line-width-560px-is-disabled">
+                <div class="settings-item">
+                    <div>
+                        <code>12.3</code>
+                        <span>Enable Line Width 608px</span>
                     </div>
-                </li>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable &lt;img&gt; Recognition</div>
-                        <div class="ios-button" data-key="enable-img-recognition">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                    <div class="ios-button" data-key="enable-line-width-608px">
+                        <div class="ios-button-circle"></div>
                     </div>
-                </li>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable &lt;pre&gt; Width Fit Content</div>
-                        <div class="ios-button" data-key="enable-pre-width-fit-content">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                </div>
+            </li>
+            <!-- 12.4 -->
+            <li class="hidden-when-line-split-is-disabled hidden-when-line-width-560px-is-disabled hidden-when-line-width-608px-is-disabled">
+                <div class="settings-item">
+                    <div>
+                        <code>12.4</code>
+                        <span>Enable Line Width 656px</span>
                     </div>
-                </li>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable @map</div>
-                        <div class="ios-button" data-key="enable-at-sign-map">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                    <div class="ios-button" data-key="enable-line-width-656px">
+                        <div class="ios-button-circle"></div>
                     </div>
-                </li>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable Dual Article Container</div>
-                        <div class="ios-button" data-key="enable-dual-article-container">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                </div>
+            </li>
+            <!-- 13 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>13</code>
+                        <span>Enable &lt;img&gt; Recognition</span>
                     </div>
-                </li>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable No Backdrop</div>
-                        <div class="ios-button" data-key="enable-no-backdrop">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                    <div class="ios-button" data-key="enable-img-recognition">
+                        <div class="ios-button-circle"></div>
                     </div>
-                </li>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable @video</div>
-                        <div class="ios-button" data-key="enable-at-sign-video">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                </div>
+            </li>
+            <!-- 14 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>14</code>
+                        <span>Enable &lt;pre&gt; Width Fit Content</span>
                     </div>
-                </li>
-                <li>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div>Enable Hover Highlight &lt;img&gt;</div>
-                        <div class="ios-button" data-key="enable-hover-highlight-img">
-                            <div class="ios-button-circle"></div>
-                        </div>
+                    <div class="ios-button" data-key="enable-pre-width-fit-content">
+                        <div class="ios-button-circle"></div>
                     </div>
-                </li>
-            </ul>
-        </li>
-    </ul>`;
+                </div>
+            </li>
+            <!-- 15 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>15</code>
+                        <span>Enable @map</span>
+                    </div>
+                    <div class="ios-button" data-key="enable-at-sign-map">
+                        <div class="ios-button-circle"></div>
+                    </div>
+                </div>
+            </li>
+            <!-- 16 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>16</code>
+                        <span>Enable Dual Article Container</span>
+                    </div>
+                    <div class="ios-button" data-key="enable-dual-article-container">
+                        <div class="ios-button-circle"></div>
+                    </div>
+                </div>
+            </li>
+            <!-- 17 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>17</code>
+                        <span>Enable No Backdrop</span>
+                    </div>
+                    <div class="ios-button" data-key="enable-no-backdrop">
+                        <div class="ios-button-circle"></div>
+                    </div>
+                </div>
+            </li>
+            <!-- 18 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>18</code>
+                        <span>Enable @video</span>
+                    </div>
+                    <div class="ios-button" data-key="enable-at-sign-video">
+                        <div class="ios-button-circle"></div>
+                    </div>
+                </div>
+            </li>
+            <!-- 19 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>19</code>
+                        <span>Enable Hover Highlight &lt;img&gt;</span>
+                    </div>
+                    <div class="ios-button" data-key="enable-hover-highlight-img">
+                        <div class="ios-button-circle"></div>
+                    </div>
+                </div>
+            </li>
+            <!-- 20 -->
+            <li>
+                <div class="settings-item">
+                    <div>
+                        <code>20</code>
+                        <span>Enable URL Recognition</span>
+                    </div>
+                    <div class="ios-button" data-key="enable-url-recognition">
+                        <div class="ios-button-circle"></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>`;
     div.classList.add("backdrop");
     div.setAttribute("onclick", "hideSettings()");
     document.body.append(div);
