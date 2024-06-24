@@ -11,6 +11,7 @@ function insertStr(source, start, newStr) {
 }
 
 function inspectImage(src) {
+    document.body.classList.add("modal-open");
     document.getElementById('inspectImageWrapper').innerHTML += '<div onclick="quitInspectImage()" style="display: block; position: fixed; top: 0; left: 0; width: 100%; z-index: 1499; height: ' + window.innerHeight + 'px; opacity: 0.8; background: black; filter: brightness(0.1);">' +
         '</div>' +
         '<div onclick="quitInspectImage()" style="display: block; position: fixed; top: 0; left: 0; width: 100%; height: ' + window.innerHeight + 'px; z-index: 1500;">' +
@@ -21,6 +22,7 @@ function inspectImage(src) {
 }
 
 function quitInspectImage() {
+    document.body.classList.remove("modal-open");
     document.getElementById('inspectImageWrapper').innerHTML = '';
 }
 
