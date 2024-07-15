@@ -118,11 +118,12 @@ window.books[4] = {
         "../yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.08.07.txt",
         "../yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.09.11.txt",
         "../yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2015.09.19.txt",
-        "../yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2016.05.21.txt",
+        "../yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2016.05.21.txt", /* 2016 */
+        "../yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2017.03.27.txt", /* 2017 */
         "../yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2017.05.17.txt",
         "../yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2017.11.24.txt",
         "../yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2017.11.25.txt",
-        "../yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.01.14.txt",
+        "../yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.01.14.txt", /* 2018 */
         "../yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.02.03.txt",
         "../yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.02.06.txt",
         "../yhnnd.wordpress.com/4-diary-2015-05-2016-12-黑書3/2018.02.23.txt",
