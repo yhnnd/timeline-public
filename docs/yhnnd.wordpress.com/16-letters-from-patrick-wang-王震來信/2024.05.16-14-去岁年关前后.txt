@@ -1,3 +1,4 @@
+@command("enable-image-recognition")
 发信 2024/Apr/01
 收信 2024/May/16 Thu
 录入 2024/May/22 Wed
