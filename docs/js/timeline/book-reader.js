@@ -223,6 +223,10 @@ function renderArticle(src, containerClassName, container2ClassName) {
             }).join("\n");
         }
 
+        function decodeBase64(text) {
+            return new TextDecoder().decode(Uint8Array.from(atob(text), (c) => c.charCodeAt(0)));
+        }
+
         function decode(fragment) {
             if (fragment.startsWith("@utf(\"") && fragment.endsWith("\");")) {
                 fragment = fragment.replaceAll("&lt;", "<");
@@ -295,6 +299,9 @@ function renderArticle(src, containerClassName, container2ClassName) {
                     }
                 }
                 return result;
+            } else if (fragment.startsWith("@base64(\"") && fragment.endsWith("\");")) {
+                fragment = fragment.substr("@base64(\"".length, fragment.length - "@base64(\"".length - "\");".length);
+                return decodeBase64(fragment);
             }
             return fragment;
         }
