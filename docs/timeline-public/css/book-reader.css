@@ -173,6 +173,7 @@ pre .thumbnail {
     width: 100px;
     min-width: 100px;
     max-width: 100px;
+    height: fit-content;
 }
 
 pre .thumbnail-2x {
