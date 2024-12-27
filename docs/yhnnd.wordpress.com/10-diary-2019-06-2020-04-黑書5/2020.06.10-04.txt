@@ -1,0 +1,47 @@
+Blocked List
+
+2020/06/10
+
+有两篇文章, 是两首歌的歌词, 在发表之后, 被 Lofter 屏蔽了
+
+<img src="../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/imgs/censorship-1-imgs/img-1.png" alt="">
+
+于是我把歌词放在 Observable, 然后以外部链接的形式放在 Lofter
+
+<img src="../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/imgs/censorship-1-imgs/img-2.png" alt="">
+
+我改成链接之后
+
+万万没想到
+
+这些链接地址中居然也有 sensitive words
+
+<img src="../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/imgs/censorship-1-imgs/img-3.png" alt="">
+
+看来 freedom 也是 sensitive word
+
+那就只能把链接地址用16进制加密之后再放在这里了
+
+Blocked List (Encrypted)
+
+https://%6F%62%73%65%72%76%61%62%6C%65%68%71%2E%63%6F%6D/@%79%68%6E%6E%64/%68%6F%6E%67%6B%6F%6E%67%2D%66%72%65%65%64%6F%6D%2D%6C%72%63
+
+https://%6F%62%73%65%72%76%61%62%6C%65%68%71%2E%63%6F%6D/@%79%68%6E%6E%64/%67%6C%6F%72%79%2D%74%6F%2D%68%6F%6E%67%2D%6B%6F%6E%67
+
+2020/06/30
+
+上面的这篇文章 (Blocked List) 被 Lofter 屏蔽了, 于是我把这篇文章迁移到了 Observable, 然后把这篇文章从 Lofter 上删掉了
+
+<img src="../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/imgs/censorship-1-imgs/img-4.png" alt="">
+
+2020/06/30
+
+这篇文章 2020 A Critical Year 被 Lofter 屏蔽了, 于是我把这篇文章从 Lofter 上删掉了
+
+<img src="../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/imgs/censorship-1-imgs/img-5.png" alt="">
+
+2020/06/30
+
+这篇文章 Whitelist & Blocklist 也被 Lofter 屏蔽了, 于是我把这篇文章从 Lofter 上删掉了
+
+<img src="../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/imgs/censorship-1-imgs/img-6.png" alt="">

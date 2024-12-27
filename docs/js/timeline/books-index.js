@@ -244,7 +244,18 @@ window.books[10].indexList = [
     "../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/2019.11.02.txt",
     "../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/2020.04.04.txt",
     "../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/2020.04.05.txt",
-    "../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/2020.04.06.txt"
+    "../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/2020.04.06.txt",
+    "../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/2020.06.09.txt",
+    "../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/2020.06.10-01.txt",
+    "../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/2020.06.10-02.txt",
+    "../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/2020.06.10-03.txt",
+    "../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/2020.06.10-04.txt",
+    "../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/2020.06.10-05.txt",
+    "../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/2020.06.11.txt",
+    "../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/2020.06.15.txt",
+    "../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/2020.06.16.txt",
+    "../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/2020.06.18.txt",
+    "../yhnnd.wordpress.com/10-diary-2019-06-2020-04-黑書5/2020.06.29.txt",
 ];
 
 window.books[11] = {};
