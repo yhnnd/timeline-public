@@ -637,6 +637,9 @@ function initNavbar() {
     document.body.prepend(fakeNavbar);
 
     for (const [key, value] of Object.entries(localStorage)) {
+        if (key.includes("\"") || key.includes("\'")) {
+            continue;
+        }
         document.body.setAttribute("data-value-of-" + key, value);
     }
 
