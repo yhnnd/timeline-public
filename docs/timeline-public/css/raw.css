@@ -40,3 +40,7 @@
 img {
     width: 100%;
 }
+
+.picture {
+    background-image: repeating-linear-gradient(-45deg, #f0f0f0, #f0f0f0 25px, transparent 25px, transparent 50px);
+}
