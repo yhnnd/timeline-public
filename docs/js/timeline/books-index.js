@@ -278,6 +278,7 @@ window.books[11].indexList = [
     "../yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.06.23.txt",
     "../yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.06.25.txt",
     "../yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.06.26.txt",
+    "../yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.06.28.txt",
     "../yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.06.30.txt",
     "../yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.07.07.txt",
     "../yhnnd.wordpress.com/11-diary-2023-02-2023-07-出路1/2023.07.08.txt",
