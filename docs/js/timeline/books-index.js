@@ -75,7 +75,9 @@ window.books[3].indexList = [
     "../yhnnd.wordpress.com/3-diary-2015-04-2020-06-散逸1/2019.03.06.txt",
     "../yhnnd.wordpress.com/3-diary-2015-04-2020-06-散逸1/2019.03.07.txt",
     "../yhnnd.wordpress.com/3-diary-2015-04-2020-06-散逸1/2019.03.08.txt",
-    "../yhnnd.wordpress.com/3-diary-2015-04-2020-06-散逸1/2019.04.01.txt"
+    "../yhnnd.wordpress.com/3-diary-2015-04-2020-06-散逸1/2019.04.01.txt",
+    "../yhnnd.wordpress.com/3-diary-2015-04-2020-06-散逸1/2019.04.12.txt",
+    "../yhnnd.wordpress.com/3-diary-2015-04-2020-06-散逸1/2019.04.13.txt"
 ];
 
 window.books[4] = {
