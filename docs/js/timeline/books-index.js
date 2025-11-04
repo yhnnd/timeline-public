@@ -220,6 +220,7 @@ window.books[7].indexList = [
     "../yhnnd.wordpress.com/7-diary-2018-12-2020-05-棕書2/2019.01.05.txt",
     "../yhnnd.wordpress.com/7-diary-2018-12-2020-05-棕書2/2019.02.18.txt",
     "../yhnnd.wordpress.com/7-diary-2018-12-2020-05-棕書2/2019.06.14.txt",
+    "../yhnnd.wordpress.com/7-diary-2018-12-2020-05-棕書2/2020.05.20.txt",
 ];
 
 window.books[8] = {};
